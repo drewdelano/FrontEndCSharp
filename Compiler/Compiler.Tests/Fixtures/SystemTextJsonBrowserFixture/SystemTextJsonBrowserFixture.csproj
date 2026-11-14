@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\Newtonsoft.Json\Newtonsoft.Json.fecs\Newtonsoft.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+The FECSX TextMate grammar adapts the JSX state boundaries and naming
+conventions from Microsoft/TypeScript-TmLanguage commit 3d2222f.
+
+Microsoft/TypeScript-TmLanguage is licensed under the MIT License.
+Source: https://github.com/microsoft/TypeScript-TmLanguage/commit/3d2222f
+License: https://github.com/microsoft/TypeScript-TmLanguage/blob/3d2222f/LICENSE.md
+
+The Tailwind CSS mark is used only to identify Tailwind-authored completion
+suggestions. Tailwind CSS and its logo are trademarks of Tailwind Labs Inc.;
+this extension is not affiliated with or endorsed by Tailwind Labs Inc.
+Asset source and usage policy: https://tailwindcss.com/brand

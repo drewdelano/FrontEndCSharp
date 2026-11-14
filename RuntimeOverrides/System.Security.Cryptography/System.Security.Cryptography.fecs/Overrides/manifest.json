@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Security.Cryptography.RandomNumberGenerator.GetInt32(System.Int32)",
+      "file": "method.0975b892fd097732ae4c3bac7d89cd0865bfc03b422ffefbf1f1bd37fd4ec836.js"
+    },
+    {
+      "signature": "System.Security.Cryptography.RandomNumberGenerator.GetBytes(System.Int32)",
+      "file": "method.67d1d883929a28e09640102adda09d4d7493ca97940eef12c484896ab407c2f4.js"
+    },
+    {
+      "signature": "System.Security.Cryptography.RandomNumberGenerator.GetInt32(System.Int32, System.Int32)",
+      "file": "method.98879120b930f003b9dc0969a672df900f58158a42467bca3d22876459d6b868.js"
+    }
+  ]
+}

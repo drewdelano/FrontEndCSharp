@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.CreateContract()",
+      "file": "method.9ed4679bdfa51f698901da1c9a92af62e0786de0ce77f9cc3567ad2e18561f9a.js"
+    },
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.CreateParent()",
+      "file": "method.8841b94ba75d53708de44180911feff4b2e684d6ca4c2db764cf2c2124efa70c.js"
+    },
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.Consume(System.Object)",
+      "file": "method.de0ac9319ae6d16c68617e7bd6faba4b60c4bc7de4c6835f746ba5a4e25e6538.js"
+    },
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.Inspect<T>()",
+      "file": "method.685a2b27ab8bdd2fcfce4d6fb8090b61514f044db268b0e33c0de82f2ae007b8.js"
+    },
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.InspectString<T>()",
+      "file": "method.dfb0038af36c6f91d7db5e8ee0982c859c6096cb5fcf8af6e038de1eb2d70b99.js"
+    },
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.CreateOut(System.String, RuntimeOverrideReturns.IOutContract&)",
+      "file": "method.f862b613fa6b99316f8e81074243360fccc1fac08ccff9fd9a0a1ff56cc6b467.js"
+    },
+    {
+      "signature": "RuntimeOverrideReturns.ReturnFactory.ReplaceRef(RuntimeOverrideReturns.IRefContract&)",
+      "file": "method.2437d3c13993d6c24a1128e960e6aea9fd9d711a2c2a763d0fd7e3de014ff513.js"
+    }
+  ]
+}

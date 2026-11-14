@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Demos";
+}
+<section class="demo-hero">
+    <p class="demo-kicker">FrontEndCSharp</p>
+    <h1>Managed code, running in the browser.</h1>
+    <p class="demo-lead">Choose a demo. Both applications are compiled and served by this single ASP.NET Core host.</p>
+</section>
+
+<section class="demo-grid" aria-label="Available demos">
+    <a class="demo-card" href="/simple">
+        <span class="demo-number">01</span>
+        <h2>Simple demo</h2>
+        <p>A compact managed program for exercising compilation, async execution, console output, and debugger stepping.</p>
+        <span class="demo-link">Open simple demo →</span>
+    </a>
+    <a class="demo-card demo-card-accent" href="/react">
+        <span class="demo-number">02</span>
+        <h2>React demo</h2>
+        <p>Orbit combines typed React components, observable MobX state, and Motion animation in a complete interface.</p>
+        <span class="demo-link">Open Orbit →</span>
+    </a>
+</section>

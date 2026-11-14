@@ -1,0 +1,52 @@
+using Interop.JS.React;
+using Interop.JS.LucideIcons;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(AppProps props, ReactNode[] children) =>
+    MobXReact.Observe(() =>
+    <section className={$"panel side-panel weather-panel{(props.Store.WeatherLoaded ? " is-ready" : props.Store.WeatherFailed ? " is-failed" : " is-loading")}"}>
+        <div className="weather-head">
+            <div>
+                <span className="weather-kicker">Seattle · Open-Meteo</span>
+                <h2>Weather outside</h2>
+            </div>
+            <span className="weather-live">
+                <LucideIcons.CloudLightningIcon className="weather-live-icon" ariaHidden={true} />
+                Live API
+            </span>
+        </div>
+        <div className="weather-primary">
+            <span className="weather-temperature">
+                {props.Store.WeatherLoaded ? $"{props.Store.WeatherTemperatureF:0}°F" : "—"}
+            </span>
+            <div className="weather-summary">
+                <strong>
+                    {props.Store.WeatherLoaded
+                        ? props.Store.WeatherCondition
+                        : props.Store.WeatherFailed ? "Weather unavailable" : "Reading the sky…"}
+                </strong>
+                <span>
+                    {props.Store.WeatherLoaded
+                        ? $"Observed {props.Store.WeatherObservedAt}"
+                        : props.Store.WeatherFailed
+                            ? "The forecast request could not be completed."
+                            : "Calling the forecast API…"}
+                </span>
+            </div>
+        </div>
+        <div className="weather-details">
+            <div>
+                <span className="weather-detail-value">
+                    {props.Store.WeatherLoaded ? $"{props.Store.WeatherHumidityPercent}%" : "—"}
+                </span>
+                <span className="weather-detail-label">Humidity</span>
+            </div>
+            <div>
+                <span className="weather-detail-value">
+                    {props.Store.WeatherLoaded ? $"{props.Store.WeatherWindSpeedMph:0} mph" : "—"}
+                </span>
+                <span className="weather-detail-label">Wind</span>
+            </div>
+        </div>
+    </section>
+    );

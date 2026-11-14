@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "dependencies": {
+    "@base-ui/react": "1.9.0"
+  },
+  "peerDependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}

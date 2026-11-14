@@ -1,0 +1,12 @@
+using Interop.JS.React;
+namespace $safeprojectname$;
+
+public static ReactNode Default(AppProps props, ReactNode[] children) =>
+    <section className="card">
+        <p className="eyebrow">FrontEndCSharp · FECSX</p>
+        <h1>Managed React</h1>
+        <p id="message">This component was authored in FECSX and compiled from C#.</p>
+        <button id="counter" type="button" onClick={_ => props.Increment()}>
+            Count: {props.Count}
+        </button>
+    </section>;

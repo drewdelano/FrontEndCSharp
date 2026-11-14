@@ -1,0 +1,22 @@
+using Interop.JS.Motion;
+using Interop.JS.React;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(TaskCardProps props, ReactNode[] children) =>
+    <MotionElement elementName="button"
+                   className={$"task-card{(props.IsDone ? " is-done" : string.Empty)}"}
+                   type="button"
+                   ariaLabel={props.Name}
+                   onClick={_ => props.OnToggle()}
+                   initial={MotionStyle.Create().SetNumber("opacity", 0).SetNumber("y", 12)}
+                   animate={MotionStyle.Create().SetNumber("opacity", 1).SetNumber("y", 0).SetNumber("scale", props.IsDone ? 0.985 : 1)}
+                   whileHover={MotionStyle.Create().SetNumber("y", -4)}
+                   transition={MotionTransition.Create().SetType("spring").SetDuration(.34)}
+                   layout={true}>
+        <span className="task-top">
+            <span className="task-index">{props.IndexLabel}</span>
+            <span className="task-check">✓</span>
+        </span>
+        <span className="task-name">{props.Name}</span>
+        <span className="task-meta">{props.Meta}</span>
+    </MotionElement>;

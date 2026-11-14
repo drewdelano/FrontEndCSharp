@@ -1,0 +1,66 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(SelectProps props, ReactNode[] children) =>
+    <BaseUI.Select.Root props={SelectPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Select.Root>;
+
+public static ReactNode Group(SelectPartProps props, ReactNode[] children) =>
+    <BaseUI.Select.Group props={SelectPrimitive.CreatePartProps("select-group", SelectStyles.Group, props)}>
+        {children}
+    </BaseUI.Select.Group>;
+
+public static ReactNode Value(SelectValueProps props, ReactNode[] children) =>
+    <BaseUI.Select.Value props={SelectPrimitive.CreateValueProps(props)} />;
+
+public static ReactNode Trigger(SelectTriggerProps props, ReactNode[] children) =>
+    <BaseUI.Select.Trigger props={SelectPrimitive.CreateTriggerProps(props)}>
+        {children}
+        <BaseUI.Select.Icon props={SelectPrimitive.CreateIconProps()}>
+            <LucideIcons.ChevronDownIcon ariaHidden={true} />
+        </BaseUI.Select.Icon>
+    </BaseUI.Select.Trigger>;
+
+public static ReactNode Content(SelectContentProps props, ReactNode[] children) =>
+    <BaseUI.Select.Portal props={ReactProps.Create()}>
+        <BaseUI.Select.Positioner props={SelectPrimitive.CreatePositionerProps(props)}>
+            <BaseUI.Select.Popup props={SelectPrimitive.CreatePopupProps(props)}>
+                {ScrollUpButton.Create(_ => { })}
+                <BaseUI.Select.List props={ReactProps.Create()}>
+                    {children}
+                </BaseUI.Select.List>
+                {ScrollDownButton.Create(_ => { })}
+            </BaseUI.Select.Popup>
+        </BaseUI.Select.Positioner>
+    </BaseUI.Select.Portal>;
+
+public static ReactNode Label(SelectPartProps props, ReactNode[] children) =>
+    <BaseUI.Select.GroupLabel props={SelectPrimitive.CreatePartProps("select-label", SelectStyles.Label, props)}>
+        {children}
+    </BaseUI.Select.GroupLabel>;
+
+public static ReactNode Item(SelectItemProps props, ReactNode[] children) =>
+    <BaseUI.Select.Item props={SelectPrimitive.CreateItemProps(props)}>
+        <BaseUI.Select.ItemText props={SelectPrimitive.CreateItemTextProps()}>
+            {children}
+        </BaseUI.Select.ItemText>
+        <BaseUI.Select.ItemIndicator props={SelectPrimitive.CreateItemIndicatorProps()}>
+            <LucideIcons.CheckIcon ariaHidden={true} />
+        </BaseUI.Select.ItemIndicator>
+    </BaseUI.Select.Item>;
+
+public static ReactNode Separator(SelectPartProps props, ReactNode[] children) =>
+    <BaseUI.Select.Separator props={SelectPrimitive.CreatePartProps("select-separator", SelectStyles.Separator, props)} />;
+
+public static ReactNode ScrollUpButton(SelectPartProps props, ReactNode[] children) =>
+    <BaseUI.Select.ScrollUpArrow props={SelectPrimitive.CreatePartProps("select-scroll-up-button", SelectStyles.ScrollUp, props)}>
+        <LucideIcons.ChevronUpIcon ariaHidden={true} />
+    </BaseUI.Select.ScrollUpArrow>;
+
+public static ReactNode ScrollDownButton(SelectPartProps props, ReactNode[] children) =>
+    <BaseUI.Select.ScrollDownArrow props={SelectPrimitive.CreatePartProps("select-scroll-down-button", SelectStyles.ScrollDown, props)}>
+        <LucideIcons.ChevronDownIcon ariaHidden={true} />
+    </BaseUI.Select.ScrollDownArrow>;

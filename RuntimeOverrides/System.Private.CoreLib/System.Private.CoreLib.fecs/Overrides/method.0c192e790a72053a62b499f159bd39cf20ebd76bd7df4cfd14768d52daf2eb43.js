@@ -1,0 +1,4 @@
+import { setAsyncValueTaskException } from '../runtime-assets/System.Private.CoreLib.fecs/value-task.js';
+globalThis.DotNet.Methods['System.Runtime.CompilerServices.AsyncValueTaskMethodBuilder`1[TResult].SetException(System.Exception)'] = function (_ctx, builder, exception) {
+    setAsyncValueTaskException(builder, exception);
+};

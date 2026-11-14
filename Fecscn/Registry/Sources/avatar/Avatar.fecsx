@@ -1,0 +1,31 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(AvatarProps props, ReactNode[] children) =>
+    <BaseUI.Avatar.Root props={AvatarPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Avatar.Root>;
+
+public static ReactNode Image(AvatarImageProps props, ReactNode[] children) =>
+    <BaseUI.Avatar.Image props={AvatarPrimitive.CreateImageProps(props)} />;
+
+public static ReactNode Fallback(AvatarPartProps props, ReactNode[] children) =>
+    <BaseUI.Avatar.Fallback props={AvatarPrimitive.CreateFallbackProps(props)}>
+        {children}
+    </BaseUI.Avatar.Fallback>;
+
+public static ReactNode Badge(AvatarPartProps props, ReactNode[] children) =>
+    <span data-slot="avatar-badge" className={ClassNames.Merge(AvatarStyles.Badge, props.ClassName)}>
+        {children}
+    </span>;
+
+public static ReactNode Group(AvatarPartProps props, ReactNode[] children) =>
+    <div data-slot="avatar-group" className={ClassNames.Merge(AvatarStyles.Group, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode GroupCount(AvatarPartProps props, ReactNode[] children) =>
+    <div data-slot="avatar-group-count" className={ClassNames.Merge(AvatarStyles.GroupCount, props.ClassName)}>
+        {children}
+    </div>;

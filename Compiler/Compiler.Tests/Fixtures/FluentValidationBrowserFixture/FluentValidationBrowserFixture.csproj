@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.2.0" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\FluentValidation\FluentValidation.fecs\FluentValidation.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Console\System.Console.fecs\System.Console.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Collections.Concurrent\System.Collections.Concurrent.fecs\System.Collections.Concurrent.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Collections\System.Collections.fecs\System.Collections.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Linq\System.Linq.fecs\System.Linq.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Text.RegularExpressions\System.Text.RegularExpressions.fecs\System.Text.RegularExpressions.fecs.csproj" />
+  </ItemGroup>
+</Project>

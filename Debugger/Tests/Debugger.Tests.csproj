@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="5.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Compiler\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj" />
+    <ProjectReference Include="..\Adapter\FrontEndCSharp.DebugAdapter.csproj" />
+    <ProjectReference Include="..\Manifest\FrontEndCSharp.DebugManifest.csproj" />
+    <ProjectReference Include="..\Protocol\FrontEndCSharp.Debugger.Protocol.csproj" />
+    <ProjectReference Include="..\Tracing\FrontEndCSharp.Debugger.Tracing.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+    <Compile Include="..\..\Compiler\Tests\NUnitTestInfrastructure.cs" Link="NUnitTestInfrastructure.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Fixtures\**\*.cs" />
+    <Compile Remove="Integration\**\*.cs" />
+    <None Include="..\VisualStudio\AdapterRegistration.pkgdef" Link="Fixtures\AdapterRegistration.pkgdef" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Integration\VisualStudioCompletionItemIdentity.cs" />
+  </ItemGroup>
+
+</Project>

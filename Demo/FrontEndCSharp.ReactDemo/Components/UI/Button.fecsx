@@ -1,0 +1,8 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(ButtonProps props, ReactNode[] children) =>
+    <BaseUI.Button props={ButtonPrimitive.CreateProps(props)} className="">
+        {children}
+    </BaseUI.Button>;

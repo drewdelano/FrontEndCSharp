@@ -1,0 +1,18 @@
+using Interop.JS.React;
+using Interop.JS.LucideIcons;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(PanelProps props, ReactNode[] children) =>
+    <section className={props.ClassName}>
+        <div className="section-head">
+            <div>
+                <h2>{props.Title}</h2>
+                <p>{props.Description}</p>
+            </div>
+            <div className="section-trailing">
+                <span className="tiny-count">{props.TrailingLabel}</span>
+                <LucideIcons.CrosshairIcon className="section-title-icon" ariaHidden={true} />
+            </div>
+        </div>
+        <div>{children}</div>
+    </section>;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0"
+            Type="ProjectGroup"
+            xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>FrontEndCSharp FECSX React Application</Name>
+    <Description>A browser-hosted React application authored in C# and FECSX and compiled by FrontEndCSharp.</Description>
+    <TemplateID>FrontEndCSharp.Fecsx.React.Application</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Web</PlatformTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+    <DefaultName>FrontEndCSharpFecsxApp</DefaultName>
+    <CreateNewFolder>false</CreateNewFolder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <SortOrder>1010</SortOrder>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
+        Host\Host.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Browser" CopyParameters="true">
+        Browser\Browser.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

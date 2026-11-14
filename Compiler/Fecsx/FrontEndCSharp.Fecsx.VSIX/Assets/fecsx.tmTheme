@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>FECSX</string>
+    <key>settings</key>
+    <array>
+      <dict>
+        <key>scope</key>
+        <string>meta.jsx.children.fecsx, constant.character.entity.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>xml literal - text</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>scope</key>
+        <string>entity.other.attribute-name.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Attribute Name</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>scope</key>
+        <string>entity.name.tag.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>HTML Element Name</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>scope</key>
+        <string>support.class.component.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>type</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.tag.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>html operator</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>scope</key>
+        <string>string.quoted.double.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>string</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>scope</key>
+        <string>comment.block.fecsx, comment.line.double-slash.fecsx</string>
+        <key>settings</key>
+        <dict>
+          <key>vsclassificationtype</key>
+          <string>comment</string>
+        </dict>
+      </dict>
+    </array>
+    <key>version</key>
+    <string>adapted from Microsoft/TypeScript-TmLanguage@3d2222f</string>
+  </dict>
+</plist>

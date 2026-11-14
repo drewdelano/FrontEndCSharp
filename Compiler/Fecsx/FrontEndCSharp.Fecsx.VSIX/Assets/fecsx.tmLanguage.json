@@ -1,0 +1,250 @@
+{
+  "name": "FECSX",
+  "scopeName": "source.fecsx",
+  "fileTypes": ["fecsx"],
+  "version": "adapted from Microsoft/TypeScript-TmLanguage@3d2222f",
+  "patterns": [
+    { "include": "#csharp-line-comment" },
+    { "include": "#jsx-render-expression" },
+    { "include": "#jsx-return-statement" },
+    { "include": "source.cs" }
+  ],
+  "repository": {
+    "csharp-line-comment": {
+      "match": "//.*$",
+      "name": "comment.line.double-slash.fecsx"
+    },
+    "jsx-render-expression": {
+      "begin": "(=>)\\s*(?=<|(?:global::)?(?:[A-Za-z_][A-Za-z0-9_]*\\.)*[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\s*\\(\\s*\\)\\s*=>\\s*<|$)",
+      "beginCaptures": {
+        "1": { "name": "keyword.operator.arrow.fecsx" }
+      },
+      "end": "(;)",
+      "patterns": [
+        { "include": "#jsx-root-fragment" },
+        { "include": "#jsx-root-intrinsic" },
+        { "include": "#jsx-root-component" },
+        { "include": "source.cs" }
+      ]
+    },
+    "jsx-return-statement": {
+      "begin": "(\\breturn\\b)\\s*(?=<|(?:global::)?(?:[A-Za-z_][A-Za-z0-9_]*\\.)*[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\s*\\(\\s*\\)\\s*=>\\s*<|$)",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.flow.return.fecsx" }
+      },
+      "end": "(;)\\s*(?=\\})",
+      "patterns": [
+        { "include": "#jsx-root-fragment" },
+        { "include": "#jsx-root-intrinsic" },
+        { "include": "#jsx-root-component" },
+        { "include": "source.cs" }
+      ]
+    },
+    "jsx-root-intrinsic": {
+      "begin": "(<)([a-z][a-z0-9:-]*)(?=\\s|/?>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "2": { "name": "entity.name.tag.fecsx" }
+      },
+      "end": "(/>)|(?:(</)\\s*([a-z][a-z0-9:-]*)\\s*(>))",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.end.fecsx" },
+        "2": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "3": { "name": "entity.name.tag.fecsx" },
+        "4": { "name": "punctuation.definition.tag.end.fecsx" }
+      },
+      "patterns": [{ "include": "#jsx-content" }]
+    },
+    "jsx-root-component": {
+      "begin": "(<)([A-Z_][A-Za-z0-9_.:-]*)(?=\\s|/?>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "2": { "name": "support.class.component.fecsx" }
+      },
+      "end": "(/>)|(?:(</)\\s*([A-Z_][A-Za-z0-9_.:-]*)\\s*(>))",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.end.fecsx" },
+        "2": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "3": { "name": "support.class.component.fecsx" },
+        "4": { "name": "punctuation.definition.tag.end.fecsx" }
+      },
+      "patterns": [{ "include": "#jsx-content" }]
+    },
+    "jsx-root-fragment": {
+      "begin": "(<>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.fecsx" }
+      },
+      "end": "</>",
+      "endCaptures": { "0": { "name": "punctuation.definition.tag.fecsx" } },
+      "contentName": "meta.jsx.children.fecsx",
+      "patterns": [{ "include": "#jsx-children" }]
+    },
+    "jsx-intrinsic": {
+      "begin": "(<)([a-z][a-z0-9:-]*)(?=\\s|/?>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "2": { "name": "entity.name.tag.fecsx" }
+      },
+      "end": "(/>)|(?:(</)\\s*([a-z][a-z0-9:-]*)\\s*(>))",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.end.fecsx" },
+        "2": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "3": { "name": "entity.name.tag.fecsx" },
+        "4": { "name": "punctuation.definition.tag.end.fecsx" }
+      },
+      "patterns": [{ "include": "#jsx-content" }]
+    },
+    "jsx-component": {
+      "begin": "(<)([A-Z_][A-Za-z0-9_.:-]*)(?=\\s|/?>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "2": { "name": "support.class.component.fecsx" }
+      },
+      "end": "(/>)|(?:(</)\\s*([A-Z_][A-Za-z0-9_.:-]*)\\s*(>))",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.end.fecsx" },
+        "2": { "name": "punctuation.definition.tag.begin.fecsx" },
+        "3": { "name": "support.class.component.fecsx" },
+        "4": { "name": "punctuation.definition.tag.end.fecsx" }
+      },
+      "patterns": [{ "include": "#jsx-content" }]
+    },
+    "jsx-fragment": {
+      "begin": "<>",
+      "beginCaptures": { "0": { "name": "punctuation.definition.tag.fecsx" } },
+      "end": "</>",
+      "endCaptures": { "0": { "name": "punctuation.definition.tag.fecsx" } },
+      "contentName": "meta.jsx.children.fecsx",
+      "patterns": [{ "include": "#jsx-children" }]
+    },
+    "jsx-content": {
+      "patterns": [
+        { "include": "#jsx-comment" },
+        { "include": "#jsx-expression" },
+        { "include": "#jsx-intrinsic" },
+        { "include": "#jsx-component" },
+        { "include": "#jsx-fragment" },
+        { "include": "#jsx-entity" },
+        { "match": "\\s+", "name": "meta.jsx.children.fecsx" },
+        { "match": "[A-Za-z_:][A-Za-z0-9_.:-]*(?=\\s*(?:=|/?>))", "name": "entity.other.attribute-name.fecsx" },
+        { "match": "=", "name": "keyword.operator.assignment.fecsx" },
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double.fecsx" },
+        { "match": ">", "name": "punctuation.definition.tag.end.fecsx" },
+        { "match": "[^\\s<{&=>\"/]+|/", "name": "meta.jsx.children.fecsx" }
+      ]
+    },
+    "jsx-children": {
+      "patterns": [
+        { "include": "#jsx-comment" },
+        { "include": "#jsx-expression" },
+        { "include": "#jsx-intrinsic" },
+        { "include": "#jsx-component" },
+        { "include": "#jsx-fragment" },
+        { "include": "#jsx-entity" },
+        { "match": "[^<{&]+", "name": "meta.jsx.children.fecsx" }
+      ]
+    },
+    "jsx-comment": {
+      "begin": "\\{(/\\*)",
+      "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.fecsx" } },
+      "end": "(\\*/)\\}",
+      "endCaptures": { "0": { "name": "punctuation.definition.comment.end.fecsx" } },
+      "name": "comment.block.fecsx"
+    },
+    "jsx-expression": {
+      "begin": "\\{",
+      "beginCaptures": { "0": { "name": "punctuation.section.embedded.begin.fecsx" } },
+      "end": "\\}",
+      "endCaptures": { "0": { "name": "punctuation.section.embedded.end.fecsx" } },
+      "contentName": "meta.embedded.expression.cs",
+      "patterns": [{ "include": "#csharp-expression-content" }]
+    },
+    "csharp-expression-content": {
+      "patterns": [
+        { "include": "#csharp-line-comment" },
+        { "include": "#csharp-block-comment" },
+        { "include": "#csharp-interpolated-verbatim-string" },
+        { "include": "#csharp-interpolated-string" },
+        { "include": "#csharp-verbatim-string" },
+        { "include": "#csharp-string" },
+        { "include": "#csharp-character" },
+        { "include": "#csharp-balanced-braces" },
+        { "include": "source.cs" }
+      ]
+    },
+    "csharp-balanced-braces": {
+      "begin": "\\{",
+      "end": "\\}",
+      "name": "meta.brace.curly.cs",
+      "patterns": [{ "include": "#csharp-expression-content" }]
+    },
+    "csharp-block-comment": {
+      "begin": "/\\*",
+      "end": "\\*/",
+      "name": "comment.block.cs"
+    },
+    "csharp-interpolated-string": {
+      "begin": "\\$\"",
+      "end": "(?<!\\\\)\"",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.cs string.quoted.double.interpolated.cs" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.cs string.quoted.double.interpolated.cs" }
+      },
+      "patterns": [
+        { "match": "\\\\.", "name": "constant.character.escape.cs" },
+        { "match": "\\{\\{|\\}\\}", "name": "constant.character.escape.cs" },
+        { "include": "#csharp-balanced-braces" },
+        { "match": "[^\\\\{}\"]+", "name": "string.quoted.double.interpolated.cs" }
+      ]
+    },
+    "csharp-interpolated-verbatim-string": {
+      "begin": "(?:\\$@|@\\$)\"",
+      "end": "\"(?!\")",
+      "applyEndPatternLast": true,
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.cs string.quoted.double.interpolated.verbatim.cs" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.cs string.quoted.double.interpolated.verbatim.cs" }
+      },
+      "patterns": [
+        { "match": "\"\"", "name": "constant.character.escape.cs" },
+        { "match": "\\{\\{|\\}\\}", "name": "constant.character.escape.cs" },
+        { "include": "#csharp-balanced-braces" },
+        { "match": "[^\"{}]+", "name": "string.quoted.double.interpolated.verbatim.cs" }
+      ]
+    },
+    "csharp-verbatim-string": {
+      "begin": "@\"",
+      "end": "\"(?!\")",
+      "applyEndPatternLast": true,
+      "name": "string.quoted.double.verbatim.cs",
+      "patterns": [
+        { "match": "\"\"", "name": "constant.character.escape.cs" }
+      ]
+    },
+    "csharp-string": {
+      "begin": "\"",
+      "end": "(?<!\\\\)\"",
+      "name": "string.quoted.double.cs",
+      "patterns": [
+        { "match": "\\\\.", "name": "constant.character.escape.cs" }
+      ]
+    },
+    "csharp-character": {
+      "begin": "'",
+      "end": "(?<!\\\\)'",
+      "name": "string.quoted.single.cs",
+      "patterns": [
+        { "match": "\\\\.", "name": "constant.character.escape.cs" }
+      ]
+    },
+    "jsx-entity": {
+      "match": "&(?:[A-Za-z][A-Za-z0-9]+|#[0-9]+|#x[0-9A-Fa-f]+);",
+      "name": "constant.character.entity.fecsx"
+    }
+  }
+}

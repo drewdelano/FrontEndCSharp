@@ -1,0 +1,16 @@
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(TextareaProps props, ReactNode[] children) =>
+    <textarea
+        id={props.Id}
+        aria-label={props.AriaLabel}
+        className={ClassNames.Merge(TextareaStyles.Base, props.ClassName)}
+        value={props.Value}
+        placeholder={props.Placeholder}
+        disabled={props.Disabled}
+        readOnly={props.ReadOnly}
+        required={props.Required}
+        onChange={props.OnChange}
+        onInput={props.OnInput}
+    />;

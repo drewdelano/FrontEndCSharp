@@ -1,0 +1,6 @@
+@theme {
+  --breakpoint-tablet: 50rem;
+  --drop-shadow-card: 0 12px 24px rgb(0 0 0 / 0.18);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));

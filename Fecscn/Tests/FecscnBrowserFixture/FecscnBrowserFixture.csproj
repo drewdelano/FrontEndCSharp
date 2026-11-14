@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <!-- Intentionally compile the exact application-owned registry sources; the repository ownership test allow-lists this fixture. -->
+    <Compile Include="..\..\Registry\Sources\**\*.cs" Link="Registry\%(RecursiveDir)%(Filename)%(Extension)" />
+    <AdditionalFiles Include="..\..\Registry\Sources\**\*.fecsx" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.fecs\Interop.JS.Shadcn.BaseUI.fecs.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.fecs\Interop.JS.Shadcn.Cn.fecs.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons\Interop.JS.LucideIcons.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons.fecs\Interop.JS.LucideIcons.fecs.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.fecs\Interop.JS.Shadcn.Recharts.fecs.csproj" />
+    <ProjectReference Include="..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\..\Compiler\Fecsx\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

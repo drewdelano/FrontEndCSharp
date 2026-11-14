@@ -1,0 +1,11 @@
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(SpinnerProps props, ReactNode[] children) =>
+    <LucideIcons.LoaderCircleIcon
+        role="status"
+        ariaLabel={props.AriaLabel}
+        className={ClassNames.Merge(SpinnerStyles.Base, props.ClassName)}
+        dataSlot="spinner"
+    />;

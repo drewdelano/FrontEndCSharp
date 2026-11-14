@@ -1,0 +1,67 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(DropdownMenuProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Root props={DropdownMenuPrimitive.CreateRootProps(props)}>{children}</BaseUI.Menu.Root>;
+
+public static ReactNode Portal(DropdownMenuPartProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Portal props={DropdownMenuPrimitive.CreatePartProps("dropdown-menu-portal", null, props)}>{children}</BaseUI.Menu.Portal>;
+
+public static ReactNode Trigger(DropdownMenuActionProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Trigger props={DropdownMenuPrimitive.CreateActionProps("dropdown-menu-trigger", props)}>{children}</BaseUI.Menu.Trigger>;
+
+public static ReactNode Content(DropdownMenuContentProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Portal props={ReactProps.Create()}>
+        <BaseUI.Menu.Positioner props={DropdownMenuPrimitive.CreatePositionerProps(props)}>
+            <BaseUI.Menu.Popup props={DropdownMenuPrimitive.CreatePopupProps(props, "dropdown-menu-content", DropdownMenuStyles.Popup)}>{children}</BaseUI.Menu.Popup>
+        </BaseUI.Menu.Positioner>
+    </BaseUI.Menu.Portal>;
+
+public static ReactNode Group(DropdownMenuPartProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Group props={DropdownMenuPrimitive.CreatePartProps("dropdown-menu-group", null, props)}>{children}</BaseUI.Menu.Group>;
+
+public static ReactNode Label(DropdownMenuInsetProps props, ReactNode[] children) =>
+    <BaseUI.Menu.GroupLabel props={DropdownMenuPrimitive.CreateInsetProps("dropdown-menu-label", DropdownMenuStyles.Label, props)}>{children}</BaseUI.Menu.GroupLabel>;
+
+public static ReactNode Item(DropdownMenuItemProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Item props={DropdownMenuPrimitive.CreateItemProps(props)}>{children}</BaseUI.Menu.Item>;
+
+public static ReactNode Sub(DropdownMenuProps props, ReactNode[] children) =>
+    <BaseUI.Menu.SubmenuRoot props={DropdownMenuPrimitive.CreateRootProps(props)}>{children}</BaseUI.Menu.SubmenuRoot>;
+
+public static ReactNode SubTrigger(DropdownMenuInsetProps props, ReactNode[] children) =>
+    <BaseUI.Menu.SubmenuTrigger props={DropdownMenuPrimitive.CreateInsetProps("dropdown-menu-sub-trigger", DropdownMenuStyles.SubTrigger, props)}>
+        {children}<LucideIcons.ChevronRightIcon dataSlot="dropdown-menu-sub-icon" ariaHidden={true} className={DropdownMenuStyles.SubIcon} />
+    </BaseUI.Menu.SubmenuTrigger>;
+
+public static ReactNode SubContent(DropdownMenuContentProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Portal props={ReactProps.Create()}>
+        <BaseUI.Menu.Positioner props={DropdownMenuPrimitive.CreatePositionerProps(props)}>
+            <BaseUI.Menu.Popup props={DropdownMenuPrimitive.CreatePopupProps(props, "dropdown-menu-sub-content", DropdownMenuStyles.SubPopup)}>{children}</BaseUI.Menu.Popup>
+        </BaseUI.Menu.Positioner>
+    </BaseUI.Menu.Portal>;
+
+public static ReactNode CheckboxItem(DropdownMenuCheckboxItemProps props, ReactNode[] children) =>
+    <BaseUI.Menu.CheckboxItem props={DropdownMenuPrimitive.CreateCheckboxItemProps(props)}>
+        <span data-slot="dropdown-menu-checkbox-item-indicator" className={DropdownMenuStyles.Indicator}>
+            <BaseUI.Menu.CheckboxItemIndicator props={ReactProps.Create()}><LucideIcons.CheckIcon ariaHidden={true} /></BaseUI.Menu.CheckboxItemIndicator>
+        </span>{children}
+    </BaseUI.Menu.CheckboxItem>;
+
+public static ReactNode RadioGroup(DropdownMenuRadioGroupProps props, ReactNode[] children) =>
+    <BaseUI.Menu.RadioGroup props={DropdownMenuPrimitive.CreateRadioGroupProps(props)}>{children}</BaseUI.Menu.RadioGroup>;
+
+public static ReactNode RadioItem(DropdownMenuRadioItemProps props, ReactNode[] children) =>
+    <BaseUI.Menu.RadioItem props={DropdownMenuPrimitive.CreateRadioItemProps(props)}>
+        <span data-slot="dropdown-menu-radio-item-indicator" className={DropdownMenuStyles.Indicator}>
+            <BaseUI.Menu.RadioItemIndicator props={ReactProps.Create()}><LucideIcons.CheckIcon ariaHidden={true} /></BaseUI.Menu.RadioItemIndicator>
+        </span>{children}
+    </BaseUI.Menu.RadioItem>;
+
+public static ReactNode Separator(DropdownMenuPartProps props, ReactNode[] children) =>
+    <BaseUI.Menu.Separator props={DropdownMenuPrimitive.CreatePartProps("dropdown-menu-separator", DropdownMenuStyles.Separator, props)} />;
+
+public static ReactNode Shortcut(DropdownMenuPartProps props, ReactNode[] children) =>
+    <span data-slot="dropdown-menu-shortcut" className={ClassNames.Merge(DropdownMenuStyles.Shortcut, props.ClassName)}>{children}</span>;

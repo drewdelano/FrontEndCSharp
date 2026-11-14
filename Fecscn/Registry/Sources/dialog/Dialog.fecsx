@@ -1,0 +1,56 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(DialogProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Root props={DialogPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Dialog.Root>;
+
+public static ReactNode Trigger(DialogActionProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Trigger props={DialogPrimitive.CreateActionProps("dialog-trigger", props)}>
+        {children}
+    </BaseUI.Dialog.Trigger>;
+
+public static ReactNode Portal(DialogPartProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Portal props={DialogPrimitive.CreatePartProps("dialog-portal", null, props)}>
+        {children}
+    </BaseUI.Dialog.Portal>;
+
+public static ReactNode Close(DialogActionProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Close props={DialogPrimitive.CreateActionProps("dialog-close", props)}>
+        {children}
+    </BaseUI.Dialog.Close>;
+
+public static ReactNode Overlay(DialogPartProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Backdrop props={DialogPrimitive.CreatePartProps("dialog-overlay", DialogStyles.Overlay, props)} />;
+
+public static ReactNode Content(DialogContentProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Portal props={ReactProps.Create()}>
+        <BaseUI.Dialog.Backdrop props={DialogPrimitive.CreateOverlayProps()} />
+        <BaseUI.Dialog.Popup props={DialogPrimitive.CreateContentProps(props)}>
+            {children}
+            {DialogPrimitive.CreateContentClose(props.ShowCloseButton)}
+        </BaseUI.Dialog.Popup>
+    </BaseUI.Dialog.Portal>;
+
+public static ReactNode Header(DialogPartProps props, ReactNode[] children) =>
+    <div data-slot="dialog-header" className={ClassNames.Merge(DialogStyles.Header, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Footer(DialogFooterProps props, ReactNode[] children) =>
+    <div data-slot="dialog-footer" className={ClassNames.Merge(DialogStyles.Footer, props.ClassName)}>
+        {children}
+        {DialogPrimitive.CreateFooterClose(props.ShowCloseButton)}
+    </div>;
+
+public static ReactNode Title(DialogPartProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Title props={DialogPrimitive.CreatePartProps("dialog-title", DialogStyles.Title, props)}>
+        {children}
+    </BaseUI.Dialog.Title>;
+
+public static ReactNode Description(DialogPartProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Description props={DialogPrimitive.CreatePartProps("dialog-description", DialogStyles.Description, props)}>
+        {children}
+    </BaseUI.Dialog.Description>;

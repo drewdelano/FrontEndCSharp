@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\Compiler\RuntimeOverrides\Tests\RuntimeOverrideTest.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\FluentValidation\FluentValidation.fecs\FluentValidation.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.fecs\Interop.JS.Shadcn.BaseUI.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj" />
+    <ProjectReference Include="..\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.LucideIcons\Interop.JS.LucideIcons\Interop.JS.LucideIcons.csproj" />
+    <ProjectReference Include="..\Interop.JS.LucideIcons\Interop.JS.LucideIcons.fecs\Interop.JS.LucideIcons.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.MobX\Interop.JS.MobX\Interop.JS.MobX.csproj" />
+    <ProjectReference Include="..\Interop.JS.MobX\Interop.JS.MobX.fecs\Interop.JS.MobX.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.MobX.React\Interop.JS.MobX.React\Interop.JS.MobX.React.csproj" />
+    <ProjectReference Include="..\Interop.JS.MobX.React\Interop.JS.MobX.React.fecs\Interop.JS.MobX.React.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.Motion\Interop.JS.Motion\Interop.JS.Motion.csproj" />
+    <ProjectReference Include="..\Interop.JS.Motion\Interop.JS.Motion.fecs\Interop.JS.Motion.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.csproj" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.fecs\Interop.JS.Shadcn.Cn.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj" />
+    <ProjectReference Include="..\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.csproj" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.fecs\Interop.JS.Shadcn.Recharts.fecs.csproj" />
+    <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.fecs\Newtonsoft.Json.fecs.csproj" />
+    <ProjectReference Include="..\System.Console\System.Console.fecs\System.Console.fecs.csproj" />
+    <ProjectReference Include="..\System.Collections.Concurrent\System.Collections.Concurrent.fecs\System.Collections.Concurrent.fecs.csproj" />
+    <ProjectReference Include="..\System.Collections\System.Collections.fecs\System.Collections.fecs.csproj" />
+    <ProjectReference Include="..\System.ComponentModel.Annotations\System.ComponentModel.Annotations.fecs\System.ComponentModel.Annotations.fecs.csproj" />
+    <ProjectReference Include="..\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj" />
+    <ProjectReference Include="..\System.Linq\System.Linq.fecs\System.Linq.fecs.csproj" />
+    <ProjectReference Include="..\System.Net.Http\System.Net.Http.fecs\System.Net.Http.fecs.csproj" />
+    <ProjectReference Include="..\System.Net.Http.Json\System.Net.Http.Json.fecs\System.Net.Http.Json.fecs.csproj" />
+    <ProjectReference Include="..\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\System.Private.Uri\System.Private.Uri.fecs\System.Private.Uri.fecs.csproj" />
+    <ProjectReference Include="..\System.Security.Cryptography\System.Security.Cryptography.fecs\System.Security.Cryptography.fecs.csproj" />
+    <ProjectReference Include="..\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj" />
+    <ProjectReference Include="..\System.Text.RegularExpressions\System.Text.RegularExpressions.fecs\System.Text.RegularExpressions.fecs.csproj" />
+  </ItemGroup>
+</Project>

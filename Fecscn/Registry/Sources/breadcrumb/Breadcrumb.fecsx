@@ -1,0 +1,39 @@
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(BreadcrumbProps props, ReactNode[] children) =>
+    <nav data-slot="breadcrumb" aria-label={props.AriaLabel} className={props.ClassName}>
+        {children}
+    </nav>;
+
+public static ReactNode List(BreadcrumbPartProps props, ReactNode[] children) =>
+    <ol data-slot="breadcrumb-list" className={ClassNames.Merge(BreadcrumbStyles.List, props.ClassName)}>
+        {children}
+    </ol>;
+
+public static ReactNode Item(BreadcrumbPartProps props, ReactNode[] children) =>
+    <li data-slot="breadcrumb-item" className={ClassNames.Merge(BreadcrumbStyles.Item, props.ClassName)}>
+        {children}
+    </li>;
+
+public static ReactNode Link(BreadcrumbLinkProps props, ReactNode[] children) =>
+    <a data-slot="breadcrumb-link" href={props.Href} target={props.Target} rel={props.Rel} className={ClassNames.Merge(BreadcrumbStyles.Link, props.ClassName)}>
+        {children}
+    </a>;
+
+public static ReactNode Page(BreadcrumbPartProps props, ReactNode[] children) =>
+    <span data-slot="breadcrumb-page" role="link" aria-disabled={true} aria-current="page" className={ClassNames.Merge(BreadcrumbStyles.Page, props.ClassName)}>
+        {children}
+    </span>;
+
+public static ReactNode Separator(BreadcrumbPartProps props, ReactNode[] children) =>
+    <li data-slot="breadcrumb-separator" role="presentation" aria-hidden={true} className={ClassNames.Merge(BreadcrumbStyles.Separator, props.ClassName)}>
+        {children.Length == 0 ? LucideIcons.ChevronRightIcon.Create(icon => { icon.AriaHidden = true; icon.ClassName = "cn-rtl-flip"; }) : React.Node(children)}
+    </li>;
+
+public static ReactNode Ellipsis(BreadcrumbPartProps props, ReactNode[] children) =>
+    <span data-slot="breadcrumb-ellipsis" role="presentation" aria-hidden={true} className={ClassNames.Merge(BreadcrumbStyles.Ellipsis, props.ClassName)}>
+        <LucideIcons.EllipsisIcon ariaHidden={true} />
+        <span className="sr-only">More</span>
+    </span>;

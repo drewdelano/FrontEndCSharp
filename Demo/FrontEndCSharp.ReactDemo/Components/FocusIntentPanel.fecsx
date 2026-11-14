@@ -1,0 +1,51 @@
+using Interop.JS.React;
+using Interop.JS.LucideIcons;
+using Fecscn.Components.UI;
+using Model = FrontEndCSharp.ReactDemo.FormField<FrontEndCSharp.ReactDemo.FocusIntentForm>;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(AppProps props, ReactNode[] children) =>
+    MobXReact.Observe(() =>
+    <Card className="intent-panel border-white/10 bg-card/80 shadow-2xl backdrop-blur-xl">
+        <Card.Header>
+            <div className="intent-title-row">
+                <Card.Title>Set the signal</Card.Title>
+                <LucideIcons.ActivityIcon className="intent-title-icon" ariaHidden={true} />
+            </div>
+            <Card.Description>Write one outcome for the next focus block.</Card.Description>
+        </Card.Header>
+        <Card.Content>
+            <form className="intent-form" onSubmit={domEvent => Actions.SubmitFocusIntent(props.Store, domEvent)}>
+                <div className="intent-field">
+                    <label htmlFor={Model.IdFor(m => m.FocusIntent)}>Focus outcome</label>
+                    <Input id={Model.IdFor(m => m.FocusIntent)}
+                           ariaLabel="Focus outcome"
+                           value={props.Store.FocusIntent}
+                           placeholder="Finish the validation flow"
+                           onInput={domEvent => Actions.UpdateFocusIntent(props.Store, domEvent)} />
+                    <p className="intent-error intent-error-focus" role="alert">{props.Store.FocusIntentError}</p>
+                </div>
+                <div className="intent-field">
+                    <label htmlFor={Model.IdFor(m => m.AccountabilityEmail)}>Accountability email</label>
+                    <Input id={Model.IdFor(m => m.AccountabilityEmail)}
+                           ariaLabel="Accountability email"
+                           value={props.Store.AccountabilityEmail}
+                           placeholder="teammate@example.com"
+                           onInput={domEvent => Actions.UpdateAccountabilityEmail(props.Store, domEvent)} />
+                    <p className="intent-error intent-error-email" role="alert">{props.Store.AccountabilityEmailError}</p>
+                </div>
+                <div className="intent-field">
+                    <label htmlFor={Model.IdFor(m => m.Priority)}>Priority</label>
+                    <Input id={Model.IdFor(m => m.Priority)}
+                           ariaLabel="Priority"
+                           value={props.Store.PriorityInput}
+                           placeholder="1–3"
+                           onInput={domEvent => Actions.UpdatePriority(props.Store, domEvent)} />
+                    <p className="intent-error intent-error-priority" role="alert">{props.Store.PriorityError}</p>
+                </div>
+                <Button className="intent-submit" type="submit" variant={ButtonVariant.Outline}>Commit intent</Button>
+                <p className="intent-success" role="status">{props.Store.FocusIntentSuccess}</p>
+            </form>
+        </Card.Content>
+    </Card>
+    );

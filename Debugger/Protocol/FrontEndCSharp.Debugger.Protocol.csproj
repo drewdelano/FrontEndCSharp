@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>FrontEndCSharp.Debugger.Protocol</AssemblyName>
+    <RootNamespace>FrontEndCSharp.Debugging</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <ProjectReference Include="..\Manifest\FrontEndCSharp.DebugManifest.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,34 @@
+using Interop.JS.React;
+using Fecscn.Components.UI;
+using FrontEndCSharp.ReactDemo;
+namespace FrontEndCSharp.ReactDemo.Hidden;
+
+public static ReactNode Default(FrontEndCSharp.ReactDemo.AppProps props, ReactNode[] children) =>
+    MobXReact.Observe(() =>
+        <Panel className="panel section-panel"
+               title="Today’s anchors"
+               description="Small promises, visibly kept."
+               trailingLabel={props.Store.CompletedLabel}>
+            <div className="task-grid">
+                <TaskCard indexLabel="01 / MAKE"
+                          name="Shape the product narrative"
+                          meta="45 min · strategy"
+                          isDone={props.Store.FirstTaskDone}
+                          onToggle={() => Actions.ToggleTask(props.Store, 1)} />
+                <TaskCard indexLabel="02 / MOVE"
+                          name="Take a daylight walk"
+                          meta="20 min · reset"
+                          isDone={props.Store.SecondTaskDone}
+                          onToggle={() => Actions.ToggleTask(props.Store, 2)} />
+                <TaskCard indexLabel="03 / CLOSE"
+                          name="Send the thoughtful follow-up"
+                          meta="15 min · people"
+                          isDone={props.Store.ThirdTaskDone}
+                          onToggle={() => Actions.ToggleTask(props.Store, 3)} />
+            </div>
+            <Progress className="task-progress" value={props.Store.ProgressValue}>
+                <Progress.Label>Daily momentum</Progress.Label>
+                <Progress.Value />
+            </Progress>
+        </Panel>
+    );

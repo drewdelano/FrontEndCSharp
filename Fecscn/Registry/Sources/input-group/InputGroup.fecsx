@@ -1,0 +1,41 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(InputGroupProps props, ReactNode[] children) =>
+    <div data-slot="input-group" role="group" className={ClassNames.Merge(InputGroupStyles.Root, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Addon(InputGroupAddonProps props, ReactNode[] children) =>
+    <div data-slot="input-group-addon" role="group" className={ClassNames.Merge(InputGroupStyles.Addon, InputGroupStyles.AddonAlign(props.Align), props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Button(InputGroupButtonProps props, ReactNode[] children) =>
+    <BaseUI.Button props={InputGroupPrimitive.CreateButtonProps(props)}>
+        {children}
+    </BaseUI.Button>;
+
+public static ReactNode Text(InputGroupTextProps props, ReactNode[] children) =>
+    <span className={ClassNames.Merge(InputGroupStyles.Text, props.ClassName)}>
+        {children}
+    </span>;
+
+public static ReactNode Input(InputGroupInputProps props, ReactNode[] children) =>
+    <BaseUI.Input props={InputGroupPrimitive.CreateInputProps(props)} />;
+
+public static ReactNode Textarea(InputGroupTextareaProps props, ReactNode[] children) =>
+    <textarea
+        id={props.Id}
+        aria-label={props.AriaLabel}
+        data-slot="input-group-control"
+        className={ClassNames.Merge(TextareaStyles.Base, InputGroupStyles.Textarea, props.ClassName)}
+        placeholder={props.Placeholder}
+        value={props.Value}
+        disabled={props.Disabled}
+        readOnly={props.ReadOnly}
+        required={props.Required}
+        onChange={props.OnChange}
+        onInput={props.OnInput}
+    />;

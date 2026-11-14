@@ -1,0 +1,152 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>FrontEndCSharp.VisualStudio</AssemblyName>
+    <RootNamespace>FrontEndCSharp.VisualStudio</RootNamespace>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <UseCodebase>true</UseCodebase>
+    <StartAction>Program</StartAction>
+    <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+    <VsixIntermediatePath>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\vsix</VsixIntermediatePath>
+    <TemplateOutputDirectory>$(VsixIntermediatePath)\templates</TemplateOutputDirectory>
+    <FileManifest>$(VsixIntermediatePath)\files.json</FileManifest>
+    <TemplateFileManifest>$(VsixIntermediatePath)\templateFiles.json</TemplateFileManifest>
+    <ResourceManifest>$(VsixIntermediatePath)\resources.json</ResourceManifest>
+    <CtoFileManifest>$(VsixIntermediatePath)\ctoFiles.json</CtoFileManifest>
+    <CtoCacheFile>$(VsixIntermediatePath)\mergeCto.cache</CtoCacheFile>
+    <CreateTemplateManifestsCacheFile>$(VsixIntermediatePath)\createTemplateManifests.cache</CreateTemplateManifestsCacheFile>
+    <CreatePkgDefAssemblyToProcess>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).dll</CreatePkgDefAssemblyToProcess>
+    <TargetVsixContainer>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).vsix</TargetVsixContainer>
+    <CompilerPayloadArchive>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\CompilerPayload.zip</CompilerPayloadArchive>
+    <BuildIntegrationPackageVersion>0.1.19</BuildIntegrationPackageVersion>
+    <BuildIntegrationPackageDirectory>$(VsixIntermediatePath)packages</BuildIntegrationPackageDirectory>
+    <BuildIntegrationPackagePath>$(BuildIntegrationPackageDirectory)\FrontEndCSharp.Build.$(BuildIntegrationPackageVersion).nupkg</BuildIntegrationPackagePath>
+  </PropertyGroup>
+
+  <Import Project="$(_FrontEndCSharpRepositoryRoot)Vssdk.BuildTools.props" />
+
+  <ItemGroup>
+    <Compile Remove="Templates\**\*.cs" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.11.40262" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Debugger.DebugAdapterHost.Interfaces" Version="17.10.10123.1-preview" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" PrivateAssets="all" ExcludeAssets="runtime" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Manifest\FrontEndCSharp.DebugManifest.csproj" />
+    <ProjectReference Include="..\Protocol\FrontEndCSharp.Debugger.Protocol.csproj" />
+    <ProjectReference Include="..\Tracing\FrontEndCSharp.Debugger.Tracing.csproj" />
+    <ProjectReference Include="..\..\Compiler\Packaging\Shared\FrontEndCSharp.Packaging.Shared.csproj" />
+    <ProjectReference Include="..\..\Compiler\Core\Compiler.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true">
+      <Name>Compiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\FrontEndCSharp.DebugAdapter.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.DebugAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EditAndContinue\FrontEndCSharp.EditAndContinue.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.EditAndContinue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Compiler\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.Build</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Compiler\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.Build.Tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests\Integration\FrontEndCSharp.Debugger.Integration.csproj" ReferenceOutputAssembly="false" SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.Debugger.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="Templates\FrontEndCSharp.Browser\FrontEndCSharp.Browser.Template.csproj"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.Browser.Template</Name>
+      <TemplateType>Project</TemplateType>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="source.extension.vsixmanifest" />
+    <Content Include="AdapterRegistration.pkgdef">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\Compiler\Packaging\Assets\FrontEndCSharp.targets" Link="Build\FrontEndCSharp.targets">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <VSCTCompile Include="Commands.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+  </ItemGroup>
+
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets"
+          Condition="Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets')" />
+
+  <Target Name="RequireVssdkBuildTools"
+          BeforeTargets="PrepareForBuild"
+          Condition="!Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets')">
+    <Error Text="Microsoft.VSSDK.BuildTools is not restored. Restore NuGet packages, then build the project again." />
+  </Target>
+
+  <Target Name="PrepareVsixDirectories" BeforeTargets="DetokenizeVsixManifestFile;MergeCtoResource;GenerateFileManifest;CreateVsixContainer">
+    <MakeDir Directories="$(VsixIntermediatePath);$(TemplateOutputDirectory)" />
+  </Target>
+
+  <Target Name="IncludeDebuggerToolPayloads"
+          BeforeTargets="GetVsixSourceItems"
+          DependsOnTargets="CreateCompilerPayload;CreateBuildIntegrationPackage">
+    <ItemGroup>
+      <_AdapterPayload Include="$(MSBuildProjectDirectory)\..\Adapter\bin\$(Configuration)\net8.0\**\*"
+                       Exclude="$(MSBuildProjectDirectory)\..\Adapter\bin\$(Configuration)\net8.0\**\*.pdb" />
+      <VSIXSourceItem Include="$(CompilerPayloadArchive)">
+        <TargetPath>CompilerPayload.zip</TargetPath>
+      </VSIXSourceItem>
+      <VSIXSourceItem Include="$(BuildIntegrationPackagePath)">
+        <TargetPath>Build\FrontEndCSharp.Build.nupkg</TargetPath>
+      </VSIXSourceItem>
+      <VSIXSourceItem Include="@(_AdapterPayload)">
+        <TargetPath>Adapter\%(_AdapterPayload.RecursiveDir)%(_AdapterPayload.Filename)%(_AdapterPayload.Extension)</TargetPath>
+      </VSIXSourceItem>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="CreateCompilerPayload" BeforeTargets="GetVsixSourceItems">
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\..\Compiler\Packaging\FrontEndCSharp.Build.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Build.Tasks.dll&quot; create-compiler-payload &quot;$(MSBuildProjectDirectory)\..\..\Compiler\Core\bin\$(Configuration)\net8.0&quot; &quot;$(CompilerPayloadArchive)&quot; &quot;$(MSBuildProjectDirectory)\..\EditAndContinue\bin\$(Configuration)\net8.0&quot;" />
+  </Target>
+
+  <Target Name="CreateBuildIntegrationPackage" BeforeTargets="GetVsixSourceItems">
+    <MakeDir Directories="$(BuildIntegrationPackageDirectory)" />
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\Compiler\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj"
+             Targets="Pack"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration);PackageOutputPath=$(BuildIntegrationPackageDirectory)" />
+  </Target>
+
+  <Target Name="ResolveProjectTemplateArchive">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\Templates\FrontEndCSharp.Browser\FrontEndCSharp.Browser.Template.csproj"
+             Targets="TemplateProjectOutputGroup"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_ResolvedProjectTemplateArchive" />
+    </MSBuild>
+  </Target>
+
+  <Target Name="CreateVsixAfterBuild" AfterTargets="Build" DependsOnTargets="GeneratePkgDef;CreateVsixContainer;ResolveProjectTemplateArchive">
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\Tests\Integration\bin\$(Configuration)\net8.0\FrontEndCSharp.Debugger.Integration.dll&quot; verify-vsix &quot;$(TargetVsixContainer)&quot;" />
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\Tests\Integration\bin\$(Configuration)\net8.0\FrontEndCSharp.Debugger.Integration.dll&quot; verify-build-package &quot;$(BuildIntegrationPackagePath)&quot; &quot;$(MSBuildProjectDirectory)\..\..&quot;" />
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\Tests\Integration\bin\$(Configuration)\net8.0\FrontEndCSharp.Debugger.Integration.dll&quot; verify-project-template simple &quot;@(_ResolvedProjectTemplateArchive-&gt;'%(FullPath)')&quot; &quot;$(BuildIntegrationPackagePath)&quot; &quot;$(MSBuildProjectDirectory)\..\..&quot;" />
+  </Target>
+
+</Project>

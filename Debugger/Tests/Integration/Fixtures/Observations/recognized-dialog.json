@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceArtifact": "committed-recognized-dialog-fixture",
+  "events": [
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 0,
+      "data": {
+        "state": "LoadingSolution"
+      }
+    },
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 25,
+      "data": {
+        "state": "Idle"
+      }
+    }
+  ],
+  "result": {
+    "action": "OpenSolution",
+    "state": "Idle"
+  },
+  "failure": null,
+  "observations": {
+    "dialogs": [
+      {
+        "Name": "Security Warning for Fixture.csproj",
+        "IsModal": true,
+        "Recognized": true
+      }
+    ],
+    "visualStudio": {
+      "State": "Idle"
+    },
+    "browser": null,
+    "dap": null,
+    "dapRecords": [],
+    "processes": [],
+    "ownedProcesses": [],
+    "environment": null,
+    "uiAutomation": null,
+    "braveUiAutomation": null,
+    "vsixInstallerUiAutomation": []
+  }
+}

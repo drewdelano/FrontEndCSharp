@@ -1,0 +1,12 @@
+FrontEndCSharp.Fecsx.Editor includes C# adaptations of JSX-specific language
+service algorithms from TypeScript 5.2.2.
+
+TypeScript is licensed under the Apache License, Version 2.0.
+Source: https://github.com/microsoft/TypeScript/tree/v5.2.2
+License: https://github.com/microsoft/TypeScript/blob/v5.2.2/LICENSE.txt
+
+The embedded default utility catalog is generated from Tailwind CSS 4.3.5 by
+using its public IntelliSense design-system surface. Tailwind CSS is licensed
+under the MIT License.
+Source: https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.5
+License: https://github.com/tailwindlabs/tailwindcss/blob/v4.3.5/LICENSE

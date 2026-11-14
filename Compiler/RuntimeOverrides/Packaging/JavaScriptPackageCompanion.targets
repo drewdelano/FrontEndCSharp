@@ -1,0 +1,30 @@
+<Project>
+
+  <PropertyGroup>
+    <FrontEndCSharpJavaScriptPackageRoot>$(MSBuildProjectDirectory)\JavaScriptPackages</FrontEndCSharpJavaScriptPackageRoot>
+    <FrontEndCSharpJavaScriptPackageArchive>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\javascript-packages.zip</FrontEndCSharpJavaScriptPackageArchive>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="$(FrontEndCSharpJavaScriptPackageArchive)"
+                      LogicalName="FrontEndCSharp.JavaScriptPackages.zip" />
+  </ItemGroup>
+
+  <Target Name="RestoreFrontEndCSharpJavaScriptPackages"
+          Inputs="$(FrontEndCSharpJavaScriptPackageRoot)\package-lock.json"
+          Outputs="$(FrontEndCSharpJavaScriptPackageRoot)\node_modules\.package-lock.json">
+    <Exec WorkingDirectory="$(FrontEndCSharpJavaScriptPackageRoot)"
+          Command="npm ci --omit=dev --omit=peer --ignore-scripts --no-audit --no-fund" />
+  </Target>
+
+  <Target Name="ArchiveFrontEndCSharpJavaScriptPackages"
+          BeforeTargets="PrepareResourceNames"
+          DependsOnTargets="RestoreFrontEndCSharpJavaScriptPackages"
+          Inputs="$(FrontEndCSharpJavaScriptPackageRoot)\package-lock.json;$(FrontEndCSharpJavaScriptPackageRoot)\node_modules\.package-lock.json"
+          Outputs="$(FrontEndCSharpJavaScriptPackageArchive)">
+    <ZipDirectory SourceDirectory="$(FrontEndCSharpJavaScriptPackageRoot)\node_modules"
+                  DestinationFile="$(FrontEndCSharpJavaScriptPackageArchive)"
+                  Overwrite="true" />
+  </Target>
+
+</Project>

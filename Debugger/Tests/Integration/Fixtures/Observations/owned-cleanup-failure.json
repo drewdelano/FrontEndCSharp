@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourceArtifact": "committed-owned-cleanup-failure-fixture",
+  "events": [
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 0,
+      "data": {
+        "state": "Idle"
+      }
+    },
+    {
+      "event": "cleanup-failed",
+      "elapsedMilliseconds": 5000,
+      "data": {
+        "stage": "owned-vsix-installer-stop"
+      }
+    }
+  ],
+  "result": null,
+  "failure": {
+    "classification": "cleanup",
+    "message": "Cleanup left an owned VSIX Installer straggler."
+  },
+  "observations": {
+    "dialogs": [],
+    "visualStudio": {
+      "State": "Idle"
+    },
+    "browser": null,
+    "dap": null,
+    "dapRecords": [],
+    "processes": [],
+    "ownedProcesses": [],
+    "environment": null,
+    "uiAutomation": null,
+    "braveUiAutomation": null,
+    "vsixInstallerUiAutomation": []
+  }
+}

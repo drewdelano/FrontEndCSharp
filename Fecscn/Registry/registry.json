@@ -1,0 +1,748 @@
+{
+  "version": 1,
+  "profile": {
+    "base": "base",
+    "style": "nova",
+    "iconLibrary": "lucide",
+    "tailwindMajorVersion": 4,
+    "cssVariables": true,
+    "reactServerComponents": false
+  },
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/utils.json",
+        "sha256": "74f5bc88a74dfc19f7cbfaa0c152a5e9b9d3a62823b32b48677652968b442593",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "source": "Sources/utils/ClassNames.cs",
+          "target": "Components/UI/ClassNames.cs",
+          "kind": "csharp",
+          "sha256": "9f374f30738061e83c0b04742fdd270dce7e5a9059d610f51429b161f13649cb"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.Cn", "version": "0.5.2" },
+        { "name": "Interop.JS.Shadcn.Cn.fecs", "version": "0.5.2" }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/card.json",
+        "sha256": "e73e3fe00ab2e14c4db1dccb1ff5c67041a94c0926ac3216c1dc6dd6dee9d7e0",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/card/Card.fecsx",
+          "target": "Components/UI/Card.fecsx",
+          "kind": "fecsx",
+          "sha256": "18808ca60e671204aa38093261b4bf9379baf13ba5613c39a3def15a14715477"
+        },
+        {
+          "source": "Sources/card/CardProps.cs",
+          "target": "Components/UI/CardProps.cs",
+          "kind": "csharp",
+          "sha256": "298b367b6ec234ac1059810839404314360ee6a640be1f6765bcf0af7189536b"
+        }
+      ],
+      "packages": []
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/input.json",
+        "sha256": "bbad1bba130ac9750a61844eeb8f043e8a710846e07689fa85398b80a46c2741",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "@base-ui/react", "version": "1.9.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/input/Input.fecsx",
+          "target": "Components/UI/Input.fecsx",
+          "kind": "fecsx",
+          "sha256": "6c09db407248f50438f34052f93896590e7490fc4ebb9af88f1572da94c87347"
+        },
+        {
+          "source": "Sources/input/InputProps.cs",
+          "target": "Components/UI/InputProps.cs",
+          "kind": "csharp",
+          "sha256": "bbd6476b83077c0a51c944dd2ae921214f681e6fbf9bb469de1499e81a5d2d80"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/textarea.json",
+        "sha256": "8f01f6bc4ee556263bae7644e8b527022fa77ff203f33a258bb47142ef7d9c81",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/textarea/Textarea.fecsx",
+          "target": "Components/UI/Textarea.fecsx",
+          "kind": "fecsx",
+          "sha256": "b88e6204be227eb5359528a3b8a39ff0b7eeaf53d2d9a10b07753d191936c5ae"
+        },
+        {
+          "source": "Sources/textarea/TextareaProps.cs",
+          "target": "Components/UI/TextareaProps.cs",
+          "kind": "csharp",
+          "sha256": "74d8a5b37239a16fb5c92e3d22f6f72270ee1937e7cfb8fe55674326b38199bd"
+        }
+      ],
+      "packages": []
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/spinner.json",
+        "sha256": "d949d0b91ff34620eecf2bb359536fd3e6942b518dc0a396b77fd02a90661b61",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/spinner/Spinner.fecsx",
+          "target": "Components/UI/Spinner.fecsx",
+          "kind": "fecsx",
+          "sha256": "115f081f290d8f78bb9a75363eaa3c8293c62908f66d7a9591a403853b3be49d"
+        },
+        {
+          "source": "Sources/spinner/SpinnerProps.cs",
+          "target": "Components/UI/SpinnerProps.cs",
+          "kind": "csharp",
+          "sha256": "40d15893a055f87ccc5771da52d92aafabcedc4802a2c0995df5e6e4bdd92ad1"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/breadcrumb.json",
+        "sha256": "5e7a33d921824d659494dc90411393cdf795c0ad5c94631da5c2883924623350",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/breadcrumb/Breadcrumb.fecsx",
+          "target": "Components/UI/Breadcrumb.fecsx",
+          "kind": "fecsx",
+          "sha256": "cdf8809545f81cfc10785df958700628ebb329751ef4b0a241d65e62319be748"
+        },
+        {
+          "source": "Sources/breadcrumb/BreadcrumbProps.cs",
+          "target": "Components/UI/BreadcrumbProps.cs",
+          "kind": "csharp",
+          "sha256": "8fea92f3659d9f4b5f5e941dd45995cbe324a340a148c6aed079d847716189ed"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/progress.json",
+        "sha256": "359e72beff723311ec2e4d5154a0f80dedd253bd6b16959a4db0773714ceab52",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/progress/Progress.fecsx",
+          "target": "Components/UI/Progress.fecsx",
+          "kind": "fecsx",
+          "sha256": "59fc7b1bb1aa2a0ee5411af9c2432fbad3b522bc42fe32c9d942b7a35a9de30b"
+        },
+        {
+          "source": "Sources/progress/ProgressProps.cs",
+          "target": "Components/UI/ProgressProps.cs",
+          "kind": "csharp",
+          "sha256": "a14c32912772cc2430b06223c0e4f0638b348fc6d7f41f316120f2229a2b65b4"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/checkbox.json",
+        "sha256": "e6df7b595f25a7ee97c3fb94e0ddc35998f74c98b990d3030e485905ec677178",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/checkbox/Checkbox.fecsx",
+          "target": "Components/UI/Checkbox.fecsx",
+          "kind": "fecsx",
+          "sha256": "06472aa92712c0a1588af7c3c90b45dc92cf165f4a3a4bd3b3b893ac7f1305f0"
+        },
+        {
+          "source": "Sources/checkbox/CheckboxProps.cs",
+          "target": "Components/UI/CheckboxProps.cs",
+          "kind": "csharp",
+          "sha256": "738f35d113d57e8e23479abd9c5dde7970317d8fd2e7af11fffd58c473f751a7"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/avatar.json",
+        "sha256": "bbcabf0121fb2ff93a8522f8f80b74631e732a31399b1b7991c0b8c3167e2172",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/avatar/Avatar.fecsx",
+          "target": "Components/UI/Avatar.fecsx",
+          "kind": "fecsx",
+          "sha256": "889e333c9522166adb56f9354a1460b07ddf1a9475646615f28220a5b38545a4"
+        },
+        {
+          "source": "Sources/avatar/AvatarProps.cs",
+          "target": "Components/UI/AvatarProps.cs",
+          "kind": "csharp",
+          "sha256": "147d83d5b27ad1c48a5926aa186aee7c7394d2337f396eebf01ea63be6b7c6a7"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/accordion.json",
+        "sha256": "01509cb2a91779ee74c2d4a1f75842c0a258bed1758be4f2567af9daabdc39ac",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/accordion/Accordion.fecsx",
+          "target": "Components/UI/Accordion.fecsx",
+          "kind": "fecsx",
+          "sha256": "21c2c04b5612f879967b6ed641c4a20d88a9a210902c3f2ba62f4a8ddfebfa99"
+        },
+        {
+          "source": "Sources/accordion/AccordionProps.cs",
+          "target": "Components/UI/AccordionProps.cs",
+          "kind": "csharp",
+          "sha256": "863db65f74a04c181f7b68f0a2833a2c4145702fdbb1915149ce0d260e2a5fe0"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/select.json",
+        "sha256": "425e9b0a28b72617f18fabd75384050113295b88e7ba01c35bede2c72bd5d476",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/select/Select.fecsx",
+          "target": "Components/UI/Select.fecsx",
+          "kind": "fecsx",
+          "sha256": "af76a9ea7a81e60e9f2a33b7aefd21a0b836fd08360e1299315ddc8110154b56"
+        },
+        {
+          "source": "Sources/select/SelectProps.cs",
+          "target": "Components/UI/SelectProps.cs",
+          "kind": "csharp",
+          "sha256": "36e0e5024ae957adca42d47cfa32781d71ab8decfa1bd270e9ce04e83900fd46"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/tooltip.json",
+        "sha256": "2f55867faecee2d3616cfd8c6a80b538909a21e62fdfa2788b1ead56093e5395",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/tooltip/Tooltip.fecsx",
+          "target": "Components/UI/Tooltip.fecsx",
+          "kind": "fecsx",
+          "sha256": "5f6513cd0745878c5606b7ea9dea47411b1463c8f7020968aa8b39fef7f49729"
+        },
+        {
+          "source": "Sources/tooltip/TooltipProps.cs",
+          "target": "Components/UI/TooltipProps.cs",
+          "kind": "csharp",
+          "sha256": "614ef069c5fa0fc899f73ab281381c2e058b54b9995053a1e7c38ec9103bbda8"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/dialog.json",
+        "sha256": "40fc321d25eb9590d07db54b00d9bc1a74274a549aa06d5915a34ba302ed8b94",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["button", "utils"],
+      "files": [
+        {
+          "source": "Sources/dialog/Dialog.fecsx",
+          "target": "Components/UI/Dialog.fecsx",
+          "kind": "fecsx",
+          "sha256": "30390a876c7b999dbe76bc248e4c83b0d3f6889b10d6b5cdd9f05f279264bcd4"
+        },
+        {
+          "source": "Sources/dialog/DialogProps.cs",
+          "target": "Components/UI/DialogProps.cs",
+          "kind": "csharp",
+          "sha256": "2bda24d9f5bd078860c1eb14f310513bf061a9c58aeda129d76cd737ab1a4b11"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/sheet.json",
+        "sha256": "72b36d92af7fcbc9bd2d1d4ef0cbc65f4fc8178f7bb2bedaf657460f15011cf4",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["button", "utils"],
+      "files": [
+        {
+          "source": "Sources/sheet/Sheet.fecsx",
+          "target": "Components/UI/Sheet.fecsx",
+          "kind": "fecsx",
+          "sha256": "b172da36685b6c65badacfe73fb45898155fad18fd296235d110f18e8092aed2"
+        },
+        {
+          "source": "Sources/sheet/SheetProps.cs",
+          "target": "Components/UI/SheetProps.cs",
+          "kind": "csharp",
+          "sha256": "44a3101de00bbf15a5c12df77524e340fd721f164c872f3bd2b2636e2600588e"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/toast.json",
+        "sha256": "161ed77c409fe7345ee6308f7cf66f7bcf2717d8d5e1a8b36a7f8e8fa0df745e",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "@base-ui/react", "version": "1.9.0" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["button", "utils"],
+      "files": [
+        {
+          "source": "Sources/toast/Toast.fecsx",
+          "target": "Components/UI/Toast.fecsx",
+          "kind": "fecsx",
+          "sha256": "8e95935dcb30701a089076d212d90d114b1b6d37b07e45dc4a886a5c28ffeafc"
+        },
+        {
+          "source": "Sources/toast/ToastProps.cs",
+          "target": "Components/UI/ToastProps.cs",
+          "kind": "csharp",
+          "sha256": "3ddfe38bdc009570b591bc206ac18e656bd639279627048067e0c883bad8911d"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/drawer.json",
+        "sha256": "fc81c0adadef868df72172c9cf83237b8ab791a4f0f3e300540883be56c26982",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "@base-ui/react", "version": "1.9.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/drawer/Drawer.fecsx",
+          "target": "Components/UI/Drawer.fecsx",
+          "kind": "fecsx",
+          "sha256": "8f8146b2991e1a67c82135ba76125e33337af6750c9abcf6ccbfd98947378a23"
+        },
+        {
+          "source": "Sources/drawer/DrawerProps.cs",
+          "target": "Components/UI/DrawerProps.cs",
+          "kind": "csharp",
+          "sha256": "a50da5f417b499e0f9914c2e312faa4bb666ac2cc6142e84aacc21f84738ddd8"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/dropdown-menu.json",
+        "sha256": "335c59dba30145f434a9cc9ccb0438a3c5e2afe857fc11b029de1ecb415224d7",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/dropdown-menu/DropdownMenu.fecsx",
+          "target": "Components/UI/DropdownMenu.fecsx",
+          "kind": "fecsx",
+          "sha256": "8af8582a861cf3591f09ac434642873e6b640a554813774b44e90b1df95e20de"
+        },
+        {
+          "source": "Sources/dropdown-menu/DropdownMenuProps.cs",
+          "target": "Components/UI/DropdownMenuProps.cs",
+          "kind": "csharp",
+          "sha256": "a0428484cc4a7face404b0f6940e34c49751ccf87f6efc8999a2d53a84263600"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/chart.json",
+        "sha256": "c867c2180d6250e8f2883491abd802e1caae65eca6b11af415d42048cec798c5",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "react-is", "version": "19.3.1" },
+        { "name": "recharts", "version": "3.8.0" }
+      ],
+      "registryDependencies": ["card", "utils"],
+      "files": [
+        {
+          "source": "Sources/chart/Chart.fecsx",
+          "target": "Components/UI/Chart.fecsx",
+          "kind": "fecsx",
+          "sha256": "78aa43da01fd02f901f912e1df9dd8394a5e3551053963ec0c49a9953f8baa7b"
+        },
+        {
+          "source": "Sources/chart/ChartProps.cs",
+          "target": "Components/UI/ChartProps.cs",
+          "kind": "csharp",
+          "sha256": "a792718ad411794bbc9db4b0ac32b12bd2dbb7e1b9205a63d6be852bc7d171bb"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.Recharts", "version": "3.8.0" },
+        { "name": "Interop.JS.Shadcn.Recharts.fecs", "version": "3.8.0" }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/input-group.json",
+        "sha256": "acf9c5497a6c844dee87fbd4afefb6cd8be9ce50d050d14d58a340d955e517a1",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["button", "input", "textarea", "utils"],
+      "files": [
+        {
+          "source": "Sources/input-group/InputGroup.fecsx",
+          "target": "Components/UI/InputGroup.fecsx",
+          "kind": "fecsx",
+          "sha256": "7b4b161a381fba0ce1dd355d57a2b635f614a7c8115d635863ec1965fa08107e"
+        },
+        {
+          "source": "Sources/input-group/InputGroupProps.cs",
+          "target": "Components/UI/InputGroupProps.cs",
+          "kind": "csharp",
+          "sha256": "e9512582bf28936db2e232241306b211cc65695bff2fec58a1a643f67c1d2f3b"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/combobox.json",
+        "sha256": "d4b9231b00428269f6fa42bf3e26714f15c69245f35b62d1bbae6d1a4853d314",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "@base-ui/react", "version": "1.9.0" },
+        { "name": "lucide-react", "version": "1.72.0" }
+      ],
+      "registryDependencies": ["button", "input-group", "utils"],
+      "files": [
+        {
+          "source": "Sources/combobox/Combobox.fecsx",
+          "target": "Components/UI/Combobox.fecsx",
+          "kind": "fecsx",
+          "sha256": "ef1a62f365d3baa0426d2118e84502ebec1271116e8ceee6dfe6aa40f2f4250b"
+        },
+        {
+          "source": "Sources/combobox/ComboboxProps.cs",
+          "target": "Components/UI/ComboboxProps.cs",
+          "kind": "csharp",
+          "sha256": "ab1469ef258bbbd9998bcf6ad1263c76dd90edffb66c17497d57ebeba6657f68"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/separator.json",
+        "sha256": "3ad65962485f464592201cb90017b3d52a5c9fe272ce41ee049485b4c42e0d76",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "@base-ui/react", "version": "1.9.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/separator/Separator.fecsx",
+          "target": "Components/UI/Separator.fecsx",
+          "kind": "fecsx",
+          "sha256": "46553b067da48d3b6efe3010c72cc23673c3bca1dd600d742746ccd8e4fe675d"
+        },
+        {
+          "source": "Sources/separator/SeparatorProps.cs",
+          "target": "Components/UI/SeparatorProps.cs",
+          "kind": "csharp",
+          "sha256": "9514c6f9d78f9bd8016d409cd0454a849e7145554a733f787895d8ea0313c2eb"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/button-group.json",
+        "sha256": "da9bceac03af172022b214f89561b2bf9e0cccac63d46cfe2e1c9f2c8e6792e9",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" }
+      ],
+      "registryDependencies": ["separator", "utils"],
+      "files": [
+        {
+          "source": "Sources/button-group/ButtonGroup.fecsx",
+          "target": "Components/UI/ButtonGroup.fecsx",
+          "kind": "fecsx",
+          "sha256": "18b440b1ab6c06b27f8a813241bd0a13924ed9edc0370797ec0db4cf353c5f0d"
+        },
+        {
+          "source": "Sources/button-group/ButtonGroupProps.cs",
+          "target": "Components/UI/ButtonGroupProps.cs",
+          "kind": "csharp",
+          "sha256": "7f8d5c3c637217bb0919812cbf776853079421ba587c063ab425ff818d728ad9"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "upstream": {
+        "address": "https://ui.shadcn.com/r/styles/base-nova/button.json",
+        "sha256": "9ba7e870178813f0552b818a913a2792fb500c779e36395740b4973e3025d427",
+        "collection": "components"
+      },
+      "dependencies": [
+        { "name": "cn", "version": "0.5.2" },
+        { "name": "@base-ui/react", "version": "1.9.0" }
+      ],
+      "registryDependencies": ["utils"],
+      "files": [
+        {
+          "source": "Sources/button/Button.fecsx",
+          "target": "Components/UI/Button.fecsx",
+          "kind": "fecsx",
+          "sha256": "15b171f904cbc5fef2418867189387b9767c7adb6eecb20758fc7d63be632964"
+        },
+        {
+          "source": "Sources/button/ButtonProps.cs",
+          "target": "Components/UI/ButtonProps.cs",
+          "kind": "csharp",
+          "sha256": "6144d2dd22a64aa9a4d160b9b709ce7a34e8e8b03857b42b9d078fa0c8808d21"
+        }
+      ],
+      "packages": [
+        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+      ]
+    }
+  ]
+}

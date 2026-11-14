@@ -1,0 +1,68 @@
+; FrontEndCSharp Debug Adapter Host engine registration.
+[$RootKey$\CLSID\{FC152D13-6E45-44C6-B80C-25A153B931F8}]
+"Assembly"="FrontEndCSharp.VisualStudio"
+"Class"="FrontEndCSharp.VisualStudio.JavaScriptDebuggerProxyLauncher"
+"CodeBase"="$PackageFolder$\FrontEndCSharp.VisualStudio.dll"
+
+; Compose FrontEndCSharp into Visual Studio's installed JavaScript debugger.
+; Microsoft's CustomProtocolExtension registration remains unchanged.
+[$RootKey$\AD7Metrics\Engine\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}]
+"AdapterLauncher"="{FC152D13-6E45-44C6-B80C-25A153B931F8}"
+
+[$RootKey$\AD7Metrics\Engine\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}\ExceptionBreakpointMappings]
+"FrontEndCSharp: thrown managed exceptions"="frontendcsharp-thrown"
+"FrontEndCSharp: unhandled managed exceptions"="frontendcsharp-unhandled"
+
+; Debug Adapter Host reads filters from the engine's primary category. Keep
+; Microsoft's category and native all/uncaught rows, adding only our filter rows.
+; The independent category below belongs to the standalone FrontEndCSharp engine.
+[$RootKey$\AD7Metrics\Exception\{1CE4D9F7-FAAC-42EE-B352-87FDFB6FB37B}\JavaScript Exceptions\FrontEndCSharp: thrown managed exceptions]
+"State"=dword:00000000
+"Code"=dword:00000000
+
+[$RootKey$\AD7Metrics\Exception\{1CE4D9F7-FAAC-42EE-B352-87FDFB6FB37B}\JavaScript Exceptions\FrontEndCSharp: unhandled managed exceptions]
+"State"=dword:00000001
+"Code"=dword:00000000
+
+[$RootKey$\AD7Metrics\Engine\{394120B6-2FF9-4D0D-8953-913EF5CD0BCD}\ExceptionCategoryMappings]
+"FrontEndCSharp"="4DCFA4A3-9B82-4CB6-A98A-6490AF36E702"
+
+[$RootKey$\AD7Metrics\Engine\{9E606F29-A5D4-4EA6-879B-358B21626EEF}]
+"CLSID"="{DAB324E9-7B35-454C-ACA8-F6BB0D5C8673}"
+"AlwaysLoadLocal"=dword:00000001
+"AddressBP"=dword:00000000
+"CallStackBP"=dword:00000000
+"Attach"=dword:00000001
+"Exceptions"=dword:00000001
+"ExceptionConditions"=dword:00000000
+"Name"="FrontEndCSharp"
+"Adapter"="$PackageFolder$\Adapter\FrontEndCSharp.DebugAdapter.exe"
+"Language"="C#"
+"LanguageId"="3F5162F8-07C6-11D3-9053-00C04FA302A1"
+"LocalsScopeName"="Locals"
+"ExceptionBreakpointCategory"="{4DCFA4A3-9B82-4CB6-A98A-6490AF36E702}"
+
+; Visual Studio sends the enabled names through these stable DAP filter IDs.
+[$RootKey$\AD7Metrics\Engine\{9E606F29-A5D4-4EA6-879B-358B21626EEF}\ExceptionBreakpointMappings]
+"Thrown managed exceptions"="frontendcsharp-thrown"
+"Unhandled managed exceptions"="frontendcsharp-unhandled"
+
+; exceptionInfo IDs use FrontEndCSharp/<managed-type>; map that protocol
+; category to the same built-in Exception Settings category.
+[$RootKey$\AD7Metrics\Engine\{9E606F29-A5D4-4EA6-879B-358B21626EEF}\ExceptionCategoryMappings]
+"FrontEndCSharp"="4DCFA4A3-9B82-4CB6-A98A-6490AF36E702"
+
+; This category is backed by the DAP exception filters advertised by the adapter.
+; The category is a DAP-filter category. Thrown is opt-in and unhandled is enabled
+; by default, matching Visual Studio's normal managed-debugging behavior.
+[$RootKey$\AD7Metrics\Exception\{4DCFA4A3-9B82-4CB6-A98A-6490AF36E702}]
+[$RootKey$\AD7Metrics\Exception\{4DCFA4A3-9B82-4CB6-A98A-6490AF36E702}\FrontEndCSharp Managed Exceptions]
+"State"=dword:00010000
+
+[$RootKey$\AD7Metrics\Exception\{4DCFA4A3-9B82-4CB6-A98A-6490AF36E702}\FrontEndCSharp Managed Exceptions\Thrown managed exceptions]
+"State"=dword:00000000
+"Code"=dword:00000000
+
+[$RootKey$\AD7Metrics\Exception\{4DCFA4A3-9B82-4CB6-A98A-6490AF36E702}\FrontEndCSharp Managed Exceptions\Unhandled managed exceptions]
+"State"=dword:00000001
+"Code"=dword:00000000

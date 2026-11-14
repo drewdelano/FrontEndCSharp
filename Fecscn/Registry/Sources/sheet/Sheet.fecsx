@@ -1,0 +1,47 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(SheetProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Root props={SheetPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Dialog.Root>;
+
+public static ReactNode Trigger(SheetActionProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Trigger props={SheetPrimitive.CreateActionProps("sheet-trigger", props)}>
+        {children}
+    </BaseUI.Dialog.Trigger>;
+
+public static ReactNode Close(SheetActionProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Close props={SheetPrimitive.CreateActionProps("sheet-close", props)}>
+        {children}
+    </BaseUI.Dialog.Close>;
+
+public static ReactNode Content(SheetContentProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Portal props={ReactProps.Create()}>
+        <BaseUI.Dialog.Backdrop props={SheetPrimitive.CreateOverlayProps()} />
+        <BaseUI.Dialog.Popup props={SheetPrimitive.CreateContentProps(props)}>
+            {children}
+            {SheetPrimitive.CreateContentClose(props.ShowCloseButton)}
+        </BaseUI.Dialog.Popup>
+    </BaseUI.Dialog.Portal>;
+
+public static ReactNode Header(SheetPartProps props, ReactNode[] children) =>
+    <div data-slot="sheet-header" className={ClassNames.Merge(SheetStyles.Header, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Footer(SheetPartProps props, ReactNode[] children) =>
+    <div data-slot="sheet-footer" className={ClassNames.Merge(SheetStyles.Footer, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Title(SheetPartProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Title props={SheetPrimitive.CreatePartProps("sheet-title", SheetStyles.Title, props)}>
+        {children}
+    </BaseUI.Dialog.Title>;
+
+public static ReactNode Description(SheetPartProps props, ReactNode[] children) =>
+    <BaseUI.Dialog.Description props={SheetPrimitive.CreatePartProps("sheet-description", SheetStyles.Description, props)}>
+        {children}
+    </BaseUI.Dialog.Description>;

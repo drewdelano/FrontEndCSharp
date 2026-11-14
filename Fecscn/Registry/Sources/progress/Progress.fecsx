@@ -1,0 +1,31 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(ProgressProps props, ReactNode[] children) =>
+    <BaseUI.Progress.Root props={ProgressPrimitive.CreateRootProps(props)}>
+        {children}
+        <BaseUI.Progress.Track props={ProgressPrimitive.CreateTrackProps(null)}>
+            <BaseUI.Progress.Indicator props={ProgressPrimitive.CreateIndicatorProps(null)} />
+        </BaseUI.Progress.Track>
+    </BaseUI.Progress.Root>;
+
+public static ReactNode Track(ProgressPartProps props, ReactNode[] children) =>
+    <BaseUI.Progress.Track props={ProgressPrimitive.CreateTrackProps(props)}>
+        {children}
+    </BaseUI.Progress.Track>;
+
+public static ReactNode Indicator(ProgressPartProps props, ReactNode[] children) =>
+    <BaseUI.Progress.Indicator props={ProgressPrimitive.CreateIndicatorProps(props)}>
+        {children}
+    </BaseUI.Progress.Indicator>;
+
+public static ReactNode Label(ProgressPartProps props, ReactNode[] children) =>
+    <BaseUI.Progress.Label props={ProgressPrimitive.CreateLabelProps(props)}>
+        {children}
+    </BaseUI.Progress.Label>;
+
+public static ReactNode Value(ProgressPartProps props, ReactNode[] children) =>
+    <BaseUI.Progress.Value props={ProgressPrimitive.CreateValueProps(props)}>
+        {children}
+    </BaseUI.Progress.Value>;

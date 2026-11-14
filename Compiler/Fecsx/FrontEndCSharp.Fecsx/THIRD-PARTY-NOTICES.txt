@@ -1,0 +1,11 @@
+FrontEndCSharp FECSX includes C# adaptations of JSX-specific parser and React JSX
+text/entity transform algorithms from TypeScript 5.2.2.
+
+TypeScript is licensed under the Apache License, Version 2.0.
+Source: https://github.com/microsoft/TypeScript/tree/v5.2.2
+License: https://github.com/microsoft/TypeScript/blob/v5.2.2/LICENSE.txt
+
+The FECSX Visual Studio project separately ships a grammar derived from Microsoft's
+TypeScript-TmLanguage project.
+Source: https://github.com/microsoft/TypeScript-TmLanguage
+License: https://github.com/microsoft/TypeScript-TmLanguage/blob/master/LICENSE.txt

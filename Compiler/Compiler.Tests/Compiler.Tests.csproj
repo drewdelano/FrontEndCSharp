@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\RuntimeOverrides\FluentValidation\FluentValidation.fecs\FluentValidation.fecs.csproj" ReferenceOutputAssembly="false" />
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="5.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+    <Compile Include="..\Tests\NUnitTestInfrastructure.cs" Link="NUnitTestInfrastructure.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Packaging\Shared\FrontEndCSharp.Packaging.Shared.csproj" />
+    <ProjectReference Include="..\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj" />
+    <ProjectReference Include="..\Core\Compiler.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Console\System.Console.fecs\System.Console.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Collections.Concurrent\System.Collections.Concurrent.fecs\System.Collections.Concurrent.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Collections\System.Collections.fecs\System.Collections.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Security.Cryptography\System.Security.Cryptography.fecs\System.Security.Cryptography.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Linq\System.Linq.fecs\System.Linq.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Text.RegularExpressions\System.Text.RegularExpressions.fecs\System.Text.RegularExpressions.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Net.Http\System.Net.Http.fecs\System.Net.Http.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Net.Http.Json\System.Net.Http.Json.fecs\System.Net.Http.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.ComponentModel.Annotations\System.ComponentModel.Annotations.fecs\System.ComponentModel.Annotations.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Newtonsoft.Json\Newtonsoft.Json.fecs\Newtonsoft.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX\Interop.JS.MobX.fecs\Interop.JS.MobX.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX.React\Interop.JS.MobX.React.fecs\Interop.JS.MobX.React.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Motion\Interop.JS.Motion.fecs\Interop.JS.Motion.fecs.csproj" />
+    <ProjectReference Include="Fixtures\EmbeddedPdbFixture\EmbeddedPdbFixture.csproj" />
+    <ProjectReference Include="Fixtures\PortablePdbFixture\PortablePdbFixture.csproj" />
+    <ProjectReference Include="Fixtures\AssemblyCollision\Entry\AssemblyCollision.Entry.csproj" />
+    <ProjectReference Include="Fixtures\PossibleTypes\PossibleTypes.csproj" />
+    <ProjectReference Include="Fixtures\JsonReachability\JsonReachability.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Fixtures\RuntimeOverrideReturns\Entry\RuntimeOverrideReturns.Entry.csproj" />
+      <ProjectReference Include="Fixtures\RuntimeOverrideReturns\ExplicitStringEntry\RuntimeOverrideReturns.ExplicitStringEntry.csproj" />
+    <ProjectReference Include="Fixtures\JavaScriptInteropFixture\JavaScriptInteropFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Fixtures\SystemTextJsonBrowserFixture\SystemTextJsonBrowserFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Fixtures\FluentValidationBrowserFixture\FluentValidationBrowserFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Fixtures\ProcessRunnerFixture\ProcessRunnerFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Fixtures\IncrementalCompilerFixture\IncrementalCompilerFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Fixtures\LucideIconsReachabilityFixture\LucideIconsReachabilityFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="Integration\FrontEndCSharp.Compiler.Integration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Fixtures\**\*.cs" />
+    <Compile Remove="Integration\**\*.cs" />
+    <Compile Remove="Performance\**\*.cs" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <_FrontEndCompiler>$(MSBuildProjectDirectory)\..\Core\bin\$(Configuration)\net8.0\Compiler.dll</_FrontEndCompiler>
+    <_FluentValidationFixtureProject>$(MSBuildProjectDirectory)\Fixtures\FluentValidationBrowserFixture\FluentValidationBrowserFixture.csproj</_FluentValidationFixtureProject>
+    <_FluentValidationFixtureAssembly>$(MSBuildProjectDirectory)\Fixtures\FluentValidationBrowserFixture\bin\$(Configuration)\net8.0\FluentValidationBrowserFixture.dll</_FluentValidationFixtureAssembly>
+  </PropertyGroup>
+
+  <Target Name="CompileFluentValidationBrowserFixture"
+          AfterTargets="Build"
+          Condition="'$(DesignTimeBuild)' != 'true'"
+          Inputs="$(_FrontEndCompiler);$(_FluentValidationFixtureAssembly);@(ReferenceCopyLocalPaths)"
+          Outputs="$(TargetDir)FluentValidationBrowserOutput\index.js">
+    <RemoveDir Directories="$(TargetDir)FluentValidationBrowserOutput" />
+    <MakeDir Directories="$(TargetDir)FluentValidationBrowserOutput" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          Command="dotnet &quot;$(_FrontEndCompiler)&quot; --no-bundle &quot;$(_FluentValidationFixtureProject)&quot; &quot;$(TargetDir)FluentValidationBrowserOutput&quot; &quot;$(_FluentValidationFixtureAssembly)&quot;" />
+  </Target>
+
+</Project>

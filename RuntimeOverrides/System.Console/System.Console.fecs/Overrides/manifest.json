@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Console.WriteLine(System.Int32)",
+      "file": "method.02b1d80465b71a879ac9fa5a161d69b0714206a360c9cd24fb90bade77ff0cd0.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.Single)",
+      "file": "method.411434ce266103091f0024512f877dbd917fe899aa62f47a8f4049e7540cf087.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.Object)",
+      "file": "method.518a99876b28b25635b90c438a484d932796ca27b8a1bf30bbb1e3fef7e02330.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.Double)",
+      "file": "method.576c1a34ff04764bc03607c619f8def189375b5b165a4e50686bae3f4281b430.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.Char)",
+      "file": "method.75f282a67308283eed83aaf8d525fb100ce16c1edfbae607410a09d8ca14f4f9.js"
+    },
+    {
+      "signature": "System.Console.WriteLine()",
+      "file": "method.c5b7f0a9a5e813b67a253490bb95a733e8302234c6d8343a5f42bf61f077cbc2.js"
+    },
+    {
+      "signature": "System.Console.Write(System.String)",
+      "file": "method.e26b53b42a80f072d5c9711d0072c716840bbb1943fa83d09011cebbada84029.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.Boolean)",
+      "file": "method.f1f4864791f5a116a9de015e4f07b86875c0d4f6bf62243f63fd036ff692ec60.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.String)",
+      "file": "method.f5d661fa7ac9fcfd6d2284d5985c7a035e7210556ab7bfce22c1d2bf99054b17.js"
+    },
+    {
+      "signature": "System.Console.WriteLine(System.Int64)",
+      "file": "method.fa2c526a860708056da607dbf4856278a8845f204f9e4d5c0d6bf2f0b24b01a9.js"
+    }
+  ]
+}

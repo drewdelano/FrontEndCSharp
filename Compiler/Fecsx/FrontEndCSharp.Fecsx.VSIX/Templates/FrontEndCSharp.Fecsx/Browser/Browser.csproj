@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <FrontEndCSharpFecsxAttributeCasing>camelCase</FrontEndCSharpFecsxAttributeCasing>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FrontEndCSharp.Fecsx.Build" Version="0.1.0" PrivateAssets="all" />
+    <PackageReference Include="Interop.JS.Browser" Version="1.0.0" />
+    <PackageReference Include="Interop.JS.Browser.fecs" Version="1.0.0" />
+    <PackageReference Include="Interop.JS.React" Version="19.3.1" />
+    <PackageReference Include="Interop.JS.React.fecs" Version="19.3.1" />
+    <PackageReference Include="System.Private.CoreLib.fecs" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

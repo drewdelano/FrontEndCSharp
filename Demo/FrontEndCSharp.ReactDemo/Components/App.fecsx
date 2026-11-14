@@ -1,0 +1,48 @@
+using Interop.JS.React;
+namespace FrontEndCSharp.ReactDemo;
+
+public sealed class AppProps
+{
+    public OrbitStore Store { get; set; } = null!;
+}
+
+
+public static ReactNode Default(AppProps props, ReactNode[] children)
+{
+    return <main className="shell">
+        <header className="topbar">
+            <div className="brand">
+                <span className="brand-mark">◌</span>
+                <span className="brand-name">Orbit</span>
+                <span className="brand-sub">a managed attention system</span>
+            </div>
+            <span className="date-chip">Today · build with intention</span>
+        </header>
+        <div className="dashboard">
+            <div className="main-column">
+                <FocusCard store={props.Store} />
+                <Hidden.TaskDeck store={props.Store} />
+            </div>
+            <aside className="side-column">
+                <WeatherPanel store={props.Store} />
+                <FocusIntentPanel store={props.Store} />
+                <section className="panel note-card">
+                    <span className="note-mark">“</span>
+                    <blockquote>Clarity arrives after you begin, not before.</blockquote>
+                    <cite>Orbit field note · 07</cite>
+                </section>
+            </aside>
+        </div>
+        <span id="fecsx-jsx-text-parity" hidden>
+            Alpha &amp;
+            beta &#x1F680;
+        </span>
+        <App.Footer store={props.Store} />
+    </main>;
+}
+
+public static ReactNode Footer(AppProps props, ReactNode[] children) =>
+    <footer className="footer-line">
+        <span>React owns the tree · MobX carries the signal</span>
+        <span>Motion makes state visible</span>
+    </footer>;

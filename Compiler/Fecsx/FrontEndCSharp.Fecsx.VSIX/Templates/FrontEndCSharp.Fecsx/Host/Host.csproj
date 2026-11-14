@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <FrontEndCSharpProject>$(MSBuildProjectDirectory)\..\$ext_safeprojectname$.Browser\$ext_safeprojectname$.Browser.csproj</FrontEndCSharpProject>
+    <FrontEndCSharpOutputPath>$(MSBuildProjectDirectory)\wwwroot\js</FrontEndCSharpOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FrontEndCSharp.Build" Version="0.1.19" />
+  </ItemGroup>
+
+</Project>

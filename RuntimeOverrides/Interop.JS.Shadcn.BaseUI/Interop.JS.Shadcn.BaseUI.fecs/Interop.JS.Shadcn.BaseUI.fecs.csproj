@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Interop.JS.Shadcn.BaseUI.fecs</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>1.9.0</Version>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Overrides\*.js" />
+    <EmbeddedResource Include="Overrides\manifest.json" />
+    <EmbeddedResource Include="RuntimeAssets\*.js"
+                      LogicalName="$(AssemblyName).RuntimeAssets.%(Filename)%(Extension)" />
+    <ProjectReference Include="..\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj" />
+    <ProjectReference Include="..\..\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj" />
+    <ProjectReference Include="..\..\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\..\..\Compiler\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <Import Project="..\..\..\Compiler\RuntimeOverrides\Packaging\JavaScriptPackageCompanion.targets" />
+
+</Project>

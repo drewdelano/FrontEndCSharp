@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Interop.JS.MobX.React.fecs</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>5.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Overrides\*.js" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+    <EmbeddedResource Include="Overrides\manifest.json" />
+    <ProjectReference Include="..\Interop.JS.MobX.React\Interop.JS.MobX.React.csproj" />
+    <ProjectReference Include="..\..\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj" />
+    <ProjectReference Include="..\..\..\Compiler\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\..\Compiler\RuntimeOverrides\Packaging\JavaScriptPackageCompanion.targets" />
+
+</Project>

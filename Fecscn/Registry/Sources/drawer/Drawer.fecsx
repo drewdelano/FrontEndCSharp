@@ -1,0 +1,62 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(DrawerProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Root props={DrawerPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Drawer.Root>;
+
+public static ReactNode Trigger(DrawerActionProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Trigger props={DrawerPrimitive.CreateActionProps("drawer-trigger", props)}>
+        {children}
+    </BaseUI.Drawer.Trigger>;
+
+public static ReactNode Portal(DrawerPartProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Portal props={DrawerPrimitive.CreatePartProps("drawer-portal", null, props)}>
+        {children}
+    </BaseUI.Drawer.Portal>;
+
+public static ReactNode Close(DrawerActionProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Close props={DrawerPrimitive.CreateActionProps("drawer-close", props)}>
+        {children}
+    </BaseUI.Drawer.Close>;
+
+public static ReactNode Overlay(DrawerPartProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Backdrop props={DrawerPrimitive.CreatePartProps("drawer-overlay", DrawerStyles.Overlay, props)} />;
+
+public static ReactNode SwipeHandle(DrawerPartProps props, ReactNode[] children) =>
+    <div data-slot="drawer-swipe-handle" aria-hidden={true} className={ClassNames.Merge(DrawerStyles.SwipeHandle, props.ClassName)} />;
+
+public static ReactNode Content(DrawerContentProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Portal props={ReactProps.Create()}>
+        <BaseUI.Drawer.Backdrop props={DrawerPrimitive.CreateOverlayProps()} />
+        <BaseUI.Drawer.Viewport props={DrawerPrimitive.CreateViewportProps()}>
+            <BaseUI.Drawer.Popup props={DrawerPrimitive.CreatePopupProps(props)}>
+                {DrawerPrimitive.CreateSwipeHandle(props.ShowSwipeHandle)}
+                <BaseUI.Drawer.Content props={DrawerPrimitive.CreateInnerContentProps()}>
+                    {children}
+                </BaseUI.Drawer.Content>
+            </BaseUI.Drawer.Popup>
+        </BaseUI.Drawer.Viewport>
+    </BaseUI.Drawer.Portal>;
+
+public static ReactNode Header(DrawerPartProps props, ReactNode[] children) =>
+    <div data-slot="drawer-header" className={ClassNames.Merge(DrawerStyles.Header, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Footer(DrawerPartProps props, ReactNode[] children) =>
+    <div data-slot="drawer-footer" className={ClassNames.Merge(DrawerStyles.Footer, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Title(DrawerPartProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Title props={DrawerPrimitive.CreatePartProps("drawer-title", DrawerStyles.Title, props)}>
+        {children}
+    </BaseUI.Drawer.Title>;
+
+public static ReactNode Description(DrawerPartProps props, ReactNode[] children) =>
+    <BaseUI.Drawer.Description props={DrawerPrimitive.CreatePartProps("drawer-description", DrawerStyles.Description, props)}>
+        {children}
+    </BaseUI.Drawer.Description>;

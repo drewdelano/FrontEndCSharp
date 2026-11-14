@@ -1,0 +1,27 @@
+using Interop.JS.React;
+using Fecscn.Components.UI;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(AppProps props, ReactNode[] children) =>
+    MobXReact.Observe(() => <section className="focus-side-section energy-section w-full min-w-0 max-w-full border-t border-[var(--line)] pt-[17px]">
+        <div className="focus-side-heading flex items-center justify-between gap-3.5 *:min-w-0">
+            <div>
+                <span className="focus-side-kicker">Capacity</span>
+                <h2>Energy check</h2>
+            </div>
+            <span className="energy-readout">
+                {props.Store.EnergyLevel == 1 ? "Low" : props.Store.EnergyLevel == 3 ? "Bright" : "Steady"}
+            </span>
+        </div>
+        <ButtonGroup className="energy-grid mt-[13px] w-full">
+            <Button className={$"energy-button{(props.Store.EnergyLevel == 1 ? " is-active" : string.Empty)}"}
+                    variant={props.Store.EnergyLevel == 1 ? ButtonVariant.Default : ButtonVariant.Outline}
+                    onClick={_ => Actions.SetEnergy(props.Store, 1)}>Low</Button>
+            <Button className={$"energy-button{(props.Store.EnergyLevel == 2 ? " is-active" : string.Empty)}"}
+                    variant={props.Store.EnergyLevel == 2 ? ButtonVariant.Default : ButtonVariant.Outline}
+                    onClick={_ => Actions.SetEnergy(props.Store, 2)}>Steady</Button>
+            <Button className={$"energy-button{(props.Store.EnergyLevel == 3 ? " is-active" : string.Empty)}"}
+                    variant={props.Store.EnergyLevel == 3 ? ButtonVariant.Default : ButtonVariant.Outline}
+                    onClick={_ => Actions.SetEnergy(props.Store, 3)}>Bright</Button>
+        </ButtonGroup>
+    </section>);

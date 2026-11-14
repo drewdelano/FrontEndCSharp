@@ -1,0 +1,127 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <FrontEndCSharpProject>$(MSBuildProjectDirectory)\..\FrontEndCSharp.ReactDemo\FrontEndCSharp.ReactDemo.csproj</FrontEndCSharpProject>
+    <FrontEndCSharpOutputPath>$(MSBuildProjectDirectory)\wwwroot\js\react-demo</FrontEndCSharpOutputPath>
+    <FrontEndCSharpCompilerProject>$(MSBuildProjectDirectory)\..\..\Compiler\Core\Compiler.csproj</FrontEndCSharpCompilerProject>
+    <FrontEndCSharpBuildTasksProject>$(MSBuildProjectDirectory)\..\..\Compiler\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj</FrontEndCSharpBuildTasksProject>
+    <FrontEndCSharpSimpleDemoProject>$(MSBuildProjectDirectory)\..\FrontEndCSharp.SimpleDemo\FrontEndCSharp.SimpleDemo.csproj</FrontEndCSharpSimpleDemoProject>
+    <FrontEndCSharpSimpleDemoOutputPath>$(MSBuildProjectDirectory)\wwwroot\js\simple-demo</FrontEndCSharpSimpleDemoOutputPath>
+    <FrontEndCSharpTailwindProject>$(MSBuildProjectDirectory)\..\..\Fecscn\FrontEndCSharp.Tailwind\FrontEndCSharp.Tailwind.csproj</FrontEndCSharpTailwindProject>
+    <FrontEndCSharpTailwindInput>$(MSBuildProjectDirectory)\..\FrontEndCSharp.ReactDemo\Styles\fecscn.css</FrontEndCSharpTailwindInput>
+    <FrontEndCSharpTailwindOutput>$(MSBuildProjectDirectory)\wwwroot\css\fecscn.css</FrontEndCSharpTailwindOutput>
+  </PropertyGroup>
+
+  <Import Project="..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="$(FrontEndCSharpSimpleDemoProject)"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true" />
+    <UpToDateCheckOutput Include="$(FrontEndCSharpSimpleDemoOutputPath)\index.js"
+                         Set="FrontEndCSharp" />
+  </ItemGroup>
+
+  <Import Project="..\..\Compiler\Packaging\Assets\FrontEndCSharp.targets" />
+
+  <Target Name="PrepareFrontEndCSharpTailwindDemoPayload"
+          BeforeTargets="GenerateFrontEndCSharpTailwindCss"
+          Condition="'$(FrontEndCSharpTailwindEnabled)' == 'true' and '$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+    <MSBuild Projects="$(FrontEndCSharpTailwindProject)"
+             Targets="PrepareFrontEndCSharpTailwindPayload"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_FrontEndCSharpPreparedTailwindPayload" />
+    </MSBuild>
+    <PropertyGroup>
+      <_FrontEndCSharpTailwindPayload>@(_FrontEndCSharpPreparedTailwindPayload->'%(FullPath)')</_FrontEndCSharpTailwindPayload>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="RemoveDemoStaticWebAssetOutputs"
+          BeforeTargets="PrepareForBuild">
+    <ItemGroup>
+      <_DemoStaticWebAssetOutput Include="$(TargetDir)$(TargetName).staticwebassets.runtime.json" />
+      <_DemoStaticWebAssetOutput Include="$(TargetDir)$(TargetName).staticwebassets.endpoints.json" />
+    </ItemGroup>
+    <Delete Files="@(_DemoStaticWebAssetOutput)" />
+  </Target>
+
+  <Target Name="ResolveFrontEndCSharpSimpleDemoBuildInputs"
+          DependsOnTargets="ResolveFrontEndCSharpBrowserBuildInputs"
+          Condition="'$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+    <MSBuild Projects="$(FrontEndCSharpSimpleDemoProject)"
+             Targets="GetTargetPath"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_FrontEndCSharpSimpleDemoTarget" />
+    </MSBuild>
+    <Error Condition="'@(_FrontEndCSharpSimpleDemoTarget)' == '' or !Exists('@(_FrontEndCSharpSimpleDemoTarget)')"
+           Text="The FrontEndCSharp simple demo did not produce a target assembly." />
+    <PropertyGroup>
+      <_FrontEndCSharpSimpleDemoOutputRelativePath>$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '$(FrontEndCSharpSimpleDemoOutputPath)'))</_FrontEndCSharpSimpleDemoOutputRelativePath>
+      <_FrontEndCSharpSimpleDemoGenerationStamp>$(IntermediateOutputPath)FrontEndCSharp\simple-demo-output.stamp</_FrontEndCSharpSimpleDemoGenerationStamp>
+      <_FrontEndCSharpSimpleDemoGenerationCandidate>$(_FrontEndCSharpSimpleDemoGenerationStamp).candidate</_FrontEndCSharpSimpleDemoGenerationCandidate>
+      <_FrontEndCSharpSimpleDemoInputsFile>$(IntermediateOutputPath)FrontEndCSharp\simple-demo-output.inputs</_FrontEndCSharpSimpleDemoInputsFile>
+      <_FrontEndCSharpSimpleDemoConfigurationFile>$(IntermediateOutputPath)FrontEndCSharp\simple-demo-output.configuration</_FrontEndCSharpSimpleDemoConfigurationFile>
+      <_FrontEndCSharpSimpleDemoOutputsFile>$(IntermediateOutputPath)FrontEndCSharp\simple-demo-output.outputs</_FrontEndCSharpSimpleDemoOutputsFile>
+      <_FrontEndCSharpSimpleDemoTargetPath>@(_FrontEndCSharpSimpleDemoTarget)</_FrontEndCSharpSimpleDemoTargetPath>
+      <_FrontEndCSharpSimpleDemoTargetDirectory>$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpSimpleDemoTargetPath)'))</_FrontEndCSharpSimpleDemoTargetDirectory>
+    </PropertyGroup>
+    <ItemGroup>
+      <_FrontEndCSharpSimpleDemoGenerationInput Include="$(_FrontEndCSharpSimpleDemoTargetDirectory)\**\*.dll" />
+      <_FrontEndCSharpSimpleDemoGenerationInput Include="$(_FrontEndCSharpSimpleDemoTargetDirectory)\**\*.pdb" />
+      <_FrontEndCSharpSimpleDemoGenerationInput Include="$(_FrontEndCSharpSimpleDemoTargetDirectory)\**\*.deps.json" />
+      <_FrontEndCSharpSimpleDemoGenerationInput Include="$(_FrontEndCSharpSimpleDemoTargetDirectory)\**\*.runtimeconfig.json" />
+      <_FrontEndCSharpSimpleDemoGenerationInput Include="$(_FrontEndCSharpCompilerDirectory)\**\*" />
+      <_FrontEndCSharpSimpleDemoGenerationOutput Include="$(FrontEndCSharpSimpleDemoOutputPath)\index.js" />
+      <_FrontEndCSharpSimpleDemoGenerationOutput Include="$(FrontEndCSharpSimpleDemoOutputPath)\index.js.map" />
+      <_FrontEndCSharpSimpleDemoGenerationOutput Include="$(FrontEndCSharpSimpleDemoOutputPath)\msil.bin" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="GenerateFrontEndCSharpSimpleDemoBrowserOutput"
+          AfterTargets="GenerateFrontEndCSharpBrowserOutput"
+          BeforeTargets="ResolveProjectStaticWebAssets;ResolveCurrentProjectStaticWebAssetsInputs"
+          DependsOnTargets="ResolveFrontEndCSharpSimpleDemoBuildInputs"
+          Condition="'$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+    <MakeDir Directories="$(FrontEndCSharpSimpleDemoOutputPath)" />
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpSimpleDemoGenerationStamp)'))" />
+    <WriteLinesToFile File="$(_FrontEndCSharpSimpleDemoInputsFile)" Lines="@(_FrontEndCSharpSimpleDemoGenerationInput->'%(FullPath)')" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <WriteLinesToFile File="$(_FrontEndCSharpSimpleDemoOutputsFile)" Lines="@(_FrontEndCSharpSimpleDemoGenerationOutput->'%(FullPath)')" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <_FrontEndCSharpSimpleDemoConfiguration Include="Configuration=$(Configuration)" />
+      <_FrontEndCSharpSimpleDemoConfiguration Include="Project=$([System.IO.Path]::GetFullPath('$(FrontEndCSharpSimpleDemoProject)'))" />
+      <_FrontEndCSharpSimpleDemoConfiguration Include="Output=$([System.IO.Path]::GetFullPath('$(FrontEndCSharpSimpleDemoOutputPath)'))" />
+      <_FrontEndCSharpSimpleDemoConfiguration Include="Target=$([System.IO.Path]::GetFullPath('$(_FrontEndCSharpSimpleDemoTargetPath)'))" />
+      <_FrontEndCSharpSimpleDemoConfiguration Include="Compiler=$([System.IO.Path]::GetFullPath('$(_FrontEndCSharpResolvedCompilerPath)'))" />
+      <_FrontEndCSharpSimpleDemoConfiguration Include="DebuggerArguments=$(_FrontEndCSharpDebuggerArguments)" />
+      <_FrontEndCSharpSimpleDemoConfiguration Include="SourceMapMode=$(FrontEndCSharpSourceMapMode)" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(_FrontEndCSharpSimpleDemoConfigurationFile)" Lines="@(_FrontEndCSharpSimpleDemoConfiguration)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpResolvedBuildTasksPath)&quot; check-browser-output-state &quot;$(_FrontEndCSharpSimpleDemoInputsFile)&quot; &quot;$(_FrontEndCSharpSimpleDemoConfigurationFile)&quot; &quot;$(_FrontEndCSharpSimpleDemoOutputsFile)&quot; &quot;$(_FrontEndCSharpSimpleDemoGenerationStamp)&quot; &quot;$(_FrontEndCSharpSimpleDemoGenerationCandidate)&quot;" IgnoreExitCode="true">
+      <Output TaskParameter="ExitCode" PropertyName="_FrontEndCSharpSimpleDemoStateExitCode" />
+    </Exec>
+    <Error Condition="'$(_FrontEndCSharpSimpleDemoStateExitCode)' != '0' and '$(_FrontEndCSharpSimpleDemoStateExitCode)' != '3'" Text="FrontEndCSharp could not evaluate the incremental simple-demo browser-build state." />
+    <PropertyGroup>
+      <_FrontEndCSharpSimpleDemoGenerationRequired>false</_FrontEndCSharpSimpleDemoGenerationRequired>
+      <_FrontEndCSharpSimpleDemoGenerationRequired Condition="'$(_FrontEndCSharpSimpleDemoStateExitCode)' == '3'">true</_FrontEndCSharpSimpleDemoGenerationRequired>
+    </PropertyGroup>
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpResolvedCompilerPath)&quot; $(_FrontEndCSharpDebuggerArguments) --source-map-mode &quot;$(FrontEndCSharpSourceMapMode)&quot; --log-level &quot;$(FrontEndCSharpLogLevel)&quot; &quot;$(FrontEndCSharpSimpleDemoProject)&quot; &quot;$(FrontEndCSharpSimpleDemoOutputPath)&quot; &quot;@(_FrontEndCSharpSimpleDemoTarget)&quot;" Condition="'$(_FrontEndCSharpSimpleDemoGenerationRequired)' == 'true'" />
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpResolvedBuildTasksPath)&quot; commit-browser-output-state &quot;$(_FrontEndCSharpSimpleDemoGenerationCandidate)&quot; &quot;$(_FrontEndCSharpSimpleDemoOutputsFile)&quot; &quot;$(_FrontEndCSharpSimpleDemoGenerationStamp)&quot;" Condition="'$(_FrontEndCSharpSimpleDemoGenerationRequired)' == 'true'" />
+    <ItemGroup>
+      <Content Remove="$(_FrontEndCSharpSimpleDemoOutputRelativePath)\**\*" />
+      <Content Include="$(_FrontEndCSharpSimpleDemoOutputRelativePath)\**\*" />
+    </ItemGroup>
+  </Target>
+
+  <Import Project="..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.targets" />
+
+  <PropertyGroup>
+    <_FrontEndCSharpTailwindTasks>$(MSBuildProjectDirectory)\..\..\Fecscn\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll</_FrontEndCSharpTailwindTasks>
+  </PropertyGroup>
+
+</Project>

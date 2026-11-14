@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <PackageId>FrontEndCSharp.Tailwind</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>FrontEndCSharp</Authors>
+    <Description>Offline Tailwind CSS v4 build integration for FrontEndCSharp and FECSX projects.</Description>
+    <PackageTags>tailwindcss;fecsx;csharp;msbuild</PackageTags>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <TailwindPayloadArchive>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\TailwindPayload.zip</TailwindPayloadArchive>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CollectFrontEndCSharpTailwindPackageFiles</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FrontEndCSharp.Tailwind.Tasks\FrontEndCSharp.Tailwind.Tasks.csproj"
+                      ReferenceOutputAssembly="false"
+                      PrivateAssets="all" />
+    <None Include="buildTransitive\FrontEndCSharp.Tailwind.props"
+          Pack="true"
+          PackagePath="buildTransitive\FrontEndCSharp.Tailwind.props" />
+    <None Include="buildTransitive\FrontEndCSharp.Tailwind.targets"
+          Pack="true"
+          PackagePath="buildTransitive\FrontEndCSharp.Tailwind.targets" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <Target Name="CollectFrontEndCSharpTailwindPackageFiles"
+          DependsOnTargets="Build;CreateFrontEndCSharpTailwindPayload">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(TailwindPayloadArchive)">
+        <PackagePath>tools\tailwind\payload.zip</PackagePath>
+      </TfmSpecificPackageFile>
+      <_FrontEndCSharpTailwindBootstrap Include="..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\**\*"
+                                        Exclude="..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\**\*.pdb" />
+      <TfmSpecificPackageFile Include="@(_FrontEndCSharpTailwindBootstrap)">
+        <PackagePath>tools\bootstrap\%(_FrontEndCSharpTailwindBootstrap.RecursiveDir)%(_FrontEndCSharpTailwindBootstrap.Filename)%(_FrontEndCSharpTailwindBootstrap.Extension)</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="CreateFrontEndCSharpTailwindPayload"
+          Inputs="JavaScriptPackages\package.json;JavaScriptPackages\package-lock.json;JavaScriptPackages\default-theme.css;..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll"
+          Outputs="$(TailwindPayloadArchive)">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)\JavaScriptPackages"
+          Command="npm ci --force --ignore-scripts" />
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll&quot; create-payload &quot;$(MSBuildProjectDirectory)\JavaScriptPackages&quot; &quot;$(TailwindPayloadArchive)&quot;" />
+  </Target>
+
+  <Target Name="PrepareFrontEndCSharpTailwindPayload"
+          DependsOnTargets="Build;CreateFrontEndCSharpTailwindPayload"
+          Returns="$(TailwindPayloadArchive)" />
+
+</Project>

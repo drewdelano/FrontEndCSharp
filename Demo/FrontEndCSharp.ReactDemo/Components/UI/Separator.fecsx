@@ -1,0 +1,6 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(SeparatorProps props, ReactNode[] children) =>
+    <BaseUI.Separator props={SeparatorPrimitive.CreateProps(props)} />;

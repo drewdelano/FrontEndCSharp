@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <!--
+      NuGet and MSBuild persist absolute project paths in intermediate files. The same
+      checkout can be reached through more than one drive, share, or junction, so give
+      each lexical repository root its own intermediate subtree.
+    -->
+    <_FrontEndCSharpRepositoryRoot>$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)'))</_FrontEndCSharpRepositoryRoot>
+    <_FrontEndCSharpRepositoryRootHash>$([MSBuild]::StableStringHash('$(_FrontEndCSharpRepositoryRoot)'))</_FrontEndCSharpRepositoryRootHash>
+    <_FrontEndCSharpRepositoryRootKey>$([System.Convert]::ToString($(_FrontEndCSharpRepositoryRootHash), 16))</_FrontEndCSharpRepositoryRootKey>
+    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)' == ''">obj\root-$(_FrontEndCSharpRepositoryRootKey)\</BaseIntermediateOutputPath>
+
+    <!-- Keep every intermediate subtree out of SDK default item globs. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\obj\**;$(MSBuildProjectDirectory)\**\obj\**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

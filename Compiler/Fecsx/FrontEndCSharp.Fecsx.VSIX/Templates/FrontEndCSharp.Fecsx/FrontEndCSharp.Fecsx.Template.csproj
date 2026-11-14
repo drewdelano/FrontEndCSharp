@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+          Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{7BE0800E-A7F1-4406-9922-72DD02329D8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FrontEndCSharp.Fecsx.Template</RootNamespace>
+    <AssemblyName>FrontEndCSharp.Fecsx.Template</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RestoreProjectStyle>None</RestoreProjectStyle>
+    <ResolveNuGetPackages>false</ResolveNuGetPackages>
+    <FileAlignment>512</FileAlignment>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DeployExtension>false</DeployExtension>
+    <DeployVSTemplates>false</DeployVSTemplates>
+    <CreateVsixContainer>false</CreateVsixContainer>
+    <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+    <CopyZipOutputToOutputDirectory>true</CopyZipOutputToOutputDirectory>
+    <ZipIntermediatePath>$(BaseIntermediateOutputPath)$(Configuration)\templates</ZipIntermediatePath>
+    <FrontEndCSharpIncludeVssdkBuildToolsPackageReference>false</FrontEndCSharpIncludeVssdkBuildToolsPackageReference>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <Import Project="$(_FrontEndCSharpRepositoryRoot)Vssdk.BuildTools.props" />
+
+  <ItemGroup>
+    <VSTemplate Include="FrontEndCSharp.Fecsx.vstemplate">
+      <Language>CSharp</Language>
+      <Culture>1033</Culture>
+    </VSTemplate>
+    <None Include="Host\**\*" />
+    <None Include="Browser\**\*" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets"
+          Condition="Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets')" />
+
+  <Target Name="RequireVssdkBuildTools"
+          BeforeTargets="PrepareForBuild"
+          Condition="!Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets')">
+    <Error Text="Microsoft.VSSDK.BuildTools is not available. Restore and build the containing VSIX project, then build this project again." />
+  </Target>
+
+  <Target Name="CreateProjectTemplateArchive" AfterTargets="Build" DependsOnTargets="ZipProjects" />
+
+</Project>

@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <TailwindTestPayloadArchive>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\TailwindTestPayload.zip</TailwindTestPayloadArchive>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="5.0.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+    <Compile Include="..\..\Compiler\Tests\NUnitTestInfrastructure.cs" Link="NUnitTestInfrastructure.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FrontEndCSharp.Tailwind.Tasks\FrontEndCSharp.Tailwind.Tasks.csproj" />
+  </ItemGroup>
+
+  <Target Name="CreateTailwindTestPayload"
+          AfterTargets="Build"
+          Inputs="..\FrontEndCSharp.Tailwind\JavaScriptPackages\package.json;..\FrontEndCSharp.Tailwind\JavaScriptPackages\package-lock.json;..\FrontEndCSharp.Tailwind\JavaScriptPackages\default-theme.css;..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll"
+          Outputs="$(TailwindTestPayloadArchive)">
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll&quot; create-payload &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Tailwind\JavaScriptPackages&quot; &quot;$(TailwindTestPayloadArchive)&quot;" />
+  </Target>
+
+  <Target Name="CopyTailwindTestPayload"
+          AfterTargets="CreateTailwindTestPayload">
+    <Copy SourceFiles="$(TailwindTestPayloadArchive)"
+          DestinationFiles="$(TargetDir)TailwindTestPayload.zip"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

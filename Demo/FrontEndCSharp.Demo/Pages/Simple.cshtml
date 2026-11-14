@@ -1,0 +1,13 @@
+@page "/simple"
+@{
+    ViewData["Title"] = "Simple demo";
+}
+
+<section class="demo-hero">
+    <p class="demo-kicker">FrontEndCSharp.SimpleDemo</p>
+    <h1>The small, inspectable one.</h1>
+    <p class="demo-lead">This managed program exercises synchronous calls, async continuation, console output, and debugger stepping. Open the browser console to see its output.</p>
+    <p><a href="/">← Back to demos</a></p>
+</section>
+
+<script type="module" src="~/js/simple-demo/index.js" asp-append-version="true"></script>

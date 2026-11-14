@@ -1,0 +1,92 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(ComboboxProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Root props={ComboboxPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Combobox.Root>;
+
+public static ReactNode Value(ComboboxValueProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Value props={ComboboxPrimitive.CreateValueProps(props)} />;
+
+public static ReactNode Trigger(ComboboxTriggerProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Trigger props={ComboboxPrimitive.CreateTriggerProps(props)}>
+        {children}
+        <LucideIcons.ChevronDownIcon ariaHidden={true} className={ComboboxStyles.TriggerIcon} />
+    </BaseUI.Combobox.Trigger>;
+
+public static ReactNode Clear(ComboboxActionProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Clear props={ComboboxPrimitive.CreateClearProps(props)}>
+        {children.Length == 0 ? LucideIcons.XIcon.Create(icon => icon.AriaHidden = true) : React.Node(children)}
+    </BaseUI.Combobox.Clear>;
+
+public static ReactNode Input(ComboboxInputProps props, ReactNode[] children) =>
+    <div data-slot="input-group" role="group" className={ClassNames.Merge(InputGroupStyles.Root, "w-auto", props.ClassName)}>
+        <BaseUI.Combobox.Input props={ComboboxPrimitive.CreateInputProps(props)} />
+        <div data-slot="input-group-addon" role="group" className={ClassNames.Merge(InputGroupStyles.Addon, InputGroupStyles.AddonAlign(InputGroupAddonAlign.InlineEnd))}>
+            {ComboboxPrimitive.CreateInputTrigger(props)}
+            {ComboboxPrimitive.CreateInputClear(props)}
+        </div>
+        {children}
+    </div>;
+
+public static ReactNode Content(ComboboxContentProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Portal props={ReactProps.Create()}>
+        <BaseUI.Combobox.Positioner props={ComboboxPrimitive.CreatePositionerProps(props)}>
+            <BaseUI.Combobox.Popup props={ComboboxPrimitive.CreatePopupProps(props)}>
+                {children}
+            </BaseUI.Combobox.Popup>
+        </BaseUI.Combobox.Positioner>
+    </BaseUI.Combobox.Portal>;
+
+public static ReactNode List(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.List props={ComboboxPrimitive.CreatePartProps("combobox-list", ComboboxStyles.List, props)}>
+        {children}
+    </BaseUI.Combobox.List>;
+
+public static ReactNode Item(ComboboxItemProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Item props={ComboboxPrimitive.CreateItemProps(props)}>
+        {children}
+        <BaseUI.Combobox.ItemIndicator props={ComboboxPrimitive.CreateItemIndicatorProps()}>
+            <LucideIcons.CheckIcon ariaHidden={true} />
+        </BaseUI.Combobox.ItemIndicator>
+    </BaseUI.Combobox.Item>;
+
+public static ReactNode Group(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Group props={ComboboxPrimitive.CreatePartProps("combobox-group", string.Empty, props)}>
+        {children}
+    </BaseUI.Combobox.Group>;
+
+public static ReactNode Label(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.GroupLabel props={ComboboxPrimitive.CreatePartProps("combobox-label", ComboboxStyles.Label, props)}>
+        {children}
+    </BaseUI.Combobox.GroupLabel>;
+
+public static ReactNode Collection(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Collection props={ComboboxPrimitive.CreatePartProps("combobox-collection", string.Empty, props)}>
+        {children}
+    </BaseUI.Combobox.Collection>;
+
+public static ReactNode Empty(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Empty props={ComboboxPrimitive.CreatePartProps("combobox-empty", ComboboxStyles.Empty, props)}>
+        {children}
+    </BaseUI.Combobox.Empty>;
+
+public static ReactNode Separator(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Separator props={ComboboxPrimitive.CreatePartProps("combobox-separator", ComboboxStyles.Separator, props)} />;
+
+public static ReactNode Chips(ComboboxPartProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Chips props={ComboboxPrimitive.CreatePartProps("combobox-chips", ComboboxStyles.Chips, props)}>
+        {children}
+    </BaseUI.Combobox.Chips>;
+
+public static ReactNode Chip(ComboboxChipProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Chip props={ComboboxPrimitive.CreateChipProps(props)}>
+        {children}
+        {ComboboxPrimitive.CreateChipRemove(props.ShowRemove)}
+    </BaseUI.Combobox.Chip>;
+
+public static ReactNode ChipsInput(ComboboxInputProps props, ReactNode[] children) =>
+    <BaseUI.Combobox.Input props={ComboboxPrimitive.CreateChipsInputProps(props)} />;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
+  <Symbols>
+    <String Name="Resources" Value="/FrontEndCSharp.Fecsx.VSIX;Component/Assets" />
+    <Guid Name="ImagesGuid" Value="{dd37ad22-31f8-4dde-b7bd-5d1424d89a93}" />
+    <ID Name="FecsxFile" Value="1" />
+    <ID Name="TailwindCompletion" Value="2" />
+  </Symbols>
+  <Images>
+    <Image Guid="$(ImagesGuid)" ID="$(FecsxFile)">
+      <Source Uri="$(Resources)/FecsxFile.xaml">
+        <Size Value="16" />
+      </Source>
+    </Image>
+    <Image Guid="$(ImagesGuid)" ID="$(TailwindCompletion)">
+      <Source Uri="$(Resources)/TailwindCompletion.xaml">
+        <Size Value="16" />
+      </Source>
+    </Image>
+  </Images>
+  <ImageLists />
+</ImageManifest>

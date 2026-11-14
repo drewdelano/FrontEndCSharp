@@ -1,0 +1,42 @@
+<Project>
+
+  <PropertyGroup>
+    <FrontEndCSharpVssdkBuildToolsVersion>17.11.439</FrontEndCSharpVssdkBuildToolsVersion>
+    <FrontEndCSharpIncludeVssdkBuildToolsPackageReference
+        Condition="'$(FrontEndCSharpIncludeVssdkBuildToolsPackageReference)' == ''">true</FrontEndCSharpIncludeVssdkBuildToolsPackageReference>
+
+    <_FrontEndCSharpVssdkBuildToolsRoot
+        Condition="'$(_FrontEndCSharpVssdkBuildToolsRoot)' == '' and Exists('$(PkgMicrosoft_VSSDK_BuildTools)\tools\VSSDK\Microsoft.VsSDK.targets')">$(PkgMicrosoft_VSSDK_BuildTools)</_FrontEndCSharpVssdkBuildToolsRoot>
+    <_FrontEndCSharpVssdkBuildToolsRoot
+        Condition="'$(_FrontEndCSharpVssdkBuildToolsRoot)' == '' and Exists('$(NuGetPackageRoot)microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)\tools\VSSDK\Microsoft.VsSDK.targets')">$(NuGetPackageRoot)microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)</_FrontEndCSharpVssdkBuildToolsRoot>
+    <_FrontEndCSharpVssdkBuildToolsRoot
+        Condition="'$(_FrontEndCSharpVssdkBuildToolsRoot)' == '' and Exists('$(RestorePackagesPath)\microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)\tools\VSSDK\Microsoft.VsSDK.targets')">$(RestorePackagesPath)\microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)</_FrontEndCSharpVssdkBuildToolsRoot>
+    <_FrontEndCSharpVssdkBuildToolsRoot
+        Condition="'$(_FrontEndCSharpVssdkBuildToolsRoot)' == '' and Exists('$(NUGET_PACKAGES)\microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)\tools\VSSDK\Microsoft.VsSDK.targets')">$(NUGET_PACKAGES)\microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)</_FrontEndCSharpVssdkBuildToolsRoot>
+    <_FrontEndCSharpVssdkBuildToolsRoot
+        Condition="'$(_FrontEndCSharpVssdkBuildToolsRoot)' == '' and Exists('$(UserProfile)\.nuget\packages\microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)\tools\VSSDK\Microsoft.VsSDK.targets')">$(UserProfile)\.nuget\packages\microsoft.vssdk.buildtools\$(FrontEndCSharpVssdkBuildToolsVersion)</_FrontEndCSharpVssdkBuildToolsRoot>
+
+    <VSToolsPath
+        Condition="!Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets') and '$(_FrontEndCSharpVssdkBuildToolsRoot)' != ''">$(_FrontEndCSharpVssdkBuildToolsRoot)\tools</VSToolsPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(FrontEndCSharpIncludeVssdkBuildToolsPackageReference)' == 'true'">
+    <PackageReference Include="Microsoft.VSSDK.BuildTools"
+                      Version="$(FrontEndCSharpVssdkBuildToolsVersion)"
+                      PrivateAssets="all"
+                      GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <!--
+    Microsoft.VSSDK.BuildTools initializes its tool environment before
+    CreateVsixContainer, but GenerateTemplatesManifest is an earlier dependency of
+    that target. Projects without VSCT compilation therefore need this explicit
+    ordering so VsixUtil is resolved from the selected NuGet package rather than a
+    stale Visual Studio installation path.
+  -->
+  <Target Name="SetFrontEndCSharpVssdkEnvironmentForTemplateManifest"
+          BeforeTargets="GenerateTemplatesManifest"
+          DependsOnTargets="SetVsSDKEnvironmentVariables"
+          Condition="'$(FrontEndCSharpIncludeVssdkBuildToolsPackageReference)' == 'true'" />
+
+</Project>

@@ -1,0 +1,186 @@
+<Project>
+  <PropertyGroup>
+    <FrontEndCSharpOutputPath Condition="'$(FrontEndCSharpOutputPath)' == ''">$(MSBuildProjectDirectory)\wwwroot\js</FrontEndCSharpOutputPath>
+    <FrontEndCSharpLogLevel Condition="'$(FrontEndCSharpLogLevel)' == ''">normal</FrontEndCSharpLogLevel>
+    <FrontEndCSharpSourceMapMode Condition="'$(FrontEndCSharpSourceMapMode)' == ''">managed</FrontEndCSharpSourceMapMode>
+    <FrontEndCSharpDebuggerArmPath Condition="'$(FrontEndCSharpDebuggerArmPath)' == '' and '$(SolutionDir)' != '' and '$(SolutionDir)' != '*Undefined*'">$(SolutionDir).vs\FrontEndCSharp\debugger.arm</FrontEndCSharpDebuggerArmPath>
+    <FrontEndCSharpBuildRequestPath Condition="'$(FrontEndCSharpBuildRequestPath)' == '' and '$(SolutionDir)' != '' and '$(SolutionDir)' != '*Undefined*'">$(SolutionDir).vs\FrontEndCSharp\build.request</FrontEndCSharpBuildRequestPath>
+    <_FrontEndCSharpGeneratedEntryPoint>$(FrontEndCSharpOutputPath)\index.js</_FrontEndCSharpGeneratedEntryPoint>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(FrontEndCSharpProject)' != ''">
+    <!-- Make the browser project part of the real build graph so CPS observes its output. -->
+    <ProjectReference Include="$(FrontEndCSharpProject)"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true" />
+    <!-- Keep these inputs in CPS's evaluated project even while the files are absent.
+         The debugger creates its arm immediately before F5; an Exists condition here
+         leaves that new file invisible to the cached fast up-to-date state. -->
+    <UpToDateCheckInput Include="$(FrontEndCSharpDebuggerArmPath)" Set="FrontEndCSharp" />
+    <UpToDateCheckInput Include="$(FrontEndCSharpBuildRequestPath)" Set="FrontEndCSharp" />
+    <UpToDateCheckOutput Include="$(_FrontEndCSharpGeneratedEntryPoint)" Set="FrontEndCSharp" />
+  </ItemGroup>
+
+  <Target Name="ResolveFrontEndCSharpBrowserBuildInputs"
+          Condition="'$(FrontEndCSharpProject)' != '' and '$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+    <Error Condition="!Exists('$(FrontEndCSharpProject)')"
+           Text="The FrontEndCSharp project does not exist: '$(FrontEndCSharpProject)'." />
+    <PropertyGroup>
+      <_FrontEndCSharpCompilerPathFile Condition="'$(_FrontEndCSharpCompilerPathFile)' == ''">$(IntermediateOutputPath)FrontEndCSharp\compiler.path</_FrontEndCSharpCompilerPathFile>
+      <_FrontEndCSharpGenerationStamp Condition="'$(_FrontEndCSharpGenerationStamp)' == ''">$(IntermediateOutputPath)FrontEndCSharp\browser-output.stamp</_FrontEndCSharpGenerationStamp>
+      <_FrontEndCSharpGenerationCandidate>$(_FrontEndCSharpGenerationStamp).candidate</_FrontEndCSharpGenerationCandidate>
+      <_FrontEndCSharpGenerationInputsFile>$(IntermediateOutputPath)FrontEndCSharp\browser-output.inputs</_FrontEndCSharpGenerationInputsFile>
+      <_FrontEndCSharpGenerationConfigurationFile>$(IntermediateOutputPath)FrontEndCSharp\browser-output.configuration</_FrontEndCSharpGenerationConfigurationFile>
+      <_FrontEndCSharpGenerationOutputsFile>$(IntermediateOutputPath)FrontEndCSharp\browser-output.outputs</_FrontEndCSharpGenerationOutputsFile>
+      <_FrontEndCSharpOutputRelativePath>$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '$(FrontEndCSharpOutputPath)'))</_FrontEndCSharpOutputRelativePath>
+    </PropertyGroup>
+    <Error Condition="'$(FrontEndCSharpCompilerPath)' == '' and '$(FrontEndCSharpCompilerProject)' == '' and !Exists('$(FrontEndCSharpCompilerPayloadPath)')"
+           Text="The FrontEndCSharp compiler payload does not exist: '$(FrontEndCSharpCompilerPayloadPath)'. Install the FrontEndCSharp.Build package or set FrontEndCSharpCompilerPath explicitly." />
+    <Error Condition="'$(FrontEndCSharpCompilerPath)' == '' and '$(FrontEndCSharpCompilerProject)' == '' and !Exists('$(FrontEndCSharpCompilerBootstrapPath)')"
+           Text="The FrontEndCSharp compiler bootstrapper does not exist: '$(FrontEndCSharpCompilerBootstrapPath)'." />
+    <Error Condition="'$(FrontEndCSharpCompilerPath)' == '' and '$(FrontEndCSharpCompilerProject)' != '' and !Exists('$(FrontEndCSharpCompilerProject)')"
+           Text="The FrontEndCSharp compiler project does not exist: '$(FrontEndCSharpCompilerProject)'." />
+    <Error Condition="'$(FrontEndCSharpLogLevel)' != 'normal' and '$(FrontEndCSharpLogLevel)' != 'verbose'"
+           Text="FrontEndCSharpLogLevel must be 'normal' or 'verbose'." />
+    <Error Condition="'$(FrontEndCSharpSourceMapMode)' != 'managed' and '$(FrontEndCSharpSourceMapMode)' != 'full'"
+           Text="FrontEndCSharpSourceMapMode must be 'managed' or 'full'." />
+
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpCompilerPathFile)'))"
+             Condition="'$(FrontEndCSharpCompilerPath)' == '' and '$(FrontEndCSharpCompilerProject)' == ''" />
+    <Exec Command="dotnet &quot;$(FrontEndCSharpCompilerBootstrapPath)&quot; &quot;$(FrontEndCSharpCompilerPayloadPath)&quot; &quot;$(_FrontEndCSharpCompilerPathFile)&quot;"
+          Condition="'$(FrontEndCSharpCompilerPath)' == '' and '$(FrontEndCSharpCompilerProject)' == ''" />
+    <ReadLinesFromFile File="$(_FrontEndCSharpCompilerPathFile)"
+                       Condition="'$(FrontEndCSharpCompilerPath)' == '' and '$(FrontEndCSharpCompilerProject)' == ''">
+      <Output TaskParameter="Lines" ItemName="_FrontEndCSharpInstalledCompiler" />
+    </ReadLinesFromFile>
+
+    <MSBuild Projects="$(FrontEndCSharpProject)"
+             Targets="GetTargetPath"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_FrontEndCSharpTarget" />
+    </MSBuild>
+    <MSBuild Projects="$(FrontEndCSharpCompilerProject)"
+             Targets="Build"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)"
+             Condition="'$(FrontEndCSharpCompilerPath)' == ''" />
+    <MSBuild Projects="$(FrontEndCSharpCompilerProject)"
+             Targets="GetTargetPath"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)"
+             Condition="'$(FrontEndCSharpCompilerPath)' == ''">
+      <Output TaskParameter="TargetOutputs" ItemName="_FrontEndCSharpCompiler" />
+    </MSBuild>
+    <MSBuild Projects="$(FrontEndCSharpBuildTasksProject)"
+             Targets="Build"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)"
+             Condition="'$(FrontEndCSharpBuildTasksPath)' == '' and '$(FrontEndCSharpBuildTasksProject)' != ''" />
+    <MSBuild Projects="$(FrontEndCSharpBuildTasksProject)"
+             Targets="GetTargetPath"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)"
+             Condition="'$(FrontEndCSharpBuildTasksPath)' == '' and '$(FrontEndCSharpBuildTasksProject)' != ''">
+      <Output TaskParameter="TargetOutputs" ItemName="_FrontEndCSharpBuildTasks" />
+    </MSBuild>
+
+    <PropertyGroup>
+      <_FrontEndCSharpResolvedCompilerPath Condition="'$(FrontEndCSharpCompilerPath)' != ''">$(FrontEndCSharpCompilerPath)</_FrontEndCSharpResolvedCompilerPath>
+      <_FrontEndCSharpResolvedCompilerPath Condition="'$(_FrontEndCSharpResolvedCompilerPath)' == '' and '@(_FrontEndCSharpInstalledCompiler)' != ''">@(_FrontEndCSharpInstalledCompiler)</_FrontEndCSharpResolvedCompilerPath>
+      <_FrontEndCSharpResolvedCompilerPath Condition="'$(_FrontEndCSharpResolvedCompilerPath)' == '' and '@(_FrontEndCSharpCompiler)' != ''">@(_FrontEndCSharpCompiler)</_FrontEndCSharpResolvedCompilerPath>
+      <_FrontEndCSharpResolvedBuildTasksPath Condition="'$(FrontEndCSharpBuildTasksPath)' != ''">$(FrontEndCSharpBuildTasksPath)</_FrontEndCSharpResolvedBuildTasksPath>
+      <_FrontEndCSharpResolvedBuildTasksPath Condition="'$(_FrontEndCSharpResolvedBuildTasksPath)' == '' and '@(_FrontEndCSharpBuildTasks)' != ''">@(_FrontEndCSharpBuildTasks)</_FrontEndCSharpResolvedBuildTasksPath>
+      <_FrontEndCSharpTargetPath>@(_FrontEndCSharpTarget)</_FrontEndCSharpTargetPath>
+      <_FrontEndCSharpTargetDirectory>$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpTargetPath)'))</_FrontEndCSharpTargetDirectory>
+      <_FrontEndCSharpCompilerDirectory>$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpResolvedCompilerPath)'))</_FrontEndCSharpCompilerDirectory>
+      <_FrontEndCSharpBuildTasksDirectory>$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpResolvedBuildTasksPath)'))</_FrontEndCSharpBuildTasksDirectory>
+    </PropertyGroup>
+
+    <Error Condition="'@(_FrontEndCSharpTarget)' == '' or !Exists('@(_FrontEndCSharpTarget)')"
+           Text="The FrontEndCSharp project did not produce a target assembly." />
+    <Error Condition="'$(_FrontEndCSharpResolvedCompilerPath)' == '' or !Exists('$(_FrontEndCSharpResolvedCompilerPath)')"
+           Text="The FrontEndCSharp compiler does not exist: '$(_FrontEndCSharpResolvedCompilerPath)'." />
+    <Error Condition="'$(_FrontEndCSharpResolvedBuildTasksPath)' == '' or !Exists('$(_FrontEndCSharpResolvedBuildTasksPath)')"
+           Text="The FrontEndCSharp build tasks do not exist: '$(_FrontEndCSharpResolvedBuildTasksPath)'." />
+
+    <ItemGroup>
+      <_FrontEndCSharpGenerationInput Remove="@(_FrontEndCSharpGenerationInput)" />
+      <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpTargetDirectory)\**\*.dll" />
+      <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpTargetDirectory)\**\*.pdb" />
+      <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpTargetDirectory)\**\*.deps.json" />
+      <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpTargetDirectory)\**\*.runtimeconfig.json" />
+      <!-- The compiler, its managed dependencies, runtime modules, and packaged
+           bundler are one versioned behavior payload. -->
+      <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpCompilerDirectory)\**\*" />
+      <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpBuildTasksDirectory)\**\*" />
+      <_FrontEndCSharpGenerationInput Include="$(MSBuildThisFileFullPath)" />
+      <_FrontEndCSharpGenerationInput Include="$(FrontEndCSharpDebuggerArmPath)"
+                                      Condition="'$(FrontEndCSharpDebuggerArmPath)' != '' and Exists('$(FrontEndCSharpDebuggerArmPath)')" />
+      <_FrontEndCSharpGenerationInput Include="$(FrontEndCSharpBuildRequestPath)"
+                                      Condition="'$(FrontEndCSharpBuildRequestPath)' != '' and Exists('$(FrontEndCSharpBuildRequestPath)')" />
+      <_FrontEndCSharpGenerationOutput Remove="@(_FrontEndCSharpGenerationOutput)" />
+      <_FrontEndCSharpGenerationOutput Include="$(FrontEndCSharpOutputPath)\index.js" />
+      <_FrontEndCSharpGenerationOutput Include="$(FrontEndCSharpOutputPath)\index.js.map" />
+      <_FrontEndCSharpGenerationOutput Include="$(FrontEndCSharpOutputPath)\msil.bin" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="GenerateFrontEndCSharpBrowserOutput"
+          AfterTargets="Build"
+          BeforeTargets="ResolveProjectStaticWebAssets;ResolveCurrentProjectStaticWebAssetsInputs"
+          DependsOnTargets="ResolveFrontEndCSharpBrowserBuildInputs"
+          Condition="'$(FrontEndCSharpProject)' != '' and '$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+
+    <MakeDir Directories="$(FrontEndCSharpOutputPath)" />
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName('$(_FrontEndCSharpGenerationStamp)'))" />
+    <PropertyGroup>
+      <_FrontEndCSharpBuildWasDebuggerArmed Condition="'$(FrontEndCSharpDebuggerArmPath)' != '' and Exists('$(FrontEndCSharpDebuggerArmPath)')">true</_FrontEndCSharpBuildWasDebuggerArmed>
+      <_FrontEndCSharpDebuggerArguments Condition="'$(FrontEndCSharpDebuggerArmPath)' != '' and Exists('$(FrontEndCSharpDebuggerArmPath)')">--debugger-rendezvous-timeout-ms 10000</_FrontEndCSharpDebuggerArguments>
+    </PropertyGroup>
+    <WriteLinesToFile File="$(_FrontEndCSharpGenerationInputsFile)" Lines="@(_FrontEndCSharpGenerationInput->'%(FullPath)')" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <WriteLinesToFile File="$(_FrontEndCSharpGenerationOutputsFile)" Lines="@(_FrontEndCSharpGenerationOutput->'%(FullPath)')" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <_FrontEndCSharpGenerationConfiguration Remove="@(_FrontEndCSharpGenerationConfiguration)" />
+      <_FrontEndCSharpGenerationConfiguration Include="Configuration=$(Configuration)" />
+      <_FrontEndCSharpGenerationConfiguration Include="Project=$([System.IO.Path]::GetFullPath('$(FrontEndCSharpProject)'))" />
+      <_FrontEndCSharpGenerationConfiguration Include="Output=$([System.IO.Path]::GetFullPath('$(FrontEndCSharpOutputPath)'))" />
+      <_FrontEndCSharpGenerationConfiguration Include="Target=$([System.IO.Path]::GetFullPath('$(_FrontEndCSharpTargetPath)'))" />
+      <_FrontEndCSharpGenerationConfiguration Include="Compiler=$([System.IO.Path]::GetFullPath('$(_FrontEndCSharpResolvedCompilerPath)'))" />
+      <_FrontEndCSharpGenerationConfiguration Include="DebuggerArguments=$(_FrontEndCSharpDebuggerArguments)" />
+      <_FrontEndCSharpGenerationConfiguration Include="SourceMapMode=$(FrontEndCSharpSourceMapMode)" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(_FrontEndCSharpGenerationConfigurationFile)" Lines="@(_FrontEndCSharpGenerationConfiguration)" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpResolvedBuildTasksPath)&quot; check-browser-output-state &quot;$(_FrontEndCSharpGenerationInputsFile)&quot; &quot;$(_FrontEndCSharpGenerationConfigurationFile)&quot; &quot;$(_FrontEndCSharpGenerationOutputsFile)&quot; &quot;$(_FrontEndCSharpGenerationStamp)&quot; &quot;$(_FrontEndCSharpGenerationCandidate)&quot;"
+          IgnoreExitCode="true">
+      <Output TaskParameter="ExitCode" PropertyName="_FrontEndCSharpGenerationStateExitCode" />
+    </Exec>
+    <Error Condition="'$(_FrontEndCSharpGenerationStateExitCode)' != '0' and '$(_FrontEndCSharpGenerationStateExitCode)' != '3'"
+           Text="FrontEndCSharp could not evaluate the incremental browser-build state." />
+    <PropertyGroup>
+      <_FrontEndCSharpGenerationRequired>false</_FrontEndCSharpGenerationRequired>
+      <_FrontEndCSharpGenerationRequired Condition="'$(_FrontEndCSharpGenerationStateExitCode)' == '3'">true</_FrontEndCSharpGenerationRequired>
+    </PropertyGroup>
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpResolvedCompilerPath)&quot; $(_FrontEndCSharpDebuggerArguments) --source-map-mode &quot;$(FrontEndCSharpSourceMapMode)&quot; --log-level &quot;$(FrontEndCSharpLogLevel)&quot; &quot;$(FrontEndCSharpProject)&quot; &quot;$(FrontEndCSharpOutputPath)&quot; &quot;@(_FrontEndCSharpTarget)&quot;"
+          Condition="'$(_FrontEndCSharpGenerationRequired)' == 'true'" />
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpResolvedBuildTasksPath)&quot; commit-browser-output-state &quot;$(_FrontEndCSharpGenerationCandidate)&quot; &quot;$(_FrontEndCSharpGenerationOutputsFile)&quot; &quot;$(_FrontEndCSharpGenerationStamp)&quot;"
+          Condition="'$(_FrontEndCSharpGenerationRequired)' == 'true'" />
+    <!-- Default Content globs are evaluated before this target creates output. Refresh
+         the generated subtree so first-build assets enter ASP.NET's static-web manifest. -->
+    <ItemGroup>
+      <Content Remove="$(_FrontEndCSharpOutputRelativePath)\**\*" />
+      <Content Include="$(_FrontEndCSharpOutputRelativePath)\**\*" />
+    </ItemGroup>
+    <Delete Files="$(FrontEndCSharpDebuggerArmPath)"
+            Condition="'$(FrontEndCSharpDebuggerArmPath)' != '' and Exists('$(FrontEndCSharpDebuggerArmPath)')" />
+    <!-- index.js may be updated independently by debugger build-identity work.
+         Only this stamp proves that the complete compiler payload was copied. -->
+    <!-- An armed build intentionally emits debugger-only rendezvous code. Make the
+         following ordinary build out-of-date so it replaces that output. -->
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName('$(FrontEndCSharpBuildRequestPath)'))"
+             Condition="'$(_FrontEndCSharpBuildWasDebuggerArmed)' == 'true' and '$(FrontEndCSharpBuildRequestPath)' != ''" />
+    <Touch Files="$(FrontEndCSharpBuildRequestPath)"
+           AlwaysCreate="true"
+           Condition="'$(_FrontEndCSharpBuildWasDebuggerArmed)' == 'true' and '$(FrontEndCSharpBuildRequestPath)' != ''" />
+  </Target>
+</Project>

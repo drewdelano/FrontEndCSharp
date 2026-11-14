@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0"
+                 xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
+                 xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="FrontEndCSharp.Debugger.cfcb81f4-801e-4f6b-a582-3dcd42ca0218"
+              Version="0.1.19"
+              Language="en-US"
+              Publisher="FrontEndCSharp" />
+    <DisplayName>FrontEndCSharp Debugger</DisplayName>
+    <Description xml:space="preserve">Debug C# compiled for the FrontEndCSharp browser runtime with Visual Studio's built-in debugger UI.</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor"
+                  Version="[17.0,18.0)"
+                  DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.Debugger.JustInTime"
+                  Version="[17.0,18.0)"
+                  DisplayName="Just-In-Time debugger" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage"
+           d:Source="Project"
+           d:ProjectName="%CurrentProject%"
+           Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage"
+           d:Source="File"
+           Path="AdapterRegistration.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate"
+           d:Source="Project"
+           d:ProjectName="FrontEndCSharp.Browser.Template"
+           d:TargetPath="|FrontEndCSharp.Browser.Template;TemplateProjectOutputGroup|"
+           d:VsixSubPath="ProjectTemplates"
+           Path="ProjectTemplates" />
+  </Assets>
+</PackageManifest>

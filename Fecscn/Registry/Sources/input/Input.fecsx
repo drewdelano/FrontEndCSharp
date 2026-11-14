@@ -1,0 +1,6 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(InputProps props, ReactNode[] children) =>
+    <BaseUI.Input props={InputPrimitive.CreateProps(props)} />;

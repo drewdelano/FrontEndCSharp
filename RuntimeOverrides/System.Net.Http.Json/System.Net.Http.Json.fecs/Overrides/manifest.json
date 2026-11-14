@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsync<T>(System.Net.Http.HttpContent, System.Threading.CancellationToken)",
+      "file": "method.1433bfad4fc3efc9159359b84947743096da7e328adb2f4263da779c69b1700c.js"
+    },
+    {
+      "signature": "System.Net.Http.Json.HttpClientJsonExtensions.GetFromJsonAsync<TValue>(System.Net.Http.HttpClient, System.String, System.Threading.CancellationToken)",
+      "file": "method.5a4f5cb47392910f5fdd82af9d479778939cb706d5cc3f1847d567b87b0368dd.js"
+    },
+    {
+      "signature": "System.Net.Http.Json.HttpClientJsonExtensions.PostAsJsonAsync<TValue>(System.Net.Http.HttpClient, System.String, TValue, System.Text.Json.JsonSerializerOptions, System.Threading.CancellationToken)",
+      "file": "method.fdf0cb03a882623afafe04c65fcb97406abf8682b1cdc2bcc3031a36337e3dfc.js"
+    },
+    {
+      "signature": "System.Net.Http.Json.HttpClientJsonExtensions.PutAsJsonAsync<TValue>(System.Net.Http.HttpClient, System.String, TValue, System.Text.Json.JsonSerializerOptions, System.Threading.CancellationToken)",
+      "file": "method.5191e65bf8fbe3e5a77c1a68768b5a4795783f56e2f5072e1cdf4bd3143ad25d.js"
+    }
+  ]
+}

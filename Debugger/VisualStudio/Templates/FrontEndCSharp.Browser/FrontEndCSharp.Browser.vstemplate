@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0"
+            Type="ProjectGroup"
+            xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>FrontEndCSharp Browser Application</Name>
+    <Description>A minimal ASP.NET Core hosted browser application written in C# and compiled by FrontEndCSharp.</Description>
+    <TemplateID>FrontEndCSharp.Browser.Application</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Web</PlatformTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+    <DefaultName>FrontEndCSharpBrowserApp</DefaultName>
+    <CreateNewFolder>false</CreateNewFolder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <SortOrder>1000</SortOrder>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
+        Host\Host.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Browser" CopyParameters="true">
+        Browser\Browser.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>

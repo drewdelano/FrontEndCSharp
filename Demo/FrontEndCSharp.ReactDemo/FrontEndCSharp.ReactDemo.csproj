@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <FrontEndCSharpFecsxAttributeCasing>camelCase</FrontEndCSharpFecsxAttributeCasing>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Compiler\Fecsx\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.csproj"
+                      OutputItemType="Analyzer"
+                      ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons\Interop.JS.LucideIcons.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons.fecs\Interop.JS.LucideIcons.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX\Interop.JS.MobX\Interop.JS.MobX.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX\Interop.JS.MobX.fecs\Interop.JS.MobX.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX.React\Interop.JS.MobX.React\Interop.JS.MobX.React.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX.React\Interop.JS.MobX.React.fecs\Interop.JS.MobX.React.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Motion\Interop.JS.Motion\Interop.JS.Motion.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Motion\Interop.JS.Motion.fecs\Interop.JS.Motion.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.fecs\Interop.JS.Shadcn.BaseUI.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.fecs\Interop.JS.Shadcn.Cn.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.ComponentModel.Annotations\System.ComponentModel.Annotations.fecs\System.ComponentModel.Annotations.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Net.Http\System.Net.Http.fecs\System.Net.Http.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Net.Http.Json\System.Net.Http.Json.fecs\System.Net.Http.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Private.Uri\System.Private.Uri.fecs\System.Private.Uri.fecs.csproj" />
+    <ProjectReference Include="..\..\RuntimeOverrides\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\Compiler\Fecsx\FrontEndCSharp.Fecsx.Build\buildTransitive\FrontEndCSharp.Fecsx.Build.props" />
+
+</Project>

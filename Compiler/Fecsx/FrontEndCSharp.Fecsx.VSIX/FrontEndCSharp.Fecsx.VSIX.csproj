@@ -1,0 +1,141 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(DevEnvDir)devenv.exe</StartProgram>
+    <StartArguments>/RootSuffix Exp</StartArguments>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <VsixIntermediatePath>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\vsix</VsixIntermediatePath>
+    <TemplateOutputDirectory>$(VsixIntermediatePath)\templates</TemplateOutputDirectory>
+    <FileManifest>$(VsixIntermediatePath)\files.json</FileManifest>
+    <TemplateFileManifest>$(VsixIntermediatePath)\templateFiles.json</TemplateFileManifest>
+    <ResourceManifest>$(VsixIntermediatePath)\resources.json</ResourceManifest>
+    <CtoFileManifest>$(VsixIntermediatePath)\ctoFiles.json</CtoFileManifest>
+    <CtoCacheFile>$(VsixIntermediatePath)\mergeCto.cache</CtoCacheFile>
+    <CreateTemplateManifestsCacheFile>$(VsixIntermediatePath)\createTemplateManifests.cache</CreateTemplateManifestsCacheFile>
+    <IntermediateVsixManifest>$(VsixIntermediatePath)\extension.vsixmanifest</IntermediateVsixManifest>
+    <TargetVsixContainer>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).vsix</TargetVsixContainer>
+    <BuildIntegrationPackageVersion>0.1.19</BuildIntegrationPackageVersion>
+    <BuildIntegrationPackageDirectory>$(VsixIntermediatePath)packages</BuildIntegrationPackageDirectory>
+    <BuildIntegrationPackagePath>$(BuildIntegrationPackageDirectory)\FrontEndCSharp.Build.$(BuildIntegrationPackageVersion).nupkg</BuildIntegrationPackagePath>
+  </PropertyGroup>
+
+  <Import Project="$(_FrontEndCSharpRepositoryRoot)Vssdk.BuildTools.props" />
+
+  <ItemGroup>
+    <Compile Remove="Templates\**\*.cs" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.11.40262" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" ExcludeAssets="runtime" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="4.11.0" ExcludeAssets="runtime" PrivateAssets="all" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FrontEndCSharp.Fecsx.Editor\FrontEndCSharp.Fecsx.Editor.csproj" />
+    <ProjectReference Include="..\..\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true" />
+    <ProjectReference Include="..\..\..\Debugger\Tests\Integration\FrontEndCSharp.Debugger.Integration.csproj"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true" />
+    <ProjectReference Include="Templates\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.Template.csproj"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true">
+      <Name>FrontEndCSharp.Fecsx.Template</Name>
+      <TemplateType>Project</TemplateType>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="source.extension.vsixmanifest" />
+    <Content Include="Fecsx.pkgdef">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Assets\fecsx.tmLanguage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Assets\fecsx.tmTheme">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Assets\language-configuration.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="FecsxImages.imagemanifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Resource Include="Assets\FecsxFile.xaml" />
+    <Resource Include="Assets\TailwindCompletion.xaml" />
+    <Content Include="THIRD-PARTY-NOTICES.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets"
+          Condition="Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets')" />
+
+  <Target Name="RequireVssdkBuildTools"
+          BeforeTargets="PrepareForBuild"
+          Condition="!Exists('$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets')">
+    <Error Text="Microsoft.VSSDK.BuildTools is not restored. Restore NuGet packages, then build the project again." />
+  </Target>
+
+  <Target Name="PrepareVsixDirectories" BeforeTargets="DetokenizeVsixManifestFile;MergeCtoResource;GenerateFileManifest;CreateVsixContainer">
+    <MakeDir Directories="$(VsixIntermediatePath);$(TemplateOutputDirectory)" />
+  </Target>
+
+  <Target Name="IncludeFecsxLanguageAssemblies"
+          BeforeTargets="GetVsixSourceItems"
+          DependsOnTargets="CreateTemplateBuildIntegrationPackage">
+    <ItemGroup>
+      <VSIXSourceItem Include="$(TargetDir)FrontEndCSharp.Fecsx.Editor.dll">
+        <TargetPath>FrontEndCSharp.Fecsx.Editor.dll</TargetPath>
+      </VSIXSourceItem>
+      <VSIXSourceItem Include="$(TargetDir)FrontEndCSharp.Fecsx.dll">
+        <TargetPath>FrontEndCSharp.Fecsx.dll</TargetPath>
+      </VSIXSourceItem>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="CreateTemplateBuildIntegrationPackage" BeforeTargets="GetVsixSourceItems">
+    <MakeDir Directories="$(BuildIntegrationPackageDirectory)" />
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj"
+             Targets="Pack"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration);PackageOutputPath=$(BuildIntegrationPackageDirectory)" />
+  </Target>
+
+  <Target Name="ResolveProjectTemplateArchive">
+    <MSBuild Projects="$(MSBuildProjectDirectory)\Templates\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.Template.csproj"
+             Targets="TemplateProjectOutputGroup"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_ResolvedProjectTemplateArchive" />
+    </MSBuild>
+  </Target>
+
+  <Target Name="CreateVsixAfterBuild" AfterTargets="Build" DependsOnTargets="CreateVsixContainer;ResolveProjectTemplateArchive">
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\..\..\Debugger\Tests\Integration\bin\$(Configuration)\net8.0\FrontEndCSharp.Debugger.Integration.dll&quot; verify-project-template fecsx &quot;@(_ResolvedProjectTemplateArchive-&gt;'%(FullPath)')&quot; &quot;$(BuildIntegrationPackagePath)&quot; &quot;$(MSBuildProjectDirectory)\..\..\..&quot;" />
+  </Target>
+
+</Project>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0"
+                 xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011"
+                 xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="FrontEndCSharp.Fecsx.Editor.5356caa8-a2ae-456f-b56a-2c20218c1999"
+              Version="0.1.4"
+              Language="en-US"
+              Publisher="FrontEndCSharp" />
+    <DisplayName>FrontEndCSharp FECSX Editor</DisplayName>
+    <Description xml:space="preserve">JSX-shaped C# editing support for FrontEndCSharp React components.</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor"
+                  Version="[17.0,18.0)"
+                  DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent"
+           d:Source="Project"
+           d:ProjectName="%CurrentProject%"
+           Path="|%CurrentProject%;BuiltProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.VsPackage"
+           d:Source="File"
+           Path="Fecsx.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.ImageManifest"
+           d:Source="File"
+           Path="FecsxImages.imagemanifest" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate"
+           d:Source="Project"
+           d:ProjectName="FrontEndCSharp.Fecsx.Template"
+           d:TargetPath="|FrontEndCSharp.Fecsx.Template;TemplateProjectOutputGroup|"
+           d:VsixSubPath="ProjectTemplates"
+           Path="ProjectTemplates" />
+  </Assets>
+</PackageManifest>

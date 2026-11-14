@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "mobx": "7.0.6"
+  }
+}

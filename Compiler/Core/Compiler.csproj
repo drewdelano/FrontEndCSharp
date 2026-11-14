@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\JsRuntime\**\*">
+      <Link>JsRuntime\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="RemoveStaleJavaScriptRuntimeFilesFromOutput"
+          AfterTargets="CopyFilesToOutputDirectory">
+    <ItemGroup>
+      <_CurrentJavaScriptRuntimeSource Include="$(MSBuildProjectDirectory)\..\JsRuntime\**\*" />
+      <_CurrentJavaScriptRuntimeOutput Include="@(_CurrentJavaScriptRuntimeSource->'$(TargetDir)JsRuntime\%(RecursiveDir)%(Filename)%(Extension)')" />
+      <_ExistingJavaScriptRuntimeOutput Include="$(TargetDir)JsRuntime\**\*" />
+      <_StaleJavaScriptRuntimeOutput Include="@(_ExistingJavaScriptRuntimeOutput)"
+                                     Exclude="@(_CurrentJavaScriptRuntimeOutput)" />
+    </ItemGroup>
+    <Delete Files="@(_StaleJavaScriptRuntimeOutput)" />
+  </Target>
+
+  <Target Name="RemoveStaleJavaScriptRuntimeFilesFromPublish"
+          AfterTargets="Publish">
+    <ItemGroup>
+      <_CurrentPublishedJavaScriptRuntimeSource Include="$(MSBuildProjectDirectory)\..\JsRuntime\**\*" />
+      <_CurrentPublishedJavaScriptRuntimeOutput Include="@(_CurrentPublishedJavaScriptRuntimeSource->'$(PublishDir)JsRuntime\%(RecursiveDir)%(Filename)%(Extension)')" />
+      <_ExistingPublishedJavaScriptRuntimeOutput Include="$(PublishDir)JsRuntime\**\*" />
+      <_StalePublishedJavaScriptRuntimeOutput Include="@(_ExistingPublishedJavaScriptRuntimeOutput)"
+                                              Exclude="@(_CurrentPublishedJavaScriptRuntimeOutput)" />
+    </ItemGroup>
+    <Delete Files="@(_StalePublishedJavaScriptRuntimeOutput)" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Reflection.Metadata" Version="8.0.0" />
+    <PackageReference Include="System.Reflection.MetadataLoadContext" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Compiler.Tests" />
+  </ItemGroup>
+
+  <Target Name="RestoreJavaScriptBundler"
+          Inputs="$(ProjectDir)..\JsBundler\package-lock.json"
+          Outputs="$(ProjectDir)..\JsBundler\node_modules\.package-lock.json">
+    <Exec WorkingDirectory="$(ProjectDir)..\JsBundler"
+          Command="npm ci --ignore-scripts" />
+  </Target>
+
+  <Target Name="BuildJavaScriptBundler"
+          DependsOnTargets="RestoreJavaScriptBundler"
+          Inputs="$(ProjectDir)..\JsBundler\bundle.cjs;$(ProjectDir)..\JsBundler\package-lock.json"
+          Outputs="$(ProjectDir)$(IntermediateOutputPath)JsBundler\index.cjs">
+    <RemoveDir Directories="$(ProjectDir)$(IntermediateOutputPath)JsBundler" />
+    <Exec WorkingDirectory="$(ProjectDir)..\JsBundler"
+          Command="npx --no-install ncc build bundle.cjs -o &quot;$(ProjectDir)$(IntermediateOutputPath)JsBundler&quot; --minify" />
+  </Target>
+
+  <Target Name="IncludeJavaScriptBundlerOutput"
+          BeforeTargets="AssignTargetPaths"
+          DependsOnTargets="BuildJavaScriptBundler">
+    <ItemGroup>
+      <_JavaScriptBundlerOutput Include="$(ProjectDir)$(IntermediateOutputPath)JsBundler\**\*" />
+      <Content Include="@(_JavaScriptBundlerOutput)">
+        <Link>JsBundler\%(_JavaScriptBundlerOutput.RecursiveDir)%(_JavaScriptBundlerOutput.Filename)%(_JavaScriptBundlerOutput.Extension)</Link>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+  </Target>
+
+</Project>

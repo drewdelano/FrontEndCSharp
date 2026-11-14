@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceArtifact": "committed-manifest-mismatch-product-fixture",
+  "events": [
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 0,
+      "data": {
+        "state": "DebuggingRunning"
+      }
+    },
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 250,
+      "data": {
+        "state": "BrokenOnException"
+      }
+    }
+  ],
+  "result": null,
+  "failure": {
+    "classification": "product",
+    "message": "Generated JavaScript build identity does not match the selected debug manifest."
+  },
+  "observations": {
+    "dialogs": [],
+    "visualStudio": {
+      "State": "BrokenOnException"
+    },
+    "browser": {
+      "State": "Attached"
+    },
+    "dap": {
+      "Available": true,
+      "StopReason": "exception"
+    },
+    "dapRecords": [],
+    "processes": [],
+    "ownedProcesses": [],
+    "environment": null,
+    "uiAutomation": null,
+    "braveUiAutomation": null,
+    "vsixInstallerUiAutomation": []
+  }
+}

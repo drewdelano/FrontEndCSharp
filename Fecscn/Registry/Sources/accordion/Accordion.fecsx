@@ -1,0 +1,30 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(AccordionProps props, ReactNode[] children) =>
+    <BaseUI.Accordion.Root props={AccordionPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Accordion.Root>;
+
+public static ReactNode Item(AccordionItemProps props, ReactNode[] children) =>
+    <BaseUI.Accordion.Item props={AccordionPrimitive.CreateItemProps(props)}>
+        {children}
+    </BaseUI.Accordion.Item>;
+
+public static ReactNode Trigger(AccordionTriggerProps props, ReactNode[] children) =>
+    <BaseUI.Accordion.Header props={AccordionPrimitive.CreateHeaderProps()}>
+        <BaseUI.Accordion.Trigger props={AccordionPrimitive.CreateTriggerProps(props)}>
+            {children}
+            <LucideIcons.ChevronDownIcon dataSlot="accordion-trigger-icon" ariaHidden={true} className={AccordionStyles.ClosedIcon} />
+            <LucideIcons.ChevronUpIcon dataSlot="accordion-trigger-icon" ariaHidden={true} className={AccordionStyles.OpenIcon} />
+        </BaseUI.Accordion.Trigger>
+    </BaseUI.Accordion.Header>;
+
+public static ReactNode Content(AccordionContentProps props, ReactNode[] children) =>
+    <BaseUI.Accordion.Panel props={AccordionPrimitive.CreatePanelProps(props)}>
+        <div className={ClassNames.Merge(AccordionStyles.Content, props.ClassName)}>
+            {children}
+        </div>
+    </BaseUI.Accordion.Panel>;

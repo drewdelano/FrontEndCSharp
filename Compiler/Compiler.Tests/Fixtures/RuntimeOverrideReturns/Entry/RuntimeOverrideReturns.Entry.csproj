@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\RuntimeOverrideReturns.Contracts.csproj" />
+    <ProjectReference Include="..\Companion\RuntimeOverrideReturns.Contracts.fecs.csproj" />
+  </ItemGroup>
+</Project>

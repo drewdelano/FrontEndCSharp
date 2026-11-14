@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "dependencies": {
+    "react-is": "19.3.1",
+    "recharts": "3.8.0"
+  },
+  "peerDependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}

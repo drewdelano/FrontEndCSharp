@@ -1,0 +1,53 @@
+using Interop.JS.Shadcn.Recharts;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(ChartProps props, ReactNode[] children) =>
+    <div
+        id={props.Id}
+        data-slot="chart"
+        role="img"
+        aria-label={props.AriaLabel}
+        className={ClassNames.Merge(ChartStyles.Container, props.ClassName)}
+    >
+        {ChartPrimitive.CreateDefaultChart(props)}
+    </div>;
+
+public static ReactNode Container(ChartContainerProps props, ReactNode[] children) =>
+    <div
+        id={props.Id}
+        data-slot="chart"
+        role="img"
+        aria-label={props.AriaLabel}
+        className={ClassNames.Merge(ChartStyles.Container, props.ClassName)}
+    >
+        <Recharts.ResponsiveContainer props={ChartPrimitive.CreateResponsiveProps(props.Width, props.Height)}>
+            {children}
+        </Recharts.ResponsiveContainer>
+    </div>;
+
+public static ReactNode BarChart(ChartBarChartProps props, ReactNode[] children) =>
+    <Recharts.BarChart
+        categories={ChartPrimitive.CreateCategories(props)}
+        values={ChartPrimitive.CreateValues(props)}
+        categoryKey={props.CategoryKey}
+        dataKey={props.DataKey}
+        props={ChartPrimitive.CreateBarChartProps(props)}
+    >
+        {children}
+    </Recharts.BarChart>;
+
+public static ReactNode Bar(ChartBarProps props, ReactNode[] children) =>
+    <Recharts.Bar props={ChartPrimitive.CreateBarProps(props)} />;
+
+public static ReactNode Grid(ChartGridProps props, ReactNode[] children) =>
+    <Recharts.CartesianGrid props={ChartPrimitive.CreateGridProps(props)} />;
+
+public static ReactNode XAxis(ChartXAxisProps props, ReactNode[] children) =>
+    <Recharts.XAxis props={ChartPrimitive.CreateXAxisProps(props)} />;
+
+public static ReactNode Tooltip(ChartPartProps props, ReactNode[] children) =>
+    <Recharts.Tooltip props={ChartPrimitive.CreateTooltipProps(props)} />;
+
+public static ReactNode Legend(ChartPartProps props, ReactNode[] children) =>
+    <Recharts.Legend props={ChartPrimitive.CreateLegendProps(props)} />;

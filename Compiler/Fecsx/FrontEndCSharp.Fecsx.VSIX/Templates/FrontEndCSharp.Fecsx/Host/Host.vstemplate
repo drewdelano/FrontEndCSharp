@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0"
+            Type="Project"
+            xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>FrontEndCSharp FECSX Host</Name>
+    <Description>ASP.NET Core host for a FrontEndCSharp FECSX React application.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <CreateNewFolder>true</CreateNewFolder>
+    <CreateInPlace>true</CreateInPlace>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="Host.csproj" TargetFileName="$safeprojectname$.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Properties\launchSettings.json</ProjectItem>
+      <ProjectItem ReplaceParameters="true">wwwroot\index.html</ProjectItem>
+      <ProjectItem ReplaceParameters="true">wwwroot\site.css</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,28 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Provider(TooltipProviderProps props, ReactNode[] children) =>
+    <BaseUI.Tooltip.Provider props={TooltipPrimitive.CreateProviderProps(props)}>
+        {children}
+    </BaseUI.Tooltip.Provider>;
+
+public static ReactNode Default(TooltipProps props, ReactNode[] children) =>
+    <BaseUI.Tooltip.Root props={TooltipPrimitive.CreateRootProps(props)}>
+        {children}
+    </BaseUI.Tooltip.Root>;
+
+public static ReactNode Trigger(TooltipTriggerProps props, ReactNode[] children) =>
+    <BaseUI.Tooltip.Trigger props={TooltipPrimitive.CreateTriggerProps(props)}>
+        {children}
+    </BaseUI.Tooltip.Trigger>;
+
+public static ReactNode Content(TooltipContentProps props, ReactNode[] children) =>
+    <BaseUI.Tooltip.Portal props={ReactProps.Create()}>
+        <BaseUI.Tooltip.Positioner props={TooltipPrimitive.CreatePositionerProps(props)}>
+            <BaseUI.Tooltip.Popup props={TooltipPrimitive.CreatePopupProps(props)}>
+                {children}
+                <BaseUI.Tooltip.Arrow props={TooltipPrimitive.CreateArrowProps()} />
+            </BaseUI.Tooltip.Popup>
+        </BaseUI.Tooltip.Positioner>
+    </BaseUI.Tooltip.Portal>;

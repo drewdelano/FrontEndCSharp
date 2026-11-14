@@ -1,0 +1,20 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(ButtonGroupProps props, ReactNode[] children) =>
+    <div
+        role="group"
+        data-slot="button-group"
+        className={ClassNames.Merge(ButtonGroupStyles.Base, ButtonGroupStyles.Orientation(props.Orientation), props.ClassName)}
+    >
+        {children}
+    </div>;
+
+public static ReactNode Text(ButtonGroupTextProps props, ReactNode[] children) =>
+    <div data-slot="button-group-text" className={ClassNames.Merge(ButtonGroupStyles.Text, props.ClassName)}>
+        {children}
+    </div>;
+
+public static ReactNode Separator(ButtonGroupSeparatorProps props, ReactNode[] children) =>
+    <BaseUI.Separator props={ButtonGroupPrimitive.CreateSeparatorProps(props)} />;

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "sourceArtifact": "committed-owned-process-crash-fixture",
+  "events": [
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 0,
+      "data": {
+        "state": "DebuggingRunning"
+      }
+    },
+    {
+      "event": "owned-process-crashed",
+      "elapsedMilliseconds": 125,
+      "data": {
+        "processId": 4123
+      }
+    },
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 130,
+      "data": {
+        "state": "Crashed"
+      }
+    }
+  ],
+  "result": null,
+  "failure": {
+    "classification": "crash",
+    "message": "Owned process unexpectedly exited.",
+    "visualStudioProcessId": 4000
+  },
+  "observations": {
+    "dialogs": [],
+    "visualStudio": {
+      "State": "Crashed"
+    },
+    "browser": {
+      "State": "AttachmentFailed"
+    },
+    "dap": null,
+    "dapRecords": [],
+    "processes": [
+      {
+        "ProcessId": 4000,
+        "ParentProcessId": 100,
+        "Name": "devenv.exe"
+      },
+      {
+        "ProcessId": 4123,
+        "ParentProcessId": 4000,
+        "Name": "dotnet.exe"
+      }
+    ],
+    "ownedProcesses": [
+      {
+        "ProcessId": 4123,
+        "ParentProcessId": 4000,
+        "Name": "dotnet.exe"
+      }
+    ],
+    "environment": null,
+    "uiAutomation": null,
+    "braveUiAutomation": null,
+    "vsixInstallerUiAutomation": []
+  }
+}

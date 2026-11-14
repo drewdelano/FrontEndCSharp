@@ -1,0 +1,55 @@
+using Interop.JS.Motion;
+using Interop.JS.React;
+using Fecscn.Components.UI;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(AppProps props, ReactNode[] children) =>
+    MobXReact.Observe(() =>
+        <MotionElement elementName="section"
+                       className="panel focus-card"
+                       initial={MotionStyle.Create().SetNumber("opacity", 0).SetNumber("y", 18)}
+                       animate={MotionStyle.Create().SetNumber("opacity", 1).SetNumber("y", 0)}
+                       transition={MotionTransition.Create().SetType("spring").SetDuration(.5)}>
+            <div className="focus-layout grid min-h-full w-full min-w-0 max-w-full grid-cols-[minmax(0,1.28fr)_minmax(260px,.72fr)] items-stretch gap-[clamp(24px,3vw,42px)] max-[760px]:grid-cols-1 min-[981px]:max-[1180px]:grid-cols-1">
+                <div className="focus-main flex w-full min-w-0 max-w-full flex-col justify-center p-[clamp(12px,2vw,26px)] max-[680px]:px-1 max-[680px]:pt-3 max-[680px]:pb-5">
+                    <p className="eyebrow">Focus field / {props.Store.FocusLengthLabel}</p>
+                    <h1 className="focus-title">
+                        {props.Store.IsRunning ? "Protect the " : "Make room for "}
+                        <em>{props.Store.IsRunning ? "signal." : "deep work."}</em>
+                    </h1>
+                    <p className="focus-copy">
+                        {props.Store.IsRunning
+                            ? "Notifications are quiet. One deliberate block is now in motion."
+                            : "Choose one meaningful outcome, clear the edges, and let the next block belong to it."}
+                    </p>
+                    <div className="focus-actions">
+                        <Button className="primary-action" onClick={_ => Actions.ToggleFocus(props.Store)}>
+                            {props.Store.IsRunning ? "Pause orbit" : "Begin focus"}
+                        </Button>
+                        <Button className="secondary-action"
+                                variant={ButtonVariant.Outline}
+                                onClick={_ => Actions.CycleLength(props.Store)}>
+                            Change length
+                        </Button>
+                    </div>
+                </div>
+                <aside className="focus-sidecar relative flex w-full min-w-0 max-w-full flex-col gap-[18px] overflow-hidden p-5 max-[680px]:p-[17px]" aria-label="Daily focus snapshot">
+                    <div className="focus-sidecar-head flex items-center justify-between gap-3.5 *:min-w-0">
+                        <span className="focus-side-kicker">Live snapshot</span>
+                        <span className={$"focus-status{(props.Store.IsRunning ? " is-live" : string.Empty)}"}>
+                            {props.Store.IsRunning ? "Orbit active" : "Standing by"}
+                        </span>
+                    </div>
+                    <div className="orbit-stage relative flex min-h-[118px] items-center overflow-hidden p-[18px]">
+                        <div className="orbit-stage-copy relative z-[1] grid">
+                            <strong>{props.Store.FocusLength}</strong>
+                            <span>minute block</span>
+                        </div>
+                        <div className={$"orbit-visual{(props.Store.IsRunning ? " is-running" : string.Empty)}"} />
+                    </div>
+                    <EnergyPanel store={props.Store} />
+                    <MetricsPanel store={props.Store} />
+                </aside>
+            </div>
+        </MotionElement>
+    );

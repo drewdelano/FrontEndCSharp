@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>System.Private.CoreLib.fecs</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Overrides\*.js" />
+    <EmbeddedResource Include="Overrides\manifest.json" />
+    <EmbeddedResource Include="RuntimeAssets\*.js"
+                      LogicalName="$(AssemblyName).RuntimeAssets.%(Filename)%(Extension)" />
+    <ProjectReference Include="..\..\..\Compiler\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         Width="16"
+         Height="16">
+  <Canvas Width="16" Height="16">
+    <Path Data="M 1.5,0.5 L 10,0.5 L 14.5,5 L 14.5,15.5 L 1.5,15.5 Z"
+          Fill="#ffffff"
+          Stroke="#167342"
+          StrokeThickness="1" />
+    <Path Data="M 10,0.5 L 10,5 L 14.5,5 Z"
+          Fill="#8BD2A8" />
+    <Path Data="M 8,6 L 5.5,6 C 3.5,6 3.5,11 5.5,11 L 8,11 L 8,9.5 L 6,9.5 C 5,9.5 5,7.5 6,7.5 L 8,7.5 Z"
+          Fill="#167342" />
+    <Path Data="M 9.5,6 L 9,11 M 11.5,6 L 11,11 M 8.5,7.5 L 12,7.5 M 8.25,9.5 L 11.75,9.5"
+          Stroke="#167342"
+          StrokeThickness="1" />
+    <Path Data="M 10.5,10.5 L 14.5,14.5 M 14.5,10.5 L 10.5,14.5"
+          Stroke="#FFFFFF"
+          StrokeThickness="3"
+          StrokeStartLineCap="Round"
+          StrokeEndLineCap="Round" />
+    <Path Data="M 10.5,10.5 L 14.5,14.5 M 14.5,10.5 L 10.5,14.5"
+          Stroke="#167342"
+          StrokeThickness="1.5"
+          StrokeStartLineCap="Round"
+          StrokeEndLineCap="Round" />
+  </Canvas>
+</Viewbox>

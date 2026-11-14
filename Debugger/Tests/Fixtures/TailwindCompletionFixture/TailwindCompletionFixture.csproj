@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <FrontEndCSharpTailwindProject>$(MSBuildProjectDirectory)\..\..\..\..\Fecscn\FrontEndCSharp.Tailwind\FrontEndCSharp.Tailwind.csproj</FrontEndCSharpTailwindProject>
+    <FrontEndCSharpTailwindInput>$(MSBuildProjectDirectory)\Styles\fecscn.css</FrontEndCSharpTailwindInput>
+    <FrontEndCSharpTailwindOutput>$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework)\fecscn\tailwind\fixture.css</FrontEndCSharpTailwindOutput>
+  </PropertyGroup>
+
+  <Import Project="..\..\..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.props" />
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\..\..\Demo\FrontEndCSharp.ReactDemo\Components\EnergyPanel.fecsx" />
+  </ItemGroup>
+
+  <Target Name="PrepareTailwindCompletionFixturePayload"
+          BeforeTargets="GenerateFrontEndCSharpTailwindCss"
+          Condition="'$(FrontEndCSharpTailwindEnabled)' == 'true' and '$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+    <MSBuild Projects="$(FrontEndCSharpTailwindProject)"
+             Targets="PrepareFrontEndCSharpTailwindPayload"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_FrontEndCSharpPreparedTailwindPayload" />
+    </MSBuild>
+    <PropertyGroup>
+      <_FrontEndCSharpTailwindPayload>@(_FrontEndCSharpPreparedTailwindPayload->'%(FullPath)')</_FrontEndCSharpTailwindPayload>
+    </PropertyGroup>
+  </Target>
+
+  <Import Project="..\..\..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.targets" />
+
+  <PropertyGroup>
+    <_FrontEndCSharpTailwindTasks>$(MSBuildProjectDirectory)\..\..\..\..\Fecscn\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll</_FrontEndCSharpTailwindTasks>
+  </PropertyGroup>
+
+</Project>

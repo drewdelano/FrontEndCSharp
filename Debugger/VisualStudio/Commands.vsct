@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Extern href="VsDbgCmd.h" />
+
+  <Commands package="guidFrontEndCSharpPackage">
+    <Buttons>
+      <Button guid="guidFrontEndCSharpCommandSet" id="DebugWithFrontEndCSharp" priority="0x0350" type="Button">
+        <Parent guid="guidVSDebugGroup" id="IDG_EXECUTION" />
+        <Strings>
+          <ButtonText>Debug with FrontEndCSharp</ButtonText>
+          <CommandName>Debug with FrontEndCSharp</CommandName>
+          <CanonicalName>FrontEndCSharp.Debug</CanonicalName>
+        </Strings>
+      </Button>
+      <Button guid="guidFrontEndCSharpCommandSet" id="ApplyFrontEndCSharpCodeChanges" priority="0x0C00" type="Button">
+        <Parent guid="guidVSDebugGroup" id="IDG_EXECUTION" />
+        <Strings>
+          <ButtonText>FrontEndCSharp: Apply Code Changes</ButtonText>
+          <CommandName>FrontEndCSharp: Apply Code Changes</CommandName>
+          <CanonicalName>FrontEndCSharp.ApplyCodeChanges</CanonicalName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <KeyBindings>
+    <KeyBinding guid="guidFrontEndCSharpCommandSet" id="DebugWithFrontEndCSharp"
+                editor="guidVSStd97" key1="VK_F5" mod1="CONTROL ALT" />
+    <KeyBinding guid="guidFrontEndCSharpCommandSet" id="ApplyFrontEndCSharpCodeChanges"
+                editor="guidVSStd97" key1="VK_F10" mod1="CONTROL ALT" />
+  </KeyBindings>
+
+  <Symbols>
+    <GuidSymbol name="guidVSDebugGroup" value="{c9dd4a58-47fb-11d2-83e7-00c04f9902c1}" />
+    <GuidSymbol name="guidFrontEndCSharpPackage" value="{cfcb81f4-801e-4f6b-a582-3dcd42ca0218}" />
+    <GuidSymbol name="guidFrontEndCSharpCommandSet" value="{39566da9-49a4-4c75-b5f0-1c97ad099c45}">
+      <IDSymbol name="DebugWithFrontEndCSharp" value="0x0200" />
+      <IDSymbol name="ApplyFrontEndCSharpCodeChanges" value="0x0201" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

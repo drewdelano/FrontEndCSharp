@@ -1,0 +1,15 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(ToastHostProps props, ReactNode[] children) =>
+    <BaseUI.Toast.Host props={ToastPrimitive.CreateHostProps(props)}>
+        <LucideIcons.CircleCheckIcon dataSlot="toast-template-success" ariaHidden={true} />
+        <LucideIcons.InfoIcon dataSlot="toast-template-info" ariaHidden={true} />
+        <LucideIcons.TriangleExclamationPointIcon dataSlot="toast-template-warning" ariaHidden={true} />
+        <LucideIcons.OctagonXIcon dataSlot="toast-template-error" ariaHidden={true} />
+        <LucideIcons.LoaderCircleIcon dataSlot="toast-template-loading" ariaHidden={true} className="animate-spin" />
+        <LucideIcons.XIcon dataSlot="toast-template-close" ariaHidden={true} />
+        {children}
+    </BaseUI.Toast.Host>;

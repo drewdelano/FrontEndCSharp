@@ -1,0 +1,11 @@
+using Interop.JS.Shadcn.BaseUI;
+using Interop.JS.LucideIcons;
+using Interop.JS.React;
+namespace Fecscn.Components.UI;
+
+public static ReactNode Default(CheckboxProps props, ReactNode[] children) =>
+    <BaseUI.Checkbox.Root props={CheckboxPrimitive.CreateRootProps(props)}>
+        <BaseUI.Checkbox.Indicator props={CheckboxPrimitive.CreateIndicatorProps()}>
+            <LucideIcons.CheckIcon ariaHidden={true} />
+        </BaseUI.Checkbox.Indicator>
+    </BaseUI.Checkbox.Root>;

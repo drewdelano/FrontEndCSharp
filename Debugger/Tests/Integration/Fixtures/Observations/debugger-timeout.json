@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourceArtifact": "committed-debugger-timeout-fixture",
+  "events": [
+    {
+      "event": "visual-studio-wait-started",
+      "elapsedMilliseconds": 0,
+      "data": {
+        "waitId": "committed-timeout-wait",
+        "expectedStates": [
+          "BrokenOnBreakpoint"
+        ],
+        "failureStates": [],
+        "timeoutMilliseconds": 30000
+      }
+    },
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 1,
+      "data": {
+        "state": "StartingDebugger"
+      }
+    },
+    {
+      "event": "visual-studio-wait-timed-out",
+      "elapsedMilliseconds": 30000,
+      "data": {
+        "waitId": "committed-timeout-wait",
+        "state": "StartingDebugger"
+      }
+    },
+    {
+      "event": "visual-studio-state",
+      "elapsedMilliseconds": 30001,
+      "data": {
+        "state": "Hung"
+      }
+    }
+  ],
+  "result": null,
+  "failure": {
+    "classification": "timeout",
+    "message": "Visual Studio remained in StartingDebugger while waiting for a breakpoint."
+  },
+  "observations": {
+    "dialogs": [],
+    "visualStudio": {
+      "State": "Hung"
+    },
+    "browser": {
+      "State": "TargetLaunching"
+    },
+    "dap": null,
+    "dapRecords": [],
+    "processes": [],
+    "ownedProcesses": [],
+    "environment": null,
+    "uiAutomation": null,
+    "braveUiAutomation": null,
+    "vsixInstallerUiAutomation": []
+  }
+}

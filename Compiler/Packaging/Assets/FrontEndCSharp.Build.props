@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <FrontEndCSharpCompilerPayloadPath Condition="'$(FrontEndCSharpCompilerPayloadPath)' == ''">$(MSBuildThisFileDirectory)..\tools\CompilerPayload.zip</FrontEndCSharpCompilerPayloadPath>
+    <FrontEndCSharpCompilerBootstrapPath Condition="'$(FrontEndCSharpCompilerBootstrapPath)' == ''">$(MSBuildThisFileDirectory)..\tools\bootstrap\FrontEndCSharp.Build.Tasks.dll</FrontEndCSharpCompilerBootstrapPath>
+    <FrontEndCSharpBuildTasksPath Condition="'$(FrontEndCSharpBuildTasksPath)' == ''">$(FrontEndCSharpCompilerBootstrapPath)</FrontEndCSharpBuildTasksPath>
+  </PropertyGroup>
+</Project>

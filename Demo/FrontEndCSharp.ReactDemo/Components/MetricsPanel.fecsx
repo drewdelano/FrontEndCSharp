@@ -1,0 +1,32 @@
+using Interop.JS.React;
+namespace FrontEndCSharp.ReactDemo;
+
+public static ReactNode Default(AppProps props, ReactNode[] children) =>
+    MobXReact.Observe(() =>
+    <section className="focus-side-section metrics-section w-full min-w-0 max-w-full border-t border-[var(--line)] pt-[17px]">
+        <span className="focus-side-kicker">Daily signal</span>
+        <div className="metric-grid mt-[11px] grid grid-cols-2 gap-[9px]">
+            <div className="metric rounded-[14px] border border-[var(--line)] bg-white/[0.025] p-[13px]">
+                <span className="metric-value block font-[Georgia,serif] text-[27px] tracking-[-.04em]">
+                    {props.Store.CompletedCount == 0
+                        ? "—"
+                        : props.Store.CompletedCount == 1
+                            ? "⅓"
+                            : props.Store.CompletedCount == 2 ? "⅔" : "All"}
+                </span>
+                <span className="metric-label mt-[3px] block text-[9px] uppercase tracking-[.08em] text-[var(--orbit-muted)]">anchors</span>
+            </div>
+            <div className="metric rounded-[14px] border border-[var(--line)] bg-white/[0.025] p-[13px]">
+                <span className="metric-value block font-[Georgia,serif] text-[27px] tracking-[-.04em]">{props.Store.IsRunning ? "Live" : "Calm"}</span>
+                <span className="metric-label mt-[3px] block text-[9px] uppercase tracking-[.08em] text-[var(--orbit-muted)]">focus</span>
+            </div>
+        </div>
+        <p className="signal-note m-0 mt-[11px] text-[11px] leading-[1.5] text-[var(--orbit-muted)]">
+            {props.Store.EnergyLevel == 1
+                ? "Keep the system gentle today."
+                : props.Store.EnergyLevel == 3
+                    ? "There is room for one brave move."
+                    : "A balanced pace is a real advantage."}
+        </p>
+    </section>
+    );

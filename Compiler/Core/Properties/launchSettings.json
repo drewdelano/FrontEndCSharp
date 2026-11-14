@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Compiler": {
+      "commandName": "Project",
+      "workingDirectory": "$(MSBuildProjectDirectory)",
+      "commandLineArgs": "\"..\\..\\Demo\\FrontEndCSharp.SimpleDemo\\FrontEndCSharp.SimpleDemo.csproj\" \"..\\..\\Demo\\FrontEndCSharp.Demo\\wwwroot\\js\\simple-demo\""
+    }
+  }
+}
