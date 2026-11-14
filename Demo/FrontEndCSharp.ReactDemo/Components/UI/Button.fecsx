@@ -3,6 +3,6 @@ using Interop.JS.React;
 namespace Fecscn.Components.UI;
 
 public static ReactNode Default(ButtonProps props, ReactNode[] children) =>
-    <BaseUI.Button props={ButtonPrimitive.CreateProps(props)} className="">
+    <BaseUI.Button props={ButtonPrimitive.CreateProps(props)}>
         {children}
     </BaseUI.Button>;
