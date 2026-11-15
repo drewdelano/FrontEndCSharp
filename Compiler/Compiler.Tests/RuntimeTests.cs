@@ -8,7 +8,7 @@ public class RuntimeTests
 {
     private static readonly Compiler.Helpers.RuntimeOverrideCollection RuntimeOverrides =
         Compiler.Helpers.RuntimeOverrideCollection.Load([
-            Path.Combine(AppContext.BaseDirectory, "System.Private.CoreLib.fecs.dll")
+            Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll")
         ]);
 
     [Test]
@@ -23,7 +23,7 @@ public class RuntimeTests
     public void RuntimeOverrideLookupCachesHitsAndMisses()
     {
         var overrides = Compiler.Helpers.RuntimeOverrideCollection.Load([
-            Path.Combine(AppContext.BaseDirectory, "System.Private.CoreLib.fecs.dll")
+            Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll")
         ]);
         var hit = typeof(int?).GetProperty(nameof(Nullable<int>.Value))!.GetMethod!;
         var miss = typeof(RuntimeTests).GetMethod(nameof(RuntimeOverrideLookupCachesHitsAndMisses))!;

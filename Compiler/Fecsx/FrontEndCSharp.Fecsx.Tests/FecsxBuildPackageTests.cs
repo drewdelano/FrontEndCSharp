@@ -14,9 +14,9 @@ public sealed class FecsxBuildPackageTests
             repositoryRoot,
             "Compiler",
             "Fecsx",
-            "FrontEndCSharp.Fecsx.Build",
+            "FrontEndCSharp.FECS.Internals.Fecsx.Build",
             "buildTransitive",
-            "FrontEndCSharp.Fecsx.Build.props"));
+            "FrontEndCSharp.FECS.Internals.Fecsx.Build.props"));
 
         Assert.Contains(props.Descendants(), element =>
             element.Name.LocalName == "CompilerVisibleProperty"
@@ -44,8 +44,8 @@ public sealed class FecsxBuildPackageTests
                     repositoryRoot,
                     "Compiler",
                     "Fecsx",
-                    "FrontEndCSharp.Fecsx.Build",
-                    "FrontEndCSharp.Fecsx.Build.csproj"),
+                    "FrontEndCSharp.FECS.Internals.Fecsx.Build",
+                    "FrontEndCSharp.FECS.Internals.Fecsx.Build.csproj"),
                 "--configuration",
                 configuration,
                 "--no-build",
@@ -71,12 +71,12 @@ public sealed class FecsxBuildPackageTests
                     <FrontEndCSharpFecsxAttributeCasing>PascalCase</FrontEndCSharpFecsxAttributeCasing>
                   </PropertyGroup>
                   <ItemGroup>
-                    <PackageReference Include="FrontEndCSharp.Fecsx.Build" Version="0.1.0" />
-                    <Reference Include="Interop.JS.React">
-                      <HintPath>{{SecurityElement.Escape(Path.Combine(AppContext.BaseDirectory, "Interop.JS.React.dll"))}}</HintPath>
+                    <PackageReference Include="FrontEndCSharp.FECS.Internals.Fecsx.Build" Version="0.1.0" />
+                    <Reference Include="FrontEndCSharp.Overrides.Interop.JS.React">
+                      <HintPath>{{SecurityElement.Escape(Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.Interop.JS.React.dll"))}}</HintPath>
                     </Reference>
-                    <Reference Include="Interop.JS.Browser">
-                      <HintPath>{{SecurityElement.Escape(Path.Combine(AppContext.BaseDirectory, "Interop.JS.Browser.dll"))}}</HintPath>
+                    <Reference Include="FrontEndCSharp.Overrides.Interop.JS.Browser">
+                      <HintPath>{{SecurityElement.Escape(Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.Interop.JS.Browser.dll"))}}</HintPath>
                     </Reference>
                   </ItemGroup>
                 </Project>

@@ -411,14 +411,14 @@ internal static class VisualStudioProjectTemplateVerification
     {
         foreach (var relativeProject in new[]
         {
-            @"Compiler\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj",
+            @"Compiler\Packaging\FrontEndCSharp.FECS.Internals.Build\FrontEndCSharp.FECS.Internals.Build.csproj",
             @"Compiler\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj",
-            @"Compiler\Fecsx\FrontEndCSharp.Fecsx.Build\FrontEndCSharp.Fecsx.Build.csproj",
-            @"RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj",
-            @"RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj",
-            @"RuntimeOverrides\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj",
-            @"RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj",
-            @"RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj",
+            @"Compiler\Fecsx\FrontEndCSharp.FECS.Internals.Fecsx.Build\FrontEndCSharp.FECS.Internals.Fecsx.Build.csproj",
+            @"Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.csproj",
+            @"Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.csproj",
+            @"Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.csproj",
+            @"Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.fecs\FrontEndCSharp.Overrides.Interop.JS.React.fecs.csproj",
+            @"Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj",
         })
         {
             BoundedProcess.Run(
@@ -536,7 +536,7 @@ internal static class VisualStudioProjectTemplateVerification
             var text = File.ReadAllText(path);
             if (text.Contains("<ProjectReference", StringComparison.OrdinalIgnoreCase)
                 || text.Contains(@"..\..\Compiler", StringComparison.OrdinalIgnoreCase)
-                || text.Contains(@"..\..\RuntimeOverrides", StringComparison.OrdinalIgnoreCase))
+                || text.Contains(@"..\..\Overrides", StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidDataException(
                     $"Visual Studio instantiated repository-relative dependencies in '{path}'.");

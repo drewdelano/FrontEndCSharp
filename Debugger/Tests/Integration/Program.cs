@@ -22,6 +22,31 @@ internal static class Program
                 BuildPackageVerifier.Verify(args[1], args[2]);
                 return 0;
             }
+            if (args.Length == 3
+                && args[0] == "verify-nuget-package-metadata"
+                && int.TryParse(args[2], out var expectedPackageCount))
+            {
+                NuGetPackageMetadataVerifier.Verify(args[1], expectedPackageCount);
+                return 0;
+            }
+            if (args.Length == 3
+                && args[0] == "verify-nuget-org-availability"
+                && int.TryParse(args[2], out var expectedAvailablePackageCount))
+            {
+                NuGetPackageMetadataVerifier.VerifyNuGetOrgAvailability(
+                    args[1],
+                    expectedAvailablePackageCount);
+                return 0;
+            }
+            if (args.Length == 3
+                && args[0] == "verify-nuget-org-publication"
+                && int.TryParse(args[2], out var expectedPublishedPackageCount))
+            {
+                NuGetPackageMetadataVerifier.VerifyNuGetOrgPublication(
+                    args[1],
+                    expectedPublishedPackageCount);
+                return 0;
+            }
             if (args.Length == 5 && args[0] == "verify-project-template")
             {
                 ProjectTemplateVerifier.Verify(args[1], args[2], args[3], args[4]);
@@ -150,6 +175,9 @@ internal static class Program
                 "Usage: FrontEndCSharp.Debugger.Integration verify-vsix <path>\n" +
                 "   or: FrontEndCSharp.Debugger.Integration verify-vsix-build-modes <repository-root>\n" +
                 "   or: FrontEndCSharp.Debugger.Integration verify-build-package <path> <repository-root>\n" +
+                "   or: FrontEndCSharp.Debugger.Integration verify-nuget-package-metadata <directory> <expected-package-count>\n" +
+                "   or: FrontEndCSharp.Debugger.Integration verify-nuget-org-availability <directory> <expected-package-count>\n" +
+                "   or: FrontEndCSharp.Debugger.Integration verify-nuget-org-publication <directory> <expected-package-count>\n" +
                 "   or: FrontEndCSharp.Debugger.Integration verify-project-template <simple|fecsx> <path> <build-package-path> <repository-root>\n" +
                 "   or: FrontEndCSharp.Debugger.Integration debugger-adapter-failure [output-path]\n" +
                 "   or: FrontEndCSharp.Debugger.Integration edit-and-continue-smoke\n" +

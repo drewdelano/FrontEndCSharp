@@ -700,7 +700,16 @@ Detailed debugger architecture and accepted behavior belong in
 - Two lexical paths can name one checkout. Since NuGet writes absolute project paths
   into `obj`, drive/UNC aliases sharing an intermediate directory can corrupt each
   other's restore graph. Derive intermediate roots from a stable hash of the
-  lexical repository root rather than special-casing drive letters.
+  lexical repository root rather than special-casing drive letters. Put each
+  project's intermediates under a short repository-level project hash as well;
+  appending the root hash beneath a deeply nested project's own `obj` directory can
+  push ordinary MSBuild outputs past the legacy Windows `MAX_PATH` boundary.
+- After changing an intermediate root, Visual Studio's fast up-to-date check can
+  skip a template project because its `bin` output exists even though its generated
+  VSSDK template archive does not exist at the new path. A template-bearing VSIX
+  must materialize those archives before `AssignProjectConfiguration` resolves and
+  extracts `TemplateProjectOutputGroup`; relying only on the solution dependency is
+  not sufficient.
 - ASP.NET development static-web-asset manifests also embed absolute source paths
   in final web-host output. If one checkout is built through multiple lexical roots,
   delete the host's generated runtime and endpoint manifests before `PrepareForBuild`
@@ -920,3 +929,22 @@ Detailed debugger architecture and accepted behavior belong in
   Compare declarations across the complete family, choose the smallest varying
   declaration set that distinguishes different generated CSS, and format internal
   variables as user-facing values such as `ring width`, `blur`, or `rotate x`.
+- A NuGet package-ID rename must also rename convention-based files under
+  `build`, `buildMultiTargeting`, and `buildTransitive`. NuGet emits `NU5129` when
+  those props or targets retain the old package ID, and consumers may not receive
+  the automatic imports. Treat package IDs, staged `.nupkg` names, nested VSIX
+  paths, templates, and convention-based MSBuild asset names as one migration.
+- `PackageReadmeFile` names an entry inside the finished `.nupkg`, not merely a
+  source item or its MSBuild `Link`. When several projects share an external
+  readme, give the packed item an explicit `PackagePath` matching the declared
+  filename and inspect the archive after packing. Project-local readmes should
+  remain owned by their projects so central packaging does not add duplicates.
+- A registry source digest is part of the same change as the byte-exact authored
+  source. After changing a digest-bearing component, update its authoring manifest
+  and run the registry builder across the complete registry so a later mismatch is
+  not hidden behind the first failure.
+- NuGet's `--packages` option applies to the complete project-reference restore
+  graph. A disposable fixture that points it at a temporary cache can rewrite
+  repository `project.assets.json` files and then leave them broken when the cache
+  is deleted. Keep that restore graph disposable by consuming freshly packed local
+  packages instead of referencing repository projects.

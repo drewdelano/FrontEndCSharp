@@ -210,7 +210,7 @@ public sealed class JavaScriptRuntimeTests
         {
             var repositoryRoot = FindRepositoryRoot();
             var data = new TestCaseDataCollection<string, string>();
-            var runtimeOverridesDirectory = Path.Combine(repositoryRoot, "RuntimeOverrides");
+            var runtimeOverridesDirectory = Path.Combine(repositoryRoot, "Overrides");
             foreach (var scenarioPath in Directory.EnumerateFiles(
                 runtimeOverridesDirectory,
                 "*.runtime.mjs",

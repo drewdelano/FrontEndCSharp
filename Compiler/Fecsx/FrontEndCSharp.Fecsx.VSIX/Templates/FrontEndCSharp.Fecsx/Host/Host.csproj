@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FrontEndCSharp.Build" Version="0.1.19" />
+    <PackageReference Include="FrontEndCSharp.FECS.Internals.Build" Version="0.1.19" />
   </ItemGroup>
 
 </Project>

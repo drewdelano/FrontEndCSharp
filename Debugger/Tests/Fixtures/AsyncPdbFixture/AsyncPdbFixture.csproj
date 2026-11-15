@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Console\System.Console.fecs\System.Console.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Console\FrontEndCSharp.Overrides.System.Console.fecs\FrontEndCSharp.Overrides.System.Console.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj" />
   </ItemGroup>
 
 </Project>

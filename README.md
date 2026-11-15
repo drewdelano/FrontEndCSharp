@@ -19,7 +19,7 @@ The runtime has three source categories:
 
 - `Compiler/JsRuntime/msil.js` and `Compiler/JsRuntime/jit-engine/` contain the MSIL interpreter; the same directory owns universal execution bridges and debugger support, but no optional BCL or framework implementation.
 - Generated BCL modules are caches produced from actual BCL MSIL and selected through dependency analysis.
-- `RuntimeOverrides/` contains typed `*.fecs.dll` companion projects for the small set of methods that require a genuine JavaScript-environment adaptation or cannot be supplied from MSIL. Browser-target projects select these companions through ordinary project or package dependencies; the compiler does not carry a global built-in override set.
+- `Overrides/` contains typed `*.fecs.dll` companion projects for the small set of methods that require a genuine JavaScript-environment adaptation or cannot be supplied from MSIL. Browser-target projects select these companions through ordinary project or package dependencies; the compiler does not carry a global built-in override set.
 
 Every emitted JavaScript method-override module uses a fixed-length `method.<sha256>.js` filename, where the lowercase SHA-256 digest is computed from the exact canonical method signature. Interpreted methods and types do not have individual JavaScript modules. Readable CLR identities remain in binary registrations, debugger metadata, and diagnostics rather than filesystem paths. Each `*.fecs.dll` embeds an `Overrides/manifest.json` that maps override filenames back to their readable signatures. The compiler validates the typed provider, manifest, digest, registration, uniqueness, missing resources, and unassigned resources before using an override. Companion-owned auxiliary JavaScript retains simple package-local filenames, but unbundled output isolates the transitive static-import closure of used overrides beneath `runtime-assets/<companion assembly>/`; bundled output consumes the same selected graph without publishing loose modules. Unused optional capabilities such as reflection are absent even when their companion assembly is available.
 
@@ -46,8 +46,8 @@ Generated demo and test output is disposable. Do not edit output copies of the r
 
 - `Compiler/` — the compiler workspace: `Core/Read/` contains assembly and metadata loading, IL decoding, and call-graph discovery; `Core/PossibleType/` contains possible-type flow analysis, required-method selection, and dispatch resolution; the remaining `Core/` folders contain linking and code generation. `Compiler.Tests/` contains the compiler tests; `Fecsx/` contains the JSX-shaped C# authoring implementation, editor VSIX, FECSX React project template, and tests; `RuntimeOverrides/` contains shared override infrastructure; and `JsRuntime/`, `JsBundler/`, and `Packaging/` contain their named supporting components.
 - `Debugger/` — the shared `netstandard2.0` debug-manifest and DAP protocol assemblies, standalone adapter, Edit and Continue host, Visual Studio 2022 VSIX with the simple browser project template, tracing support, and debugger-specific tests.
-- `RuntimeOverrides/` — companion assemblies, one shared contract-test project, and the focused override solution.
-  Each override family has its own folder. Package-owned fixtures and browser gates live under that family's `Tests/` directory, while `RuntimeOverrides.Tests` validates every companion's shared packaging contract in one test host. Browser and JavaScript-library adapters use paired managed API and implementation projects under `Interop.JS.Browser/`, `Interop.JS.React/`, `Interop.JS.MobX/`, `Interop.JS.Motion/`, `Interop.JS.LucideIcons/`, `Interop.JS.Shadcn.BaseUI/`, `Interop.JS.Shadcn.Cn/`, and `Interop.JS.Shadcn.Recharts/`; framework companions include `System.Console/`, `System.Net.Http/`, `System.Net.Http.Json/`, `System.Text.Json/`, `Newtonsoft.Json/`, `System.Private.CoreLib/`, `System.Private.Uri/`, and `System.Security.Cryptography/`.
+- `Overrides/` — `FrontEndCSharp.Overrides.*` companion assemblies, managed adapter assemblies, package-owned tests, and the focused override solution.
+  Each override family has a `FrontEndCSharp.Overrides.<Target>/` folder. Package-owned fixtures and browser gates live under that family's `Tests/` directory; the shared companion packaging contract host is owned by the React family under `FrontEndCSharp.Overrides.Interop.JS.React/Tests/`. Browser and JavaScript-library adapters use paired managed API and implementation projects with the same `FrontEndCSharp.Overrides.*` prefix, while their public C# namespaces remain `Interop.JS.*`.
 - `Demo/` — the shared `FrontEndCSharp.Demo` web host plus peer `FrontEndCSharp.SimpleDemo` and `FrontEndCSharp.ReactDemo` managed applications. The host serves their generated output from separate `wwwroot/js` subfolders.
 - `Fecscn/` — the pinned Base UI/Nova shadcn-style registry, self-contained
   `fecscn init`/`add` tool, application-owned FECSX/C# component sources, Tailwind
@@ -89,13 +89,13 @@ call-graph progress. MSBuild consumers can select the same output with
 
 ```powershell
 dotnet build Compiler/Core/Compiler.csproj
-dotnet test RuntimeOverrides/RuntimeOverrides.sln
+dotnet test Overrides/Overrides.sln
 dotnet build Demo/FrontEndCSharp.SimpleDemo/FrontEndCSharp.SimpleDemo.csproj
 dotnet run --project Compiler/Core/Compiler.csproj -- Demo/FrontEndCSharp.SimpleDemo/FrontEndCSharp.SimpleDemo.csproj
 dotnet test Compiler/Compiler.Tests/Compiler.Tests.csproj
 dotnet test Debugger/Tests/Debugger.Tests.csproj
 dotnet build Debugger/Adapter/FrontEndCSharp.DebugAdapter.csproj
-dotnet pack Compiler/Packaging/FrontEndCSharp.Build/FrontEndCSharp.Build.csproj -c Debug
+dotnet pack Compiler/Packaging/FrontEndCSharp.FECS.Internals.Build/FrontEndCSharp.FECS.Internals.Build.csproj -c Debug
 dotnet build Debugger/VisualStudio/FrontEndCSharp.VisualStudio.csproj -c Debug
 dotnet test Fecscn/FrontEndCSharp.Fecscn.Tests/FrontEndCSharp.Fecscn.Tests.csproj
 dotnet test Fecscn/FrontEndCSharp.Tailwind.Tests/FrontEndCSharp.Tailwind.Tests.csproj

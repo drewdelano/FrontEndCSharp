@@ -1,0 +1,6 @@
+import { PanelTopBottomDashedIcon } from 'lucide-react';
+import { wrap } from '../msil-type-helpers.js';
+
+globalThis.DotNet.Methods['Interop.JS.LucideIcons.LucideIconImports.PanelTopBottomDashedIcon()'] = function () {
+    return wrap(PanelTopBottomDashedIcon, 'Interop.JS.React.ImportedReactComponent');
+};

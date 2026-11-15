@@ -36,8 +36,8 @@ internal static class DebugAdapterEditAndContinueSmoke
             File.WriteAllText(
                 projectPath,
                 File.ReadAllText(projectPath).Replace(
-                    @"..\..\..\..\RuntimeOverrides",
-                    Path.Combine(repository, "RuntimeOverrides"),
+                    @"..\..\..\..\Overrides",
+                    Path.Combine(repository, "Overrides"),
                     StringComparison.Ordinal));
             BuildPrerequisites(repository);
             var compilerPath = Path.Combine(

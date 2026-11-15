@@ -21,7 +21,7 @@ migration.
 | Category | Count | Disposition |
 | --- | ---: | --- |
 | JavaScript runtime scenarios under `Compiler/Compiler.Tests/JsRuntime` | 19 | Retain as direct JavaScript-runtime inputs. The .NET test host owns 18 compiler-runtime behavioral scenarios; `FrontEndCSharp.Compiler.Integration` owns the interpreter benchmark process and result contract. |
-| Package-owned runtime-asset scenarios under `RuntimeOverrides/*/Tests/JsRuntime` | 11 | Keep scenarios beside the companion that owns the asset. A package-neutral .NET test host discovers and executes them through the owner-qualified output contract. |
+| Package-owned runtime-asset scenarios under `Overrides/*/Tests/JsRuntime` | 11 | Keep scenarios beside the companion that owns the asset. A package-neutral .NET test host discovers and executes them through the owner-qualified output contract. |
 | Compiler browser integration `.mjs` entry points and helpers | 0 | Migrated to `FrontEndCSharp.Compiler.Integration`; the motion-evidence unit scenarios are ordinary C# tests. |
 | Debugger integration `.mjs` entry points | 0 | All orchestration is C#. The retained Edit-and-Continue `.runtime.mjs` file only applies an emitted module inside the product runtime and is not an entry point for repository orchestration. |
 | FECSX Visual Studio PowerShell scripts | 0 | Visual Studio orchestration and verification are C# integration commands. |
@@ -42,7 +42,7 @@ migration.
 - Nested VSIX, project-template, compiler-payload, debugger-registration, and NuGet
   archive validation is owned by the C# `FrontEndCSharp.Debugger.Integration
   verify-vsix` command.
-- Installed `FrontEndCSharp.Build` package behavior is exercised by the C#
+- Installed `FrontEndCSharp.FECS.Internals.Build` package behavior is exercised by the C#
   `verify-build-package` command, including explicit compiler selection and a
   runtime-only incremental rebuild.
 - Project-template extraction, token replacement, package restore, build, web-host

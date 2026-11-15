@@ -1,0 +1,143 @@
+name: Publish override NuGet packages
+
+run-name: Publish override packages from ${{ github.ref_name }} at ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_publish:
+        description: Publish all 34 validated Override packages permanently to nuget.org
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-override-nuget-packages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Pack, validate, and publish
+    runs-on: windows-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      OVERRIDE_STAGING: ${{ github.workspace }}\artifacts\nuget\overrides
+
+    steps:
+      - name: Validate publication request
+        shell: pwsh
+        env:
+          CONFIRM_PUBLISH: ${{ inputs.confirm_publish }}
+        run: |
+          if ($env:GITHUB_REF -ne 'refs/heads/master') {
+            throw "Override packages may only be published from master; selected ref was '$env:GITHUB_REF'."
+          }
+          if ($env:CONFIRM_PUBLISH -ne 'true') {
+            throw 'The confirm_publish input must be selected.'
+          }
+
+      - name: Check out the selected commit
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Pack Override packages
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path $env:OVERRIDE_STAGING | Out-Null
+          dotnet pack Overrides/Overrides.sln `
+            --configuration Release `
+            --output $env:OVERRIDE_STAGING `
+            --verbosity minimal `
+            /nodeReuse:false
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+
+          $packages = @(Get-ChildItem -LiteralPath $env:OVERRIDE_STAGING -Filter '*.nupkg' -File)
+          if ($packages.Count -ne 34) {
+            throw "Expected 34 Override packages, found $($packages.Count)."
+          }
+          $packages | Sort-Object Name | Get-FileHash -Algorithm SHA256 | Format-Table
+
+      - name: Validate package metadata and readmes
+        shell: pwsh
+        run: |
+          dotnet run `
+            --project Debugger/Tests/Integration/FrontEndCSharp.Debugger.Integration.csproj `
+            --configuration Release `
+            -- `
+            verify-nuget-package-metadata $env:OVERRIDE_STAGING 34
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+
+      - name: Verify package identities are unpublished
+        shell: pwsh
+        run: |
+          dotnet run `
+            --no-build `
+            --project Debugger/Tests/Integration/FrontEndCSharp.Debugger.Integration.csproj `
+            --configuration Release `
+            -- `
+            verify-nuget-org-availability $env:OVERRIDE_STAGING 34
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
+
+      - name: Retain the validated packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: override-nuget-packages-${{ github.run_id }}
+          path: artifacts/nuget/overrides/*.nupkg
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Request a temporary nuget.org API key
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: drewdelano
+
+      - name: Publish packages to nuget.org
+        shell: pwsh
+        env:
+          NUGET_API_KEY: ${{ steps.nuget-login.outputs.NUGET_API_KEY }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:NUGET_API_KEY)) {
+            throw 'NuGet Trusted Publishing did not return a temporary API key.'
+          }
+
+          $packages = Get-ChildItem -LiteralPath $env:OVERRIDE_STAGING -Filter '*.nupkg' -File |
+            Sort-Object Name
+          foreach ($package in $packages) {
+            Write-Host "Publishing $($package.Name)"
+            dotnet nuget push $package.FullName `
+              --api-key $env:NUGET_API_KEY `
+              --source https://api.nuget.org/v3/index.json
+            if ($LASTEXITCODE -ne 0) {
+              throw "Publishing '$($package.Name)' failed with exit code $LASTEXITCODE."
+            }
+          }
+
+      - name: Verify published packages on nuget.org
+        shell: pwsh
+        run: |
+          dotnet run `
+            --no-build `
+            --project Debugger/Tests/Integration/FrontEndCSharp.Debugger.Integration.csproj `
+            --configuration Release `
+            -- `
+            verify-nuget-org-publication $env:OVERRIDE_STAGING 34
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }

@@ -16,15 +16,18 @@ Directory.CreateDirectory(browserDirectory);
 
 try
 {
-    await Run("dotnet", ["pack", Path.Combine(repositoryRoot, "Fecscn", "FrontEndCSharp.Tailwind", "FrontEndCSharp.Tailwind.csproj"), "-c", "Release", "-o", packages, "--verbosity", "minimal"], repositoryRoot);
+    await Run("dotnet", ["pack", Path.Combine(repositoryRoot, "Fecscn", "FrontEndCSharp.FECS.Internals.Tailwind", "FrontEndCSharp.FECS.Internals.Tailwind.csproj"), "-c", "Release", "-o", packages, "--verbosity", "minimal"], repositoryRoot);
     foreach (var packageProject in new[]
     {
-        Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.Shadcn.BaseUI", "Interop.JS.Shadcn.BaseUI", "Interop.JS.Shadcn.BaseUI.csproj"),
-        Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.Shadcn.BaseUI", "Interop.JS.Shadcn.BaseUI.fecs", "Interop.JS.Shadcn.BaseUI.fecs.csproj"),
-        Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.Shadcn.Cn", "Interop.JS.Shadcn.Cn", "Interop.JS.Shadcn.Cn.csproj"),
-        Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.Shadcn.Cn", "Interop.JS.Shadcn.Cn.fecs", "Interop.JS.Shadcn.Cn.fecs.csproj"),
-        Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.LucideIcons", "Interop.JS.LucideIcons", "Interop.JS.LucideIcons.csproj"),
-        Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.LucideIcons", "Interop.JS.LucideIcons.fecs", "Interop.JS.LucideIcons.fecs.csproj")
+        Path.Combine(repositoryRoot, "Compiler", "Fecsx", "FrontEndCSharp.FECS.Internals.Fecsx.Build", "FrontEndCSharp.FECS.Internals.Fecsx.Build.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Browser", "FrontEndCSharp.Overrides.Interop.JS.Browser", "FrontEndCSharp.Overrides.Interop.JS.Browser.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.React", "FrontEndCSharp.Overrides.Interop.JS.React", "FrontEndCSharp.Overrides.Interop.JS.React.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.csproj"),
+        Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs.csproj")
     })
     {
         await Run("dotnet", ["pack", packageProject, "-c", "Release", "-o", packages, "--verbosity", "minimal"], repositoryRoot);
@@ -36,10 +39,8 @@ try
         <Project Sdk="Microsoft.NET.Sdk">
           <PropertyGroup><TargetFramework>net8.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
           <ItemGroup>
-            <PackageReference Include="FrontEndCSharp.Fecsx.Build" Version="0.1.0" Condition="'$(Never)' == 'true'" />
-            <PackageReference Include="Interop.JS.React" Version="19.3.1" Condition="'$(Never)' == 'true'" />
-            <ProjectReference Include="{{Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.React", "Interop.JS.React", "Interop.JS.React.csproj")}}" />
-            <ProjectReference Include="{{Path.Combine(repositoryRoot, "Compiler", "Fecsx", "FrontEndCSharp.Fecsx", "FrontEndCSharp.Fecsx.csproj")}}" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+            <PackageReference Include="FrontEndCSharp.FECS.Internals.Fecsx.Build" Version="0.1.0" PrivateAssets="all" />
+            <PackageReference Include="FrontEndCSharp.Overrides.Interop.JS.React" Version="19.3.1" />
             <AdditionalFiles Include="**\*.fecsx" />
           </ItemGroup>
         </Project>
@@ -51,7 +52,7 @@ try
             <FrontEndCSharpProject>$(MSBuildProjectDirectory)\..\Sample.Browser\Sample.Browser.csproj</FrontEndCSharpProject>
           </PropertyGroup>
           <ItemGroup>
-            <PackageReference Include="FrontEndCSharp.Build" Version="0.1.0" Condition="'$(Never)' == 'true'" />
+            <PackageReference Include="FrontEndCSharp.FECS.Internals.Build" Version="0.1.0" Condition="'$(Never)' == 'true'" />
             <ProjectReference Include="$(FrontEndCSharpProject)" />
           </ItemGroup>
         </Project>
@@ -79,9 +80,9 @@ try
         ["checkbox"]);
     FecscnInstaller.Install(project, plan);
     var browserProjectContent = await File.ReadAllTextAsync(browserProject);
-    if (!browserProjectContent.Contains("Interop.JS.Shadcn.BaseUI", StringComparison.Ordinal)
-        || !browserProjectContent.Contains("Interop.JS.Shadcn.Cn", StringComparison.Ordinal)
-        || !browserProjectContent.Contains("Interop.JS.LucideIcons", StringComparison.Ordinal)
+    if (!browserProjectContent.Contains("FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", StringComparison.Ordinal)
+        || !browserProjectContent.Contains("FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", StringComparison.Ordinal)
+        || !browserProjectContent.Contains("FrontEndCSharp.Overrides.Interop.JS.LucideIcons", StringComparison.Ordinal)
         || browserProjectContent.Contains("FrontEndCSharp.Fecscn.ReactImports", StringComparison.Ordinal))
     {
         throw new InvalidOperationException(

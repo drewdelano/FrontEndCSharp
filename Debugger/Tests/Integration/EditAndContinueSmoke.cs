@@ -47,8 +47,8 @@ internal static class EditAndContinueSmoke
             File.WriteAllText(
                 projectPath,
                 File.ReadAllText(projectPath).Replace(
-                    @"..\..\..\..\RuntimeOverrides",
-                    Path.Combine(repository, "RuntimeOverrides"),
+                    @"..\..\..\..\Overrides",
+                    Path.Combine(repository, "Overrides"),
                     StringComparison.Ordinal));
             using var host = new JsonLineProcess(hostPath, projectPath, stateRoot);
             var initial = host.NextResponse();

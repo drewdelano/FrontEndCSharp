@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup Condition="'$(_FrontEndCSharpOverridePackage)' == 'true' and !Exists('$(MSBuildProjectDirectory)\README.md')">
+    <None Include="$(_FrontEndCSharpPackageReadmeSource)"
+          Pack="true"
+          PackagePath="README.md" />
+  </ItemGroup>
+</Project>

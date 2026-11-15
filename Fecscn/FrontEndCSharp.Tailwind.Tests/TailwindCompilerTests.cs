@@ -11,15 +11,15 @@ public sealed class TailwindCompilerTests
         var props = XDocument.Load(Path.Combine(
             FindRepositoryRoot(),
             "Fecscn",
-            "FrontEndCSharp.Tailwind",
+            "FrontEndCSharp.FECS.Internals.Tailwind",
             "buildTransitive",
-            "FrontEndCSharp.Tailwind.props"));
+            "FrontEndCSharp.FECS.Internals.Tailwind.props"));
         var targets = XDocument.Load(Path.Combine(
             FindRepositoryRoot(),
             "Fecscn",
-            "FrontEndCSharp.Tailwind",
+            "FrontEndCSharp.FECS.Internals.Tailwind",
             "buildTransitive",
-            "FrontEndCSharp.Tailwind.targets"));
+            "FrontEndCSharp.FECS.Internals.Tailwind.targets"));
         var visibleProperties = props.Descendants()
             .Where(element => element.Name.LocalName == "CompilerVisibleProperty")
             .Select(element => (string?)element.Attribute("Include"))
@@ -229,7 +229,7 @@ public sealed class TailwindCompilerTests
         public string Root => root;
 
         public string ToolRoot => Path.Combine(
-            FindRepositoryRoot(), "Fecscn", "FrontEndCSharp.Tailwind", "JavaScriptPackages");
+            FindRepositoryRoot(), "Fecscn", "FrontEndCSharp.FECS.Internals.Tailwind", "JavaScriptPackages");
 
         public string Write(string relativePath, string content)
         {

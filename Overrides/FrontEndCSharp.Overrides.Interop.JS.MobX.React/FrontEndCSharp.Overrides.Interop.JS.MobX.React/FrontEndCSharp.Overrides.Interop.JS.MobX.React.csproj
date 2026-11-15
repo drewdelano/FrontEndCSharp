@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>FrontEndCSharp.Overrides.Interop.JS.MobX.React</AssemblyName>
+    <RootNamespace>Interop.JS.MobX.React</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>5.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.csproj" />
+  </ItemGroup>
+
+</Project>

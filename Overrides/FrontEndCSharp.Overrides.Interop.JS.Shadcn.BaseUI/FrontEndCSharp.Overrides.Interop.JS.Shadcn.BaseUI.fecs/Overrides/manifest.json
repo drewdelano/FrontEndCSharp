@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuSubmenuRoot()",
+      "file": "method.0013204aa2334f62cc7367d67553fcd7b655c4e2f3521172edfc9759e4231bce.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectPositioner()",
+      "file": "method.027d1b08506e80e86d01c8ca295e2e465ab8980540d917c7f9efce0b3a61bf94.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerTrigger()",
+      "file": "method.04a3ceeab8133873d15db82cfde3955deb28ded6c4eac32ad6b579eab3214879.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiProgressRoot()",
+      "file": "method.0749d82be2858fe7fb3efcd0eab2b1a203e427af306eacec516cb127d6d3eae7.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiProgressValue()",
+      "file": "method.08c432c69a9471a37fd252b95501eff98320feedd7a71ce4f9af31f382e254fc.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectList()",
+      "file": "method.0b05dd0c67d8f66774b712b383268acdc5440f5b35691072a6486a6704b0a60d.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectGroupLabel()",
+      "file": "method.10e6d58736bac7b4351ea6055c5193aa3311667da9f6e1116a98346bae652ee0.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxEmpty()",
+      "file": "method.122277725b07e7047f44cf63ce453e3395bd0f1a93fe30f54362fed3fcb95d27.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerDescription()",
+      "file": "method.125d3b1be49d00830d3d6d00d304951f481443c9adee6afc5825050a2c7c29e2.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxPopup()",
+      "file": "method.1441ced93312433fccc1177951a3d7fbd6bfc3b8e95be7dc13dc17dd8f5db1bd.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuRadioItemIndicator()",
+      "file": "method.18295a25c423503d0dd72a837c00e113fe38f6996404fbba3a1446cca03d49dc.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAvatarRoot()",
+      "file": "method.1a28010240440fe1ccac92bec60a6d312c4bd52e70012e51d4343373ea7aafc4.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxList()",
+      "file": "method.1de83e21a2576f4524963dd0d8881098f14116f7f3d67a130275c0e40b9ea8ba.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectTrigger()",
+      "file": "method.1de9342295f5899e17ffef0aad330edce65066264569580e0a6db617388f6f78.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipTrigger()",
+      "file": "method.1e3a3db2c18bcdf0169dd0c645cacb5dd724a1e499cc039dca393a175f1b3dad.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogPopup()",
+      "file": "method.2027e78e5b79c1e57b7ea42771155167b34ee1cade001e13564a9acce0080ac1.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuRoot()",
+      "file": "method.2076ac4c347cedfd21260473374df13131cb5bd1677df45538cbf41ad0f7e7c2.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAvatarFallback()",
+      "file": "method.246dc7926e3d6fe08db2d8cb90d4c7aaa2365c672e44e2e34fa36bc1b9fcbbc0.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogTitle()",
+      "file": "method.247b698df0ef550661d6dbd3f188f67d21c66c6c210b6ca23d38359c87ba9bc4.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuPositioner()",
+      "file": "method.269bfd8a2ade363715310b0b8b56db9d64df98483d1a91f0c93c351c35843cb2.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxItemIndicator()",
+      "file": "method.3218c4fc5bc9e532ece21d379392d30930fd1896a9270dc8dbb62a1da6822884.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerViewport()",
+      "file": "method.3309eae8251f73fb47167ff8127d8332f8691a9cb467f67f6f7644a858e96d64.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectItem()",
+      "file": "method.368c606253d43b872b495fbadd7ffa9017fc9686494b75f4eafdb8d4ebcc65cd.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxChips()",
+      "file": "method.39d831704bfc7d13cd4e2dc1f7faa6d4db7b3606a432154d70f96291f12aa597.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerPortal()",
+      "file": "method.3a1e4ea04b2ea5efeba9960297f46904f64d91ac05131c47f0031f8ce76a02a1.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipRoot()",
+      "file": "method.3aba3ed5321585292b4e447a36a6c1a862c11b8154f42168641e071c90168f25.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiCheckboxRoot()",
+      "file": "method.43b13f399df5f69e5a26e93cf86966c16044939f64673a4a1788bf63c87c77e8.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogDescription()",
+      "file": "method.44b4799b1d549c6488e42884bb5455c34ddb9c1da21943038fcacf4744dd667c.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerContent()",
+      "file": "method.46b664644ba6a14fdf6c6a4e3487aff7113f2d13c54f44bc45d990dd7a6f2836.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuCheckboxItemIndicator()",
+      "file": "method.49b7664e97dab8c63fca3a90f6704a6a6507d95fa0ab2a702c1fa5579ae57617.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerBackdrop()",
+      "file": "method.4fb876033635b61677598317e7fa96356b37984bed43f7dc785e5b07068c4240.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAvatarImage()",
+      "file": "method.505c969225b57b95f0bb08387a8a9438b1d10274a51bd7b6dbf754897ab354d1.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAccordionItem()",
+      "file": "method.5383c0cdfaf2e2877e2fb16a1814fae99f905a06537091a48e88c30b80ff1269.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectSeparator()",
+      "file": "method.540e27f2ad23b6dd4cf06470dbf9ca1481a2369fac095c37849429cd03e9d2d6.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxGroup()",
+      "file": "method.558695fa0426ce1c63fb1d8019186bb00fd7d5e9a4a4783021b9d41fb044aacf.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectGroup()",
+      "file": "method.59c3ec238b23eef6e299209c70e3fec2d3577e4fe0a23b06e2d8729ec70e7f7a.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAccordionPanel()",
+      "file": "method.59ebdaf743a3403d9e79b9a9f201b966e9258ee964e61134587aca7e60364a4a.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxClear()",
+      "file": "method.5c2c1345d6f5b3281610817c01010c5db0f36d07492d6bf38359c53a074b0dea.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiButton()",
+      "file": "method.5e42b021a6dc893634aa35b9dd3e235b65eaa136176a43fec8dcfe076e37c3e5.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuGroupLabel()",
+      "file": "method.61ab7c93b4bdba49c93d298f91fb325279a46f372b4c12071ebc98d892e3de43.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAccordionRoot()",
+      "file": "method.63f3303d758351ed09c2993b6b4e6390f901bcd721630dd91012ab6c87e47b24.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectIcon()",
+      "file": "method.64f6569b6450a1b6293c3d793b263b0a7bd2b8635d094edeb2e40b7b20a3b383.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuSubmenuTrigger()",
+      "file": "method.655c95a66d26bd01bcb8e067ba3ebc9bb823143807a1378d95578b3c9e6694f9.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxChipRemove()",
+      "file": "method.6b4dccca8eb24b0b9bdd2e451227c46d6768f6adfb947051733ee01424a481cd.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuGroup()",
+      "file": "method.71571194ec40177dbc197884c0a5d2a6e652d116703be1b4970264591f7f2477.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerPopup()",
+      "file": "method.71e01ca5856c66b3dc01eff8eebcc9c6765be5c3b46de0c6f524b9301767009d.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectRoot()",
+      "file": "method.72d095c7856d53cc25b7c20d8c040d50bfecc23124ef80163ebaa9e568d35842.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxPortal()",
+      "file": "method.730d9942e6174d95fd35d4e581edb87b83dd9ce1d698352e42012709fb54ba29.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiProgressTrack()",
+      "file": "method.7904120475c924af80db35d7c1f48807963dc7fa006d51acbbbbcf8c0ca9cfa2.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxItem()",
+      "file": "method.7bd041762f999ccf3b9f1cccfe5ccca11760599c4ea14f65d86e87fcd2be74ac.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuRadioItem()",
+      "file": "method.8132cfe294bb7153c045d402189508eb89c2eb3c1166a7de56fba09ed71d8b45.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipPopup()",
+      "file": "method.85e7dc63047b72d68629ac84b16ab0c2b1fef7be1a2919feb261017dab8a9746.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipProvider()",
+      "file": "method.886cd507229b2d4d11e5f52f514794c94086f4afd783e8bbd5cb069f65212e5b.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.ShowToast(System.String, System.String, System.String)",
+      "file": "method.8a5c822871eabf9a09eb47ae8f6864b4a10540000722be1134fbdbcbc2286a29.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSeparator()",
+      "file": "method.950fda6f73872449b067aaa8f25371cc158f6a7148b8baaf1b1dd38bd286479c.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiProgressLabel()",
+      "file": "method.96c5118f8354d68f1029836c1513c2f0cdf704956e9edb78d0b40a8a82e6e535.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectValue()",
+      "file": "method.989b2a55f4e1a2efb37e243366d422e385eb6d7482ec3a67ee56af9424c65106.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiProgressIndicator()",
+      "file": "method.992b680c95dd52f1222f4529aacb0daa49e7d27fc93b862d424c018245e4a552.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerClose()",
+      "file": "method.a6a5e12165e121a7e23bdb8693a60b64a2f98e21cf30f9a8336b7252586b3299.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxSeparator()",
+      "file": "method.a74e7ac06d59837d4ff9c8ec855112f41e06fa2c969c01836c49102b23154b9c.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxChip()",
+      "file": "method.a75d3e091ba9f80691abae9b274337b00954a75b0bbafa24fc366f878f561d82.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiCheckboxIndicator()",
+      "file": "method.ab6cb7fee66285006d734ab6813402275c86c8048ca3c885db4e0b28de2209b6.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxRoot()",
+      "file": "method.ab978ab23c6183f127b29c3de0247572ffa6c78865dd9e140df110246c1d6102.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxInput()",
+      "file": "method.abcf3a8866b4305af9aeadd27ac9ebe31300bc5829571b35083fcb2021580142.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerRoot()",
+      "file": "method.af9334d984af4abe3ec47846be2c868ea64c3a42c155951ff8c0f457d8f279b3.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuItem()",
+      "file": "method.b00b92d3024e902fe5a8ef49a96a40683a390c0c94913e39b3f481b148687d47.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectPopup()",
+      "file": "method.b320f64a7ae21f11dc8f890babc32b00ad1bb3110f86227a0d4a74117cdfb43b.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuTrigger()",
+      "file": "method.b38f338f7d4149ae87315501c599e2683e996493b067e97b7341a50b26c5055c.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxPositioner()",
+      "file": "method.b5d9bb7414f7eb6f43fab2a66b7105dc2ac9ee692cb64a57c9d2272932d5ba17.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxCollection()",
+      "file": "method.b6d53bbf52fb42d8fcd960267435523eb6d158a0cd4c4e9f0126294de90573df.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectPortal()",
+      "file": "method.bc26138d39676bd41217d26bf3447681b9f281bff61f2eb077f05f24be603c66.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipPositioner()",
+      "file": "method.be0f92eb74fcc1aa68ce05ecb84dc1b65e606006192f85be1ab9db490bc03b18.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiToastToaster()",
+      "file": "method.c2e3c7aa5daece6be395f996e24a50a600f46083a147584b14706233f744fbac.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectItemText()",
+      "file": "method.c40fa38ed661c287f1f1277c339ab4affb794b43cd82a4c10719dc0a4e766244.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogBackdrop()",
+      "file": "method.c45a5947e9a9a7b05cfc988f6e201fefacecd999e08442d21eda37117b7eb517.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogRoot()",
+      "file": "method.c511fc07a6586e17fffd14d3ba06576bb91f49fcb2a7569ecdb98072aa371405.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAccordionHeader()",
+      "file": "method.c629f9737dd26e1cc8942a1e4a3182f7c958812981e9ba40aa3aaf6cbfa64226.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogTrigger()",
+      "file": "method.c956b096ddb849ff6316aea206015af55c62cf0a5a1ae25106ec968b6e8864d9.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuPopup()",
+      "file": "method.ca2b91966eab3728fc121124cb23221301c3c89b5f8f454c4064fb1bfc3c00b1.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDrawerTitle()",
+      "file": "method.cc5872fef3dab0872756f973e1e4cdef7d76f78f9dc7cf6a7cbd91b63cda08e1.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxGroupLabel()",
+      "file": "method.cdeb82cb340e437e959b75113497dbb7010c947ef7a06a42c6b3674de2de0329.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxValue()",
+      "file": "method.cf7f465d8f170cde7ab4dacf5a30197721c30aa2b678dcb498067969e0357f5c.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuCheckboxItem()",
+      "file": "method.d2ea2fafe6797ed30276a00eb02428fb7a32ff3665805b069bc68aeb53071655.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiInput()",
+      "file": "method.db1d50d2d5f9885ec3fd12ee3b30565189bec48c1eb80e3c0c057da11348a5eb.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogClose()",
+      "file": "method.df303ee00510780c4d4804045f7dca6f5c484eb85311729eaa6d8077fb0d0bac.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuPortal()",
+      "file": "method.e6c5bdb528f8a0fca3c6c7d41af7253bd0fcc9d16af36877bf5cffcdaa8cc971.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectItemIndicator()",
+      "file": "method.ed36e4975827ee0ac5c10c54d0ccbb3e8716ef6f7de30ab8a43be0796e65412e.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectScrollDownArrow()",
+      "file": "method.ef8ded1ac04b00dbd29c2d35a8557623c3d4259d033e107d5f29558a6ca7e360.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiDialogPortal()",
+      "file": "method.f0270b700192ee5580a7030bb6de0b9e03d0c0f4bab31423a25f7d67ce2d5cda.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipArrow()",
+      "file": "method.f3a9acedd247099538c6d830c2b97b64ed579a17e84b2ce0d0653bc3d50f6018.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiComboboxTrigger()",
+      "file": "method.f400d6f1fb0196d5b8404f0d67f1dd30c6d17e7dfa537b9587100213dcf4f9ef.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiTooltipPortal()",
+      "file": "method.f4590b1c152417e6bd217e4f241b43a62d6d37a3fdbd7a9d34e143ce4b5643f7.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiSelectScrollUpArrow()",
+      "file": "method.f8bf82b5b2bc6fbfd38de5f783e05cc3418920824216f299b233987e1b4fb95c.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiAccordionTrigger()",
+      "file": "method.faf086c7cfb12b062f6dfd9040c468ecf65f957fdd76cf5582c814c10ea3ec75.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuRadioGroup()",
+      "file": "method.fcdf422f68cf96802f28b0ed857ab2155dca462f57b19d4dfa59d643ef00275b.js"
+    },
+    {
+      "signature": "Interop.JS.Shadcn.BaseUI.BaseUiReactImports.BaseUiMenuSeparator()",
+      "file": "method.fe135cb6daa266766c515bb49b28d9610740da203eecb32f27f83e461ab3c50a.js"
+    }
+  ]
+}

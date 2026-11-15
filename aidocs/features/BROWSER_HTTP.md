@@ -33,7 +33,7 @@ capability-gated extension because browser support and Fetch requirements differ
 
 Use `HttpClient`, `HttpRequestMessage`, `HttpResponseMessage`, `HttpContent`, and
 `System.Net.Http.Json` as the public application model. Common environment-neutral
-behavior should remain managed MSIL. The selected `System.Net.Http.fecs.dll`
+behavior should remain managed MSIL. The selected `FrontEndCSharp.Overrides.System.Net.Http.fecs.dll`
 companion adapts only the terminal `HttpMessageHandler.SendAsync` operation and the
 small number of browser-bound setup paths that cannot yet reach it through usable
 managed MSIL.
@@ -44,7 +44,7 @@ make shared desktop/browser services harder to write. A lower-level browser API 
 justified only for a feature that cannot be represented through
 `HttpRequestMessage.Options`.
 
-A focused `System.Private.Uri.fecs.dll` companion supplies the URI seam needed by
+A focused `FrontEndCSharp.Overrides.System.Private.Uri.fecs.dll` companion supplies the URI seam needed by
 ordinary `HttpClient.BaseAddress` code. JSON remains a layer above the transport:
 the HTTP companion handles bytes, media types, and headers, while
 `System.Net.Http.Json` and the selected serializer companion own JSON behavior.
@@ -106,7 +106,7 @@ buffered-completion blockers.
 
 ## Managed JSON layer
 
-`System.Net.Http.Json.fecs` turns buffered `HttpContent` into an ordinary managed
+`FrontEndCSharp.Overrides.System.Net.Http.Json.fecs` turns buffered `HttpContent` into an ordinary managed
 object through `ReadFromJsonAsync<T>(CancellationToken)` and supports the familiar
 `GetFromJsonAsync<T>`, `PostAsJsonAsync<T>`, and `PutAsJsonAsync<T>` workflows over
 the verified `System.Text.Json` Web contract. The serializer dependency remains
@@ -172,7 +172,7 @@ behavior is not part of its contract.
 Run the buffered transport slice and HTTP JSON vertical slice with:
 
 ```powershell
-dotnet run --no-build --project RuntimeOverrides/System.Net.Http/Tests/HttpClientBrowserSmoke/HttpClientBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
-dotnet run --no-build --project RuntimeOverrides/System.Net.Http/Tests/HttpStreamingBrowserSmoke/HttpStreamingBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
-dotnet run --no-build --project RuntimeOverrides/System.Net.Http.Json/Tests/HttpJsonBrowserSmoke/HttpJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Net.Http/Tests/FrontEndCSharp.Overrides.HttpClientBrowserSmoke/FrontEndCSharp.Overrides.HttpClientBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Net.Http/Tests/FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke/FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Net.Http.Json/Tests/FrontEndCSharp.Overrides.HttpJsonBrowserSmoke/FrontEndCSharp.Overrides.HttpJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
 ```

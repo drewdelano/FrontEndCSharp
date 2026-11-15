@@ -20,13 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FrontEndCSharp.Fecscn.Tool\FrontEndCSharp.Fecscn.Tool.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.fecs\Interop.JS.Shadcn.Cn.fecs.csproj"
+    <ProjectReference Include="..\FrontEndCSharp.FECS.Internals.Fecscn.Tool\FrontEndCSharp.FECS.Internals.Fecscn.Tool.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs.csproj"
                       ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons\Interop.JS.LucideIcons.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.csproj" />
     <ProjectReference Include="..\Registry\CompileFixture\FrontEndCSharp.Fecscn.Registry.CompileFixture.csproj" />
   </ItemGroup>
 

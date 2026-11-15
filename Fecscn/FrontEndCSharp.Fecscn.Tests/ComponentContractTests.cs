@@ -15,9 +15,9 @@ public sealed class ComponentContractTests
     {
         var packageDirectory = Path.Combine(
             FindRepositoryRoot(),
-            "RuntimeOverrides",
-            "Interop.JS.Shadcn.Cn",
-            "Interop.JS.Shadcn.Cn.fecs",
+            "Overrides",
+            "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn",
+            "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs",
             "JavaScriptPackages");
         var startInfo = new ProcessStartInfo
         {
@@ -99,20 +99,20 @@ public sealed class ComponentContractTests
         var chart = Assert.Single(document.Items, item => item.Name == "chart");
 
         Assert.Equal(
-            ["Interop.JS.Shadcn.Cn", "Interop.JS.Shadcn.Cn.fecs"],
+            ["FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs"],
             utility.Packages!.Select(package => package.Name));
         Assert.All(utility.Packages!, package => Assert.Equal("0.5.2", package.Version));
         Assert.Equal(
-            ["Interop.JS.Shadcn.BaseUI", "Interop.JS.Shadcn.BaseUI.fecs"],
+            ["FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs"],
             button.Packages!.Select(package => package.Name));
         Assert.All(button.Packages!, package => Assert.Equal("1.9.0", package.Version));
         Assert.Equal(
-            ["Interop.JS.Shadcn.Recharts", "Interop.JS.Shadcn.Recharts.fecs"],
+            ["FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.fecs"],
             chart.Packages!.Select(package => package.Name));
         Assert.All(chart.Packages!, package => Assert.Equal("3.8.0", package.Version));
         Assert.All(
             document.Items.SelectMany(item => item.Packages ?? []),
-            package => Assert.StartsWith("Interop.JS.", package.Name, StringComparison.Ordinal));
+            package => Assert.StartsWith("FrontEndCSharp.Overrides.Interop.JS.", package.Name, StringComparison.Ordinal));
 
         var lucideUsers = new HashSet<string>(StringComparer.Ordinal)
         {
@@ -122,12 +122,12 @@ public sealed class ComponentContractTests
         foreach (var item in document.Items)
         {
             var lucidePackages = (item.Packages ?? [])
-                .Where(package => package.Name.StartsWith("Interop.JS.LucideIcons", StringComparison.Ordinal))
+                .Where(package => package.Name.StartsWith("FrontEndCSharp.Overrides.Interop.JS.LucideIcons", StringComparison.Ordinal))
                 .ToArray();
             if (lucideUsers.Contains(item.Name))
             {
                 Assert.Equal(
-                    ["Interop.JS.LucideIcons", "Interop.JS.LucideIcons.fecs"],
+                    ["FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs"],
                     lucidePackages.Select(package => package.Name));
                 Assert.All(lucidePackages, package => Assert.Equal("1.72.0", package.Version));
                 Assert.Contains(item.Dependencies ?? [], dependency =>

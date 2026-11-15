@@ -10,7 +10,7 @@ namespace Compiler.Tests;
 public class TaskCompletionSourceTests
 {
     private static readonly RuntimeOverrideCollection RuntimeOverrides = RuntimeOverrideCollection.Load([
-        Path.Combine(AppContext.BaseDirectory, "System.Private.CoreLib.fecs.dll")
+        Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll")
     ]);
 
     [Test]

@@ -69,7 +69,7 @@ internal static class VsixBuildModeVerifier
         var outputHash = Hash(File.ReadAllBytes(compilerBundler));
         using var archive = ZipFile.OpenRead(vsix);
         var directPayload = ReadEntry(archive, "CompilerPayload.zip");
-        var buildPackage = ReadEntry(archive, "Build/FrontEndCSharp.Build.nupkg");
+        var buildPackage = ReadEntry(archive, "Build/FrontEndCSharp.FECS.Internals.Build.nupkg");
         var directHash = Hash(ReadNestedEntry(directPayload, "JsBundler/index.cjs"));
         var packagedPayload = ReadNestedEntry(buildPackage, "tools/CompilerPayload.zip");
         var packagedHash = Hash(ReadNestedEntry(packagedPayload, "JsBundler/index.cjs"));

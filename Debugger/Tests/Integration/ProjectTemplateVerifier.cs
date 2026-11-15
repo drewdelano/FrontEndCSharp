@@ -67,17 +67,17 @@ internal static class ProjectTemplateVerifier
             var packageProjects = new List<string>
             {
                 @"Compiler\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj",
-                @"RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj",
-                @"RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj",
-                @"RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj",
+                @"Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.csproj",
+                @"Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.csproj",
+                @"Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj",
             };
             if (templateKind == "fecsx")
             {
                 packageProjects.AddRange(
                 [
-                    @"Compiler\Fecsx\FrontEndCSharp.Fecsx.Build\FrontEndCSharp.Fecsx.Build.csproj",
-                    @"RuntimeOverrides\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj",
-                    @"RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj",
+                    @"Compiler\Fecsx\FrontEndCSharp.FECS.Internals.Fecsx.Build\FrontEndCSharp.FECS.Internals.Fecsx.Build.csproj",
+                    @"Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.csproj",
+                    @"Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.fecs\FrontEndCSharp.Overrides.Interop.JS.React.fecs.csproj",
                 ]);
             }
             foreach (var relativeProject in packageProjects)
@@ -245,7 +245,7 @@ internal static class ProjectTemplateVerifier
             var text = File.ReadAllText(project);
             if (text.Contains("<ProjectReference", StringComparison.OrdinalIgnoreCase)
                 || text.Contains(@"..\..\Compiler", StringComparison.OrdinalIgnoreCase)
-                || text.Contains(@"..\..\RuntimeOverrides", StringComparison.OrdinalIgnoreCase))
+                || text.Contains(@"..\..\Overrides", StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidDataException(
                     $"Instantiated template project '{project}' contains a repository-relative dependency.");

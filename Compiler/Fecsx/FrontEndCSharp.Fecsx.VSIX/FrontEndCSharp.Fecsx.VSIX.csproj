@@ -26,7 +26,7 @@
     <TargetVsixContainer>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).vsix</TargetVsixContainer>
     <BuildIntegrationPackageVersion>0.1.19</BuildIntegrationPackageVersion>
     <BuildIntegrationPackageDirectory>$(VsixIntermediatePath)packages</BuildIntegrationPackageDirectory>
-    <BuildIntegrationPackagePath>$(BuildIntegrationPackageDirectory)\FrontEndCSharp.Build.$(BuildIntegrationPackageVersion).nupkg</BuildIntegrationPackagePath>
+    <BuildIntegrationPackagePath>$(BuildIntegrationPackageDirectory)\FrontEndCSharp.FECS.Internals.Build.$(BuildIntegrationPackageVersion).nupkg</BuildIntegrationPackagePath>
   </PropertyGroup>
 
   <Import Project="$(_FrontEndCSharpRepositoryRoot)Vssdk.BuildTools.props" />
@@ -45,7 +45,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FrontEndCSharp.Fecsx.Editor\FrontEndCSharp.Fecsx.Editor.csproj" />
-    <ProjectReference Include="..\..\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj"
+    <ProjectReference Include="..\..\Packaging\FrontEndCSharp.FECS.Internals.Build\FrontEndCSharp.FECS.Internals.Build.csproj"
                       ReferenceOutputAssembly="false"
                       SkipGetTargetFrameworkProperties="true" />
     <ProjectReference Include="..\..\..\Debugger\Tests\Integration\FrontEndCSharp.Debugger.Integration.csproj"
@@ -119,7 +119,7 @@
 
   <Target Name="CreateTemplateBuildIntegrationPackage" BeforeTargets="GetVsixSourceItems">
     <MakeDir Directories="$(BuildIntegrationPackageDirectory)" />
-    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj"
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\Packaging\FrontEndCSharp.FECS.Internals.Build\FrontEndCSharp.FECS.Internals.Build.csproj"
              Targets="Pack"
              BuildInParallel="false"
              Properties="Configuration=$(Configuration);PackageOutputPath=$(BuildIntegrationPackageDirectory)" />

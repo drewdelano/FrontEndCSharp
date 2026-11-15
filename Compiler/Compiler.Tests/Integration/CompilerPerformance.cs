@@ -260,12 +260,12 @@ internal static class CompilerPerformance
 
         var projectReferences = new[]
         {
-            Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.Browser", "Interop.JS.Browser", "Interop.JS.Browser.csproj"),
-            Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.Browser", "Interop.JS.Browser.fecs", "Interop.JS.Browser.fecs.csproj"),
-            Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.React", "Interop.JS.React", "Interop.JS.React.csproj"),
-            Path.Combine(repositoryRoot, "RuntimeOverrides", "Interop.JS.React", "Interop.JS.React.fecs", "Interop.JS.React.fecs.csproj"),
-            Path.Combine(repositoryRoot, "RuntimeOverrides", "System.Console", "System.Console.fecs", "System.Console.fecs.csproj"),
-            Path.Combine(repositoryRoot, "RuntimeOverrides", "System.Private.CoreLib", "System.Private.CoreLib.fecs", "System.Private.CoreLib.fecs.csproj"),
+            Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Browser", "FrontEndCSharp.Overrides.Interop.JS.Browser", "FrontEndCSharp.Overrides.Interop.JS.Browser.csproj"),
+            Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.Browser", "FrontEndCSharp.Overrides.Interop.JS.Browser.fecs", "FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.csproj"),
+            Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.React", "FrontEndCSharp.Overrides.Interop.JS.React", "FrontEndCSharp.Overrides.Interop.JS.React.csproj"),
+            Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.Interop.JS.React", "FrontEndCSharp.Overrides.Interop.JS.React.fecs", "FrontEndCSharp.Overrides.Interop.JS.React.fecs.csproj"),
+            Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.System.Console", "FrontEndCSharp.Overrides.System.Console.fecs", "FrontEndCSharp.Overrides.System.Console.fecs.csproj"),
+            Path.Combine(repositoryRoot, "Overrides", "FrontEndCSharp.Overrides.System.Private.CoreLib", "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs", "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj"),
         };
         var project = """
             <Project Sdk="Microsoft.NET.Sdk">

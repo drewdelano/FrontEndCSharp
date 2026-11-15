@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <PackageId>FrontEndCSharp.FECS.Internals.Fecsx.Build</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>FrontEndCSharp</Authors>
+    <Description>Build integration and source generator for FrontEndCSharp FECSX components.</Description>
+    <PackageTags>csharp;react;jsx;source-generator;msbuild</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CollectFecsxBuildPackageFiles</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.csproj"
+                      ReferenceOutputAssembly="false"
+                      PrivateAssets="all" />
+    <None Include="buildTransitive\FrontEndCSharp.FECS.Internals.Fecsx.Build.props"
+          Pack="true"
+          PackagePath="buildTransitive\FrontEndCSharp.FECS.Internals.Fecsx.Build.props" />
+    <None Include="README.md"
+          Pack="true"
+          PackagePath="\" />
+  </ItemGroup>
+
+  <Target Name="CollectFecsxBuildPackageFiles">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="..\FrontEndCSharp.Fecsx\bin\$(Configuration)\netstandard2.0\FrontEndCSharp.Fecsx.dll">
+        <PackagePath>analyzers\dotnet\cs\FrontEndCSharp.Fecsx.dll</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include="..\FrontEndCSharp.Fecsx\THIRD-PARTY-NOTICES.txt">
+        <PackagePath>analyzers\dotnet\cs\THIRD-PARTY-NOTICES.txt</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
+
+</Project>

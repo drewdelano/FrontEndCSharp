@@ -7,6 +7,6 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FrontEndCSharp.Fecscn.Tool\FrontEndCSharp.Fecscn.Tool.csproj" />
+    <ProjectReference Include="..\..\FrontEndCSharp.FECS.Internals.Fecscn.Tool\FrontEndCSharp.FECS.Internals.Fecscn.Tool.csproj" />
   </ItemGroup>
 </Project>

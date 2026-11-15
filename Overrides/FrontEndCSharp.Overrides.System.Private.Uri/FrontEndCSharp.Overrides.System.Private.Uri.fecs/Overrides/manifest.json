@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Uri..ctor(System.String)",
+      "file": "method.633c0c794e2b06e1d0dbee7166c5a73a7e6adabd58dae83cf63fbb10efd4b92b.js"
+    },
+    {
+      "signature": "System.Uri.get_IsAbsoluteUri()",
+      "file": "method.80679e65896d59eb05b83a7b5b668ffdf4159d4dd142d78432c2499439bb559f.js"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ internal static class VsixArchiveVerifier
         "Adapter/Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.dll",
         "Adapter/Newtonsoft.Json.dll",
         "Build/FrontEndCSharp.targets",
-        "Build/FrontEndCSharp.Build.nupkg",
+        "Build/FrontEndCSharp.FECS.Internals.Build.nupkg",
         "ProjectTemplates/templateManifest0.1033.vstman",
         "CompilerPayload.zip",
     };
@@ -82,8 +82,8 @@ internal static class VsixArchiveVerifier
 
     private static readonly string[] RequiredBuildPackageEntries =
     {
-        "buildTransitive/FrontEndCSharp.Build.props",
-        "buildTransitive/FrontEndCSharp.Build.targets",
+        "buildTransitive/FrontEndCSharp.FECS.Internals.Build.props",
+        "buildTransitive/FrontEndCSharp.FECS.Internals.Build.targets",
         "tools/CompilerPayload.zip",
         "tools/bootstrap/FrontEndCSharp.Build.Tasks.dll",
         "tools/bootstrap/FrontEndCSharp.Build.Tasks.deps.json",
@@ -144,11 +144,11 @@ internal static class VsixArchiveVerifier
             RequiredPayloadEntries,
             "Compiler payload");
         var buildPackageEntries = ReadNestedEntries(
-            GetEntry(archive, "Build/FrontEndCSharp.Build.nupkg"),
+            GetEntry(archive, "Build/FrontEndCSharp.FECS.Internals.Build.nupkg"),
             RequiredBuildPackageEntries,
             "Build package");
         var buildPackagePayloadEntries = ReadNestedArchiveEntries(
-            GetEntry(archive, "Build/FrontEndCSharp.Build.nupkg"),
+            GetEntry(archive, "Build/FrontEndCSharp.FECS.Internals.Build.nupkg"),
             "tools/CompilerPayload.zip",
             RequiredBuildPackagePayloadEntries,
             "Build-package compiler payload");

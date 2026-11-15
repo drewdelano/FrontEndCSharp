@@ -32,3 +32,19 @@ state. The standard Debug ReactDemo Chromium acceptance remains green. Decide
 whether diagnosing this Release-only compiler/runtime correctness defect should be
 added as separate work; it is not an optimization and was not changed as part of the
 performance investigation.
+
+## Internal NuGet publication destination
+
+The routine release batch now has a defined boundary for the 34 packages produced
+by `Overrides/Overrides.sln`, and the debugger and FECSX editor remain independently
+versioned VSIX releases. The four standalone package identities are agreed:
+
+- `FrontEndCSharp.FECS.Internals.Build`
+- `FrontEndCSharp.FECS.Internals.Fecsx.Build`
+- `FrontEndCSharp.FECS.Internals.Tailwind`
+- `FrontEndCSharp.FECS.Internals.Fecscn.Tool`
+
+Their publication destination is still unresolved. Decide the package source,
+visibility, authentication mechanism, and whether the internal `fecscn` tool needs
+to be published at all. Until those choices are agreed, local packaging under the
+timestamped `nuget/internal` staging directory is the terminal step.

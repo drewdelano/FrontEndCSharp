@@ -10,7 +10,7 @@ The FECSX VSIX also ships a self-contained React application project template.
 
 Quoted `className` and `ClassName` attribute values also participate in the
 async completion host when the owning FECSX project, or its paired
-FrontEndCSharp host project, has the `FrontEndCSharp.Tailwind` build integration
+FrontEndCSharp host project, has the `FrontEndCSharp.FECS.Internals.Tailwind` build integration
 enabled. The package exposes its evaluated availability, opt-out, and paired
 browser-project path as compiler-visible MSBuild properties. It also publishes
 the project editor-catalog path; the build task, not Visual Studio, resolves the
@@ -94,7 +94,7 @@ grouping, the effective spacing value, compiled
 arbitrary-value examples, and selected responsive/state variants from
 `getVariants()`. Visual Studio only reads the compressed result, so
 it requires neither Node.js nor network access. Regenerate the embedded fallback
-with the command in `Fecscn/FrontEndCSharp.Tailwind/README.md` whenever the pinned
+with the command in `Fecscn/FrontEndCSharp.FECS.Internals.Tailwind/README.md` whenever the pinned
 Tailwind version changes.
 
 Visual Studio obtains an async-completion source set when the first character of
@@ -387,7 +387,7 @@ Use four production projects, kept as direct children of the existing
 
 - `FrontEndCSharp.Fecsx` contains the shared parser, syntax nodes, incremental
   generator, lowering, diagnostics, source mapping, and intrinsic schema.
-- `FrontEndCSharp.Fecsx.Build` packages the analyzer/generator assembly and the
+- `FrontEndCSharp.FECS.Internals.Fecsx.Build` packages the analyzer/generator assembly and the
   transitive MSBuild props/targets that register `*.fecsx` files as generator
   inputs.
 - `FrontEndCSharp.Fecsx.Editor` contains editor-neutral language services such

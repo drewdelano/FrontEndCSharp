@@ -84,7 +84,7 @@ tracked C# migration replaces them. Do not duplicate or extend those patterns.
 ## Runtime-override test ownership
 
 Keep a fixture or integration harness that proves one runtime-override package's
-public behavior under `RuntimeOverrides/<Package>/Tests`. Nest those projects
+public behavior under `Overrides/<Package>/Tests`. Nest those projects
 directly beneath the package's solution folder so the implementation and its gates
 stay visible together. A vertical slice that composes several packages belongs to
 the most specific public integration package; for example, `System.Net.Http.Json`
@@ -93,10 +93,10 @@ System.Text.Json companions.
 
 Keep package-neutral compiler mechanics in `Compiler.Tests`. Keep identical
 manifest, resource, signature, and companion-assembly contract checks in the
-shared `RuntimeOverrides.Tests` host rather than creating one NUnit process per
-package. Test ownership follows the behavior under test; process consolidation is
-an execution optimization, not a reason to place package-specific source in a
-central compiler fixture directory.
+React-owned `FrontEndCSharp.Overrides.Interop.JS.React.Tests` host rather than
+creating one NUnit process per package. Test ownership follows the behavior under
+test; process consolidation is an execution optimization, not a reason to place
+package-specific source in a central compiler fixture directory.
 
 ## Completion checks
 
@@ -110,7 +110,7 @@ dotnet test Compiler/Fecsx/FrontEndCSharp.Fecsx.VSIX.Tests/FrontEndCSharp.Fecsx.
 dotnet test Debugger/Tests/Debugger.Tests.csproj
 dotnet test Fecscn/FrontEndCSharp.Fecscn.Tests/FrontEndCSharp.Fecscn.Tests.csproj
 dotnet test Fecscn/FrontEndCSharp.Tailwind.Tests/FrontEndCSharp.Tailwind.Tests.csproj
-dotnet test RuntimeOverrides/RuntimeOverrides.Tests/RuntimeOverrides.Tests.csproj
+dotnet test Overrides/FrontEndCSharp.Overrides.Interop.JS.React/Tests/FrontEndCSharp.Overrides.Interop.JS.React.Tests/FrontEndCSharp.Overrides.Interop.JS.React.Tests.csproj
 ```
 
 The compiler test project owns the JavaScript runtime scenarios and launches Node.js
@@ -154,8 +154,8 @@ After changing the browser `HttpClient` transport or its public overload adapter
 run the bounded representative HTTP fixture in an installed Chromium browser:
 
 ```powershell
-dotnet run --no-build --project RuntimeOverrides/System.Net.Http/Tests/HttpClientBrowserSmoke/HttpClientBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
-dotnet run --no-build --project RuntimeOverrides/System.Net.Http/Tests/HttpStreamingBrowserSmoke/HttpStreamingBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Net.Http/Tests/FrontEndCSharp.Overrides.HttpClientBrowserSmoke/FrontEndCSharp.Overrides.HttpClientBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Net.Http/Tests/FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke/FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
 ```
 
 The C# harnesses own compiler, server, Chromium, assertion, and cleanup lifetimes.
@@ -172,9 +172,9 @@ Changes that affect `System.Net.Http.Json` or its shared transport/serializer pa
 also require the primary HTTP JSON vertical slice:
 
 ```powershell
-dotnet run --no-build --project RuntimeOverrides/System.Text.Json/Tests/SystemTextJsonBrowserSmoke/SystemTextJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
-dotnet run --no-build --project RuntimeOverrides/Newtonsoft.Json/Tests/NewtonsoftJsonBrowserSmoke/NewtonsoftJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
-dotnet run --no-build --project RuntimeOverrides/System.Net.Http.Json/Tests/HttpJsonBrowserSmoke/HttpJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Text.Json/Tests/FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke/FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.Newtonsoft.Json/Tests/FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke/FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
+dotnet run --no-build --project Overrides/FrontEndCSharp.Overrides.System.Net.Http.Json/Tests/FrontEndCSharp.Overrides.HttpJsonBrowserSmoke/FrontEndCSharp.Overrides.HttpJsonBrowserSmoke.csproj -- "C:\Program Files\Google\Chrome\Application\chrome.exe"
 ```
 
 The independent direct fixtures prove that each serializer entry point executes

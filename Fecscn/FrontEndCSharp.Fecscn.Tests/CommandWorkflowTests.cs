@@ -42,13 +42,13 @@ public sealed class CommandWorkflowTests : IDisposable
         Assert.False(second.Changed);
         Assert.Equal(afterFirst, File.ReadAllText(project.HostProjectPath));
         Assert.Contains("UnrelatedProperty", afterFirst, StringComparison.Ordinal);
-        Assert.Contains("FrontEndCSharp.Tailwind", afterFirst, StringComparison.Ordinal);
+        Assert.Contains("FrontEndCSharp.FECS.Internals.Tailwind", afterFirst, StringComparison.Ordinal);
         Assert.DoesNotContain("FrontEndCSharp.Fecscn.Runtime", File.ReadAllText(project.BrowserProjectPath), StringComparison.Ordinal);
-        Assert.DoesNotContain("Interop.JS.Shadcn.BaseUI", File.ReadAllText(project.BrowserProjectPath), StringComparison.Ordinal);
-        Assert.DoesNotContain("Interop.JS.Shadcn.Cn", File.ReadAllText(project.BrowserProjectPath), StringComparison.Ordinal);
+        Assert.DoesNotContain("FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", File.ReadAllText(project.BrowserProjectPath), StringComparison.Ordinal);
+        Assert.DoesNotContain("FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", File.ReadAllText(project.BrowserProjectPath), StringComparison.Ordinal);
         Assert.True(File.Exists(Path.Combine(project.HostDirectory, "fecscn.json")));
         Assert.True(File.Exists(Path.Combine(project.BrowserDirectory, "Styles", "fecscn.css")));
-        Assert.DoesNotContain("FrontEndCSharp.Tailwind", before, StringComparison.Ordinal);
+        Assert.DoesNotContain("FrontEndCSharp.FECS.Internals.Tailwind", before, StringComparison.Ordinal);
     }
 
     [Test]
@@ -153,15 +153,15 @@ public sealed class CommandWorkflowTests : IDisposable
                 <UnrelatedProperty>keep-me</UnrelatedProperty>
                 <FrontEndCSharpProject>$(MSBuildProjectDirectory)\..\{{name}}.Browser\{{name}}.Browser.csproj</FrontEndCSharpProject>
               </PropertyGroup>
-              <ItemGroup><PackageReference Include="FrontEndCSharp.Build" Version="0.1.19" /></ItemGroup>
+              <ItemGroup><PackageReference Include="FrontEndCSharp.FECS.Internals.Build" Version="0.1.19" /></ItemGroup>
             </Project>
             """);
         File.WriteAllText(browserProject, """
             <Project Sdk="Microsoft.NET.Sdk">
               <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework></PropertyGroup>
               <ItemGroup>
-                <PackageReference Include="FrontEndCSharp.Fecsx.Build" Version="0.1.0" PrivateAssets="all" />
-                <PackageReference Include="Interop.JS.React" Version="19.3.1" />
+                <PackageReference Include="FrontEndCSharp.FECS.Internals.Fecsx.Build" Version="0.1.0" PrivateAssets="all" />
+                <PackageReference Include="FrontEndCSharp.Overrides.Interop.JS.React" Version="19.3.1" />
               </ItemGroup>
             </Project>
             """);

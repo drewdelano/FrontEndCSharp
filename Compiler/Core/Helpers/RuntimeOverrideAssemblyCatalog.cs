@@ -89,11 +89,11 @@ namespace Compiler.Helpers
                 fullPath,
                 companionAssemblyName,
                 resources);
-            var expectedFileName = targetAssemblyName + ".fecs.dll";
-            if (!string.Equals(Path.GetFileName(fullPath), expectedFileName, StringComparison.OrdinalIgnoreCase))
+            const string companionFileSuffix = ".fecs.dll";
+            if (!Path.GetFileName(fullPath).EndsWith(companionFileSuffix, StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidDataException(
-                    $"Runtime override assembly for '{targetAssemblyName}' must be named '{expectedFileName}'.");
+                    $"Runtime override assembly '{fullPath}' must use the '{companionFileSuffix}' suffix.");
             }
 
             var overrides = new Dictionary<string, RuntimeOverrideAssemblyEntry>(StringComparer.Ordinal);

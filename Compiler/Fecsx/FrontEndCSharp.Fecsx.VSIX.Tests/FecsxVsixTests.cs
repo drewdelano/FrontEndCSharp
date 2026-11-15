@@ -277,6 +277,31 @@ public sealed class FecsxVsixTests
     }
 
     [Test]
+    public void VsixBuildsTemplateArchivesBeforeResolvingProjectOutputGroups()
+    {
+        var sharedBuildTools = XDocument.Load(Path.Combine(
+            FindRepositoryRoot(),
+            "Vssdk.BuildTools.props"));
+
+        Assert.Contains(sharedBuildTools.Descendants(), element =>
+            element.Name.LocalName == "GetVsixSourceItemsDependsOn" &&
+            element.Value.Contains(
+                "BuildFrontEndCSharpTemplateProjectArchives",
+                StringComparison.Ordinal));
+        var templateArchiveTarget = sharedBuildTools.Descendants()
+            .Single(element =>
+                element.Name.LocalName == "Target" &&
+                (string?)element.Attribute("Name") ==
+                "BuildFrontEndCSharpTemplateProjectArchives");
+        Assert.Contains(templateArchiveTarget.Descendants(), element =>
+            element.Name.LocalName == "MSBuild" &&
+            (string?)element.Attribute("Targets") == "ZipProjects" &&
+            ((string?)element.Attribute("Projects"))?.Contains(
+                "_FrontEndCSharpTemplateProjectReference",
+                StringComparison.Ordinal) == true);
+    }
+
+    [Test]
     public void FecsxProjectTemplateDefaultsAttributeCompletionToCamelCase()
     {
         var browserProject = XDocument.Load(Path.Combine(
@@ -951,11 +976,11 @@ public sealed class FecsxVsixTests
             StringComparison.OrdinalIgnoreCase));
         using var projectReader = new StreamReader(browserProjectEntry.Open());
         var browserProject = projectReader.ReadToEnd();
-        Assert.Contains("FrontEndCSharp.Fecsx.Build", browserProject);
-        Assert.Contains("Interop.JS.React.fecs", browserProject);
+        Assert.Contains("FrontEndCSharp.FECS.Internals.Fecsx.Build", browserProject);
+        Assert.Contains("FrontEndCSharp.Overrides.Interop.JS.React.fecs", browserProject);
         Assert.DoesNotContain("<ProjectReference", browserProject, StringComparison.OrdinalIgnoreCase);
         Assert.DoesNotContain("..\\..\\Compiler", browserProject, StringComparison.OrdinalIgnoreCase);
-        Assert.DoesNotContain("..\\..\\RuntimeOverrides", browserProject, StringComparison.OrdinalIgnoreCase);
+        Assert.DoesNotContain("..\\..\\Overrides", browserProject, StringComparison.OrdinalIgnoreCase);
     }
 
     private static string FindRepositoryRoot()

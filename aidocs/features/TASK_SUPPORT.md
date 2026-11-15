@@ -67,7 +67,7 @@ representation creates a genuine environment boundary.
 
 The compiler runtime owns only that universal Task identity and entry-point bridge:
 the task-to-completion-source registry, `waitForTask`, and the JavaScript exception
-used to cross into the event loop. `System.Private.CoreLib.fecs` owns Task builders,
+used to cross into the event loop. `FrontEndCSharp.Overrides.System.Private.CoreLib.fecs` owns Task builders,
 awaiters, combinators, cancellation, continuations, enumeration, validation, ValueTask,
 and async-iterator helpers. Those companion assets are emitted only when a used override
 statically imports them.

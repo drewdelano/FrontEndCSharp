@@ -10,11 +10,11 @@
     <!-- Intentionally compile the exact application-owned registry sources; the repository ownership test allow-lists this fixture. -->
     <Compile Include="..\Sources\**\*.cs" Link="Registry\%(RecursiveDir)%(Filename)%(Extension)" />
     <AdditionalFiles Include="..\Sources\**\*.fecsx" />
-    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj" />
-    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.csproj" />
-    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.csproj" />
-    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons\Interop.JS.LucideIcons.csproj" />
-    <ProjectReference Include="..\..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj" />
+    <ProjectReference Include="..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.csproj" />
+    <ProjectReference Include="..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.csproj" />
+    <ProjectReference Include="..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.csproj" />
+    <ProjectReference Include="..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.csproj" />
+    <ProjectReference Include="..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.csproj" />
     <ProjectReference Include="..\..\..\Compiler\Fecsx\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.csproj"
                       OutputItemType="Analyzer"
                       ReferenceOutputAssembly="false" />

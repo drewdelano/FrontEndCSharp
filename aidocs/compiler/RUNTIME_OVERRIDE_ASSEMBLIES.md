@@ -1,6 +1,6 @@
 # Runtime Override Assemblies
 
-FrontEndCSharp runtime overrides are distributed as ordinary managed companion dependencies. A companion for `System.Console.dll` is named `System.Console.fecs.dll`. It does not replace, patch, or load into the target application; the compiler reads its metadata and embedded resources from the compiled application's resolved dependency graph.
+FrontEndCSharp runtime overrides are distributed as ordinary managed companion dependencies. A companion for `System.Console.dll` is named `FrontEndCSharp.Overrides.System.Console.fecs.dll`. It does not replace, patch, or load into the target application; the compiler reads its metadata and embedded resources from the compiled application's resolved dependency graph.
 
 ## Authoring model
 
@@ -128,7 +128,7 @@ standard `Guid` shape.
 
 The secure-random slice keeps one Web Crypto entropy source in the CoreLib-owned
 `secure-random.js` asset. `Guid.NewGuid()` consumes sixteen random bytes and sets the
-RFC 4122 version-4 and variant bits. `System.Security.Cryptography.fecs` reuses that
+RFC 4122 version-4 and variant bits. `FrontEndCSharp.Overrides.System.Security.Cryptography.fecs` reuses that
 asset for the bounded static `RandomNumberGenerator.GetBytes(int)`, `GetInt32(int)`,
 and `GetInt32(int, int)` surface. Byte requests are chunked beneath Web Crypto's
 per-call quota, and integer ranges use rejection sampling rather than biased modulo
@@ -282,7 +282,8 @@ module must never create an undeclared cross-companion dependency.
 
 ## Discovery and safety
 
-- A companion filename must be `<target assembly simple name>.fecs.dll`.
+- A companion filename must end in `.fecs.dll`. Its target assembly identity comes
+  from the required `RuntimeOverrideAssemblyAttribute`, not from its filename.
 - A provider target must belong to the declared target assembly or be an explicitly
   marked companion implementation type.
 - Duplicate managed signatures, manifest filenames, and reused JavaScript resources are errors.
@@ -292,9 +293,27 @@ module must never create an undeclared cross-companion dependency.
 - Companion attributes and signatures are inspected with `MetadataLoadContext`. Provider IL is decoded through a collectible isolated load context; custom attribute constructors and provider methods are never executed, and provider code is never loaded into the default application context.
 - Resource bytes are read directly from the PE resource section.
 
-The compiler reads the compiled application's `.deps.json` and loads only `*.fecs.dll` runtime assets selected by that dependency graph. Merely placing a companion beside the application or compiler does not select it. The companion is validated without loading provider code into the default application context, and its embedded JavaScript is written through the same signature-hashed module path used by emitted methods. `System.Console.fecs.dll` owns the Console overrides and `System.Private.CoreLib.fecs.dll` owns the CoreLib overrides. Package companions follow the same rule: for example, `FluentValidation.fecs.dll` targets the pinned FluentValidation assembly and owns only its browser environment adaptation. Supporting framework contracts remain in their defining companions, including `System.Collections`, `System.Collections.Concurrent`, `System.Linq`, `System.Linq.Expressions`, `System.Security.Cryptography`, and `System.Text.RegularExpressions`.
+The compiler reads the compiled application's `.deps.json` and loads only `*.fecs.dll` runtime assets selected by that dependency graph. Merely placing a companion beside the application or compiler does not select it. The companion is validated without loading provider code into the default application context, and its embedded JavaScript is written through the same signature-hashed module path used by emitted methods. `FrontEndCSharp.Overrides.System.Console.fecs.dll` owns the Console overrides and `FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll` owns the CoreLib overrides. Package companions follow the same rule: for example, `FrontEndCSharp.Overrides.FluentValidation.fecs.dll` targets the pinned FluentValidation assembly and owns only its browser environment adaptation. Supporting framework contracts remain in their defining companions, including `System.Collections`, `System.Collections.Concurrent`, `System.Linq`, `System.Linq.Expressions`, `System.Security.Cryptography`, and `System.Text.RegularExpressions`.
 
-Build and test all companion projects with `dotnet test RuntimeOverrides/RuntimeOverrides.sln`. Each family is contained in its own directory, including `System.Console/System.Console.fecs` and `System.Private.CoreLib/System.Private.CoreLib.fecs`. `RuntimeOverrides/RuntimeOverrides.Tests` validates every companion's target attribute, manifest, signature hashes, resources, and expected override count in one test host using shared infrastructure from `Compiler/RuntimeOverrides/Tests`. The public override-authoring attributes live in the separate `FrontEndCSharp.RuntimeOverrides` assembly under `Compiler/RuntimeOverrides/Abstractions`. A browser-target project selects a pack with an ordinary `ProjectReference` or `PackageReference`; the normal .NET build must copy the companion beside the target assembly and record it in the target's `.deps.json`. The compiler's `--generate-runtime-override-providers` command regenerates the typed CoreLib declarations, and `--generate-runtime-override-manifest` regenerates each pack's embedded manifest after resource changes. Both are C# tooling commands and take a resource directory followed by an output path. JavaScript-package companions import the compiler-owned packaging contract from `Compiler/RuntimeOverrides/Packaging/JavaScriptPackageCompanion.targets`.
+Build and test all companion projects with `dotnet test Overrides/Overrides.sln`.
+Each family and project is prefixed with `FrontEndCSharp.Overrides`, including
+`FrontEndCSharp.Overrides.System.Console/FrontEndCSharp.Overrides.System.Console.fecs`
+and `FrontEndCSharp.Overrides.System.Private.CoreLib/FrontEndCSharp.Overrides.System.Private.CoreLib.fecs`.
+`Overrides/FrontEndCSharp.Overrides.Interop.JS.React/Tests/FrontEndCSharp.Overrides.Interop.JS.React.Tests`
+validates every companion's target attribute, manifest, signature hashes, resources,
+and expected override count in one React-owned test host using shared infrastructure
+from `Compiler/RuntimeOverrides/Tests`. The public override-authoring attributes live
+in the separate `FrontEndCSharp.RuntimeOverrides` assembly under
+`Compiler/RuntimeOverrides/Abstractions`. A browser-target project selects a pack
+with an ordinary `ProjectReference` or `PackageReference`; the normal .NET build
+must copy the companion beside the target assembly and record it in the target's
+`.deps.json`. The compiler's `--generate-runtime-override-providers` command
+regenerates the typed CoreLib declarations, and
+`--generate-runtime-override-manifest` regenerates each pack's embedded manifest
+after resource changes. Both are C# tooling commands and take a resource directory
+followed by an output path. JavaScript-package companions import the compiler-owned
+packaging contract from
+`Compiler/RuntimeOverrides/Packaging/JavaScriptPackageCompanion.targets`.
 
 Build `Compiler/Core/Compiler.csproj`, then invoke either command through
 `dotnet <Compiler.dll> <command> <resource-directory> <output-path>`. This keeps
@@ -308,7 +327,8 @@ checked-in generated source compiled by the ordinary project graph, and validate
 that compiled companion through the normal override catalog.
 
 When a generated CoreLib provider needs managed dependencies beyond the generator's
-ordinary signature-derived body, `System.Private.CoreLib.fecs/Overrides/provider-bodies.json`
+ordinary signature-derived body,
+`Overrides/FrontEndCSharp.Overrides.System.Private.CoreLib/FrontEndCSharp.Overrides.System.Private.CoreLib.fecs/Overrides/provider-bodies.json`
 owns the exact C# statements and managed parameter-access declarations for those
 signatures. Parameter keys are zero-based target parameters; `this` denotes an
 instance receiver and is cataloged as target parameter `-1`. The compiler generator
@@ -317,19 +337,21 @@ CoreLib collection methods, comparer behavior, or primitive hashing exceptions.
 
 ## JavaScript library adapters
 
-A JavaScript library adapter is a pair of assemblies under `RuntimeOverrides/`:
+A JavaScript library adapter is a pair of assemblies under `Overrides/`:
 
-- A normal managed assembly such as `Interop.JS.React.dll` defines the public C# API and carries no JavaScript implementation.
-- Its `Interop.JS.React.fecs.dll` companion targets that managed assembly, supplies the JavaScript method implementations, and declares its npm requirements with `JavaScriptPackageDependencyAttribute`.
+- A normal managed assembly such as `FrontEndCSharp.Overrides.Interop.JS.React.dll` defines the public C# API and carries no JavaScript implementation while retaining the `Interop.JS.React` C# namespace.
+- Its `FrontEndCSharp.Overrides.Interop.JS.React.fecs.dll` companion targets that managed assembly through `RuntimeOverrideAssemblyAttribute`, supplies the JavaScript method implementations, and declares its npm requirements with `JavaScriptPackageDependencyAttribute`.
 
 For an npm-backed adapter, both projects in the pair use the exact version of the
 primary upstream JavaScript package as their project/package `<Version>`. Peer and
 private transitive dependencies do not determine that version. Package-free
-adapters such as `Interop.JS.Browser` retain the FrontEndCSharp package version.
+adapters such as `FrontEndCSharp.Overrides.Interop.JS.Browser` retain the FrontEndCSharp package version.
 
-The adapters are organized as `Interop.JS.Browser/`, `Interop.JS.React/`,
-`Interop.JS.MobX/`, `Interop.JS.Motion/`, `Interop.JS.LucideIcons/`, `Interop.JS.Shadcn.BaseUI/`,
-`Interop.JS.Shadcn.Cn/`, and `Interop.JS.Shadcn.Recharts/`. The `Shadcn` segment
+The adapters are organized as `FrontEndCSharp.Overrides.Interop.JS.Browser/`,
+`FrontEndCSharp.Overrides.Interop.JS.React/`, `FrontEndCSharp.Overrides.Interop.JS.MobX/`,
+`FrontEndCSharp.Overrides.Interop.JS.Motion/`, `FrontEndCSharp.Overrides.Interop.JS.LucideIcons/`,
+`FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI/`, `FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn/`,
+and `FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts/`. The `Shadcn` segment
 marks the bounded FECSN/shadcn-selected API ownership while each adapter continues
 to own and version its distinct upstream npm package. Browser DOM/window behavior
 has no npm dependency.

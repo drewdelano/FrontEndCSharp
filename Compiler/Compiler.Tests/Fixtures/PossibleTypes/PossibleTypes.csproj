@@ -6,6 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj" />
   </ItemGroup>
 </Project>

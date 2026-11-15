@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions.set_DefaultIgnoreCondition(System.Text.Json.Serialization.JsonIgnoreCondition)",
+      "file": "method.3d6c08afd17554783be13726edcd04dfc4b53320bf44881436b69ce586b33cdd.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions.VerifyMutable()",
+      "file": "method.51fa15a337d99cc57cd6fda310c51ce7c4489820d9dc785f5fefd3efaa0b8459.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions.set_IgnoreNullValues(System.Boolean)",
+      "file": "method.599a89b61cfbdbb3718ef785581ffda90b363bcfc9a54e1fb254c4d210398f46.js"
+    },
+    {
+      "signature": "System.Text.Json.Serialization.JsonConverter..ctor()",
+      "file": "method.97ef2bd169991620d6316c0502836b22f4b78fd36d8f186d755e0b81a988fe8f.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions.get_Converters()",
+      "file": "method.9ac1819363fc0acb2982248a1197647495e06efb7f1796a1c488fca964a37bc2.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions.set_MaxDepth(System.Int32)",
+      "file": "method.9fc344a3c47b43b2cec7a9b14df6b552a7456105b43ccbe1b2ccae16ed8225bc.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializer.Serialize<TValue>(TValue, System.Text.Json.JsonSerializerOptions)",
+      "file": "method.a1875aba54dc3d3a008d9af35eb2bcfa536234dc8126a978ac47d6e8ded7ebd7.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializer.Deserialize<TValue>(System.String, System.Text.Json.JsonSerializerOptions)",
+      "file": "method.aedfafc71da0fa5a7fce32169cc6e2a42af303d6e1c7049b411353665552877b.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions..ctor(System.Text.Json.JsonSerializerDefaults)",
+      "file": "method.e402889e3c9844a5c019b175b21d8677845ed1e12f66d4e28bc7b29f76a1b99f.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions..ctor()",
+      "file": "method.ecba3f161c8a5e8c0728f44f0299ba87e3f7d6b81b811adb9ef6df56d40d0c31.js"
+    },
+    {
+      "signature": "System.Text.Json.JsonSerializerOptions.set_ReadCommentHandling(System.Text.Json.JsonCommentHandling)",
+      "file": "method.ee1b1f59ea51bd42007532dd2c49ad8d0eb37b23bcf7f59c8d1d48d1ee5c006f.js"
+    }
+  ]
+}

@@ -29,7 +29,7 @@ guide preemptively; that adds stale or unrelated constraints to the working cont
 | Debugger product | DAP, CDP, symbols, stepping, breakpoints, exceptions, Edit and Continue, or Visual Studio launch integration | [`debugger/ARCHITECTURE.md`](debugger/ARCHITECTURE.md) |
 | Debugging the debugger | Debugger diagnostics, the physical Visual Studio/Brave harness, extension mutation, acceptance evidence, or debugger-tool safety | [`debugger/DEBUGGING_THE_DEBUGGER.md`](debugger/DEBUGGING_THE_DEBUGGER.md) plus the architecture guide above |
 | Performance | Compiler, interpreter, debugger, or startup profiling and benchmark evidence | [`engineering/PERFORMANCE.md`](engineering/PERFORMANCE.md) |
-| GitHub releases | Building, versioning, hashing, uploading, or verifying debugger and FECSX VSIX releases | [`engineering/RELEASES.md`](engineering/RELEASES.md) |
+| Release packaging and publication | Staging, versioning, hashing, uploading, or verifying override NuGet packages and debugger/FECSX VSIX releases | [`engineering/RELEASES.md`](engineering/RELEASES.md) |
 | Repository tooling | Test/generator language choices or migration of repository-owned JavaScript and PowerShell automation | [`engineering/REPOSITORY_TOOLING.md`](engineering/REPOSITORY_TOOLING.md) |
 
 Read every guide that applies to a cross-cutting task, but do not infer additional

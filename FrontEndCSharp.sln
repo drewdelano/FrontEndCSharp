@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0
@@ -44,41 +44,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engineering", "Engineering"
 		aidocs\engineering\REPOSITORY_TOOLING.md = aidocs\engineering\REPOSITORY_TOOLING.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RuntimeOverrides", "RuntimeOverrides", "{6CB3676F-50CC-4E71-B9EA-DABC35B4FC6E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Overrides", "Overrides", "{6CB3676F-50CC-4E71-B9EA-DABC35B4FC6E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.Browser", "Interop.JS.Browser", "{7687BF09-7CE3-4E0F-8F0E-B6904B51A8D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.Browser", "FrontEndCSharp.Overrides.Interop.JS.Browser", "{7687BF09-7CE3-4E0F-8F0E-B6904B51A8D9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.MobX", "Interop.JS.MobX", "{83AF3FD4-E4D1-41CF-AE54-DF044DDF6F96}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.MobX", "FrontEndCSharp.Overrides.Interop.JS.MobX", "{83AF3FD4-E4D1-41CF-AE54-DF044DDF6F96}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.MobX.React", "Interop.JS.MobX.React", "{3A0C3FE0-B18D-491B-8FEE-58F6FD06DEE0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.MobX.React", "FrontEndCSharp.Overrides.Interop.JS.MobX.React", "{3A0C3FE0-B18D-491B-8FEE-58F6FD06DEE0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.Motion", "Interop.JS.Motion", "{DEEEE9BD-9F31-4ABA-8E47-621BCD594544}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.Motion", "FrontEndCSharp.Overrides.Interop.JS.Motion", "{DEEEE9BD-9F31-4ABA-8E47-621BCD594544}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.React", "Interop.JS.React", "{5E751D08-95AC-4E51-A26B-FB25EA89132D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.React", "FrontEndCSharp.Overrides.Interop.JS.React", "{5E751D08-95AC-4E51-A26B-FB25EA89132D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Console", "System.Console", "{4D39D74C-0032-490F-93AD-E44D106B9E66}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Console", "FrontEndCSharp.Overrides.System.Console", "{4D39D74C-0032-490F-93AD-E44D106B9E66}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Linq.Expressions", "System.Linq.Expressions", "{B4EE2AFB-3AE4-4435-8BCF-FB8842717F04}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Linq.Expressions", "FrontEndCSharp.Overrides.System.Linq.Expressions", "{B4EE2AFB-3AE4-4435-8BCF-FB8842717F04}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Net.Http", "System.Net.Http", "{F87A2DF1-23AB-4C5C-AB35-3C21D8405FAF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Net.Http", "FrontEndCSharp.Overrides.System.Net.Http", "{F87A2DF1-23AB-4C5C-AB35-3C21D8405FAF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Private.CoreLib", "System.Private.CoreLib", "{9B0C1690-2956-47D2-9AEE-4CF18CC88F92}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Private.CoreLib", "FrontEndCSharp.Overrides.System.Private.CoreLib", "{9B0C1690-2956-47D2-9AEE-4CF18CC88F92}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Private.Uri", "System.Private.Uri", "{374A09FE-DD58-49B2-A0F9-7B369BD123D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Private.Uri", "FrontEndCSharp.Overrides.System.Private.Uri", "{374A09FE-DD58-49B2-A0F9-7B369BD123D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Console.fecs", "RuntimeOverrides\System.Console\System.Console.fecs\System.Console.fecs.csproj", "{7EDF9925-537F-43C2-9825-0EFC8FCC489B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Console.fecs", "Overrides\FrontEndCSharp.Overrides.System.Console\FrontEndCSharp.Overrides.System.Console.fecs\FrontEndCSharp.Overrides.System.Console.fecs.csproj", "{7EDF9925-537F-43C2-9825-0EFC8FCC489B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Private.CoreLib.fecs", "RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj", "{A95AB750-4FD3-43B0-B5EC-616BEBA0D0A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs", "Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj", "{A95AB750-4FD3-43B0-B5EC-616BEBA0D0A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compiler", "Compiler", "{94CCF0BC-66F8-40FA-BE87-E1FDFE44A353}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compiler.Tests", "Compiler\Compiler.Tests\Compiler.Tests.csproj", "{AAF06C57-EE83-498C-B2B9-FD3B95148285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemTextJsonBrowserSmoke", "RuntimeOverrides\System.Text.Json\Tests\SystemTextJsonBrowserSmoke\SystemTextJsonBrowserSmoke.csproj", "{F5B5DA03-5C4E-4A3B-95FC-90EDE42995B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke", "Overrides\FrontEndCSharp.Overrides.System.Text.Json\Tests\FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke\FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke.csproj", "{F5B5DA03-5C4E-4A3B-95FC-90EDE42995B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Fecsx", "Compiler\Fecsx\FrontEndCSharp.Fecsx\FrontEndCSharp.Fecsx.csproj", "{647DE856-D03B-40B1-A682-3196B5AD6460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Fecsx.Build", "Compiler\Fecsx\FrontEndCSharp.Fecsx.Build\FrontEndCSharp.Fecsx.Build.csproj", "{B2D993DE-6414-4C71-9D76-40A5A590D770}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.FECS.Internals.Fecsx.Build", "Compiler\Fecsx\FrontEndCSharp.FECS.Internals.Fecsx.Build\FrontEndCSharp.FECS.Internals.Fecsx.Build.csproj", "{B2D993DE-6414-4C71-9D76-40A5A590D770}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Fecsx.Tests", "Compiler\Fecsx\FrontEndCSharp.Fecsx.Tests\FrontEndCSharp.Fecsx.Tests.csproj", "{46F8308B-53A6-470A-96EE-3553DF617897}"
 EndProject
@@ -100,7 +100,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugger.Tests", "Debugger\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Build.Tasks", "Compiler\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj", "{B168E8F2-AEA6-462A-8AE1-ECD39DCD6DF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Build", "Compiler\Packaging\FrontEndCSharp.Build\FrontEndCSharp.Build.csproj", "{EF2F2926-51E3-440C-B060-6B6975B23F71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.FECS.Internals.Build", "Compiler\Packaging\FrontEndCSharp.FECS.Internals.Build\FrontEndCSharp.FECS.Internals.Build.csproj", "{EF2F2926-51E3-440C-B060-6B6975B23F71}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packaging", "Packaging", "{DDA2D30F-124D-4F96-AC74-A63A8BB0D590}"
 EndProject
@@ -112,25 +112,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.RuntimeOverr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.VisualStudio", "Debugger\VisualStudio\FrontEndCSharp.VisualStudio.csproj", "{2758E667-3663-457A-8EC0-BAC7C1255F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Browser", "RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj", "{CE1525EE-9556-4451-B5B7-DFFC29428720}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Browser", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.csproj", "{CE1525EE-9556-4451-B5B7-DFFC29428720}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Browser.fecs", "RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj", "{8F540098-F413-4F26-BBD8-34A9EF1A3CF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Browser.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.csproj", "{8F540098-F413-4F26-BBD8-34A9EF1A3CF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.React", "RuntimeOverrides\Interop.JS.React\Interop.JS.React\Interop.JS.React.csproj", "{BE8BABBB-C36C-4C3F-8450-248A21F779F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.React", "Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.csproj", "{BE8BABBB-C36C-4C3F-8450-248A21F779F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.React.fecs", "RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj", "{BF591989-5427-4A77-8135-0A2A8CDD10C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.React.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.fecs\FrontEndCSharp.Overrides.Interop.JS.React.fecs.csproj", "{BF591989-5427-4A77-8135-0A2A8CDD10C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.MobX", "RuntimeOverrides\Interop.JS.MobX\Interop.JS.MobX\Interop.JS.MobX.csproj", "{595C6C51-D518-48F5-8E84-1E3032A5829D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.MobX", "Overrides\FrontEndCSharp.Overrides.Interop.JS.MobX\FrontEndCSharp.Overrides.Interop.JS.MobX\FrontEndCSharp.Overrides.Interop.JS.MobX.csproj", "{595C6C51-D518-48F5-8E84-1E3032A5829D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.MobX.fecs", "RuntimeOverrides\Interop.JS.MobX\Interop.JS.MobX.fecs\Interop.JS.MobX.fecs.csproj", "{1ABC8C65-BDEF-49E6-99CE-976E03B959CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.MobX.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.MobX\FrontEndCSharp.Overrides.Interop.JS.MobX.fecs\FrontEndCSharp.Overrides.Interop.JS.MobX.fecs.csproj", "{1ABC8C65-BDEF-49E6-99CE-976E03B959CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Motion", "RuntimeOverrides\Interop.JS.Motion\Interop.JS.Motion\Interop.JS.Motion.csproj", "{377C9667-54B2-4819-84CD-34BD31854B95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Motion", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Motion\FrontEndCSharp.Overrides.Interop.JS.Motion\FrontEndCSharp.Overrides.Interop.JS.Motion.csproj", "{377C9667-54B2-4819-84CD-34BD31854B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Motion.fecs", "RuntimeOverrides\Interop.JS.Motion\Interop.JS.Motion.fecs\Interop.JS.Motion.fecs.csproj", "{C51472A7-2418-42DD-9986-6EB55587CA58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Motion.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Motion\FrontEndCSharp.Overrides.Interop.JS.Motion.fecs\FrontEndCSharp.Overrides.Interop.JS.Motion.fecs.csproj", "{C51472A7-2418-42DD-9986-6EB55587CA58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.MobX.React", "RuntimeOverrides\Interop.JS.MobX.React\Interop.JS.MobX.React\Interop.JS.MobX.React.csproj", "{BFC268EB-8AEA-4B88-83C8-03984D0D34BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.MobX.React", "Overrides\FrontEndCSharp.Overrides.Interop.JS.MobX.React\FrontEndCSharp.Overrides.Interop.JS.MobX.React\FrontEndCSharp.Overrides.Interop.JS.MobX.React.csproj", "{BFC268EB-8AEA-4B88-83C8-03984D0D34BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.MobX.React.fecs", "RuntimeOverrides\Interop.JS.MobX.React\Interop.JS.MobX.React.fecs\Interop.JS.MobX.React.fecs.csproj", "{FB2FE0CA-FF10-4343-8FC1-A73B586EFC8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.MobX.React.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.MobX.React\FrontEndCSharp.Overrides.Interop.JS.MobX.React.fecs\FrontEndCSharp.Overrides.Interop.JS.MobX.React.fecs.csproj", "{FB2FE0CA-FF10-4343-8FC1-A73B586EFC8B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{5CB0E185-A1E7-4A32-8D13-1CB914AFA1C1}"
 EndProject
@@ -150,21 +150,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PossibleTypes", "Compiler\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonReachability", "Compiler\Compiler.Tests\Fixtures\JsonReachability\JsonReachability.csproj", "{295602EB-CD57-487F-A5D5-BFC640AEA368}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientBrowserFixture", "RuntimeOverrides\System.Net.Http\Tests\HttpClientBrowserFixture\HttpClientBrowserFixture.csproj", "{9C506E89-9686-4674-A856-24BBB5F9E47C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.HttpClientBrowserFixture", "Overrides\FrontEndCSharp.Overrides.System.Net.Http\Tests\FrontEndCSharp.Overrides.HttpClientBrowserFixture\FrontEndCSharp.Overrides.HttpClientBrowserFixture.csproj", "{9C506E89-9686-4674-A856-24BBB5F9E47C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessRunnerFixture", "Compiler\Compiler.Tests\Fixtures\ProcessRunnerFixture\ProcessRunnerFixture.csproj", "{6C26E31C-5A20-4D15-B4F2-2DD10D0E6B87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptInteropFixture", "Compiler\Compiler.Tests\Fixtures\JavaScriptInteropFixture\JavaScriptInteropFixture.csproj", "{25213358-0D9E-43AF-AA5B-99EE256A6256}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Linq.Expressions.fecs", "RuntimeOverrides\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj", "{007031DE-0C36-4744-AB8D-9CADE45842AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Linq.Expressions.fecs", "Overrides\FrontEndCSharp.Overrides.System.Linq.Expressions\FrontEndCSharp.Overrides.System.Linq.Expressions.fecs\FrontEndCSharp.Overrides.System.Linq.Expressions.fecs.csproj", "{007031DE-0C36-4744-AB8D-9CADE45842AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Net.Http.fecs", "RuntimeOverrides\System.Net.Http\System.Net.Http.fecs\System.Net.Http.fecs.csproj", "{15D26583-816B-4C17-9549-B2C3533FF048}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Net.Http.fecs", "Overrides\FrontEndCSharp.Overrides.System.Net.Http\FrontEndCSharp.Overrides.System.Net.Http.fecs\FrontEndCSharp.Overrides.System.Net.Http.fecs.csproj", "{15D26583-816B-4C17-9549-B2C3533FF048}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Private.Uri.fecs", "RuntimeOverrides\System.Private.Uri\System.Private.Uri.fecs\System.Private.Uri.fecs.csproj", "{F742111E-CF77-404D-BB68-24FD3C787624}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Private.Uri.fecs", "Overrides\FrontEndCSharp.Overrides.System.Private.Uri\FrontEndCSharp.Overrides.System.Private.Uri.fecs\FrontEndCSharp.Overrides.System.Private.Uri.fecs.csproj", "{F742111E-CF77-404D-BB68-24FD3C787624}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Text.Json", "System.Text.Json", "{28C4A7CD-2399-4ACE-B5A2-C73603842940}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Text.Json", "FrontEndCSharp.Overrides.System.Text.Json", "{28C4A7CD-2399-4ACE-B5A2-C73603842940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Text.Json.fecs", "RuntimeOverrides\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj", "{C15B2AE8-89E0-447F-B8C2-105BEBA80FAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Text.Json.fecs", "Overrides\FrontEndCSharp.Overrides.System.Text.Json\FrontEndCSharp.Overrides.System.Text.Json.fecs\FrontEndCSharp.Overrides.System.Text.Json.fecs.csproj", "{C15B2AE8-89E0-447F-B8C2-105BEBA80FAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemTextJsonBrowserFixture", "Compiler\Compiler.Tests\Fixtures\SystemTextJsonBrowserFixture\SystemTextJsonBrowserFixture.csproj", "{7A31E350-E693-4C68-85EB-AD5B0E9D77D1}"
 EndProject
@@ -176,19 +176,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeOverrideReturns.Entr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeOverrideReturns.ExplicitStringEntry", "Compiler\Compiler.Tests\Fixtures\RuntimeOverrideReturns\ExplicitStringEntry\RuntimeOverrideReturns.ExplicitStringEntry.csproj", "{F4F06831-3FCD-45EF-BCE3-F381418ACAC7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Newtonsoft.Json", "Newtonsoft.Json", "{3ED6B0FB-7094-400F-BD3E-7F27C01CCA50}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Newtonsoft.Json", "FrontEndCSharp.Overrides.Newtonsoft.Json", "{3ED6B0FB-7094-400F-BD3E-7F27C01CCA50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.fecs", "RuntimeOverrides\Newtonsoft.Json\Newtonsoft.Json.fecs\Newtonsoft.Json.fecs.csproj", "{B8E9E321-05DF-4764-9ABF-62FB0879DB5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Newtonsoft.Json.fecs", "Overrides\FrontEndCSharp.Overrides.Newtonsoft.Json\FrontEndCSharp.Overrides.Newtonsoft.Json.fecs\FrontEndCSharp.Overrides.Newtonsoft.Json.fecs.csproj", "{B8E9E321-05DF-4764-9ABF-62FB0879DB5E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Net.Http.Json", "System.Net.Http.Json", "{4139B3FA-3366-4FB3-950C-391062A69B4B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Net.Http.Json", "FrontEndCSharp.Overrides.System.Net.Http.Json", "{4139B3FA-3366-4FB3-950C-391062A69B4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Net.Http.Json.fecs", "RuntimeOverrides\System.Net.Http.Json\System.Net.Http.Json.fecs\System.Net.Http.Json.fecs.csproj", "{45BB7906-3810-422F-8FCF-8640CCC438A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Net.Http.Json.fecs", "Overrides\FrontEndCSharp.Overrides.System.Net.Http.Json\FrontEndCSharp.Overrides.System.Net.Http.Json.fecs\FrontEndCSharp.Overrides.System.Net.Http.Json.fecs.csproj", "{45BB7906-3810-422F-8FCF-8640CCC438A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpJsonBrowserSmoke", "RuntimeOverrides\System.Net.Http.Json\Tests\HttpJsonBrowserSmoke\HttpJsonBrowserSmoke.csproj", "{FD0CD904-03D7-4FEC-AD7A-17CBEB96EA19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.HttpJsonBrowserSmoke", "Overrides\FrontEndCSharp.Overrides.System.Net.Http.Json\Tests\FrontEndCSharp.Overrides.HttpJsonBrowserSmoke\FrontEndCSharp.Overrides.HttpJsonBrowserSmoke.csproj", "{FD0CD904-03D7-4FEC-AD7A-17CBEB96EA19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientBrowserSmoke", "RuntimeOverrides\System.Net.Http\Tests\HttpClientBrowserSmoke\HttpClientBrowserSmoke.csproj", "{6675B5A2-A83F-47DD-A38E-DC079B5C5CD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.HttpClientBrowserSmoke", "Overrides\FrontEndCSharp.Overrides.System.Net.Http\Tests\FrontEndCSharp.Overrides.HttpClientBrowserSmoke\FrontEndCSharp.Overrides.HttpClientBrowserSmoke.csproj", "{6675B5A2-A83F-47DD-A38E-DC079B5C5CD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeOverrides.Tests", "RuntimeOverrides\RuntimeOverrides.Tests\RuntimeOverrides.Tests.csproj", "{13C0F69F-3C5C-41BE-8B58-D7F6592479B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.React.Tests", "Overrides\FrontEndCSharp.Overrides.Interop.JS.React\Tests\FrontEndCSharp.Overrides.Interop.JS.React.Tests\FrontEndCSharp.Overrides.Interop.JS.React.Tests.csproj", "{13C0F69F-3C5C-41BE-8B58-D7F6592479B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{57BF4ADD-0C72-4AA0-ADDE-C07F72497FDC}"
 EndProject
@@ -198,17 +198,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssemblyCollision", "Assemb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReturnAnalysis", "ReturnAnalysis", "{E032E6EB-BEED-491B-B4BF-24BFCF4B2C91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemTextJsonBrowserSmokeFixture", "RuntimeOverrides\System.Text.Json\Tests\SystemTextJsonBrowserSmokeFixture\SystemTextJsonBrowserSmokeFixture.csproj", "{21205293-7390-4477-BD02-5197AE8491D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.SystemTextJsonBrowserSmokeFixture", "Overrides\FrontEndCSharp.Overrides.System.Text.Json\Tests\FrontEndCSharp.Overrides.SystemTextJsonBrowserSmokeFixture\FrontEndCSharp.Overrides.SystemTextJsonBrowserSmokeFixture.csproj", "{21205293-7390-4477-BD02-5197AE8491D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpJsonBrowserFixture", "RuntimeOverrides\System.Net.Http.Json\Tests\HttpJsonBrowserFixture\HttpJsonBrowserFixture.csproj", "{21E7899F-DDD7-4275-872A-940C2D408F26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.HttpJsonBrowserFixture", "Overrides\FrontEndCSharp.Overrides.System.Net.Http.Json\Tests\FrontEndCSharp.Overrides.HttpJsonBrowserFixture\FrontEndCSharp.Overrides.HttpJsonBrowserFixture.csproj", "{21E7899F-DDD7-4275-872A-940C2D408F26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewtonsoftJsonBrowserSmoke", "RuntimeOverrides\Newtonsoft.Json\Tests\NewtonsoftJsonBrowserSmoke\NewtonsoftJsonBrowserSmoke.csproj", "{CCBADA3D-6EA1-4C3D-A7F5-067EBA733EF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke", "Overrides\FrontEndCSharp.Overrides.Newtonsoft.Json\Tests\FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke\FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke.csproj", "{CCBADA3D-6EA1-4C3D-A7F5-067EBA733EF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewtonsoftJsonBrowserSmokeFixture", "RuntimeOverrides\Newtonsoft.Json\Tests\NewtonsoftJsonBrowserSmokeFixture\NewtonsoftJsonBrowserSmokeFixture.csproj", "{563A4A53-F8B2-453D-83DF-C573695AA9AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmokeFixture", "Overrides\FrontEndCSharp.Overrides.Newtonsoft.Json\Tests\FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmokeFixture\FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmokeFixture.csproj", "{563A4A53-F8B2-453D-83DF-C573695AA9AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpStreamingBrowserSmoke", "RuntimeOverrides\System.Net.Http\Tests\HttpStreamingBrowserSmoke\HttpStreamingBrowserSmoke.csproj", "{CBC494DE-CED6-4EBA-9A9A-1CAB9D38188C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke", "Overrides\FrontEndCSharp.Overrides.System.Net.Http\Tests\FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke\FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke.csproj", "{CBC494DE-CED6-4EBA-9A9A-1CAB9D38188C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpStreamingBrowserFixture", "RuntimeOverrides\System.Net.Http\Tests\HttpStreamingBrowserFixture\HttpStreamingBrowserFixture.csproj", "{31CE50F2-1D76-4A53-8B97-64C9A491BF4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.HttpStreamingBrowserFixture", "Overrides\FrontEndCSharp.Overrides.System.Net.Http\Tests\FrontEndCSharp.Overrides.HttpStreamingBrowserFixture\FrontEndCSharp.Overrides.HttpStreamingBrowserFixture.csproj", "{31CE50F2-1D76-4A53-8B97-64C9A491BF4E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -230,29 +230,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationBrowserFixt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LucideIconsReachabilityFixture", "Compiler\Compiler.Tests\Fixtures\LucideIconsReachabilityFixture\LucideIconsReachabilityFixture.csproj", "{5B31F155-CA45-48CC-A386-0054FF384A8D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FluentValidation", "FluentValidation", "{3F49BC56-5260-4ABD-8035-FFFFDA60B41D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.FluentValidation", "FrontEndCSharp.Overrides.FluentValidation", "{3F49BC56-5260-4ABD-8035-FFFFDA60B41D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidation.fecs", "RuntimeOverrides\FluentValidation\FluentValidation.fecs\FluentValidation.fecs.csproj", "{EDA9922A-4185-42F6-A2A3-4A656057B9FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.FluentValidation.fecs", "Overrides\FrontEndCSharp.Overrides.FluentValidation\FrontEndCSharp.Overrides.FluentValidation.fecs\FrontEndCSharp.Overrides.FluentValidation.fecs.csproj", "{EDA9922A-4185-42F6-A2A3-4A656057B9FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Collections.Concurrent", "System.Collections.Concurrent", "{DF4AE8EA-39DD-4E9A-AFEB-E9BD8B9B408E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Collections.Concurrent", "FrontEndCSharp.Overrides.System.Collections.Concurrent", "{DF4AE8EA-39DD-4E9A-AFEB-E9BD8B9B408E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Collections.Concurrent.fecs", "RuntimeOverrides\System.Collections.Concurrent\System.Collections.Concurrent.fecs\System.Collections.Concurrent.fecs.csproj", "{97E51A1C-416A-4002-8545-1396EE970F50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs", "Overrides\FrontEndCSharp.Overrides.System.Collections.Concurrent\FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs\FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs.csproj", "{97E51A1C-416A-4002-8545-1396EE970F50}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Collections", "System.Collections", "{6A225FDA-CBD5-4DE8-8F06-74B27E84EF20}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Collections", "FrontEndCSharp.Overrides.System.Collections", "{6A225FDA-CBD5-4DE8-8F06-74B27E84EF20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Collections.fecs", "RuntimeOverrides\System.Collections\System.Collections.fecs\System.Collections.fecs.csproj", "{6EDEF8E9-8A7B-4B5B-92C6-F44E1E7828D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Collections.fecs", "Overrides\FrontEndCSharp.Overrides.System.Collections\FrontEndCSharp.Overrides.System.Collections.fecs\FrontEndCSharp.Overrides.System.Collections.fecs.csproj", "{6EDEF8E9-8A7B-4B5B-92C6-F44E1E7828D9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Linq", "System.Linq", "{FAD0BC94-5380-40DB-803C-B04C64D8B9C8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Linq", "FrontEndCSharp.Overrides.System.Linq", "{FAD0BC94-5380-40DB-803C-B04C64D8B9C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Linq.fecs", "RuntimeOverrides\System.Linq\System.Linq.fecs\System.Linq.fecs.csproj", "{B579F907-1C99-4EF8-B805-DBE7FD4C542D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Linq.fecs", "Overrides\FrontEndCSharp.Overrides.System.Linq\FrontEndCSharp.Overrides.System.Linq.fecs\FrontEndCSharp.Overrides.System.Linq.fecs.csproj", "{B579F907-1C99-4EF8-B805-DBE7FD4C542D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Text.RegularExpressions", "System.Text.RegularExpressions", "{182DE9F1-DFBF-407D-A3CF-D906AC7EC76B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Text.RegularExpressions", "FrontEndCSharp.Overrides.System.Text.RegularExpressions", "{182DE9F1-DFBF-407D-A3CF-D906AC7EC76B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Text.RegularExpressions.fecs", "RuntimeOverrides\System.Text.RegularExpressions\System.Text.RegularExpressions.fecs\System.Text.RegularExpressions.fecs.csproj", "{77A40225-407F-4A3D-9334-2F47AA42E4DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs", "Overrides\FrontEndCSharp.Overrides.System.Text.RegularExpressions\FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs\FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs.csproj", "{77A40225-407F-4A3D-9334-2F47AA42E4DF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.ComponentModel.Annotations", "System.ComponentModel.Annotations", "{BE267208-08B5-46DF-A4AE-A79C82E91341}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.ComponentModel.Annotations", "FrontEndCSharp.Overrides.System.ComponentModel.Annotations", "{BE267208-08B5-46DF-A4AE-A79C82E91341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.ComponentModel.Annotations.fecs", "RuntimeOverrides\System.ComponentModel.Annotations\System.ComponentModel.Annotations.fecs\System.ComponentModel.Annotations.fecs.csproj", "{5CF85EE3-5564-4948-A82C-B5A18A126876}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs", "Overrides\FrontEndCSharp.Overrides.System.ComponentModel.Annotations\FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs\FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.csproj", "{5CF85EE3-5564-4948-A82C-B5A18A126876}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fecsx", "Fecsx", "{B097F3F2-ED68-473D-AB69-645BC5BB2B6E}"
 EndProject
@@ -264,9 +264,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Browser.Template", "Debugger\VisualStudio\Templates\FrontEndCSharp.Browser\FrontEndCSharp.Browser.Template.csproj", "{D31CD5E7-E480-4178-91BC-CDBC6E363D25}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Security.Cryptography", "System.Security.Cryptography", "{BC8784CC-1C78-4649-9EB7-DCD6EA33F9C0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.System.Security.Cryptography", "FrontEndCSharp.Overrides.System.Security.Cryptography", "{BC8784CC-1C78-4649-9EB7-DCD6EA33F9C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Security.Cryptography.fecs", "RuntimeOverrides\System.Security.Cryptography\System.Security.Cryptography.fecs\System.Security.Cryptography.fecs.csproj", "{65A54152-D88D-4C04-9A1B-6764C00D820D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.System.Security.Cryptography.fecs", "Overrides\FrontEndCSharp.Overrides.System.Security.Cryptography\FrontEndCSharp.Overrides.System.Security.Cryptography.fecs\FrontEndCSharp.Overrides.System.Security.Cryptography.fecs.csproj", "{65A54152-D88D-4C04-9A1B-6764C00D820D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fecscn", "Fecscn", "{8B08AAB8-81F4-4B42-8BFF-1C25435E6520}"
 EndProject
@@ -278,9 +278,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Tailwind.Tas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Tailwind.Tests", "Fecscn\FrontEndCSharp.Tailwind.Tests\FrontEndCSharp.Tailwind.Tests.csproj", "{77B50D46-52F2-4F59-AAB3-DA444BC99D42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Tailwind", "Fecscn\FrontEndCSharp.Tailwind\FrontEndCSharp.Tailwind.csproj", "{74A55E23-53F6-4BAD-B186-8FF8D032FF06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.FECS.Internals.Tailwind", "Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\FrontEndCSharp.FECS.Internals.Tailwind.csproj", "{74A55E23-53F6-4BAD-B186-8FF8D032FF06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Fecscn.Tool", "Fecscn\FrontEndCSharp.Fecscn.Tool\FrontEndCSharp.Fecscn.Tool.csproj", "{1410AB23-B455-4004-91BB-4A02A0E17DDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.FECS.Internals.Fecscn.Tool", "Fecscn\FrontEndCSharp.FECS.Internals.Fecscn.Tool\FrontEndCSharp.FECS.Internals.Fecscn.Tool.csproj", "{1410AB23-B455-4004-91BB-4A02A0E17DDF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Fecscn.Registry.CompileFixture", "Fecscn\Registry\CompileFixture\FrontEndCSharp.Fecscn.Registry.CompileFixture.csproj", "{752F357E-4FB1-4243-86ED-02BB91042623}"
 EndProject
@@ -288,31 +288,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FecscnInitBuildFixture", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FecscnBrowserFixture", "Fecscn\Tests\FecscnBrowserFixture\FecscnBrowserFixture.csproj", "{17ECED6D-D43D-4F49-B0F1-099240D51A89}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.Shadcn.BaseUI", "Interop.JS.Shadcn.BaseUI", "{02113261-8B4C-4D30-BBCE-24ED3561C030}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "{02113261-8B4C-4D30-BBCE-24ED3561C030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Shadcn.BaseUI", "RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.csproj", "{4FDFD53D-A8D8-4721-B93A-FD93FE39E826}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.csproj", "{4FDFD53D-A8D8-4721-B93A-FD93FE39E826}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Shadcn.BaseUI.fecs", "RuntimeOverrides\Interop.JS.Shadcn.BaseUI\Interop.JS.Shadcn.BaseUI.fecs\Interop.JS.Shadcn.BaseUI.fecs.csproj", "{C90415B4-89AA-48FC-8363-5BE57CA015D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs\FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs.csproj", "{C90415B4-89AA-48FC-8363-5BE57CA015D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.Shadcn.Cn", "Interop.JS.Shadcn.Cn", "{D42A1AFF-F0DB-462A-BCEE-2CEA93794BE5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "{D42A1AFF-F0DB-462A-BCEE-2CEA93794BE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Shadcn.Cn", "RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.csproj", "{3D7DB74E-714C-42DB-9F6F-DBD46602C117}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.csproj", "{3D7DB74E-714C-42DB-9F6F-DBD46602C117}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Shadcn.Cn.fecs", "RuntimeOverrides\Interop.JS.Shadcn.Cn\Interop.JS.Shadcn.Cn.fecs\Interop.JS.Shadcn.Cn.fecs.csproj", "{0331F662-5142-47DB-886B-8A13A9C45D9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs.csproj", "{0331F662-5142-47DB-886B-8A13A9C45D9D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.Shadcn.Recharts", "Interop.JS.Shadcn.Recharts", "{D3507248-EA49-4722-9CEE-01092682EA99}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts", "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts", "{D3507248-EA49-4722-9CEE-01092682EA99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Shadcn.Recharts", "RuntimeOverrides\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.csproj", "{DCBADA35-D562-4269-A72B-1C7F6989A557}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.csproj", "{DCBADA35-D562-4269-A72B-1C7F6989A557}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.Shadcn.Recharts.fecs", "RuntimeOverrides\Interop.JS.Shadcn.Recharts\Interop.JS.Shadcn.Recharts.fecs\Interop.JS.Shadcn.Recharts.fecs.csproj", "{00C2D993-1053-4C33-9EE3-9BED3E340435}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.fecs\FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.fecs.csproj", "{00C2D993-1053-4C33-9EE3-9BED3E340435}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interop.JS.LucideIcons", "Interop.JS.LucideIcons", "{3399F3C7-E6C8-43B8-BC5F-9121C00B6F51}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "{3399F3C7-E6C8-43B8-BC5F-9121C00B6F51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.LucideIcons", "RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons\Interop.JS.LucideIcons.csproj", "{E6227E11-00D6-4D34-AB44-219E0768CF13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "Overrides\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.csproj", "{E6227E11-00D6-4D34-AB44-219E0768CF13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.LucideIcons.fecs", "RuntimeOverrides\Interop.JS.LucideIcons\Interop.JS.LucideIcons.fecs\Interop.JS.LucideIcons.fecs.csproj", "{8F2A082D-AF71-4A19-81C7-3C51432C4FB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "Overrides\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs.csproj", "{8F2A082D-AF71-4A19-81C7-3C51432C4FB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop.JS.LucideIcons.Generator", "RuntimeOverrides\Interop.JS.LucideIcons\Generator\Interop.JS.LucideIcons.Generator.csproj", "{9039B8BC-B7DF-4839-8B74-E35F438710AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.Generator", "Overrides\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.Generator\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.Generator.csproj", "{9039B8BC-B7DF-4839-8B74-E35F438710AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

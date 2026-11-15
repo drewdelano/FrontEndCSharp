@@ -1,0 +1,31 @@
+<Project>
+  <Import Project="..\Directory.Build.props" />
+
+  <PropertyGroup>
+    <_FrontEndCSharpOverridePackageIsCompanion>$([System.String]::Copy('$(MSBuildProjectName)').EndsWith('.fecs'))</_FrontEndCSharpOverridePackageIsCompanion>
+    <_FrontEndCSharpOverridePackageIsInterop>$([System.String]::Copy('$(MSBuildProjectName)').StartsWith('FrontEndCSharp.Overrides.Interop.JS.'))</_FrontEndCSharpOverridePackageIsInterop>
+    <_FrontEndCSharpOverridePackageIsTest>$([System.String]::Copy('$(MSBuildProjectName)').Contains('.Tests'))</_FrontEndCSharpOverridePackageIsTest>
+    <_FrontEndCSharpOverridePackageIsGenerator>$([System.String]::Copy('$(MSBuildProjectName)').EndsWith('.Generator'))</_FrontEndCSharpOverridePackageIsGenerator>
+    <_FrontEndCSharpOverridePackage Condition="'$(_FrontEndCSharpOverridePackageIsCompanion)' == 'True'">true</_FrontEndCSharpOverridePackage>
+    <_FrontEndCSharpOverridePackage Condition="'$(_FrontEndCSharpOverridePackageIsInterop)' == 'True' and '$(_FrontEndCSharpOverridePackageIsTest)' != 'True' and '$(_FrontEndCSharpOverridePackageIsGenerator)' != 'True'">true</_FrontEndCSharpOverridePackage>
+    <_FrontEndCSharpOverridePackageSubject Condition="'$(_FrontEndCSharpOverridePackage)' == 'true'">$([System.String]::Copy('$(MSBuildProjectName)').Replace('FrontEndCSharp.Overrides.', '').Replace('.fecs', ''))</_FrontEndCSharpOverridePackageSubject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(_FrontEndCSharpOverridePackage)' == 'true'">
+    <Authors>drewdelano</Authors>
+    <Copyright>Copyright © 2026 drewdelano</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <_FrontEndCSharpPackageReadmeSource Condition="Exists('$(MSBuildProjectDirectory)\README.md')">$(MSBuildProjectDirectory)\README.md</_FrontEndCSharpPackageReadmeSource>
+    <_FrontEndCSharpPackageReadmeSource Condition="'$(_FrontEndCSharpPackageReadmeSource)' == ''">$(MSBuildThisFileDirectory)PACKAGE_README.md</_FrontEndCSharpPackageReadmeSource>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(_FrontEndCSharpOverridePackage)' == 'true' and '$(_FrontEndCSharpOverridePackageIsCompanion)' == 'True'">
+    <Description>Compiler and runtime override resources for $(_FrontEndCSharpOverridePackageSubject) in FrontEndCSharp browser applications.</Description>
+    <PackageTags>frontendcsharp;csharp;browser;compiler;runtime-override;fecs</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(_FrontEndCSharpOverridePackage)' == 'true' and '$(_FrontEndCSharpOverridePackageIsCompanion)' != 'True'">
+    <Description>Managed FrontEndCSharp browser interop bindings for $(_FrontEndCSharpOverridePackageSubject).</Description>
+    <PackageTags>frontendcsharp;csharp;browser;interop;javascript</PackageTags>
+  </PropertyGroup>
+</Project>

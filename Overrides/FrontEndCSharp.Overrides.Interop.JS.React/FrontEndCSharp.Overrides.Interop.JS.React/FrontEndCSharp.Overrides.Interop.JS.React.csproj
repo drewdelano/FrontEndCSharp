@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>FrontEndCSharp.Overrides.Interop.JS.React</AssemblyName>
+    <RootNamespace>Interop.JS.React</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>19.3.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.csproj" />
+  </ItemGroup>
+
+</Project>

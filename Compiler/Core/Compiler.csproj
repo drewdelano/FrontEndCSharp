@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -61,17 +61,21 @@
   <Target Name="BuildJavaScriptBundler"
           DependsOnTargets="RestoreJavaScriptBundler"
           Inputs="$(ProjectDir)..\JsBundler\bundle.cjs;$(ProjectDir)..\JsBundler\package-lock.json"
-          Outputs="$(ProjectDir)$(IntermediateOutputPath)JsBundler\index.cjs">
-    <RemoveDir Directories="$(ProjectDir)$(IntermediateOutputPath)JsBundler" />
+          Outputs="$(IntermediateOutputPath)JsBundler\index.cjs">
+    <PropertyGroup>
+      <_JavaScriptBundlerIntermediateDirectory Condition="$([System.IO.Path]::IsPathRooted('$(IntermediateOutputPath)'))">$(IntermediateOutputPath)JsBundler</_JavaScriptBundlerIntermediateDirectory>
+      <_JavaScriptBundlerIntermediateDirectory Condition="'$(_JavaScriptBundlerIntermediateDirectory)' == ''">$(ProjectDir)$(IntermediateOutputPath)JsBundler</_JavaScriptBundlerIntermediateDirectory>
+    </PropertyGroup>
+    <RemoveDir Directories="$(_JavaScriptBundlerIntermediateDirectory)" />
     <Exec WorkingDirectory="$(ProjectDir)..\JsBundler"
-          Command="npx --no-install ncc build bundle.cjs -o &quot;$(ProjectDir)$(IntermediateOutputPath)JsBundler&quot; --minify" />
+          Command="npx --no-install ncc build bundle.cjs -o &quot;$(_JavaScriptBundlerIntermediateDirectory)&quot; --minify" />
   </Target>
 
   <Target Name="IncludeJavaScriptBundlerOutput"
           BeforeTargets="AssignTargetPaths"
           DependsOnTargets="BuildJavaScriptBundler">
     <ItemGroup>
-      <_JavaScriptBundlerOutput Include="$(ProjectDir)$(IntermediateOutputPath)JsBundler\**\*" />
+      <_JavaScriptBundlerOutput Include="$(IntermediateOutputPath)JsBundler\**\*" />
       <Content Include="@(_JavaScriptBundlerOutput)">
         <Link>JsBundler\%(_JavaScriptBundlerOutput.RecursiveDir)%(_JavaScriptBundlerOutput.Filename)%(_JavaScriptBundlerOutput.Extension)</Link>
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

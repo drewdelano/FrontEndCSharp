@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Net.Http.HttpResponseMessage.get_Headers()",
+      "file": "method.037ae1bf29e1bc9d2c54e92e8b275bac3f8ac6c2d5879be16bbe105c8aab0092.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpResponseMessage.Dispose()",
+      "file": "method.0fc77c048780114bc943ddf4cd23e514b7b1e7a55a4b98cf1312310146a4a47a.js"
+    },
+    {
+      "signature": "System.Net.Http.StringContent..ctor(System.String, System.Text.Encoding)",
+      "file": "method.0fe00927363e81322c0cc25fd216cfea389602ca8320cb34b843bd33ceab542a.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_AutomaticDecompression(System.Net.DecompressionMethods)",
+      "file": "method.1549ca601fdfd5e2e696517100b7eeaab5b558e277f1a2a7e01e78a43e5a7106.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.get_Timeout()",
+      "file": "method.162c5c2070abd600b7f6cdf84120ebc363fc91155e4e9270005b09c8806ae7b7.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_MaxConnectionsPerServer(System.Int32)",
+      "file": "method.169c3f22ed23f5fbb248373aabee379c0c9f9d050ee34b7969ddb276e0f895de.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpRequestHeaders.get_Accept()",
+      "file": "method.1890e1bb56e07efdc2aa85cd0016113d10ae0dbe168b6eba6d2a07911180b0b4.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.AuthenticationHeaderValue..ctor(System.String, System.String)",
+      "file": "method.1c3befb66775089d8720913cda1fda7265a6055643a025f6eb6cfcfedc5c14ff.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.get_Headers()",
+      "file": "method.217080e8564185aa16e2780c2daecb045c42c18f18a8a9d107b4d7358bef95ae.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.DeleteAsync(System.String)",
+      "file": "method.221d9cfbf26c1805dbe17e99f87cfea027c9471985fed45c273995ee89f68052.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage.CheckDisposed()",
+      "file": "method.22476ce8a993f1a9467005099312181b6e24f0ed21e32a8ee8a32e3064d5180c.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage.get_Headers()",
+      "file": "method.2315778bdd8500f75d854f5ffea40633d06341e2731ccdc889834773b3b49bc9.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpMethod..ctor(System.String, System.Int32)",
+      "file": "method.2a35eccc8ab71fb5697e1927a8e2aa5dbdf3cc9485085d38c9c201d8f6e4668d.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.PostAsync(System.String, System.Net.Http.HttpContent)",
+      "file": "method.2f60fa5e8570159e7550f5d28d3059109e4684d8be02522b8ef9c0195c9280b6.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage.MarkAsSent()",
+      "file": "method.344316a4941a34ee93bd26d952003e7c8ab6207e42354290d7ce611f0d930fda.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpResponseMessage..ctor(System.Net.HttpStatusCode)",
+      "file": "method.38155d9c7fd773a5f98ac5fac8af137147891514d503e85885047c5cbafd411b.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.set_BaseAddress(System.Uri)",
+      "file": "method.3cff8de78dbb7d13d14435dd97cb98a8058230ed672c29e70b51c0ede3493b4c.js"
+    },
+    {
+      "signature": "System.Net.Http.StringContent..ctor(System.String, System.Text.Encoding, System.String)",
+      "file": "method.3da3ddd778348d8003f7f4919e0a600e0b243b4bf6d252f3d4fd543bd74aff05.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage.Dispose()",
+      "file": "method.40a407b25b7a0740fb981fc22faf6279887f7f55e88c785a3c423e46a7d13c9a.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_UseProxy(System.Boolean)",
+      "file": "method.41db54e4295737e3565e85a79bc815d6dc85b0b05f3d3a7a0c62f5a261e87b3b.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.set_Timeout(System.TimeSpan)",
+      "file": "method.4cc0a437cd6c6858d4bec02a8931588d98fc4ebb49de41d2e4a7cd571767a177.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpHeaderValueCollection`1[T].Add(T)",
+      "file": "method.54d18e28a88edae52d1ac24af4f908d717c32981d59d3cd476be8608d7bb6434.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.PutAsync(System.String, System.Net.Http.HttpContent)",
+      "file": "method.5fb39c485780af3aee086b27c42a4254fbee35baafdc4abb798636a3a159171e.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler..ctor()",
+      "file": "method.5fd626c23d210b9f44b2f573eb2dfcc3c217499e5856833ed794a93dffcaa00d.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.ReadAsStreamAsync()",
+      "file": "method.62d38d8d655fc55106fa9f4db2df514c6d3f9b8687bee014f1699059febbb588.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.ReadAsStreamAsync(System.Threading.CancellationToken)",
+      "file": "method.64d5d2c7bb81c40e6417b23d0e85702c71724bff4b733f6c1324cae75c6eb72b.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpMessageInvoker..ctor(System.Net.Http.HttpMessageHandler, System.Boolean)",
+      "file": "method.6912fe91dbea8f90a812ff5ea3cd16009292aaac668a098ff288b24318d649b6.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_CheckCertificateRevocationList(System.Boolean)",
+      "file": "method.6c97024dfefaae6dd4c2df729834b2882aec6bdbd354820e8a7b65c46bd730df.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)",
+      "file": "method.723c0cf8c554044bc6458338287876d6f2df864177093658beee127b07a23244.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpContentHeaders.get_ContentType()",
+      "file": "method.7256de26a87c79ef5f85a5d06b420899db3ff9c19b73303151f7fc0adaa82249.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.get_BaseAddress()",
+      "file": "method.735021182eb52a744549c815a3fa6350072c17ad1fc0b1be036beb3cc1866d2d.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.PrepareCancellationTokenSource(System.Threading.CancellationToken)",
+      "file": "method.743886c99026c8324329eeef209384bc06a4dc9926f67bc9f68595a1967515a6.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_ClientCertificateOptions(System.Net.Http.ClientCertificateOption)",
+      "file": "method.793ebc1f524780fc4136373b54210479b09c60402093de5406de111916e1ca32.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpHeaders.Add(System.String, System.String)",
+      "file": "method.79e596541099021e06204c3a24eef3986924b0531021f95de2b69196da4e7d4d.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpResponseMessage.get_Content()",
+      "file": "method.8379933c5ef5004ca2282fc6c8ff564be0aba40a91e4fc106ca1e6ef2dc0f440.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.Send(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)",
+      "file": "method.863d53bba233c0262f5645fd33ced3d2620eae9f37cad9c139dde268758cb6fa.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.GetStringAsync(System.String)",
+      "file": "method.8c19c566a4639311694a00d00344d2ac66d96c4823430c8f367e51f908b51494.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage.get_DefaultRequestVersion()",
+      "file": "method.8c4aaf643f35bfe627107c713165195a8c99bbcbd4ee9bf7000844795aa243a3.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.ReadAsByteArrayAsync()",
+      "file": "method.8cabd06a0f62defef1c519c77238235d33f4476b796dca510d99ec54c414f3eb.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpMessageInvoker.Dispose()",
+      "file": "method.8cbd7b901137e19381ce3002cd53ebe814dd630ba562b569ed7bef49b13c1dbb.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpRequestHeaders.set_Authorization(System.Net.Http.Headers.AuthenticationHeaderValue)",
+      "file": "method.9005af0fe99f186e01cfbcb80853d80c61f35ab8ebd87cbb01f2a39927a9ca66.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.get_DefaultRequestHeaders()",
+      "file": "method.938c052c67d8ddb1173bd76f1b41b94605976fdb9f97f3d7b4c630f69323bb99.js"
+    },
+    {
+      "signature": "System.Net.Http.FormUrlEncodedContent..ctor(System.Collections.Generic.IEnumerable`1[T])",
+      "file": "method.9b81f48ed293496a9b2459a3246e35cc40d085833005092c16cb9ec471600a05.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(System.Net.Http.HttpRequestMessage, System.Net.Http.HttpCompletionOption, System.Threading.CancellationTokenSource, System.Boolean, System.Threading.CancellationTokenSource, System.Threading.CancellationToken)",
+      "file": "method.9c2489e1fc137dd9551e288410866a1c0e374d007bb51bbdadb9e8fa417d5b62.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.ReadAsStringAsync()",
+      "file": "method.9c89bd823cb3b634ba68dd9d3397f46471428d9195246948920b4d1b3faa39d9.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpHeaders.Contains(System.String)",
+      "file": "method.9ffaddd9199c40eb47f76b12f0ed8498ad0d6ed2f53f5e2c63ed5ec8873dacaa.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.Dispose(System.Boolean)",
+      "file": "method.a07b66eae42ca3ffa41e11f56a59a617d14b58ca7121195f8d0855ef4468f48a.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage..ctor(System.Net.Http.HttpMethod, System.String)",
+      "file": "method.a2ca9d5b99b513319c8012ef037a68c15d9308be9722c7a0b32eb3c34b29cd5a.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.ReadAsStringAsync(System.Threading.CancellationToken)",
+      "file": "method.b0ab97791bfdc8f47bf57acdab7b2b32f649150c063db99a0c1f54f249fbf7c8.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpContent.ReadAsByteArrayAsync(System.Threading.CancellationToken)",
+      "file": "method.b230beb4c59633001f4eef6ada4978470700f6fc0165a38f8242edcffbe64065.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpHeaders.GetValues(System.String)",
+      "file": "method.bc3311a9dc74323049f4d3c152f4477b463db134f840a8381833cbbcbed610ca.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.PatchAsync(System.String, System.Net.Http.HttpContent)",
+      "file": "method.beb94dc734b7b10a273e8ddf20aac630ba39b6e79f798f331430c2762698a28c.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.MediaTypeHeaderValue.get_MediaType()",
+      "file": "method.c07a6b73bdb2accd702a603356465a4f12cc75577a12b83896fb47ca808494b5.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.MediaTypeWithQualityHeaderValue..ctor(System.String)",
+      "file": "method.c25095c5d72ae3460ac324c9bbf1fa7f8c73c48b0ab7a9e14fdf0e3508d70703.js"
+    },
+    {
+      "signature": "System.Net.Http.StringContent..ctor(System.String)",
+      "file": "method.c53ee3a5e2969053f69d1092ae24512325993cf37189760da8647e12e843fab8.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpRequestMessage.set_Content(System.Net.Http.HttpContent)",
+      "file": "method.cab5b6277ff352f4a942f565f66573800558afe190a724ca87352a43ec9e652d.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpHeaders.TryGetValues(System.String, System.Collections.Generic.IEnumerable`1[T]&)",
+      "file": "method.d3959bd8e89b7688ebdd803e1c8b8d3cb2b510dd7b9f446041e41fd3e193fa1c.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.CheckRequestBeforeSend(System.Net.Http.HttpRequestMessage)",
+      "file": "method.d48021b84d731667f4cf7d26b6503d453024d53ef50e38728553111e5a95bd58.js"
+    },
+    {
+      "signature": "System.Net.Http.ByteArrayContent..ctor(System.Byte[])",
+      "file": "method.d8979e0a08d81c795d5a61830b6328ad0c93bfa3800513f0ed09b06691324ac6.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.CreateUri(System.String)",
+      "file": "method.db9b6b9a725df9148087667b936c858a9fccd0531bf92bde7f1716673b537cbe.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_SslProtocols(System.Security.Authentication.SslProtocols)",
+      "file": "method.df27522a458c2f2bcc3ba02b627e8afe5a45680f338ec54827585a06a1df4807.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClientHandler.set_Proxy(System.Net.IWebProxy)",
+      "file": "method.e2197cdc895a67782406d7afff031f4a1f2cf37bbf79742612bddad9387d1891.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.PrepareRequestMessage(System.Net.Http.HttpRequestMessage)",
+      "file": "method.ed7bf6318489552a05b3d824644c41cd359051342a91588d38a9fb144f16d09e.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.CheckRequestMessage(System.Net.Http.HttpRequestMessage)",
+      "file": "method.f77fbf259026686f7b0309ad840c2a8d0e50c93ea8015f636e3dbd34e83558ae.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.MediaTypeHeaderValue.get_CharSet()",
+      "file": "method.f9ca481302b5dcae9b9e200a7165bad9451943e3643e4d4d6726863b2ba14b29.js"
+    },
+    {
+      "signature": "System.Net.Http.Headers.HttpHeaders.GetEnumerator()",
+      "file": "method.fdd2a4de39894d6fdf1d4c16e256e3dc627f0e5547086792e5246c515929ab64.js"
+    },
+    {
+      "signature": "System.Net.Http.BrowserHttpReadStream.Read(System.Byte[], System.Int32, System.Int32)",
+      "file": "method.3b7cbf87262fbfa651c1e83e9599b4e42a80942ee87e8800123b470ca7287675.js"
+    },
+    {
+      "signature": "System.Net.Http.BrowserHttpReadStream.ReadAsync(System.Byte[], System.Int32, System.Int32, System.Threading.CancellationToken)",
+      "file": "method.ea895927ce50ec0c82246edee1ee3d5feb9de60e46518a58b28bd3a59bcd177e.js"
+    },
+    {
+      "signature": "System.Net.Http.BrowserHttpReadStream.Dispose(System.Boolean)",
+      "file": "method.88c2838a8f29a7282270d868979975e7f38bc6a4f5f6b9e707af775443f7f509.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)",
+      "file": "method.d0c7117105f4b4408bdd15b6305cc3ed34c7ec37f322a1daea7221977100a8d1.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)",
+      "file": "method.710cbfdd4baa0a55e48438a17b095320d407b05d9b281dce889113b79fddb375.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage, System.Net.Http.HttpCompletionOption)",
+      "file": "method.8937338eaee7b0a622ecf7f9509015713dd036b04f48266e717b4169535907bd.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage, System.Net.Http.HttpCompletionOption, System.Threading.CancellationToken)",
+      "file": "method.550af4d5f226cf31eedb794e3f67256b4277acee095fe12f9bdb3809efbbf6ee.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.GetAsync(System.String)",
+      "file": "method.c73a6b2912a524f1e65c55e2fb6caea59d2a4d097dd3d3418c114943ffe7c9fe.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.GetAsync(System.String, System.Threading.CancellationToken)",
+      "file": "method.0c6e80e747c6ed68d6564fba793416dd4d80e678debd01181706b75fed21c25a.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.GetAsync(System.String, System.Net.Http.HttpCompletionOption)",
+      "file": "method.9485d185912d3704bad3b755d63d3f36d677d343d4e9247e201f02299f74017e.js"
+    },
+    {
+      "signature": "System.Net.Http.HttpClient.GetAsync(System.String, System.Net.Http.HttpCompletionOption, System.Threading.CancellationToken)",
+      "file": "method.740e2f8c0e457e3aca627e13f7a64146b5b2d54002ebcb397fb5ac53fcf278e7.js"
+    }
+  ]
+}

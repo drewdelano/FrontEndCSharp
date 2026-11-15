@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "Interop.JS.React.React.CreateElement(System.String, Interop.JS.React.ReactProps, Interop.JS.React.ReactNode[])",
+      "file": "method.16a416b0dde19e7b8fae9640a039b26b50b3c22bf39c6c466bae6a15c7e949e0.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.CreateFragment(Interop.JS.React.ReactNode[])",
+      "file": "method.298f8240034f99130ba73505c1cda9978c7beefed89f9daebee909fe263463b0.js"
+    },
+    {
+      "signature": "Interop.JS.React.ReactRoot.Create(Interop.JS.Browser.Element)",
+      "file": "method.31733f56b05a5c325ad9f5f40b90ce17aa1f198ccac410261b8195535dd46fad.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.CreateElement(Interop.JS.React.ReactComponent, Interop.JS.React.ReactProps, Interop.JS.React.ReactNode[])",
+      "file": "method.36d81730dfc100c2a0e5a91cf4c82b3c042212558ac11437387f05ba1a0d17e4.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.CreateElement(Interop.JS.React.ImportedReactComponent, Interop.JS.React.ReactProps, Interop.JS.React.ReactNode[])",
+      "file": "method.d8ad3afede574cf18ef7855a86a11484e5ffe81fddd2f70f9ab49e3b466fcedb.js"
+    },
+    {
+      "signature": "Interop.JS.React.ReactRoot.Unmount()",
+      "file": "method.696de480ab6843873e82ec9c943c53238d5d5fe6d3306a090e5b62ab6e88cf39.js"
+    },
+    {
+      "signature": "Interop.JS.React.ReactRoot.Render(Interop.JS.React.ReactNode)",
+      "file": "method.a5e1da004d1038f3476741d23238dc6f4b6402a6fd9a6f3c447b58796473dbdb.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.CreateElement<TProps>(Interop.JS.React.ReactComponent`1[TProps], TProps, Interop.JS.React.ReactNode[])",
+      "file": "method.b340d01c2c47d0ad44f4a54e0ef7aeebfaeef3c55bda4aa698d15a60e499679b.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.Component<TProps>(System.Func`3[T1, T2, TResult])",
+      "file": "method.e62e7eac651d89174d0888c8e97300ab21f8848a57b6a01adcea5c0841c34fa3.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.Text(System.String)",
+      "file": "method.ebaf5fb7495fdceaf37e5f6095aee5ce76b802185cc0a6681ecdab2262595301.js"
+    },
+    {
+      "signature": "Interop.JS.React.React.Component(System.Func`2[T, TResult])",
+      "file": "method.fd7952cf0283f1bc2d669dde77f1a61574cce00a41b3961282b98d16c61f2b32.js"
+    }
+  ]
+}

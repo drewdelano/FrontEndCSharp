@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <PackageId>FrontEndCSharp.FECS.Internals.Build</PackageId>
+    <Version>0.1.19</Version>
+    <Authors>FrontEndCSharp</Authors>
+    <Description>Build integration and compiler payload for FrontEndCSharp browser projects.</Description>
+    <PackageTags>csharp;compiler;browser;msbuild</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <CompilerPayloadArchive>$(MSBuildProjectExtensionsPath)$(Configuration)\$(TargetFramework)\CompilerPayload.zip</CompilerPayloadArchive>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CollectFrontEndCSharpBuildPackageFiles</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Compiler.csproj"
+                      ReferenceOutputAssembly="false"
+                      PrivateAssets="all" />
+    <ProjectReference Include="..\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj"
+                      ReferenceOutputAssembly="false"
+                      PrivateAssets="all" />
+    <None Include="..\Assets\FrontEndCSharp.Build.props"
+          Pack="true"
+          PackagePath="buildTransitive\FrontEndCSharp.FECS.Internals.Build.props" />
+    <None Include="..\Assets\FrontEndCSharp.targets"
+          Pack="true"
+          PackagePath="buildTransitive\FrontEndCSharp.FECS.Internals.Build.targets" />
+    <None Include="README.md"
+          Pack="true"
+          PackagePath="\" />
+  </ItemGroup>
+
+  <Target Name="CollectFrontEndCSharpBuildPackageFiles"
+          DependsOnTargets="Build;CreateFrontEndCSharpBuildCompilerPayload">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(CompilerPayloadArchive)">
+        <PackagePath>tools\CompilerPayload.zip</PackagePath>
+      </TfmSpecificPackageFile>
+      <_FrontEndCSharpBootstrapPayload Include="..\FrontEndCSharp.Build.Tasks\bin\$(Configuration)\net8.0\**\*"
+                                       Exclude="..\FrontEndCSharp.Build.Tasks\bin\$(Configuration)\net8.0\**\*.pdb" />
+      <TfmSpecificPackageFile Include="@(_FrontEndCSharpBootstrapPayload)">
+        <PackagePath>tools\bootstrap\%(_FrontEndCSharpBootstrapPayload.RecursiveDir)%(_FrontEndCSharpBootstrapPayload.Filename)%(_FrontEndCSharpBootstrapPayload.Extension)</PackagePath>
+      </TfmSpecificPackageFile>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="CreateFrontEndCSharpBuildCompilerPayload">
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Build.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Build.Tasks.dll&quot; create-compiler-payload &quot;$(MSBuildProjectDirectory)\..\..\Core\bin\$(Configuration)\net8.0&quot; &quot;$(CompilerPayloadArchive)&quot;" />
+  </Target>
+
+</Project>

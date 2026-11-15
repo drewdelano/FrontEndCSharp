@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <FrontEndCSharpTailwindProject>$(MSBuildProjectDirectory)\..\..\..\..\Fecscn\FrontEndCSharp.Tailwind\FrontEndCSharp.Tailwind.csproj</FrontEndCSharpTailwindProject>
+    <FrontEndCSharpTailwindProject>$(MSBuildProjectDirectory)\..\..\..\..\Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\FrontEndCSharp.FECS.Internals.Tailwind.csproj</FrontEndCSharpTailwindProject>
     <FrontEndCSharpTailwindInput>$(MSBuildProjectDirectory)\Styles\fecscn.css</FrontEndCSharpTailwindInput>
     <FrontEndCSharpTailwindOutput>$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework)\fecscn\tailwind\fixture.css</FrontEndCSharpTailwindOutput>
   </PropertyGroup>
 
-  <Import Project="..\..\..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.props" />
+  <Import Project="..\..\..\..\Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\buildTransitive\FrontEndCSharp.FECS.Internals.Tailwind.props" />
 
   <ItemGroup>
     <AdditionalFiles Include="..\..\..\..\Demo\FrontEndCSharp.ReactDemo\Components\EnergyPanel.fecsx" />
@@ -28,7 +28,7 @@
     </PropertyGroup>
   </Target>
 
-  <Import Project="..\..\..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.targets" />
+  <Import Project="..\..\..\..\Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\buildTransitive\FrontEndCSharp.FECS.Internals.Tailwind.targets" />
 
   <PropertyGroup>
     <_FrontEndCSharpTailwindTasks>$(MSBuildProjectDirectory)\..\..\..\..\Fecscn\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll</_FrontEndCSharpTailwindTasks>

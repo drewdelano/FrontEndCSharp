@@ -30,8 +30,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.Cn", "version": "0.5.2" },
-        { "name": "Interop.JS.Shadcn.Cn.fecs", "version": "0.5.2" }
+{ "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn", "version": "0.5.2" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs", "version": "0.5.2" }
       ]
     },
     {
@@ -90,8 +90,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -140,7 +140,7 @@
           "source": "Sources/spinner/Spinner.fecsx",
           "target": "Components/UI/Spinner.fecsx",
           "kind": "fecsx",
-          "sha256": "115f081f290d8f78bb9a75363eaa3c8293c62908f66d7a9591a403853b3be49d"
+          "sha256": "11935a965a1d8ae6b643eedd88dab6b9c6b43de3b79df375c2957b38a587736e"
         },
         {
           "source": "Sources/spinner/SpinnerProps.cs",
@@ -150,8 +150,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -172,7 +172,7 @@
           "source": "Sources/breadcrumb/Breadcrumb.fecsx",
           "target": "Components/UI/Breadcrumb.fecsx",
           "kind": "fecsx",
-          "sha256": "cdf8809545f81cfc10785df958700628ebb329751ef4b0a241d65e62319be748"
+          "sha256": "29465c0853d07e11b82074735af51c8aa20501c7bdcc14df675ef84fd7449a8e"
         },
         {
           "source": "Sources/breadcrumb/BreadcrumbProps.cs",
@@ -182,8 +182,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -213,8 +213,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -245,10 +245,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -278,8 +278,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -310,10 +310,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -344,10 +344,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -377,8 +377,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -409,10 +409,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -443,10 +443,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -468,7 +468,7 @@
           "source": "Sources/toast/Toast.fecsx",
           "target": "Components/UI/Toast.fecsx",
           "kind": "fecsx",
-          "sha256": "8e95935dcb30701a089076d212d90d114b1b6d37b07e45dc4a886a5c28ffeafc"
+          "sha256": "5ef5f5d2f3026709c598c9ab330c1916ae7adfee359a3750e68dbf7de7c6a144"
         },
         {
           "source": "Sources/toast/ToastProps.cs",
@@ -478,10 +478,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -512,8 +512,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -544,10 +544,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -579,8 +579,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.Recharts", "version": "3.8.0" },
-        { "name": "Interop.JS.Shadcn.Recharts.fecs", "version": "3.8.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts", "version": "3.8.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.fecs", "version": "3.8.0" }
       ]
     },
     {
@@ -610,8 +610,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -643,10 +643,10 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
-        { "name": "Interop.JS.LucideIcons", "version": "1.72.0" },
-        { "name": "Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons", "version": "1.72.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs", "version": "1.72.0" }
       ]
     },
     {
@@ -677,8 +677,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -708,8 +708,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     },
     {
@@ -740,8 +740,8 @@
         }
       ],
       "packages": [
-        { "name": "Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
-        { "name": "Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI", "version": "1.9.0" },
+        { "name": "FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs", "version": "1.9.0" }
       ]
     }
   ]

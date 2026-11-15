@@ -9,11 +9,11 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser\Interop.JS.Browser.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\Newtonsoft.Json\Newtonsoft.Json.fecs\Newtonsoft.Json.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Text.Json\FrontEndCSharp.Overrides.System.Text.Json.fecs\FrontEndCSharp.Overrides.System.Text.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.Newtonsoft.Json\FrontEndCSharp.Overrides.Newtonsoft.Json.fecs\FrontEndCSharp.Overrides.Newtonsoft.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj" />
   </ItemGroup>
 
 </Project>

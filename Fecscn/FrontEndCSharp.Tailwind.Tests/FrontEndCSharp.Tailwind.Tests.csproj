@@ -26,9 +26,9 @@
 
   <Target Name="CreateTailwindTestPayload"
           AfterTargets="Build"
-          Inputs="..\FrontEndCSharp.Tailwind\JavaScriptPackages\package.json;..\FrontEndCSharp.Tailwind\JavaScriptPackages\package-lock.json;..\FrontEndCSharp.Tailwind\JavaScriptPackages\default-theme.css;..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll"
+          Inputs="..\FrontEndCSharp.FECS.Internals.Tailwind\JavaScriptPackages\package.json;..\FrontEndCSharp.FECS.Internals.Tailwind\JavaScriptPackages\package-lock.json;..\FrontEndCSharp.FECS.Internals.Tailwind\JavaScriptPackages\default-theme.css;..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll"
           Outputs="$(TailwindTestPayloadArchive)">
-    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll&quot; create-payload &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Tailwind\JavaScriptPackages&quot; &quot;$(TailwindTestPayloadArchive)&quot;" />
+    <Exec Command="dotnet &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll&quot; create-payload &quot;$(MSBuildProjectDirectory)\..\FrontEndCSharp.FECS.Internals.Tailwind\JavaScriptPackages&quot; &quot;$(TailwindTestPayloadArchive)&quot;" />
   </Target>
 
   <Target Name="CopyTailwindTestPayload"

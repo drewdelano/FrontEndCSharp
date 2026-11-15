@@ -6,6 +6,34 @@ namespace Compiler.Tests;
 public class BuildTargetsTests
 {
     [Test]
+    public void IntermediateOutputUsesShortRepositoryAndProjectKeys()
+    {
+        var repositoryRoot = FindRepositoryRoot();
+        var props = XDocument.Load(Path.Combine(repositoryRoot, "Directory.Build.props"));
+        var baseIntermediateOutputPath = props
+            .Descendants("BaseIntermediateOutputPath")
+            .Single();
+
+        Assert.Equal(
+            "$(_FrontEndCSharpRepositoryRoot)obj\\root-$(_FrontEndCSharpRepositoryRootKey)\\project-$(_FrontEndCSharpProjectPathKey)\\",
+            baseIntermediateOutputPath.Value);
+        Assert.NotEmpty(props.Descendants("_FrontEndCSharpProjectPathHash"));
+        Assert.NotEmpty(props.Descendants("_FrontEndCSharpProjectPathKey"));
+
+        var representativeOutputPath = Path.Combine(
+            @"C:\git\FrontEndCSharp.Private",
+            "obj",
+            "root-12345678",
+            "project-12345678",
+            "Debug",
+            "net8.0",
+            "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.dll");
+        Assert.True(
+            representativeOutputPath.Length < 260,
+            $"Representative intermediate output path is {representativeOutputPath.Length} characters.");
+    }
+
+    [Test]
     public void CompilerJavaScriptRootContainsOnlyUniversalRuntimeModules()
     {
         var repositoryRoot = FindRepositoryRoot();
@@ -33,7 +61,7 @@ public class BuildTargetsTests
     public void CompilerHubDoesNotNameCompanionRuntimeAssets()
     {
         var repositoryRoot = FindRepositoryRoot();
-        var runtimeOverridesDirectory = Path.Combine(repositoryRoot, "RuntimeOverrides");
+        var runtimeOverridesDirectory = Path.Combine(repositoryRoot, "Overrides");
         var companionAssetFileNames = EnumerateRepositoryFiles(
                 runtimeOverridesDirectory,
                 "*.js")
@@ -72,7 +100,7 @@ public class BuildTargetsTests
         var repositoryRoot = FindRepositoryRoot();
         var projectPaths = GetTrackedRepositoryFiles(
                 repositoryRoot,
-                "RuntimeOverrides/**/*.fecs.csproj")
+                "Overrides/**/*.fecs.csproj")
             .ToDictionary(
                 path => Path.GetFileNameWithoutExtension(path),
                 Path.GetFullPath,
@@ -91,7 +119,7 @@ public class BuildTargetsTests
                 "-e",
                 ".fecs/",
                 "--",
-                "RuntimeOverrides/**/*.js")
+                "Overrides/**/*.js")
             .Output
             .Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries)
             .Select(path => Path.GetFullPath(Path.Combine(repositoryRoot, path)))
@@ -159,7 +187,7 @@ public class BuildTargetsTests
     }
 
     [TestCase("FrontEndCSharp.sln")]
-    [TestCase(@"RuntimeOverrides\RuntimeOverrides.sln")]
+    [TestCase(@"Overrides\Overrides.sln")]
     public void SolutionsContainTheirDirectProjectReferenceClosure(string solutionRelativePath)
     {
         var repositoryRoot = FindRepositoryRoot();
@@ -193,11 +221,11 @@ public class BuildTargetsTests
         }
     }
 
-    [TestCase("System.Net.Http", "HttpClientBrowserSmoke")]
-    [TestCase("System.Net.Http", "HttpStreamingBrowserSmoke")]
-    [TestCase("System.Net.Http.Json", "HttpJsonBrowserSmoke")]
-    [TestCase("System.Text.Json", "SystemTextJsonBrowserSmoke")]
-    [TestCase("Newtonsoft.Json", "NewtonsoftJsonBrowserSmoke")]
+    [TestCase("FrontEndCSharp.Overrides.System.Net.Http", "FrontEndCSharp.Overrides.HttpClientBrowserSmoke")]
+    [TestCase("FrontEndCSharp.Overrides.System.Net.Http", "FrontEndCSharp.Overrides.HttpStreamingBrowserSmoke")]
+    [TestCase("FrontEndCSharp.Overrides.System.Net.Http.Json", "FrontEndCSharp.Overrides.HttpJsonBrowserSmoke")]
+    [TestCase("FrontEndCSharp.Overrides.System.Text.Json", "FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke")]
+    [TestCase("FrontEndCSharp.Overrides.Newtonsoft.Json", "FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke")]
     public void BrowserSmokesEnforceTenSecondAbsoluteLimit(
         string packageName,
         string projectName)
@@ -205,7 +233,7 @@ public class BuildTargetsTests
         var repositoryRoot = FindRepositoryRoot();
         var program = File.ReadAllText(Path.Combine(
             repositoryRoot,
-            "RuntimeOverrides",
+            "Overrides",
             packageName,
             "Tests",
             projectName,

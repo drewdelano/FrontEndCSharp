@@ -36,8 +36,8 @@ public sealed class RuntimeOverrideToolingTests
     {
         InTemporaryDirectory(directory =>
         {
-            var resources = Path.Combine(RepositoryRoot, "RuntimeOverrides", "System.Private.CoreLib",
-                "System.Private.CoreLib.fecs", "Overrides");
+            var resources = Path.Combine(RepositoryRoot, "Overrides", "FrontEndCSharp.Overrides.System.Private.CoreLib",
+                "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs", "Overrides");
             var output = Path.Combine(directory, "Providers.cs");
             RuntimeOverrideProviderGenerator.Generate(resources, output);
             var source = File.ReadAllText(output);
@@ -53,15 +53,15 @@ public sealed class RuntimeOverrideToolingTests
                 source);
             var checkedInProviders = Path.Combine(
                 RepositoryRoot,
-                "RuntimeOverrides",
-                "System.Private.CoreLib",
-                "System.Private.CoreLib.fecs",
+                "Overrides",
+                "FrontEndCSharp.Overrides.System.Private.CoreLib",
+                "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs",
                 "GeneratedOverrides.g.cs");
             Assert.Equal(File.ReadAllText(checkedInProviders), source);
 
             var catalog = RuntimeOverrideAssemblyCatalog.Load(Path.Combine(
                 AppContext.BaseDirectory,
-                "System.Private.CoreLib.fecs.dll"));
+                "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll"));
             var manifest = JObject.Parse(File.ReadAllText(Path.Combine(resources, "manifest.json")));
             Assert.Equal(manifest["overrides"]!.Count(), catalog.Overrides.Count);
             Assert.Equal("System.Private.CoreLib", catalog.TargetAssemblyName);

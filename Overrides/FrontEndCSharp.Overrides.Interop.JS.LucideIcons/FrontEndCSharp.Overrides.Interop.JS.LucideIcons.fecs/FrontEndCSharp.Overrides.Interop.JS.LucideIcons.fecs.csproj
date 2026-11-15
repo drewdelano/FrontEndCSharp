@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>1.72.0</Version>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Overrides\*.js" />
+    <EmbeddedResource Include="Overrides\manifest.json" />
+    <ProjectReference Include="..\FrontEndCSharp.Overrides.Interop.JS.LucideIcons\FrontEndCSharp.Overrides.Interop.JS.LucideIcons.csproj" />
+    <ProjectReference Include="..\..\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.csproj" />
+    <ProjectReference Include="..\..\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.fecs\FrontEndCSharp.Overrides.Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\..\..\Compiler\RuntimeOverrides\Abstractions\FrontEndCSharp.RuntimeOverrides.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <Import Project="..\..\..\Compiler\RuntimeOverrides\Packaging\JavaScriptPackageCompanion.targets" />
+
+</Project>

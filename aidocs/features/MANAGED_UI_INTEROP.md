@@ -34,17 +34,17 @@ in [`../compiler/RUNTIME_OVERRIDE_ASSEMBLIES.md`](../compiler/RUNTIME_OVERRIDE_A
 
 This keeps library selection explicit and prevents a global built-in set of UI integrations. The implemented separation is:
 
-- `Interop.JS.Browser.dll` plus `Interop.JS.Browser.fecs.dll` for document, window, DOM nodes, events, timers, and animation-frame callbacks.
-- `Interop.JS.React.dll` plus `Interop.JS.React.fecs.dll` for typed props, element/component creation, and client roots.
-- `Interop.JS.MobX.dll` plus `Interop.JS.MobX.fecs.dll` for observable boxes, actions, autorun, and reaction disposal.
-- `Interop.JS.MobX.React.dll` plus `Interop.JS.MobX.React.fecs.dll` for MobX observer components without coupling either base adapter to the other.
-- `Interop.JS.Motion.dll` plus `Interop.JS.Motion.fecs.dll` for Motion-for-React elements, animation targets, transitions, hover state, and layout.
-- `Interop.JS.LucideIcons.dll` plus `Interop.JS.LucideIcons.fecs.dll` for the
+- `Interop.JS.Browser.dll` plus `FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.dll` for document, window, DOM nodes, events, timers, and animation-frame callbacks.
+- `Interop.JS.React.dll` plus `FrontEndCSharp.Overrides.Interop.JS.React.fecs.dll` for typed props, element/component creation, and client roots.
+- `Interop.JS.MobX.dll` plus `FrontEndCSharp.Overrides.Interop.JS.MobX.fecs.dll` for observable boxes, actions, autorun, and reaction disposal.
+- `Interop.JS.MobX.React.dll` plus `FrontEndCSharp.Overrides.Interop.JS.MobX.React.fecs.dll` for MobX observer components without coupling either base adapter to the other.
+- `Interop.JS.Motion.dll` plus `FrontEndCSharp.Overrides.Interop.JS.Motion.fecs.dll` for Motion-for-React elements, animation targets, transitions, hover state, and layout.
+- `Interop.JS.LucideIcons.dll` plus `FrontEndCSharp.Overrides.Interop.JS.LucideIcons.fecs.dll` for the
   reviewed `lucide-react` icons used by the selected profile and direct application
   composition through shared typed icon properties.
-- `Interop.JS.Shadcn.BaseUI.dll` plus `Interop.JS.Shadcn.BaseUI.fecs.dll` for the selected `@base-ui/react` primitives and Toast manager behavior.
-- `Interop.JS.Shadcn.Cn.dll` plus `Interop.JS.Shadcn.Cn.fecs.dll` for the locked `cn` class-merging function.
-- `Interop.JS.Shadcn.Recharts.dll` plus `Interop.JS.Shadcn.Recharts.fecs.dll` for the selected responsive chart elements and typed-data conversion boundary.
+- `Interop.JS.Shadcn.BaseUI.dll` plus `FrontEndCSharp.Overrides.Interop.JS.Shadcn.BaseUI.fecs.dll` for the selected `@base-ui/react` primitives and Toast manager behavior.
+- `Interop.JS.Shadcn.Cn.dll` plus `FrontEndCSharp.Overrides.Interop.JS.Shadcn.Cn.fecs.dll` for the locked `cn` class-merging function.
+- `Interop.JS.Shadcn.Recharts.dll` plus `FrontEndCSharp.Overrides.Interop.JS.Shadcn.Recharts.fecs.dll` for the selected responsive chart elements and typed-data conversion boundary.
 
 The `Interop.JS.Shadcn.*` prefix is an ownership and scope signal: these adapters
 expose only the upstream exports selected by the pinned FECSN/shadcn profile. They
@@ -162,7 +162,7 @@ Base UI, Nova, Lucide, Tailwind CSS v4, CSS variables, and non-RSC React output.
 other visual styles, other icon libraries, RTL transforms, and user-selected
 profiles require later scope decisions.
 
-Tailwind integration lives in the focused `FrontEndCSharp.Tailwind` build package, which ships
+Tailwind integration lives in the focused `FrontEndCSharp.FECS.Internals.Tailwind` build package, which ships
 and invokes a pinned, otherwise unmodified upstream Tailwind CSS v4 toolchain;
 FrontEndCSharp does not fork or reimplement Tailwind. The package scans explicit
 application and imported-registry `*.fecsx` and `*.cs` inputs, generates one static

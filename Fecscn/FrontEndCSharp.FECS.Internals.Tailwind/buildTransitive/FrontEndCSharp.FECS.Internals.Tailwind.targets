@@ -1,0 +1,44 @@
+<Project>
+  <PropertyGroup>
+    <_FrontEndCSharpTailwindTasks>$(MSBuildThisFileDirectory)..\tools\bootstrap\FrontEndCSharp.Tailwind.Tasks.dll</_FrontEndCSharpTailwindTasks>
+    <_FrontEndCSharpTailwindPayload>$(MSBuildThisFileDirectory)..\tools\tailwind\payload.zip</_FrontEndCSharpTailwindPayload>
+    <FrontEndCSharpTailwindCacheDirectory Condition="'$(_FrontEndCSharpTailwindCacheDirectorySpecified)' != 'true'">$(BaseIntermediateOutputPath)$(Configuration)\$(TargetFramework)\fecscn\tailwind</FrontEndCSharpTailwindCacheDirectory>
+    <FrontEndCSharpTailwindEditorCatalog Condition="'$(FrontEndCSharpTailwindEditorCatalog)' == ''">$(FrontEndCSharpTailwindCacheDirectory)\editor-catalog.tsv.gz</FrontEndCSharpTailwindEditorCatalog>
+    <_FrontEndCSharpTailwindSourcesFile>$(FrontEndCSharpTailwindCacheDirectory)\sources.txt</_FrontEndCSharpTailwindSourcesFile>
+    <_FrontEndCSharpTailwindState>$(FrontEndCSharpTailwindCacheDirectory)\build.state</_FrontEndCSharpTailwindState>
+  </PropertyGroup>
+
+  <Target Name="GenerateFrontEndCSharpTailwindCss"
+          AfterTargets="Build"
+          BeforeTargets="ResolveProjectStaticWebAssets;ResolveCurrentProjectStaticWebAssetsInputs"
+          Condition="'$(FrontEndCSharpTailwindEnabled)' == 'true' and '$(DesignTimeBuild)' != 'true' and '$(BuildingProject)' != 'false'">
+    <PropertyGroup>
+      <FrontEndCSharpTailwindSourceRoot Condition="'$(_FrontEndCSharpTailwindSourceRootSpecified)' != 'true' and '$(FrontEndCSharpProject)' != ''">$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..'))</FrontEndCSharpTailwindSourceRoot>
+      <_FrontEndCSharpTailwindSourcesFile>$(FrontEndCSharpTailwindCacheDirectory)\sources.txt</_FrontEndCSharpTailwindSourcesFile>
+      <_FrontEndCSharpTailwindState>$(FrontEndCSharpTailwindCacheDirectory)\build.state</_FrontEndCSharpTailwindState>
+      <_FrontEndCSharpTailwindOutputRelative>$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '$(FrontEndCSharpTailwindOutput)'))</_FrontEndCSharpTailwindOutputRelative>
+      <_FrontEndCSharpTailwindBrowserDirectory Condition="'$(FrontEndCSharpProject)' != ''">$([System.IO.Path]::GetDirectoryName('$(FrontEndCSharpProject)'))</_FrontEndCSharpTailwindBrowserDirectory>
+      <_FrontEndCSharpTailwindBrowserDirectory Condition="'$(FrontEndCSharpProject)' == ''">$(MSBuildProjectDirectory)</_FrontEndCSharpTailwindBrowserDirectory>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(_FrontEndCSharpTailwindTasks)')"
+           Text="The FrontEndCSharp Tailwind task host does not exist: '$(_FrontEndCSharpTailwindTasks)'." />
+    <Error Condition="!Exists('$(_FrontEndCSharpTailwindPayload)')"
+           Text="The FrontEndCSharp Tailwind payload does not exist: '$(_FrontEndCSharpTailwindPayload)'." />
+    <ItemGroup>
+      <_FrontEndCSharpTailwindSource Remove="@(_FrontEndCSharpTailwindSource)" />
+      <_FrontEndCSharpTailwindSource Include="$(MSBuildProjectDirectory)\**\*.fecsx;$(MSBuildProjectDirectory)\**\*.cs;$(_FrontEndCSharpTailwindBrowserDirectory)\**\*.fecsx;$(_FrontEndCSharpTailwindBrowserDirectory)\**\*.cs"
+                                      Exclude="$(MSBuildProjectDirectory)\**\bin\**;$(MSBuildProjectDirectory)\**\obj\**;$(MSBuildProjectDirectory)\**\node_modules\**;$(_FrontEndCSharpTailwindBrowserDirectory)\**\bin\**;$(_FrontEndCSharpTailwindBrowserDirectory)\**\obj\**;$(_FrontEndCSharpTailwindBrowserDirectory)\**\node_modules\**;$(FrontEndCSharpTailwindOutput)" />
+      <_FrontEndCSharpTailwindSource Include="@(FrontEndCSharpTailwindSource)" />
+    </ItemGroup>
+    <MakeDir Directories="$(FrontEndCSharpTailwindCacheDirectory)" />
+    <WriteLinesToFile File="$(_FrontEndCSharpTailwindSourcesFile)"
+                      Lines="@(_FrontEndCSharpTailwindSource->'%(FullPath)')"
+                      Overwrite="true"
+                      WriteOnlyWhenDifferent="true" />
+    <Exec Command="dotnet &quot;$(_FrontEndCSharpTailwindTasks)&quot; compile &quot;$(FrontEndCSharpTailwindSourceRoot)&quot; &quot;$(_FrontEndCSharpTailwindPayload)&quot; &quot;$(FrontEndCSharpTailwindCacheDirectory)&quot; &quot;$(FrontEndCSharpTailwindInput)&quot; &quot;$(FrontEndCSharpTailwindOutput)&quot; &quot;$(_FrontEndCSharpTailwindState)&quot; &quot;$(Configuration)&quot; &quot;$(_FrontEndCSharpTailwindSourcesFile)&quot;" />
+    <ItemGroup Condition="Exists('$(FrontEndCSharpTailwindOutput)')">
+      <Content Remove="$(FrontEndCSharpTailwindOutput);$(_FrontEndCSharpTailwindOutputRelative)" />
+      <Content Include="$(_FrontEndCSharpTailwindOutputRelative)" />
+    </ItemGroup>
+  </Target>
+</Project>

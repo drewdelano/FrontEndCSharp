@@ -108,7 +108,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Text.Json.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Text.Json.fecs.dll");
 
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
@@ -164,7 +164,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "Newtonsoft.Json.fecs.dll");
+            "FrontEndCSharp.Overrides.Newtonsoft.Json.fecs.dll");
 
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
@@ -217,11 +217,11 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "Interop.JS.Browser.fecs.dll");
+            "FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.dll");
 
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
-        Assert.Equal("Interop.JS.Browser", catalog.TargetAssemblyName);
+        Assert.Equal("FrontEndCSharp.Overrides.Interop.JS.Browser", catalog.TargetAssemblyName);
         Assert.Equal(66, catalog.Overrides.Count);
         Assert.Contains(
             "Interop.JS.Browser.Document.get_Body()",
@@ -271,11 +271,11 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "Interop.JS.React.fecs.dll");
+            "FrontEndCSharp.Overrides.Interop.JS.React.fecs.dll");
 
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
-        Assert.Equal("Interop.JS.React", catalog.TargetAssemblyName);
+        Assert.Equal("FrontEndCSharp.Overrides.Interop.JS.React", catalog.TargetAssemblyName);
         Assert.Equal(11, catalog.Overrides.Count);
         Assert.Contains(
             "Interop.JS.React.React.CreateElement(Interop.JS.React.ImportedReactComponent, Interop.JS.React.ReactProps, Interop.JS.React.ReactNode[])",
@@ -374,13 +374,13 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Console.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Console.fecs.dll");
 
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
         Assert.DoesNotContain(
             AppDomain.CurrentDomain.GetAssemblies(),
-            assembly => assembly.GetName().Name == "System.Console.fecs"
+            assembly => assembly.GetName().Name == "FrontEndCSharp.Overrides.System.Console.fecs"
                 && AssemblyLoadContext.GetLoadContext(assembly) == AssemblyLoadContext.Default);
         Assert.Equal("System.Console", catalog.TargetAssemblyName);
         Assert.Equal(10, catalog.Overrides.Count);
@@ -404,7 +404,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Private.CoreLib.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll");
 
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
@@ -494,7 +494,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.fecs.dll");
         var overrides = RuntimeOverrideCollection.Load([companionPath]);
         var sendCore = typeof(System.Net.Http.HttpClient)
             .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
@@ -512,7 +512,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.fecs.dll");
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
         var getAsync = catalog.Overrides[
@@ -536,7 +536,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.fecs.dll");
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
 
         var enumeration = catalog.Overrides[
@@ -555,7 +555,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.fecs.dll");
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
         var entry = catalog.Overrides[
             "System.Net.Http.Headers.HttpHeaders.TryGetValues(System.String, System.Collections.Generic.IEnumerable`1[T]&)"];
@@ -585,7 +585,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.fecs.dll");
         var catalog = RuntimeOverrideAssemblyCatalog.Load(companionPath);
         var overrides = RuntimeOverrideCollection.Load([companionPath]);
 
@@ -632,7 +632,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "Newtonsoft.Json.fecs.dll");
+            "FrontEndCSharp.Overrides.Newtonsoft.Json.fecs.dll");
         var targetAssemblyPath = Path.Combine(
             Path.GetDirectoryName(GetSourcePath())!,
             "Fixtures",
@@ -683,7 +683,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.Json.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.Json.fecs.dll");
         var overrides = RuntimeOverrideCollection.Load([companionPath]);
         var readFromJson = typeof(System.Net.Http.Json.HttpContentJsonExtensions)
             .GetMethods(BindingFlags.Public | BindingFlags.Static)
@@ -709,7 +709,7 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
     {
         var companionPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Net.Http.Json.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Net.Http.Json.fecs.dll");
         var overrides = RuntimeOverrideCollection.Load([companionPath]);
         var postAsJson = typeof(System.Net.Http.Json.HttpClientJsonExtensions)
             .GetMethods(BindingFlags.Public | BindingFlags.Static)
@@ -752,11 +752,11 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
             var applicationPath = Path.Combine(temporaryDirectory, "Application.dll");
             File.WriteAllBytes(applicationPath, []);
             File.Copy(
-                Path.Combine(AppContext.BaseDirectory, "System.Console.fecs.dll"),
-                Path.Combine(temporaryDirectory, "System.Console.fecs.dll"));
+                Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Console.fecs.dll"),
+                Path.Combine(temporaryDirectory, "FrontEndCSharp.Overrides.System.Console.fecs.dll"));
             File.Copy(
-                Path.Combine(AppContext.BaseDirectory, "System.Private.CoreLib.fecs.dll"),
-                Path.Combine(temporaryDirectory, "System.Private.CoreLib.fecs.dll"));
+                Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll"),
+                Path.Combine(temporaryDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll"));
             File.WriteAllText(
                 Path.ChangeExtension(applicationPath, ".deps.json"),
                 """
@@ -764,8 +764,8 @@ public sealed class RuntimeOverrideAssemblyCatalogTests
                   "runtimeTarget": { "name": ".NETCoreApp,Version=v8.0" },
                   "targets": {
                     ".NETCoreApp,Version=v8.0": {
-                      "System.Console.fecs/1.0.0": {
-                        "runtime": { "System.Console.fecs.dll": {} }
+                      "FrontEndCSharp.Overrides.System.Console.fecs/1.0.0": {
+                        "runtime": { "FrontEndCSharp.Overrides.System.Console.fecs.dll": {} }
                       }
                     }
                   }

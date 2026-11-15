@@ -4,6 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>drewdelano</Authors>
+    <Description>Runtime contracts shared by FrontEndCSharp compiler override packages.</Description>
+    <Copyright>Copyright © 2026 drewdelano</Copyright>
+    <PackageTags>frontendcsharp;csharp;browser;compiler;runtime-override</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
 </Project>

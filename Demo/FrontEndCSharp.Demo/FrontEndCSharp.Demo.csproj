@@ -10,12 +10,12 @@
     <FrontEndCSharpBuildTasksProject>$(MSBuildProjectDirectory)\..\..\Compiler\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj</FrontEndCSharpBuildTasksProject>
     <FrontEndCSharpSimpleDemoProject>$(MSBuildProjectDirectory)\..\FrontEndCSharp.SimpleDemo\FrontEndCSharp.SimpleDemo.csproj</FrontEndCSharpSimpleDemoProject>
     <FrontEndCSharpSimpleDemoOutputPath>$(MSBuildProjectDirectory)\wwwroot\js\simple-demo</FrontEndCSharpSimpleDemoOutputPath>
-    <FrontEndCSharpTailwindProject>$(MSBuildProjectDirectory)\..\..\Fecscn\FrontEndCSharp.Tailwind\FrontEndCSharp.Tailwind.csproj</FrontEndCSharpTailwindProject>
+    <FrontEndCSharpTailwindProject>$(MSBuildProjectDirectory)\..\..\Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\FrontEndCSharp.FECS.Internals.Tailwind.csproj</FrontEndCSharpTailwindProject>
     <FrontEndCSharpTailwindInput>$(MSBuildProjectDirectory)\..\FrontEndCSharp.ReactDemo\Styles\fecscn.css</FrontEndCSharpTailwindInput>
     <FrontEndCSharpTailwindOutput>$(MSBuildProjectDirectory)\wwwroot\css\fecscn.css</FrontEndCSharpTailwindOutput>
   </PropertyGroup>
 
-  <Import Project="..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.props" />
+  <Import Project="..\..\Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\buildTransitive\FrontEndCSharp.FECS.Internals.Tailwind.props" />
 
   <ItemGroup>
     <ProjectReference Include="$(FrontEndCSharpSimpleDemoProject)"
@@ -118,7 +118,7 @@
     </ItemGroup>
   </Target>
 
-  <Import Project="..\..\Fecscn\FrontEndCSharp.Tailwind\buildTransitive\FrontEndCSharp.Tailwind.targets" />
+  <Import Project="..\..\Fecscn\FrontEndCSharp.FECS.Internals.Tailwind\buildTransitive\FrontEndCSharp.FECS.Internals.Tailwind.targets" />
 
   <PropertyGroup>
     <_FrontEndCSharpTailwindTasks>$(MSBuildProjectDirectory)\..\..\Fecscn\FrontEndCSharp.Tailwind.Tasks\bin\$(Configuration)\net8.0\FrontEndCSharp.Tailwind.Tasks.dll</_FrontEndCSharpTailwindTasks>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\RuntimeOverrides\FluentValidation\FluentValidation.fecs\FluentValidation.fecs.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.FluentValidation\FrontEndCSharp.Overrides.FluentValidation.fecs\FrontEndCSharp.Overrides.FluentValidation.fecs.csproj" ReferenceOutputAssembly="false" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="NUnit" Version="5.0.0" />
@@ -26,24 +26,24 @@
     <ProjectReference Include="..\Packaging\Shared\FrontEndCSharp.Packaging.Shared.csproj" />
     <ProjectReference Include="..\Packaging\FrontEndCSharp.Build.Tasks\FrontEndCSharp.Build.Tasks.csproj" />
     <ProjectReference Include="..\Core\Compiler.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Console\System.Console.fecs\System.Console.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Collections.Concurrent\System.Collections.Concurrent.fecs\System.Collections.Concurrent.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Collections\System.Collections.fecs\System.Collections.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Security.Cryptography\System.Security.Cryptography.fecs\System.Security.Cryptography.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Linq\System.Linq.fecs\System.Linq.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Text.RegularExpressions\System.Text.RegularExpressions.fecs\System.Text.RegularExpressions.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Net.Http\System.Net.Http.fecs\System.Net.Http.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Net.Http.Json\System.Net.Http.Json.fecs\System.Net.Http.Json.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.Text.Json\System.Text.Json.fecs\System.Text.Json.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\System.ComponentModel.Annotations\System.ComponentModel.Annotations.fecs\System.ComponentModel.Annotations.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Newtonsoft.Json\Newtonsoft.Json.fecs\Newtonsoft.Json.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Browser\Interop.JS.Browser.fecs\Interop.JS.Browser.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.React\Interop.JS.React.fecs\Interop.JS.React.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX\Interop.JS.MobX.fecs\Interop.JS.MobX.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.MobX.React\Interop.JS.MobX.React.fecs\Interop.JS.MobX.React.fecs.csproj" />
-    <ProjectReference Include="..\..\RuntimeOverrides\Interop.JS.Motion\Interop.JS.Motion.fecs\Interop.JS.Motion.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Console\FrontEndCSharp.Overrides.System.Console.fecs\FrontEndCSharp.Overrides.System.Console.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Collections.Concurrent\FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs\FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Collections\FrontEndCSharp.Overrides.System.Collections.fecs\FrontEndCSharp.Overrides.System.Collections.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Security.Cryptography\FrontEndCSharp.Overrides.System.Security.Cryptography.fecs\FrontEndCSharp.Overrides.System.Security.Cryptography.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Linq.Expressions\FrontEndCSharp.Overrides.System.Linq.Expressions.fecs\FrontEndCSharp.Overrides.System.Linq.Expressions.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Linq\FrontEndCSharp.Overrides.System.Linq.fecs\FrontEndCSharp.Overrides.System.Linq.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Text.RegularExpressions\FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs\FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Net.Http\FrontEndCSharp.Overrides.System.Net.Http.fecs\FrontEndCSharp.Overrides.System.Net.Http.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Net.Http.Json\FrontEndCSharp.Overrides.System.Net.Http.Json.fecs\FrontEndCSharp.Overrides.System.Net.Http.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.Text.Json\FrontEndCSharp.Overrides.System.Text.Json.fecs\FrontEndCSharp.Overrides.System.Text.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.System.ComponentModel.Annotations\FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs\FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Newtonsoft.Json\FrontEndCSharp.Overrides.Newtonsoft.Json.fecs\FrontEndCSharp.Overrides.Newtonsoft.Json.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Browser\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs\FrontEndCSharp.Overrides.Interop.JS.Browser.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.React\FrontEndCSharp.Overrides.Interop.JS.React.fecs\FrontEndCSharp.Overrides.Interop.JS.React.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.MobX\FrontEndCSharp.Overrides.Interop.JS.MobX.fecs\FrontEndCSharp.Overrides.Interop.JS.MobX.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.MobX.React\FrontEndCSharp.Overrides.Interop.JS.MobX.React.fecs\FrontEndCSharp.Overrides.Interop.JS.MobX.React.fecs.csproj" />
+    <ProjectReference Include="..\..\Overrides\FrontEndCSharp.Overrides.Interop.JS.Motion\FrontEndCSharp.Overrides.Interop.JS.Motion.fecs\FrontEndCSharp.Overrides.Interop.JS.Motion.fecs.csproj" />
     <ProjectReference Include="Fixtures\EmbeddedPdbFixture\EmbeddedPdbFixture.csproj" />
     <ProjectReference Include="Fixtures\PortablePdbFixture\PortablePdbFixture.csproj" />
     <ProjectReference Include="Fixtures\AssemblyCollision\Entry\AssemblyCollision.Entry.csproj" />

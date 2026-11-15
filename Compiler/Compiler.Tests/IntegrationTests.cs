@@ -36,13 +36,13 @@ public class IntegrationTestBase
             configuration,
             "net8.0",
             "TestProject.dll");
-        var consoleOverridesPath = Path.Combine(AppContext.BaseDirectory, "System.Console.fecs.dll");
-        var coreOverridesPath = Path.Combine(AppContext.BaseDirectory, "System.Private.CoreLib.fecs.dll");
+        var consoleOverridesPath = Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Console.fecs.dll");
+        var coreOverridesPath = Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll");
         var cryptographyOverridesPath = Path.Combine(
             AppContext.BaseDirectory,
-            "System.Security.Cryptography.fecs.dll");
-        var expressionOverridesPath = Path.Combine(AppContext.BaseDirectory, "System.Linq.Expressions.fecs.dll");
-        var validationOverridesPath = Path.Combine(AppContext.BaseDirectory, "System.ComponentModel.Annotations.fecs.dll");
+            "FrontEndCSharp.Overrides.System.Security.Cryptography.fecs.dll");
+        var expressionOverridesPath = Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.Linq.Expressions.fecs.dll");
+        var validationOverridesPath = Path.Combine(AppContext.BaseDirectory, "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.dll");
 
         if (!File.Exists(targetAssemblyPath))
         {
@@ -68,23 +68,23 @@ public class IntegrationTestBase
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include=""System.Console.fecs"">
+    <Reference Include=""FrontEndCSharp.Overrides.System.Console.fecs"">
       <HintPath>{escapedConsoleOverridesPath}</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include=""System.Private.CoreLib.fecs"">
+    <Reference Include=""FrontEndCSharp.Overrides.System.Private.CoreLib.fecs"">
       <HintPath>{escapedCoreOverridesPath}</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include=""System.Security.Cryptography.fecs"">
+    <Reference Include=""FrontEndCSharp.Overrides.System.Security.Cryptography.fecs"">
       <HintPath>{escapedCryptographyOverridesPath}</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include=""System.Linq.Expressions.fecs"">
+    <Reference Include=""FrontEndCSharp.Overrides.System.Linq.Expressions.fecs"">
       <HintPath>{escapedExpressionOverridesPath}</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include=""System.ComponentModel.Annotations.fecs"">
+    <Reference Include=""FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs"">
       <HintPath>{escapedValidationOverridesPath}</HintPath>
       <Private>true</Private>
     </Reference>
@@ -105,14 +105,14 @@ public class IntegrationTestBase
         }
 
         var targetAssemblyDirectory = Path.GetDirectoryName(targetAssemblyPath)!;
-        File.Copy(consoleOverridesPath, Path.Combine(targetAssemblyDirectory, "System.Console.fecs.dll"), true);
-        File.Copy(coreOverridesPath, Path.Combine(targetAssemblyDirectory, "System.Private.CoreLib.fecs.dll"), true);
+        File.Copy(consoleOverridesPath, Path.Combine(targetAssemblyDirectory, "FrontEndCSharp.Overrides.System.Console.fecs.dll"), true);
+        File.Copy(coreOverridesPath, Path.Combine(targetAssemblyDirectory, "FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.dll"), true);
         File.Copy(
             cryptographyOverridesPath,
-            Path.Combine(targetAssemblyDirectory, "System.Security.Cryptography.fecs.dll"),
+            Path.Combine(targetAssemblyDirectory, "FrontEndCSharp.Overrides.System.Security.Cryptography.fecs.dll"),
             true);
-        File.Copy(expressionOverridesPath, Path.Combine(targetAssemblyDirectory, "System.Linq.Expressions.fecs.dll"), true);
-        File.Copy(validationOverridesPath, Path.Combine(targetAssemblyDirectory, "System.ComponentModel.Annotations.fecs.dll"), true);
+        File.Copy(expressionOverridesPath, Path.Combine(targetAssemblyDirectory, "FrontEndCSharp.Overrides.System.Linq.Expressions.fecs.dll"), true);
+        File.Copy(validationOverridesPath, Path.Combine(targetAssemblyDirectory, "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.dll"), true);
 
         Directory.CreateDirectory(outputDir);
         try

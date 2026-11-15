@@ -7,13 +7,13 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.2.0" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\FluentValidation\FluentValidation.fecs\FluentValidation.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Console\System.Console.fecs\System.Console.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Collections.Concurrent\System.Collections.Concurrent.fecs\System.Collections.Concurrent.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Collections\System.Collections.fecs\System.Collections.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Private.CoreLib\System.Private.CoreLib.fecs\System.Private.CoreLib.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Linq.Expressions\System.Linq.Expressions.fecs\System.Linq.Expressions.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Linq\System.Linq.fecs\System.Linq.fecs.csproj" />
-    <ProjectReference Include="..\..\..\..\RuntimeOverrides\System.Text.RegularExpressions\System.Text.RegularExpressions.fecs\System.Text.RegularExpressions.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.FluentValidation\FrontEndCSharp.Overrides.FluentValidation.fecs\FrontEndCSharp.Overrides.FluentValidation.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Console\FrontEndCSharp.Overrides.System.Console.fecs\FrontEndCSharp.Overrides.System.Console.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Collections.Concurrent\FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs\FrontEndCSharp.Overrides.System.Collections.Concurrent.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Collections\FrontEndCSharp.Overrides.System.Collections.fecs\FrontEndCSharp.Overrides.System.Collections.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Private.CoreLib\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs\FrontEndCSharp.Overrides.System.Private.CoreLib.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Linq.Expressions\FrontEndCSharp.Overrides.System.Linq.Expressions.fecs\FrontEndCSharp.Overrides.System.Linq.Expressions.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Linq\FrontEndCSharp.Overrides.System.Linq.fecs\FrontEndCSharp.Overrides.System.Linq.fecs.csproj" />
+    <ProjectReference Include="..\..\..\..\Overrides\FrontEndCSharp.Overrides.System.Text.RegularExpressions\FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs\FrontEndCSharp.Overrides.System.Text.RegularExpressions.fecs.csproj" />
   </ItemGroup>
 </Project>

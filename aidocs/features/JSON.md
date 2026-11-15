@@ -41,7 +41,7 @@ serializer features or make every covered edge case part of the routine browser 
 
 ## Architecture boundary
 
-- `System.Text.Json.fecs` and `Newtonsoft.Json.fecs` own separate private token,
+- `FrontEndCSharp.Overrides.System.Text.Json.fecs` and `FrontEndCSharp.Overrides.Newtonsoft.Json.fecs` own separate private token,
   contract, conversion, and writer implementations. They do not share a serializer
   substrate, because superficially similar behavior differs observably between the
   packages.
@@ -204,11 +204,11 @@ Prioritize the end-to-end buffered-response path through `GetFromJsonAsync<T>` o
 `HttpContent.ReadFromJsonAsync<T>` into a representative POCO and collection graph.
 The primary suites are:
 
-- [`RuntimeOverrides.Tests/CompanionTests.cs`](../RuntimeOverrides/RuntimeOverrides.Tests/CompanionTests.cs)
+- [`CompanionTests.cs`](../../Overrides/FrontEndCSharp.Overrides.Interop.JS.React/Tests/FrontEndCSharp.Overrides.Interop.JS.React.Tests/CompanionTests.cs)
 - [`Compiler.Tests/JsonLibraryParityTests.cs`](../Compiler/Compiler.Tests/JsonLibraryParityTests.cs)
-- [`SystemTextJsonBrowserSmoke`](../RuntimeOverrides/System.Text.Json/Tests/SystemTextJsonBrowserSmoke/Program.cs)
-- [`NewtonsoftJsonBrowserSmoke`](../RuntimeOverrides/Newtonsoft.Json/Tests/NewtonsoftJsonBrowserSmoke/Program.cs)
-- [`HttpJsonBrowserSmoke`](../RuntimeOverrides/System.Net.Http.Json/Tests/HttpJsonBrowserSmoke/Program.cs)
+- [`SystemTextJsonBrowserSmoke`](../../Overrides/FrontEndCSharp.Overrides.System.Text.Json/Tests/FrontEndCSharp.Overrides.SystemTextJsonBrowserSmoke/Program.cs)
+- [`NewtonsoftJsonBrowserSmoke`](../../Overrides/FrontEndCSharp.Overrides.Newtonsoft.Json/Tests/FrontEndCSharp.Overrides.NewtonsoftJsonBrowserSmoke/Program.cs)
+- [`HttpJsonBrowserSmoke`](../../Overrides/FrontEndCSharp.Overrides.System.Net.Http.Json/Tests/FrontEndCSharp.Overrides.HttpJsonBrowserSmoke/Program.cs)
 
 The two direct serializer smokes are intentionally independent and bounded to one
 representative POCO each. `HttpJsonBrowserSmoke` is the primary composed buffered

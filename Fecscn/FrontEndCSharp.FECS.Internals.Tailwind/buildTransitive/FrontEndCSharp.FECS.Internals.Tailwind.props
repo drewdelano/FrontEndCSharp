@@ -1,0 +1,18 @@
+<Project>
+  <PropertyGroup>
+    <FrontEndCSharpTailwindAvailable>true</FrontEndCSharpTailwindAvailable>
+    <_FrontEndCSharpTailwindSourceRootSpecified Condition="'$(FrontEndCSharpTailwindSourceRoot)' != ''">true</_FrontEndCSharpTailwindSourceRootSpecified>
+    <_FrontEndCSharpTailwindCacheDirectorySpecified Condition="'$(FrontEndCSharpTailwindCacheDirectory)' != ''">true</_FrontEndCSharpTailwindCacheDirectorySpecified>
+    <FrontEndCSharpTailwindEnabled Condition="'$(FrontEndCSharpTailwindEnabled)' == ''">true</FrontEndCSharpTailwindEnabled>
+    <FrontEndCSharpTailwindInput Condition="'$(FrontEndCSharpTailwindInput)' == ''">$(MSBuildProjectDirectory)\Styles\fecscn.css</FrontEndCSharpTailwindInput>
+    <FrontEndCSharpTailwindOutput Condition="'$(FrontEndCSharpTailwindOutput)' == ''">$(MSBuildProjectDirectory)\wwwroot\css\fecscn.css</FrontEndCSharpTailwindOutput>
+    <FrontEndCSharpTailwindSourceRoot Condition="'$(FrontEndCSharpTailwindSourceRoot)' == ''">$(MSBuildProjectDirectory)</FrontEndCSharpTailwindSourceRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <CompilerVisibleProperty Include="FrontEndCSharpTailwindAvailable" />
+    <CompilerVisibleProperty Include="FrontEndCSharpTailwindEnabled" />
+    <CompilerVisibleProperty Include="FrontEndCSharpTailwindEditorCatalog" />
+    <CompilerVisibleProperty Include="FrontEndCSharpProject" />
+  </ItemGroup>
+</Project>

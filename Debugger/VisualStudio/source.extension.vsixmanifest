@@ -4,7 +4,7 @@
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="FrontEndCSharp.Debugger.cfcb81f4-801e-4f6b-a582-3dcd42ca0218"
-              Version="0.1.19"
+              Version="0.9.0"
               Language="en-US"
               Publisher="FrontEndCSharp" />
     <DisplayName>FrontEndCSharp Debugger</DisplayName>

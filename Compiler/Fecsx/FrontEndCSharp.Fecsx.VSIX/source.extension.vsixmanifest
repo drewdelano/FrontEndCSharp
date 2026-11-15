@@ -4,7 +4,7 @@
                  xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="FrontEndCSharp.Fecsx.Editor.5356caa8-a2ae-456f-b56a-2c20218c1999"
-              Version="0.1.4"
+              Version="0.9.0"
               Language="en-US"
               Publisher="FrontEndCSharp" />
     <DisplayName>FrontEndCSharp FECSX Editor</DisplayName>

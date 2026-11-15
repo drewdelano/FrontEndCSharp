@@ -23,7 +23,7 @@ internal static class BuildPackageVerifier
         }
         var packageDirectory = Path.GetDirectoryName(packagePath)!;
         var packageName = Path.GetFileNameWithoutExtension(packagePath);
-        const string packagePrefix = "FrontEndCSharp.Build.";
+        const string packagePrefix = "FrontEndCSharp.FECS.Internals.Build.";
         if (!packageName.StartsWith(packagePrefix, StringComparison.Ordinal))
         {
             throw new InvalidDataException(
@@ -64,7 +64,7 @@ internal static class BuildPackageVerifier
                     <FrontEndCSharpOutputPath>{{Escape(outputPath)}}</FrontEndCSharpOutputPath>
                   </PropertyGroup>
                   <ItemGroup>
-                    <PackageReference Include="FrontEndCSharp.Build" Version="{{version}}" />
+                    <PackageReference Include="FrontEndCSharp.FECS.Internals.Build" Version="{{version}}" />
                   </ItemGroup>
                 </Project>
                 """);
@@ -183,7 +183,7 @@ internal static class BuildPackageVerifier
             }
 
             Console.WriteLine(
-                $"Verified FrontEndCSharp.Build {version} through a PackageReference consumer using {compilerPath}");
+                $"Verified FrontEndCSharp.FECS.Internals.Build {version} through a PackageReference consumer using {compilerPath}");
         }
         finally
         {

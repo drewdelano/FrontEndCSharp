@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "overrides": [
+    {
+      "signature": "System.Collections.Generic.Stack`1[T]..ctor()",
+      "file": "method.19a9e001ef9c4de77d22e971428370a21a568e3220e2978c625074cece522db5.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1[T].Push(T)",
+      "file": "method.3081882366e1c31845fa903a58982eaf005e50c68ad8fa479166e42dc89cf3a1.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1+Enumerator[T].MoveNext()",
+      "file": "method.31b8d9db095a4bc950a8698b69b45cc11ab86422c74a60fb81ef531bd32afab7.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1+Enumerator[T].get_Current()",
+      "file": "method.59e1c4d9c73df77050f4126f012726cb4f61ef6b166d89c19f9de69fc4507a49.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1[T].GetEnumerator()",
+      "file": "method.66984cc076c7a01ddac564fa1013902137a5f6364fcec98ab266d1c9883b8b51.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1+Enumerator[T].Dispose()",
+      "file": "method.7f5e14ddaaa21b7273f4e0108bba7ffeb25bb37bb8b7f679e97aab3d190aad6b.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1[T].Pop()",
+      "file": "method.a4c1d2bf4e2a61f040fec04ce61f7439296f96f1841fbc13f9b428081b0f1a18.js"
+    },
+    {
+      "signature": "System.Collections.Generic.Stack`1[T].get_Count()",
+      "file": "method.be05f3d6f7b8ee225fd811e8d9d084ca90ffd8a8d6a37ed7f300841d2edc9373.js"
+    }
+  ]
+}

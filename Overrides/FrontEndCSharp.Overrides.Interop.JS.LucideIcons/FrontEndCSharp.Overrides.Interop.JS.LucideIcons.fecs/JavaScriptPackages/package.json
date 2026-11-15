@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "lucide-react": "1.72.0"
+  },
+  "peerDependencies": {
+    "react": "19.3.1"
+  }
+}

@@ -4,6 +4,10 @@
     <FrontEndCSharpVssdkBuildToolsVersion>17.11.439</FrontEndCSharpVssdkBuildToolsVersion>
     <FrontEndCSharpIncludeVssdkBuildToolsPackageReference
         Condition="'$(FrontEndCSharpIncludeVssdkBuildToolsPackageReference)' == ''">true</FrontEndCSharpIncludeVssdkBuildToolsPackageReference>
+    <GetVsixSourceItemsDependsOn>
+      BuildFrontEndCSharpTemplateProjectArchives;
+      $(GetVsixSourceItemsDependsOn)
+    </GetVsixSourceItemsDependsOn>
 
     <_FrontEndCSharpVssdkBuildToolsRoot
         Condition="'$(_FrontEndCSharpVssdkBuildToolsRoot)' == '' and Exists('$(PkgMicrosoft_VSSDK_BuildTools)\tools\VSSDK\Microsoft.VsSDK.targets')">$(PkgMicrosoft_VSSDK_BuildTools)</_FrontEndCSharpVssdkBuildToolsRoot>
@@ -38,5 +42,25 @@
           BeforeTargets="GenerateTemplatesManifest"
           DependsOnTargets="SetVsSDKEnvironmentVariables"
           Condition="'$(FrontEndCSharpIncludeVssdkBuildToolsPackageReference)' == 'true'" />
+
+  <!--
+    Visual Studio can consider a template project up to date from its bin output
+    after the repository's intermediate root changes, even though the generated
+    template archive does not exist at the new path. Generate template archives
+    before AssignProjectConfiguration asks VSSDK to extract their output groups.
+  -->
+  <Target Name="BuildFrontEndCSharpTemplateProjectArchives">
+    <ItemGroup>
+      <_FrontEndCSharpTemplateProjectReference
+          Include="@(ProjectReference)"
+          Condition="'%(ProjectReference.TemplateType)' == 'Project' and
+                     '%(ProjectReference.IncludeOutputGroupsInVSIX)' == 'TemplateProjectOutputGroup'" />
+    </ItemGroup>
+    <MSBuild Projects="@(_FrontEndCSharpTemplateProjectReference)"
+             Targets="ZipProjects"
+             BuildInParallel="false"
+             Properties="Configuration=$(Configuration)"
+             Condition="'@(_FrontEndCSharpTemplateProjectReference)' != ''" />
+  </Target>
 
 </Project>

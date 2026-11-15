@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Interop.JS.Browser.fecs" Version="1.0.0" />
-    <PackageReference Include="System.Private.CoreLib.fecs" Version="1.0.0" />
+    <PackageReference Include="FrontEndCSharp.Overrides.Interop.JS.Browser.fecs" Version="1.0.0" />
+    <PackageReference Include="FrontEndCSharp.Overrides.System.Private.CoreLib.fecs" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

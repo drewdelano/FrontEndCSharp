@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "bodies": {
+    "System.Collections.IEnumerable.GetEnumerator()": [
+      "var enumerator = ((global::System.String)@this).GetEnumerator();",
+      "_ = enumerator.MoveNext();",
+      "_ = enumerator.Current;",
+      "enumerator.Dispose();",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue]..ctor(System.Collections.Generic.IEqualityComparer`1[T])": [
+      "_ = arg0!.GetHashCode(default!);",
+      "_ = arg0.Equals(default!, default!);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue]..ctor(System.Int32, System.Collections.Generic.IEqualityComparer`1[T])": [
+      "_ = arg1!.GetHashCode(default!);",
+      "_ = arg1.Equals(default!, default!);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].Add(System.Object, System.Object)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].Add(TKey, TValue)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].Contains(System.Object)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].ContainsKey(TKey)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].get_Item(System.Object)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].get_Item(TKey)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].Remove(System.Object)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].Remove(TKey)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].set_Item(System.Object, System.Object)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.Dictionary`2[TKey, TValue].set_Item(TKey, TValue)": [
+      "_ = arg0!.GetHashCode();",
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].AddRange(System.Collections.Generic.IEnumerable`1[T])": [
+      "var enumerator = arg0.GetEnumerator();",
+      "_ = enumerator.MoveNext();",
+      "_ = enumerator.Current;",
+      "enumerator.Dispose();",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].Contains(System.Object)": [
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].Contains(T)": [
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].IndexOf(System.Object)": [
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].IndexOf(T)": [
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].Remove(System.Object)": [
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Collections.Generic.List`1[T].Remove(T)": [
+      "_ = arg0.Equals(arg0);",
+      "throw null!;"
+    ],
+    "System.Guid.NewGuid()": [
+      "throw new global::System.PlatformNotSupportedException(default(string));"
+    ],
+    "System.Lazy`1[T]..ctor(System.Func`1[TResult])": [
+      "_ = arg0();",
+      "throw null!;"
+    ],
+    "System.Threading.Timer..ctor(System.Threading.TimerCallback, System.Object, System.Int32, System.Int32)": [
+      "if (arg0 is null) throw new global::System.ArgumentNullException(default(string));",
+      "throw new global::System.ArgumentOutOfRangeException(default(string));"
+    ],
+    "System.Threading.Timer.Change(System.Int32, System.Int32)": [
+      "if (arg0 < -1) throw new global::System.ArgumentOutOfRangeException(default(string));",
+      "throw new global::System.ObjectDisposedException(default(string));"
+    ],
+    "System.Threading.Tasks.Task.Delay(System.TimeSpan)": [
+      "throw new global::System.ArgumentOutOfRangeException(default(string));"
+    ],
+    "System.Threading.Tasks.Task.Delay(System.Int32, System.Threading.CancellationToken)": [
+      "if (arg1.IsCancellationRequested) throw new global::System.Threading.Tasks.TaskCanceledException();",
+      "throw new global::System.ArgumentOutOfRangeException(default(string));"
+    ],
+    "System.Threading.Tasks.Task.Delay(System.TimeSpan, System.Threading.CancellationToken)": [
+      "if (arg1.IsCancellationRequested) throw new global::System.Threading.Tasks.TaskCanceledException();",
+      "throw new global::System.ArgumentOutOfRangeException(default(string));"
+    ],
+    "System.Threading.Tasks.ValueTask..ctor(System.Threading.Tasks.Sources.IValueTaskSource, System.Int16)": [
+      "_ = arg0.GetStatus(arg1);",
+      "arg0.GetResult(arg1);",
+      "arg0.OnCompleted(null!, null, arg1, default);",
+      "throw null!;"
+    ],
+    "System.Threading.Tasks.ValueTask`1[TResult]..ctor(System.Threading.Tasks.Sources.IValueTaskSource`1[TResult], System.Int16)": [
+      "_ = arg0.GetStatus(arg1);",
+      "_ = arg0.GetResult(arg1);",
+      "arg0.OnCompleted(null!, null, arg1, default);",
+      "throw null!;"
+    ],
+    "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted<T>(T)": [
+      "_ = arg0?.ToString();",
+      "throw null!;"
+    ],
+    "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted<T>(T, System.String)": [
+      "_ = arg0?.ToString();",
+      "_ = ((global::System.IFormattable)(object)arg0!).ToString(arg1, null);",
+      "throw null!;"
+    ]
+  },
+  "genericParameterAccesses": {
+    "System.Enum.Parse<TEnum>(System.String)": {
+      "0": "EnumMetadata"
+    },
+    "System.Enum.TryParse<TEnum>(System.String, TEnum&)": {
+      "0": "EnumMetadata"
+    }
+  },
+  "parameterAccesses": {
+    "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted<T>(T)": {
+      "0": "EnumMetadata"
+    },
+    "System.Runtime.CompilerServices.DefaultInterpolatedStringHandler.AppendFormatted<T>(T, System.String)": {
+      "0": "EnumMetadata"
+    },
+    "System.Enum.ToString()": {
+      "this": "EnumMetadata"
+    },
+    "System.Enum.ToString(System.String)": {
+      "this": "EnumMetadata"
+    },
+    "System.Enum.ToString(System.IFormatProvider)": {
+      "this": "EnumMetadata"
+    },
+    "System.Enum.ToString(System.String, System.IFormatProvider)": {
+      "this": "EnumMetadata"
+    }
+  }
+}

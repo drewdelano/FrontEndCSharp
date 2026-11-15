@@ -7,7 +7,7 @@ jQuery adapters are not.
 
 ## Architecture
 
-- `System.ComponentModel.Annotations.fecs` supplies the reflection-like orchestration
+- `FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs` supplies the reflection-like orchestration
   that the desktop implementation obtains from `TypeDescriptor` and runtime internals.
 - Application property accessors, custom `ValidationAttribute` constructors and
   `IsValid` overrides, and `IValidatableObject.Validate` remain managed MSIL.
@@ -61,7 +61,7 @@ is shown; submission performs the bounded text-to-integer mapping before validat
 ## FluentValidation
 
 FluentValidation 12.2.0 is pinned in the browser fixture and remains package-owned
-managed MSIL. `FluentValidation.fecs` adapts only the package's environment-dependent
+managed MSIL. `FrontEndCSharp.Overrides.FluentValidation.fecs` adapts only the package's environment-dependent
 language-manager lookup; rules, validators, conditions, expression accessors,
 failure construction, and asynchronous control flow execute from the package.
 
@@ -86,7 +86,7 @@ The focused suites are:
 
 - `Compiler/Compiler.Tests/ValidationIntegrationTests.cs` for DataAnnotations and
   runtime reachability;
-- `RuntimeOverrides/RuntimeOverrides.Tests/CompanionTests.cs` for companion integrity;
+- `Overrides/FrontEndCSharp.Overrides.Interop.JS.React/Tests/FrontEndCSharp.Overrides.Interop.JS.React.Tests/CompanionTests.cs` for companion integrity;
 - `Demo/FrontEndCSharp.ReactDemo.Tests` plus the FECSX React-demo Chromium smoke for
   direct-property selector behavior and the three-field managed form's invalid and
   valid paths; and
