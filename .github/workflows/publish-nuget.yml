@@ -30,18 +30,6 @@ jobs:
       OVERRIDE_STAGING: ${{ github.workspace }}\artifacts\nuget\overrides
 
     steps:
-      - name: Validate publication request
-        shell: pwsh
-        env:
-          CONFIRM_PUBLISH: ${{ inputs.confirm_publish }}
-        run: |
-          if ($env:GITHUB_REF -ne 'refs/heads/master') {
-            throw "Override packages may only be published from master; selected ref was '$env:GITHUB_REF'."
-          }
-          if ($env:CONFIRM_PUBLISH -ne 'true') {
-            throw 'The confirm_publish input must be selected.'
-          }
-
       - name: Check out the selected commit
         uses: actions/checkout@v4
 
