@@ -1,6 +1,0 @@
-import { SquareArrowUpLeftEnterIcon } from 'lucide-react';
-import { wrap } from '../msil-type-helpers.js';
-
-globalThis.DotNet.Methods['Interop.JS.LucideIcons.LucideIconImports.SquareArrowUpLeftEnterIcon()'] = function () {
-    return wrap(SquareArrowUpLeftEnterIcon, 'Interop.JS.React.ImportedReactComponent');
-};

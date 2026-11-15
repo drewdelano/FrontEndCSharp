@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
+    <!-- Nested fixture projects own their sources and local bin/obj trees. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Fixtures\**;$(MSBuildProjectDirectory)\Integration\**;$(MSBuildProjectDirectory)\Performance\**;$(MSBuildProjectDirectory)\TestOutput\**;$(MSBuildProjectDirectory)\TestResults\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

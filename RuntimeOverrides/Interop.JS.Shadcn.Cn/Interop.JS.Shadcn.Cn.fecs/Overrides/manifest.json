@@ -1,9 +1,0 @@
-{
-  "version": 1,
-  "overrides": [
-    {
-      "signature": "Interop.JS.Shadcn.Cn.CnImports.MergeClassNames(System.String[])",
-      "file": "method.78fdfef412a23eeca104f1ead12efae021b0a47f1e1af45e601c36c3cf926fb3.js"
-    }
-  ]
-}

@@ -6,30 +6,58 @@ namespace Compiler.Tests;
 public class BuildTargetsTests
 {
     [Test]
-    public void IntermediateOutputUsesShortRepositoryAndProjectKeys()
+    public void CompilerTestsExcludeNestedProjectOutputsFromDefaultGlobs()
+    {
+        var repositoryRoot = FindRepositoryRoot();
+        var project = XDocument.Load(Path.Combine(
+            repositoryRoot,
+            "Compiler",
+            "Compiler.Tests",
+            "Compiler.Tests.csproj"));
+        var defaultItemExcludes = project
+            .Descendants("DefaultItemExcludes")
+            .Single()
+            .Value;
+
+        foreach (var nestedDirectory in new[]
+                 {
+                     "Fixtures",
+                     "Integration",
+                     "Performance",
+                     "TestOutput",
+                     "TestResults"
+                 })
+        {
+            Assert.Contains(
+                $"$(MSBuildProjectDirectory)\\{nestedDirectory}\\**",
+                defaultItemExcludes,
+                StringComparison.Ordinal);
+        }
+    }
+
+    [Test]
+    public void IntermediateOutputUsesConventionalProjectLocalObjDirectory()
     {
         var repositoryRoot = FindRepositoryRoot();
         var props = XDocument.Load(Path.Combine(repositoryRoot, "Directory.Build.props"));
-        var baseIntermediateOutputPath = props
-            .Descendants("BaseIntermediateOutputPath")
-            .Single();
 
-        Assert.Equal(
-            "$(_FrontEndCSharpRepositoryRoot)obj\\root-$(_FrontEndCSharpRepositoryRootKey)\\project-$(_FrontEndCSharpProjectPathKey)\\",
-            baseIntermediateOutputPath.Value);
-        Assert.NotEmpty(props.Descendants("_FrontEndCSharpProjectPathHash"));
-        Assert.NotEmpty(props.Descendants("_FrontEndCSharpProjectPathKey"));
+        Assert.Empty(props.Descendants("BaseIntermediateOutputPath"));
+        Assert.Empty(props.Descendants("_FrontEndCSharpRepositoryRootHash"));
+        Assert.Empty(props.Descendants("_FrontEndCSharpRepositoryRootKey"));
+        Assert.Empty(props.Descendants("_FrontEndCSharpProjectPathHash"));
+        Assert.Empty(props.Descendants("_FrontEndCSharpProjectPathKey"));
 
         var representativeOutputPath = Path.Combine(
             @"C:\git\FrontEndCSharp.Private",
+            "Overrides",
+            "FrontEndCSharp.Overrides.System.ComponentModel.Annotations",
+            "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs",
             "obj",
-            "root-12345678",
-            "project-12345678",
             "Debug",
             "net8.0",
-            "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.dll");
+            "FrontEndCSharp.Overrides.System.ComponentModel.Annotations.fecs.GeneratedMSBuildEditorConfig.editorconfig");
         Assert.True(
-            representativeOutputPath.Length < 260,
+            representativeOutputPath.Length > 260,
             $"Representative intermediate output path is {representativeOutputPath.Length} characters.");
     }
 
@@ -357,6 +385,12 @@ public class BuildTargetsTests
                 StringComparison.Ordinal));
 
         Assert.Null(input.Attribute("Condition"));
+        Assert.DoesNotContain(
+            targets.Descendants("_FrontEndCSharpGenerationInput"),
+            element => string.Equals(
+                (string?)element.Attribute("Include"),
+                include,
+                StringComparison.Ordinal));
     }
 
     [Test]

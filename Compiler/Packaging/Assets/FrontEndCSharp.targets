@@ -115,10 +115,6 @@
       <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpCompilerDirectory)\**\*" />
       <_FrontEndCSharpGenerationInput Include="$(_FrontEndCSharpBuildTasksDirectory)\**\*" />
       <_FrontEndCSharpGenerationInput Include="$(MSBuildThisFileFullPath)" />
-      <_FrontEndCSharpGenerationInput Include="$(FrontEndCSharpDebuggerArmPath)"
-                                      Condition="'$(FrontEndCSharpDebuggerArmPath)' != '' and Exists('$(FrontEndCSharpDebuggerArmPath)')" />
-      <_FrontEndCSharpGenerationInput Include="$(FrontEndCSharpBuildRequestPath)"
-                                      Condition="'$(FrontEndCSharpBuildRequestPath)' != '' and Exists('$(FrontEndCSharpBuildRequestPath)')" />
       <_FrontEndCSharpGenerationOutput Remove="@(_FrontEndCSharpGenerationOutput)" />
       <_FrontEndCSharpGenerationOutput Include="$(FrontEndCSharpOutputPath)\index.js" />
       <_FrontEndCSharpGenerationOutput Include="$(FrontEndCSharpOutputPath)\index.js.map" />

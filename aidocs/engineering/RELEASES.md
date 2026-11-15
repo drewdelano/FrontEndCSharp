@@ -86,13 +86,13 @@ local installation handoffs as well as published GitHub releases.
 
 ## Current publication boundary
 
-- The repository is private, so its releases are available only to users who can
-  access the repository.
+- Public packages and extension releases are published from
+  `drewdelano/FrontEndCSharp`.
 - The 34 Override packages publish to nuget.org through the manually dispatched
   `.github/workflows/publish-nuget.yml` workflow and NuGet Trusted Publishing.
-  The workflow accepts only `master`, requires explicit confirmation, validates
-  the complete package set before requesting its short-lived credential, and does
-  not use a stored NuGet API key.
+  The workflow accepts only the repository's current default branch, requires
+  explicit confirmation, validates the complete package set before requesting its
+  short-lived credential, and does not use a stored NuGet API key.
 - The VSIX files are currently unsigned. Publish them as prereleases and state that
   Visual Studio may show an unverified-publisher warning. If signing is introduced,
   make signature verification an explicit gate and update this guide.
@@ -110,8 +110,8 @@ commit the release-ready source, and push it before creating tags or releases:
 git status --short
 dotnet test Compiler/Compiler.Tests/Compiler.Tests.csproj
 dotnet test Debugger/Tests/Debugger.Tests.csproj
-git push origin master
-git rev-list --left-right --count origin/master...HEAD
+git push origin main
+git rev-list --left-right --count origin/main...HEAD
 ```
 
 The final command must report `0 0`. Do not create a release tag that points at an
@@ -163,7 +163,7 @@ Configure the nuget.org Trusted Publishing policy with these exact GitHub values
 | Policy field | Value |
 | --- | --- |
 | Repository Owner | `drewdelano` |
-| Repository | `FrontEndCSharp.Private` |
+| Repository | `FrontEndCSharp` |
 | Workflow File | `publish-nuget.yml` |
 | Environment | leave empty |
 
@@ -173,8 +173,9 @@ The workflow uses the `drewdelano` nuget.org profile name and the official
 NuGet issues a temporary API key from the workflow's GitHub OIDC identity; do not
 add a long-lived NuGet API key to repository secrets.
 
-Push the release-ready commit to `master`, then open **Actions → Publish override
-NuGet packages → Run workflow**, select `master`, and enable `confirm_publish`.
+Push the release-ready commit to the public repository's default branch (`main`),
+then open **Actions → Publish override NuGet packages → Run workflow**, select
+`main`, and enable `confirm_publish`.
 The workflow rebuilds and validates the exact 34-package Override set, verifies
 that none of its ID/version pairs already exists on nuget.org, retains the
 validated `.nupkg` files as a GitHub Actions artifact, requests the temporary key
@@ -194,18 +195,18 @@ results.
 ## Create the prereleases
 
 Confirm that each intended tag is unused with `gh release view <tag>`. Then create
-one prerelease per extension, targeting the already-pushed `master` commit:
+one prerelease per extension, targeting the already-pushed `main` commit:
 
 ```powershell
 gh release create debugger-v<version> `
     "$vsixStaging/FrontEndCSharp.Debugger-<version>.vsix" `
-    --repo drewdelano/FrontEndCSharp.Private --target master --prerelease `
+    --repo drewdelano/FrontEndCSharp --target main --prerelease `
     --title "FrontEndCSharp Debugger <version>" `
     --notes "<summary, SHA-256, and unsigned-package warning>"
 
 gh release create fecsx-v<version> `
     "$vsixStaging/FrontEndCSharp.FECSX-Editor-<version>.vsix" `
-    --repo drewdelano/FrontEndCSharp.Private --target master --prerelease `
+    --repo drewdelano/FrontEndCSharp --target main --prerelease `
     --title "FrontEndCSharp FECSX Editor <version>" `
     --notes "<summary, SHA-256, and unsigned-package warning>"
 ```
@@ -220,9 +221,9 @@ and `sha256:` digest with the staged file. Also confirm `isPrerelease`, tag, tit
 and target commit:
 
 ```powershell
-gh release view debugger-v<version> --repo drewdelano/FrontEndCSharp.Private `
+gh release view debugger-v<version> --repo drewdelano/FrontEndCSharp `
     --json tagName,name,url,isPrerelease,targetCommitish,assets
-gh release view fecsx-v<version> --repo drewdelano/FrontEndCSharp.Private `
+gh release view fecsx-v<version> --repo drewdelano/FrontEndCSharp `
     --json tagName,name,url,isPrerelease,targetCommitish,assets
 ```
 

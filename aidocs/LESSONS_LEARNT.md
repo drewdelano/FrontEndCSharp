@@ -699,11 +699,14 @@ Detailed debugger architecture and accepted behavior belong in
   MSBuild-provided embedded resources are preserved.
 - Two lexical paths can name one checkout. Since NuGet writes absolute project paths
   into `obj`, drive/UNC aliases sharing an intermediate directory can corrupt each
-  other's restore graph. Derive intermediate roots from a stable hash of the
-  lexical repository root rather than special-casing drive letters. Put each
-  project's intermediates under a short repository-level project hash as well;
-  appending the root hash beneath a deeply nested project's own `obj` directory can
-  push ordinary MSBuild outputs past the legacy Windows `MAX_PATH` boundary.
+  other's restore graph. This repository uses the conventional project-local `obj`
+  directory, so delete generated `bin` and `obj` directories before switching the
+  same checkout between drive, UNC, share, or junction paths. The longest override
+  projects exceed the legacy `MAX_PATH` boundary, so a machine that disables Windows
+  long-path support cannot build this layout reliably.
+  Windows caches the long-path registry setting per process: after enabling it,
+  restart Windows before starting Visual Studio or its design-time services can
+  retain stale missing-file and invalid-import diagnostics for generated files.
 - After changing an intermediate root, Visual Studio's fast up-to-date check can
   skip a template project because its `bin` output exists even though its generated
   VSSDK template archive does not exist at the new path. A template-bearing VSIX

@@ -1,6 +1,0 @@
-import { FileUserIcon } from 'lucide-react';
-import { wrap } from '../msil-type-helpers.js';
-
-globalThis.DotNet.Methods['Interop.JS.LucideIcons.LucideIconImports.FileUserIcon()'] = function () {
-    return wrap(FileUserIcon, 'Interop.JS.React.ImportedReactComponent');
-};

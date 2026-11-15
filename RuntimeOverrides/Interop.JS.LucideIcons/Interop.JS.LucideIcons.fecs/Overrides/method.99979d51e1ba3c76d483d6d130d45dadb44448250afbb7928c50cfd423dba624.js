@@ -1,6 +1,0 @@
-import { NonBinaryIcon } from 'lucide-react';
-import { wrap } from '../msil-type-helpers.js';
-
-globalThis.DotNet.Methods['Interop.JS.LucideIcons.LucideIconImports.NonBinaryIcon()'] = function () {
-    return wrap(NonBinaryIcon, 'Interop.JS.React.ImportedReactComponent');
-};

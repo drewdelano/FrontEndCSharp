@@ -78,7 +78,14 @@ loading every feature document for unrelated work.
 Repository-specific development rules are in [`AGENTS.md`](AGENTS.md). Read that
 file, the always-read core, and the routed topic guides before making changes.
 
-Repository builds require the .NET 8 SDK, Node.js 22 or later, and npm. The debugger integration tests use Node's built-in `WebSocket` and `AbortSignal.timeout` APIs. Packaged compiler consumers require Node.js because output generation runs the packaged webpack tool; they do not need to install webpack or npm dependencies separately.
+Repository builds require the .NET 8 SDK, Node.js 22 or later, and npm. Windows
+build hosts must enable Win32 long paths because the longest project-local `obj`
+outputs exceed the legacy 260-character limit. Restart Windows after enabling the
+policy or registry value and before opening Visual Studio; Windows caches that
+setting for the lifetime of each process. The debugger integration tests use Node's
+built-in `WebSocket` and `AbortSignal.timeout` APIs. Packaged compiler consumers
+require Node.js because output generation runs the packaged webpack tool; they do
+not need to install webpack or npm dependencies separately.
 
 Compiler logging defaults to `normal`, which reports the beginning of each major
 compilation phase. Pass `--log-level verbose` to the compiler to include per-method

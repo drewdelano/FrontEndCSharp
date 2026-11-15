@@ -8,7 +8,7 @@ internal static class NuGetPackageMetadataVerifier
 {
     private const string ExpectedLicense = "MIT";
     private const string ExpectedRepositoryUrl =
-        "https://github.com/drewdelano/FrontEndCSharp.Private";
+        "https://github.com/drewdelano/FrontEndCSharp";
     private const string NuGetFlatContainer =
         "https://api.nuget.org/v3-flatcontainer";
 

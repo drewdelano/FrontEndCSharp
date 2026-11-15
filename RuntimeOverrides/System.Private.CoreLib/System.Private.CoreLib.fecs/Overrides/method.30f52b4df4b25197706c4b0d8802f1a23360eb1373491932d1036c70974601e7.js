@@ -1,5 +1,0 @@
-import { createContinuationTask, defaultTaskScheduler, noCancellationToken } from '../runtime-assets/System.Private.CoreLib.fecs/task-continuation.js';
-
-globalThis.DotNet.Methods['System.Threading.Tasks.Task.ContinueWith(System.Action`1[T], System.Threading.Tasks.TaskContinuationOptions)'] = function (ctx, $this, continuation, continuationOptions) {
-    return createContinuationTask(ctx, $this, continuation, [$this], noCancellationToken, continuationOptions, defaultTaskScheduler, 'System.Threading.Tasks.Task', false, 'continuationAction');
-};

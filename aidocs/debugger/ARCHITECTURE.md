@@ -562,6 +562,14 @@ The compiler now supports `--debugger-rendezvous-timeout-ms`. Debug launches gen
 
 The normal-build package slice is implemented. `Compiler/Packaging/Assets/FrontEndCSharp.targets` makes the configured FrontEndCSharp project a non-reference-producing project dependency, obtains its actual target path from MSBuild, and generates browser output after the web build rather than through an ad-hoc `PreBuild` shell command. Repository development may still name `FrontEndCSharpCompilerProject`, but product builds consume the `FrontEndCSharp.FECS.Internals.Build` NuGet package. Its `buildTransitive` props/targets are imported through the supported PackageReference mechanism, and it carries the compiler as `CompilerPayload.zip` plus a small bootstrapper. The bootstrapper and VSIX share the same extraction implementation: payload hash selects a short `C:\FrontEndCSharp\<hash>` cache (falling back to `%LOCALAPPDATA%\FEC`), archive traversal is rejected, and extended-length paths are used only during filesystem extraction. This avoids expanding the runtime's intentionally descriptive filenames beneath the already-long global-package path. The versioned package includes its consumer setup README. The VSIX contains the build package as `Build/FrontEndCSharp.FECS.Internals.Build.nupkg`; its verifier inspects the nested package and builds a clean PackageReference consumer from an isolated NuGet cache.
 
+The standard-F5 `debugger.arm` and post-debug `build.request` files are CPS fast
+up-to-date triggers, not compiler inputs. Their presence makes Visual Studio enter
+the MSBuild target; the fingerprinted `DebuggerArguments` configuration then decides
+whether browser output must switch between ordinary and debugger-rendezvous modes.
+Do not hash either sentinel's transient contents: the extension rewrites the arm on
+every launch, and treating its per-launch GUID as compiler payload would rebuild
+unchanged debugger output on every F5.
+
 A dedicated Web Worker remains a possible runtime host because it isolates execution from page UI. CDP target discovery and attachment must explicitly cover a worker-hosted interpreter before that configuration is supported.
 
 ## Delivery sequence

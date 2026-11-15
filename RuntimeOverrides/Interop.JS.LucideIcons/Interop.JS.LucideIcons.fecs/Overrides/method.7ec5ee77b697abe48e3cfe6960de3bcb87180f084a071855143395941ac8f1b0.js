@@ -1,6 +1,0 @@
-import { LampFloorIcon } from 'lucide-react';
-import { wrap } from '../msil-type-helpers.js';
-
-globalThis.DotNet.Methods['Interop.JS.LucideIcons.LucideIconImports.LampFloorIcon()'] = function () {
-    return wrap(LampFloorIcon, 'Interop.JS.React.ImportedReactComponent');
-};

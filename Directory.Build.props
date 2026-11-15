@@ -1,28 +1,17 @@
 <Project>
   <PropertyGroup>
-    <!--
-      NuGet and MSBuild persist absolute project paths in intermediate files. The same
-      checkout can be reached through more than one drive, share, or junction, so give
-      each lexical repository root its own intermediate subtree. Keep that subtree
-      at the repository root and hash the project path too; repeating a long project
-      directory beneath its own obj folder can cross legacy Windows MAX_PATH limits.
-    -->
+    <!-- VSIX projects use the normalized repository root to import VSSDK.BuildTools.props. -->
     <_FrontEndCSharpRepositoryRoot>$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)'))</_FrontEndCSharpRepositoryRoot>
-    <_FrontEndCSharpRepositoryRootHash>$([MSBuild]::StableStringHash('$(_FrontEndCSharpRepositoryRoot)'))</_FrontEndCSharpRepositoryRootHash>
-    <_FrontEndCSharpRepositoryRootKey>$([System.Convert]::ToString($(_FrontEndCSharpRepositoryRootHash), 16))</_FrontEndCSharpRepositoryRootKey>
-    <_FrontEndCSharpProjectPathHash>$([MSBuild]::StableStringHash('$(MSBuildProjectFullPath)'))</_FrontEndCSharpProjectPathHash>
-    <_FrontEndCSharpProjectPathKey>$([System.Convert]::ToString($(_FrontEndCSharpProjectPathHash), 16))</_FrontEndCSharpProjectPathKey>
-    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)' == ''">$(_FrontEndCSharpRepositoryRoot)obj\root-$(_FrontEndCSharpRepositoryRootKey)\project-$(_FrontEndCSharpProjectPathKey)\</BaseIntermediateOutputPath>
 
-    <!-- Keep every intermediate subtree out of SDK default item globs. -->
+    <!-- Keep project-local intermediate subtrees out of SDK default item globs. -->
     <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\obj\**;$(MSBuildProjectDirectory)\**\obj\**</DefaultItemExcludes>
 
     <!-- Shared public NuGet metadata. Package projects may override authors and descriptions. -->
     <Authors Condition="'$(Authors)' == ''">drewdelano</Authors>
     <PackageLicenseExpression Condition="'$(PackageLicenseExpression)' == ''">MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance Condition="'$(PackageRequireLicenseAcceptance)' == ''">false</PackageRequireLicenseAcceptance>
-    <PackageProjectUrl Condition="'$(PackageProjectUrl)' == ''">https://github.com/drewdelano/FrontEndCSharp.Private</PackageProjectUrl>
-    <RepositoryUrl Condition="'$(RepositoryUrl)' == ''">https://github.com/drewdelano/FrontEndCSharp.Private</RepositoryUrl>
+    <PackageProjectUrl Condition="'$(PackageProjectUrl)' == ''">https://github.com/drewdelano/FrontEndCSharp</PackageProjectUrl>
+    <RepositoryUrl Condition="'$(RepositoryUrl)' == ''">https://github.com/drewdelano/FrontEndCSharp</RepositoryUrl>
     <RepositoryType Condition="'$(RepositoryType)' == ''">git</RepositoryType>
     <PublishRepositoryUrl Condition="'$(PublishRepositoryUrl)' == ''">true</PublishRepositoryUrl>
   </PropertyGroup>
